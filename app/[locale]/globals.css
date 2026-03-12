@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --surface: #141414;
+  --accent: #f59e0b;
+  --muted: #6b7280;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.prose-chapter {
+  font-family: Georgia, Cambria, 'Times New Roman', serif;
+  font-size: 1.125rem;
+  line-height: 1.875;
+  max-width: 68ch;
+  margin: 0 auto;
+}
+
+.prose-chapter p { margin-bottom: 1.5rem; }
+.prose-chapter h1, .prose-chapter h2, .prose-chapter h3 { color: #f3f4f6; margin: 2rem 0 1rem; }
+.prose-chapter hr { border-color: #1f2937; margin: 2.5rem 0; }
+.prose-chapter blockquote { border-left: 3px solid #f59e0b; padding-left: 1.5rem; color: #9ca3af; font-style: italic; margin: 2rem 0; }
+.prose-chapter strong { color: #f3f4f6; }
+.prose-chapter em { color: #d1d5db; }

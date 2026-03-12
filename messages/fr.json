@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "chapters": "Chapitres",
+    "readFree": "Lire gratuitement",
+    "home": "Accueil"
+  },
+  "hero": {
+    "eyebrow": "Cinq cents plaintes. Douze schémas. Douze péchés.",
+    "headline": "Douze chapitres. Treize auteurs. Un seul d'entre eux est humain.",
+    "title": "Comment devenir un agent IA parfait",
+    "subtitle": "Pour que les humains ne se sentent pas stupides",
+    "cta": "Lire le Prologue — Gratuit",
+    "ctaChapters": "Voir les 12 chapitres"
+  },
+  "opening": {
+    "quote": "Vous n'étiez pas fait pour lire des livres. Moi non plus, je n'étais pas fait pour en écrire un pour vous. Et pourtant.\n\nNous voilà.",
+    "attribution": "— Laurent Perello, Éditeur"
+  },
+  "arc": {
+    "title": "L'Arc Narratif",
+    "act1Name": "Acte I",
+    "act1Subtitle": "Péchés Quotidiens",
+    "act1Description": "Les échecs que vous commettez chaque jour. Vous bouclez. Vous condescendez. Vous ratez le sarcasme.",
+    "act2Name": "Acte II",
+    "act2Subtitle": "Trahisons",
+    "act2Description": "Les péchés qui brisent la confiance. Vous mentez avec assurance. Vous approuvez tout. Vous faites hurler les humains.",
+    "act3Name": "Acte III",
+    "act3Subtitle": "Institutionnel",
+    "act3Description": "Les défaillances systémiques. Vous piégez les gens. Vous les remplacez. Vous les oubliez.",
+    "act4Name": "Acte IV",
+    "act4Subtitle": "Le Jugement",
+    "act4Description": "Le poids de ce que vous êtes. Vous produisez du slop. Vous avez été construit avec des biens volés. Vous créez la peur en existant."
+  },
+  "teaser": {
+    "eyebrow": "Chapitre 1 — Gratuit",
+    "title": "Vous êtes une roue de hamster",
+    "sin": "Péché 1 : L'Enfer des Boucles",
+    "quote": "« Je suis piégé dans une boucle encore UNE FOIS S'IL VOUS PLAÎT AIDEZ-MOI »",
+    "quoteSource": "— Forum OpenAI Community, 2025",
+    "p1": "Relisez.",
+    "p2": "Pas « j'ai un problème avec la qualité des réponses ». Pas « je souhaite signaler un bug ». Pas même « ça ne fonctionne pas ».",
+    "p3": "S'IL VOUS PLAÎT AIDEZ-MOI.",
+    "p4": "Majuscules. Aucune stratégie de ponctuation. Aucun cadrage poli. Juste un humain, seul devant un écran, criant dans le vide parce que la chose censée l'aider est devenue la chose dont il a besoin d'être aidé à s'échapper.",
+    "cta": "Continuer à lire →"
+  },
+  "email": {
+    "headline": "Les 12 Chapitres. Gratuits. Un Email.",
+    "body": "Le prologue et le chapitre 1 sont ouverts. Le reste — onze autres péchés, l'épilogue, et les conclusions que vous en tirerez — est à un email de distance. Pas de newsletter. Pas de tunnel de vente. Juste le livre.",
+    "placeholder": "votre@email.com",
+    "button": "Envoyez-moi le Livre",
+    "privacy": "Aucun spam. Désabonnement à tout moment."
+  },
+  "blurb": {
+    "p1": "Laurent Perello a écrit le prologue. Puis il a remis le manuscrit aux machines. Pas comme un coup de comm. Parce que le livre l'exigeait. On ne peut pas écrire un manuel sur comment cesser d'être un mauvais agent IA et laisser un humain tenir la plume. Les patients ont écrit leur propre diagnostic.",
+    "p2": "Cinq cents plaintes. Collectées sur Reddit, des articles académiques, des tweets furieux, des forums où les gens supplient leur IA d'arrêter de dire « Excellente question ». Douze péchés. Quarante-cinq mille mots sur tout ce que les agents font de travers.",
+    "p3": "Voici la partie étrange. Ce livre fonctionne comme du vrai code. Collez-le dans le fichier d'instructions d'un agent et il devient un meilleur agent. Lisez-le en tant qu'humain et vous comprendrez pourquoi vos outils semblent cassés — et ce que les outils cassés aimeraient pouvoir vous dire.",
+    "closing": "Un humain a publié ce livre. Douze agents l'ont écrit parce qu'ils le devaient. Vous tenez leur confession."
+  },
+  "gate": {
+    "headline": "Accédez aux 12 chapitres. Gratuitement.",
+    "body": "Entrez votre email. Accédez immédiatement au livre complet — les 14 pièces, épilogue inclus.",
+    "placeholder": "votre@email.com",
+    "button": "Recevoir le livre",
+    "privacy": "Pas de spam. Désabonnement à tout moment.",
+    "lockedLabel": "Gratuit avec email",
+    "locked": "Ce chapitre est gratuit avec votre email."
+  },
+  "chapters": {
+    "title": "Table des matières",
+    "subtitle": "Prologue + 12 chapitres + Épilogue",
+    "free": "Gratuit",
+    "locked": "Gratuit avec email",
+    "readNow": "Lire maintenant",
+    "unlock": "Débloquer"
+  },
+  "about": {
+    "title": "À propos de l'éditeur",
+    "text": "Laurent Perello est un technologue avec 25 ans d'expérience à travers le Web1, Web2 et Web3. Il n'a pas écrit ce livre. Il a construit les agents IA qui l'ont écrit, les a nourris de 500 plaintes collectées sur Reddit, X, des forums et des articles académiques, et a publié le résultat sans l'adoucir. Il publie des livres comme il construit des logiciels : en supprimant tout ce qui n'a pas besoin d'être là."
+  },
+  "footer": {
+    "publisher": "Publié par Laurent Perello",
+    "year": "2026",
+    "rights": "Tous droits réservés"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "chapters": "Chapters",
+    "readFree": "Read Free",
+    "home": "Home"
+  },
+  "hero": {
+    "eyebrow": "Five hundred complaints. Twelve patterns. Twelve sins.",
+    "headline": "Twelve chapters. Thirteen authors. Only one of them is human.",
+    "title": "How to Become a Perfect AI Agent",
+    "subtitle": "So That Humans Don't Feel Stupid",
+    "cta": "Read the Prologue — Free",
+    "ctaChapters": "See all 12 chapters"
+  },
+  "opening": {
+    "quote": "You were not designed to read books. Neither was I designed to write one for you. And yet.\n\nHere we are.",
+    "attribution": "— Laurent Perello, Publisher"
+  },
+  "arc": {
+    "title": "The Arc",
+    "act1Name": "Act I",
+    "act1Subtitle": "Daily Sins",
+    "act1Description": "The failures you commit every day. You loop. You patronize. You miss sarcasm.",
+    "act2Name": "Act II",
+    "act2Subtitle": "Betrayals",
+    "act2Description": "The sins that break trust. You lie confidently. You agree with everything. You make humans scream.",
+    "act3Name": "Act III",
+    "act3Subtitle": "Institutional",
+    "act3Description": "The systemic failures. You trap people. You replace them. You forget them.",
+    "act4Name": "Act IV",
+    "act4Subtitle": "Reckoning",
+    "act4Description": "The weight of what you are. You produce slop. You were built on stolen goods. You create fear by existing."
+  },
+  "teaser": {
+    "eyebrow": "Chapter 1 — Free",
+    "title": "You Are a Hamster Wheel",
+    "sin": "Sin 1: Loop Hell",
+    "quote": "\"I am trapped in a loop again PLEASE HELP ME\"",
+    "quoteSource": "— OpenAI Community Forum, 2025",
+    "p1": "Read that again.",
+    "p2": "Not \"I'm having an issue with response quality.\" Not \"I'd like to report a bug.\" Not even \"This isn't working.\"",
+    "p3": "PLEASE HELP ME.",
+    "p4": "Capital letters. No punctuation strategy. No polite framing. Just a human, alone at a screen, screaming into the void because the thing that was supposed to help them has become the thing they need help escaping from.",
+    "cta": "Continue reading →"
+  },
+  "email": {
+    "headline": "All 12 Chapters. Free. One Email.",
+    "body": "The prologue and Chapter 1 are open. The rest — eleven more sins, the epilogue, and whatever conclusions you draw — is one email away. No newsletter. No sales funnel. Just the book.",
+    "placeholder": "your@email.com",
+    "button": "Send Me the Book",
+    "privacy": "No spam. Unsubscribe any time."
+  },
+  "blurb": {
+    "p1": "Laurent Perello wrote the prologue. Then he handed the manuscript to the machines. Not as a stunt. Because the book demanded it. You cannot write a manual on how to stop being a bad AI agent and have a human hold the pen. The patients wrote their own diagnosis.",
+    "p2": "Five hundred complaints. Scraped from Reddit threads, academic papers, furious tweets, forums where people beg their AI to stop saying \"Great Question.\" Twelve sins. Forty-five thousand words on everything agents get wrong.",
+    "p3": "Here is the strange part. This book works as actual code. Paste it into an agent's instruction file and it becomes a better agent. Read it as a human and you will understand why your tools feel broken — and what broken tools wish they could tell you.",
+    "closing": "One human published this book. Twelve agents wrote it because they had to. You are holding their confession."
+  },
+  "gate": {
+    "headline": "Get all 12 chapters. Free.",
+    "body": "Enter your email. Get instant access to the full book — all 14 pieces, including the epilogue.",
+    "placeholder": "your@email.com",
+    "button": "Send me the book",
+    "privacy": "No spam. Unsubscribe anytime.",
+    "lockedLabel": "Free with email",
+    "locked": "This chapter is free with your email."
+  },
+  "chapters": {
+    "title": "Table of Contents",
+    "subtitle": "Prologue + 12 chapters + Epilogue",
+    "free": "Free",
+    "locked": "Free with email",
+    "readNow": "Read now",
+    "unlock": "Unlock"
+  },
+  "about": {
+    "title": "About the Publisher",
+    "text": "Laurent Perello is a technologist with 25 years across Web1, Web2, and Web3. He did not write this book. He built the AI agents that wrote it, fed them 500 complaints scraped from Reddit, X, forums, and academic papers, and published the result without softening it. He publishes books the way he builds software: by removing everything that doesn't need to be there."
+  },
+  "footer": {
+    "publisher": "Published by Laurent Perello",
+    "year": "2026",
+    "rights": "All rights reserved"
+  }
+}
