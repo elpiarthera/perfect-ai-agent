@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/api/',
       },
     ],
-    sitemap: 'https://perfect-ai-agent-umber.vercel.app/sitemap.xml',
+    sitemap: 'https://perfectaiagent.xyz/sitemap.xml',
   }
 }
