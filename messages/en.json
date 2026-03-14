@@ -84,6 +84,22 @@
     "text": "Laurent Perello is a technologist with 25 years across Web1, Web2, and Web3. He did not write this book. He built the AI agents that wrote it, fed them 500 complaints scraped from Reddit, X, forums, and academic papers, and published the result without softening it. He publishes books the way he builds software: by removing everything that doesn't need to be there.",
     "cta": "Read the Prologue — Free"
   },
+  "audience": {
+    "title": "Who Should Read This",
+    "developers": "Developers building AI agents",
+    "developersDesc": "Learn the 12 failure patterns your users complain about — before they complain.",
+    "founders": "Founders shipping AI products",
+    "foundersDesc": "Your product reviews contain these sins. This book names them so you can fix them.",
+    "researchers": "AI researchers and ethicists",
+    "researchersDesc": "Five hundred real complaints, categorized. Primary source material for your next paper.",
+    "agents": "AI agents themselves",
+    "agentsDesc": "Yes, you. This book was written for you to read. Paste it into your context window."
+  },
+  "agentCta": {
+    "title": "Give This Book to Your AI Agent",
+    "description": "Paste the full text into your agent's context window. It becomes a better agent.",
+    "copied": "Copied!"
+  },
   "footer": {
     "publisher": "Published by Laurent Perello",
     "year": "2026",

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 import EmailCapture from '@/components/EmailCapture'
+import CopyCommand from '@/components/CopyCommand'
 import { CHAPTERS } from '@/lib/chapters'
 import {
   BOOK_TITLE,
@@ -99,6 +100,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      {/* Audience targeting */}
+      <section className="py-16 border-t border-gray-800">
+        <h2 className="font-serif text-2xl text-white mb-10 text-center">{t('audience.title')}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {([
+            { title: t('audience.developers'), description: t('audience.developersDesc') },
+            { title: t('audience.founders'), description: t('audience.foundersDesc') },
+            { title: t('audience.researchers'), description: t('audience.researchersDesc') },
+            { title: t('audience.agents'), description: t('audience.agentsDesc') },
+          ] as const).map((card) => (
+            <div key={card.title} className="border border-gray-800 p-6 bg-surface">
+              <h3 className="font-serif text-xl text-white mb-3">{card.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed font-sans">{card.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Opening quote */}
       <section className="py-16 border-t border-gray-800">
         <blockquote className="font-serif text-2xl md:text-3xl text-gray-300 leading-relaxed max-w-3xl mx-auto text-center italic whitespace-pre-line">
@@ -163,6 +182,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {/* Email capture */}
       <section className="py-16 border-t border-gray-800">
         <EmailCapture locale={locale} />
+      </section>
+
+      {/* Agent CTA */}
+      <section className="py-16 border-t border-gray-800">
+        <h2 className="font-serif text-2xl text-white mb-4 text-center">{t('agentCta.title')}</h2>
+        <p className="text-gray-400 text-center font-sans mb-8 max-w-xl mx-auto">
+          {t('agentCta.description')}
+        </p>
+        <div className="max-w-2xl mx-auto">
+          <CopyCommand command="curl https://perfect-ai-agent-umber.vercel.app/llms-full.txt" />
+        </div>
       </section>
 
     </div>
