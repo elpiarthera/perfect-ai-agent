@@ -11,6 +11,7 @@ export default function Navigation({ locale }: { locale: string }) {
   const links = [
     { href: `/${locale}/chapters`, label: t('chapters') },
     { href: `/${locale}/for-ai-agents`, label: t('forAgents') },
+    { href: `/${locale}/what-ai-thinks`, label: t('whatAiThinks') },
     { href: `/${locale}/chapters/prologue`, label: t('readFree'), accent: true },
   ]
 

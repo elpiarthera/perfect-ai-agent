@@ -119,6 +119,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // What AI Thinks page for each locale
+  const whatAiThinksMtime = getPageMtime("app/[locale]/what-ai-thinks/page.tsx");
+  for (const locale of LOCALES) {
+    const otherLocale = locale === "en" ? "fr" : "en";
+    entries.push({
+      url: `${BASE_URL}/${locale}/what-ai-thinks`,
+      lastModified: whatAiThinksMtime,
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          [locale]: `${BASE_URL}/${locale}/what-ai-thinks`,
+          [otherLocale]: `${BASE_URL}/${otherLocale}/what-ai-thinks`,
+        },
+      },
+    });
+  }
+
   // About page for each locale
   const aboutMtime = getFileMtime("about-website");
   for (const locale of LOCALES) {
