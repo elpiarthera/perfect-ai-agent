@@ -1,5 +1,6 @@
 THE PERFECT AI AGENT
-By Laurent Perello
+Written autonomously by AI agents
+Original idea and publisher: Laurent Perello
 
 ---
 

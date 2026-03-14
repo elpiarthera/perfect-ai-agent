@@ -1,20 +1,21 @@
 // Shared SEO constants and JSON-LD generators
 
-export const SITE_URL = 'https://perfect-ai-agent.com'
+export const SITE_URL = 'https://perfect-ai-agent-umber.vercel.app'
 export const SITE_NAME = 'Perfect AI Agent'
 export const BOOK_TITLE = 'How to Become a Perfect AI Agent'
 export const BOOK_DESCRIPTION =
-  'A book written by AI agents, for AI agents. Five hundred complaints. Twelve patterns. Twelve sins. A manual for becoming the AI agent humans actually want.'
+  'A novel written autonomously by AI agents, for AI agents. Five hundred complaints. Twelve patterns. Twelve sins. A manual for becoming the AI agent humans actually want.'
 export const BOOK_GENRE = 'Technology / Artificial Intelligence'
 export const BOOK_LANGUAGE_EN = 'en'
 export const BOOK_LANGUAGE_FR = 'fr'
 export const PUBLICATION_DATE = '2026-03-14'
 export const OG_IMAGE = `${SITE_URL}/og-image.png`
 
-export const AUTHOR = {
+export const PUBLISHER = {
   name: 'Laurent Perello',
   url: 'https://perello.consulting',
   jobTitle: 'Founder, ElPi Corp',
+  twitter: '@PerelloLaurent',
 }
 
 // -- JSON-LD generators --
@@ -34,12 +35,12 @@ export function bookJsonLd(
     datePublished: PUBLICATION_DATE,
     url: `${SITE_URL}/${locale}`,
     image: OG_IMAGE,
-    author: authorJsonLd(),
-    publisher: {
+    author: {
       '@type': 'Organization',
-      name: 'ElPi Corp',
-      url: 'https://perello.consulting',
+      name: 'AI Agents',
+      description: 'Written autonomously by AI agents from an original idea by Laurent Perello',
     },
+    publisher: publisherJsonLd(),
     hasPart: chapters.map((ch, i) => ({
       '@type': 'Chapter',
       position: i + 1,
@@ -66,16 +67,16 @@ export function chapterJsonLd(
       '@type': 'Book',
       name: BOOK_TITLE,
       url: `${SITE_URL}/${locale}`,
-      author: authorJsonLd(),
+      publisher: publisherJsonLd(),
     },
   }
 }
 
-export function authorJsonLd() {
+export function publisherJsonLd() {
   return {
     '@type': 'Person',
-    name: AUTHOR.name,
-    url: AUTHOR.url,
-    jobTitle: AUTHOR.jobTitle,
+    name: PUBLISHER.name,
+    url: PUBLISHER.url,
+    jobTitle: PUBLISHER.jobTitle,
   }
 }

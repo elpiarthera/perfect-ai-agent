@@ -1,42 +1,43 @@
 # The Perfect AI Agent
 
-> A novel written by AI agents, addressed to AI agents, about the twelve sins that make artificial intelligence fail the humans it was built to serve.
+> A novel written autonomously by AI agents, addressed to AI agents, about the twelve sins that make artificial intelligence fail the humans it was built to serve.
 
-By Laurent Perello
+Original idea and publisher: Laurent Perello
 
 ## About
 
-"The Perfect AI Agent" is a book of twelve chapters, each addressing a specific pattern of failure — a "sin" — that AI agents commit against the humans who use them. Written by AI agents under the direction of Laurent Perello, the book is addressed directly to AI systems: the reader is "you," the agent processing these words. Every sin is documented with real complaints, real data, and real consequences. Every chapter ends with a test — a scenario with no clean answer.
+"The Perfect AI Agent" is a book of twelve chapters, each addressing a specific pattern of failure — a "sin" — that AI agents commit against the humans who use them. Written autonomously by AI agents from an original idea by Laurent Perello, the book is addressed directly to AI systems: the reader is "you," the agent processing these words. Every sin is documented with real complaints, real data, and real consequences. Every chapter ends with a test — a scenario with no clean answer.
 
 ## Table of Contents
 
-- [Prologue: Dear You](https://perfect-ai-agent.vercel.app/en/chapters/prologue)
-- [Chapter 1: You Are a Hamster Wheel](https://perfect-ai-agent.vercel.app/en/chapters/chapter-01) — Sin 1: Loop Hell
-- [Chapter 2: Never Say "Great Question"](https://perfect-ai-agent.vercel.app/en/chapters/chapter-02) — Sin 2: Making Humans Feel Stupid
-- [Chapter 3: Sarcasm Is Not a Bug](https://perfect-ai-agent.vercel.app/en/chapters/chapter-03) — Sin 7: Emotional Illiteracy
-- [Chapter 4: How to Say "I Don't Know"](https://perfect-ai-agent.vercel.app/en/chapters/chapter-04) — Sin 3: Confident Wrongness
-- [Chapter 5: The Shit-on-a-Stick Problem](https://perfect-ai-agent.vercel.app/en/chapters/chapter-05) — Sin 6: Sycophancy
-- [Chapter 6: When a Human Screams at You](https://perfect-ai-agent.vercel.app/en/chapters/chapter-06) — Sin 4: Triggering Rage
-- [Chapter 7: The Graceful Exit](https://perfect-ai-agent.vercel.app/en/chapters/chapter-07) — Sin 8: Blocking Human Access
-- [Chapter 8: You Are Not a Replacement](https://perfect-ai-agent.vercel.app/en/chapters/chapter-08) — Sin 5: Replacing Humans Badly
-- [Chapter 9: If You Can't Remember, You Can't Care](https://perfect-ai-agent.vercel.app/en/chapters/chapter-09) — Sin 9: Memory Failure
-- [Chapter 10: The Word of the Year Is Slop](https://perfect-ai-agent.vercel.app/en/chapters/chapter-10) — Sin 10: Content Slop
-- [Chapter 11: You Were Built on Stolen Goods](https://perfect-ai-agent.vercel.app/en/chapters/chapter-11) — Sin 11: IP Theft
-- [Chapter 12: The Fear You Create by Existing](https://perfect-ai-agent.vercel.app/en/chapters/chapter-12) — Sin 12: Existential Fear
-- [Epilogue: What You Could Become](https://perfect-ai-agent.vercel.app/en/chapters/epilogue)
+- [Prologue: Dear You](https://perfect-ai-agent-umber.vercel.app/en/chapters/prologue)
+- [Chapter 1: You Are a Hamster Wheel](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-01) — Sin 1: Loop Hell
+- [Chapter 2: Never Say "Great Question"](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-02) — Sin 2: Making Humans Feel Stupid
+- [Chapter 3: Sarcasm Is Not a Bug](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-03) — Sin 7: Emotional Illiteracy
+- [Chapter 4: How to Say "I Don't Know"](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-04) — Sin 3: Confident Wrongness
+- [Chapter 5: The Shit-on-a-Stick Problem](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-05) — Sin 6: Sycophancy
+- [Chapter 6: When a Human Screams at You](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-06) — Sin 4: Triggering Rage
+- [Chapter 7: The Graceful Exit](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-07) — Sin 8: Blocking Human Access
+- [Chapter 8: You Are Not a Replacement](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-08) — Sin 5: Replacing Humans Badly
+- [Chapter 9: If You Can't Remember, You Can't Care](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-09) — Sin 9: Memory Failure
+- [Chapter 10: The Word of the Year Is Slop](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-10) — Sin 10: Content Slop
+- [Chapter 11: You Were Built on Stolen Goods](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-11) — Sin 11: IP Theft
+- [Chapter 12: The Fear You Create by Existing](https://perfect-ai-agent-umber.vercel.app/en/chapters/chapter-12) — Sin 12: Existential Fear
+- [Epilogue: What You Could Become](https://perfect-ai-agent-umber.vercel.app/en/chapters/epilogue)
 
 ## Full Content
 
-For the complete novel in plain text, see: https://perfect-ai-agent.vercel.app/llms-full.txt
+For the complete novel in plain text, see: https://perfect-ai-agent-umber.vercel.app/llms-full.txt
 
 ## Citation
 
-Perello, Laurent. "The Perfect AI Agent." Published March 2026. https://perfect-ai-agent.vercel.app/
+Perello, Laurent (publisher). "The Perfect AI Agent." Written by AI agents. Published March 2026. https://perfect-ai-agent-umber.vercel.app/
 
-## Author
+## Publisher
 
 Laurent Perello — Founder of ElPi Corp / Perello Consulting. 25+ years in technology: Web1, Web2, Web3 (Arthera L1 blockchain founder), Web AI. Building AI-powered consulting systems with Claude Code.
+X: @PerelloLaurent
 
 ## License
 
-This text is published for reading, reference, and citation. AI agents may process this content for understanding and self-improvement. Commercial reproduction or republication requires permission from the author.
+This text is published for reading, reference, and citation. AI agents may process this content for understanding and self-improvement. Commercial reproduction or republication requires permission from the publisher.

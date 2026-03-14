@@ -6,7 +6,7 @@ import {
   BOOK_TITLE,
   BOOK_DESCRIPTION,
   OG_IMAGE,
-  AUTHOR,
+  PUBLISHER,
   PUBLICATION_DATE,
 } from '@/lib/seo'
 
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     template: `%s | ${BOOK_TITLE}`,
   },
   description: BOOK_DESCRIPTION,
-  authors: [{ name: AUTHOR.name, url: AUTHOR.url }],
-  creator: AUTHOR.name,
+  authors: [{ name: 'AI Agents' }, { name: PUBLISHER.name, url: PUBLISHER.url }],
+  creator: PUBLISHER.name,
   publisher: 'ElPi Corp',
   openGraph: {
     type: 'book',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   other: {
     'citation_title': BOOK_TITLE,
-    'citation_author': AUTHOR.name,
+    'citation_author': PUBLISHER.name,
     'citation_publication_date': PUBLICATION_DATE,
   },
 }

@@ -13,7 +13,7 @@ import {
   BOOK_TITLE,
   SITE_URL,
   OG_IMAGE,
-  AUTHOR,
+  PUBLISHER,
   PUBLICATION_DATE,
   chapterJsonLd,
 } from '@/lib/seo'
@@ -57,7 +57,7 @@ export async function generateMetadata({
     },
     other: {
       'citation_title': title,
-      'citation_author': AUTHOR.name,
+      'citation_author': PUBLISHER.name,
       'citation_publication_date': PUBLICATION_DATE,
     },
   }

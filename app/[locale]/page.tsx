@@ -8,10 +8,10 @@ import {
   BOOK_DESCRIPTION,
   SITE_URL,
   OG_IMAGE,
-  AUTHOR,
+  PUBLISHER,
   PUBLICATION_DATE,
   bookJsonLd,
-  authorJsonLd,
+  publisherJsonLd,
 } from '@/lib/seo'
 
 export async function generateMetadata({
@@ -38,7 +38,7 @@ export async function generateMetadata({
     },
     other: {
       'citation_title': BOOK_TITLE,
-      'citation_author': AUTHOR.name,
+      'citation_author': PUBLISHER.name,
       'citation_publication_date': PUBLICATION_DATE,
     },
   }
@@ -50,7 +50,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   const jsonLd = [
     bookJsonLd(locale, CHAPTERS),
-    authorJsonLd(),
+    publisherJsonLd(),
   ]
 
   return (
