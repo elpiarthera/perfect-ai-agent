@@ -58,7 +58,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Server configuration error' }, { status: 500 })
   }
 
+  const TAG_ID = 1918895 // elpi-orgCC tag
+
   try {
+    // Step 1: Create contact
     const systemeRes = await fetch('https://api.systeme.io/api/contacts', {
       method: 'POST',
       headers: {
@@ -68,17 +71,41 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         email,
         locale: locale || 'en',
-        tags: [{ name: 'elpi-orgCC' }],
       }),
     })
 
-    if (!systemeRes.ok) {
-      const body = await systemeRes.text()
-      // 422 = contact already exists — treat as success
-      if (systemeRes.status !== 422) {
-        console.error(`[subscribe] Systeme.io error ${systemeRes.status}: ${body}`)
-        return NextResponse.json({ error: 'Subscription failed' }, { status: 502 })
+    let contactId: number | null = null
+
+    if (systemeRes.ok) {
+      const data = await systemeRes.json()
+      contactId = data.id
+    } else if (systemeRes.status === 422) {
+      // Contact already exists — look up their ID
+      const listRes = await fetch(`https://api.systeme.io/api/contacts?email=${encodeURIComponent(email)}`, {
+        headers: { 'X-API-Key': apiKey },
+      })
+      if (listRes.ok) {
+        const listData = await listRes.json()
+        if (listData.items?.length > 0) {
+          contactId = listData.items[0].id
+        }
       }
+    } else {
+      const body = await systemeRes.text()
+      console.error(`[subscribe] Systeme.io error ${systemeRes.status}: ${body}`)
+      return NextResponse.json({ error: 'Subscription failed' }, { status: 502 })
+    }
+
+    // Step 2: Assign tag
+    if (contactId) {
+      await fetch(`https://api.systeme.io/api/contacts/${contactId}/tags`, {
+        method: 'POST',
+        headers: {
+          'X-API-Key': apiKey,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ tagId: TAG_ID }),
+      })
     }
   } catch (err) {
     console.error('[subscribe] Systeme.io request failed:', err)
