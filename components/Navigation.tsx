@@ -14,6 +14,10 @@ export default function Navigation({ locale }: { locale: string }) {
     { href: `/${locale}/chapters/prologue`, label: t('readFree'), accent: true },
   ]
 
+  const mobileOnlyLinks = [
+    { href: `/${locale}/what-ai-thinks`, label: t('whatAiThinks') },
+  ]
+
   return (
     <nav className="border-b border-gray-800 px-6 py-2">
       <div className="max-w-4xl mx-auto flex items-center justify-between">
@@ -79,6 +83,16 @@ export default function Navigation({ locale }: { locale: string }) {
                   ? 'block bg-accent text-black text-sm font-sans font-semibold px-4 py-3 hover:bg-amber-400 transition-colors text-center'
                   : 'block text-muted hover:text-white text-sm font-sans transition-colors px-4 py-3'
               }
+            >
+              {link.label}
+            </Link>
+          ))}
+          {mobileOnlyLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block text-muted hover:text-white text-sm font-sans transition-colors px-4 py-3"
             >
               {link.label}
             </Link>

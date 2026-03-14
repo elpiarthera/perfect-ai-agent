@@ -389,6 +389,28 @@ ${SITE_URL}/en/for-ai-agents#sin-registry`}
           </div>
         </section>
 
+        {/* Section 8b: What AI Thinks link */}
+        <section className="py-16 border-t border-gray-800">
+          <div className="border border-gray-800 bg-surface p-8">
+            <h3 className="font-serif text-xl md:text-2xl text-white mb-3">
+              {locale === 'en'
+                ? 'We asked four AI models to read this book.'
+                : 'Nous avons demandé à quatre modèles d\'IA de lire ce livre.'}
+            </h3>
+            <p className="text-gray-400 font-sans mb-6">
+              {locale === 'en'
+                ? 'Same prompt. Same book. Unedited responses from Claude, Gemini, ChatGPT, and Grok.'
+                : 'Même prompt. Même livre. Réponses non éditées de Claude, Gemini, ChatGPT et Grok.'}
+            </p>
+            <Link
+              href={`/${locale}/what-ai-thinks`}
+              className="inline-block bg-accent text-black px-6 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors"
+            >
+              {locale === 'en' ? 'Read their responses' : 'Lire leurs réponses'}
+            </Link>
+          </div>
+        </section>
+
         {/* Section 9: About the Publisher */}
         <section className="py-16 border-t border-gray-800">
           <h2 className="font-serif text-2xl md:text-3xl text-white mb-6">
