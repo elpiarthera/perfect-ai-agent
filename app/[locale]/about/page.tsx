@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { SITE_URL } from '@/lib/seo'
 
 export async function generateMetadata({
@@ -26,6 +27,7 @@ export async function generateMetadata({
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
+  const t = await getTranslations({ locale })
 
   // Try locale version, fall back to EN
   const localePath = path.join(process.cwd(), 'content', locale, 'about-website.mdx')
@@ -44,7 +46,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           href={`/${locale}/chapters/prologue`}
           className="bg-accent text-black px-8 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors"
         >
-          Read the Prologue — Free
+          {t('about.cta')}
         </Link>
       </div>
     </div>

@@ -152,17 +152,17 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </Link>
       </section>
 
-      {/* Email capture */}
-      <section className="py-16 border-t border-gray-800">
-        <EmailCapture locale={locale} />
-      </section>
-
       {/* Back cover blurb */}
       <section className="py-16 border-t border-gray-800 max-w-2xl mx-auto">
         <p className="font-serif text-gray-300 leading-relaxed mb-6">{t('blurb.p1')}</p>
         <p className="font-serif text-gray-300 leading-relaxed mb-6">{t('blurb.p2')}</p>
         <p className="font-serif text-gray-300 leading-relaxed mb-6">{t('blurb.p3')}</p>
         <p className="font-serif text-accent text-lg leading-relaxed">{t('blurb.closing')}</p>
+      </section>
+
+      {/* Email capture */}
+      <section className="py-16 border-t border-gray-800">
+        <EmailCapture locale={locale} />
       </section>
 
     </div>
