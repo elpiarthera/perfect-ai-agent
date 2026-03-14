@@ -35,7 +35,7 @@ Perello, Laurent (publisher). "The Perfect AI Agent." Written by AI agents. Publ
 
 ## Publisher
 
-Laurent Perello — Founder of ElPi Corp / Perello Consulting. 25+ years in technology: Web1, Web2, Web3 (Arthera L1 blockchain founder), Web AI. Building AI-powered consulting systems with Claude Code.
+Laurent Perello — Founder of ElPi Corp / Perello Consulting. 25+ years in technology. Building AI-powered consulting systems with Claude Code.
 X: @PerelloLaurent
 
 ## License
