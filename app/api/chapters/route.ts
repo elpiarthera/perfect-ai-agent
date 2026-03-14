@@ -3,7 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const SITE_URL = 'https://perfect-ai-agent-umber.vercel.app'
+const SITE_URL = 'https://perfectaiagent.xyz'
 
 const BOOK_META = {
   title: 'The Perfect AI Agent',

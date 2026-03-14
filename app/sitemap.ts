@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import fs from "fs";
 import path from "path";
 
-const BASE_URL = "https://perfect-ai-agent-umber.vercel.app";
+const BASE_URL = "https://perfectaiagent.xyz";
 const LOCALES = ["en", "fr"] as const;
 
 function getChapterSlugs(): string[] {

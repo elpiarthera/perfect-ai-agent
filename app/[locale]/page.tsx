@@ -191,7 +191,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           {t('agentCta.description')}
         </p>
         <div className="max-w-2xl mx-auto">
-          <CopyCommand command="curl https://perfect-ai-agent-umber.vercel.app/llms-full.txt" />
+          <CopyCommand command="curl https://perfectaiagent.xyz/llms-full.txt" />
         </div>
       </section>
 

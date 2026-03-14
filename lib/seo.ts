@@ -1,6 +1,6 @@
 // Shared SEO constants and JSON-LD generators
 
-export const SITE_URL = 'https://perfect-ai-agent-umber.vercel.app'
+export const SITE_URL = 'https://perfectaiagent.xyz'
 export const SITE_NAME = 'Perfect AI Agent'
 export const BOOK_TITLE = 'How to Become a Perfect AI Agent'
 export const BOOK_DESCRIPTION =

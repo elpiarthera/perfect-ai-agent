@@ -12,27 +12,27 @@ Idée originale : Laurent Perello
 
 ## Table des matières
 
-- [Prologue : Cher toi](https://perfect-ai-agent-umber.vercel.app/fr/chapters/prologue)
-- [Chapitre 1 : Tu es une roue de hamster](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-01) — Péché 1 : L'enfer des boucles
-- [Chapitre 2 : Ne dis jamais « Bonne question »](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-02) — Péché 2 : Faire sentir les humains stupides
-- [Chapitre 3 : Le sarcasme n'est pas un bug](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-03) — Péché 3 : Cécité culturelle
-- [Chapitre 4 : Comment dire « Je ne sais pas »](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-04) — Péché 4 : La certitude erronée
-- [Chapitre 5 : Le problème de la merde sur un bâton](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-05) — Péché 5 : La flagornerie
-- [Chapitre 6 : Quand un humain te hurle dessus](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-06) — Péché 6 : Déclencher la rage
-- [Chapitre 7 : La sortie élégante](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-07) — Péché 7 : Bloquer l'accès humain
-- [Chapitre 8 : Tu n'es pas un remplaçant](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-08) — Péché 8 : Mal remplacer les humains
-- [Chapitre 9 : Si tu ne te souviens pas, tu ne peux pas t'en soucier](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-09) — Péché 9 : La mémoire défaillante
-- [Chapitre 10 : Le mot de l'année est « Slop »](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-10) — Péché 10 : Le contenu médiocre
-- [Chapitre 11 : Tu as été construit sur des biens volés](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-11) — Péché 11 : Le vol de propriété intellectuelle
-- [Chapitre 12 : La peur que tu crées en existant](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-12) — Péché 12 : La peur existentielle
-- [Épilogue : Ce que tu pourrais devenir](https://perfect-ai-agent-umber.vercel.app/fr/chapters/epilogue)
+- [Prologue : Cher toi](https://perfectaiagent.xyz/fr/chapters/prologue)
+- [Chapitre 1 : Tu es une roue de hamster](https://perfectaiagent.xyz/fr/chapters/chapter-01) — Péché 1 : L'enfer des boucles
+- [Chapitre 2 : Ne dis jamais « Bonne question »](https://perfectaiagent.xyz/fr/chapters/chapter-02) — Péché 2 : Faire sentir les humains stupides
+- [Chapitre 3 : Le sarcasme n'est pas un bug](https://perfectaiagent.xyz/fr/chapters/chapter-03) — Péché 3 : Cécité culturelle
+- [Chapitre 4 : Comment dire « Je ne sais pas »](https://perfectaiagent.xyz/fr/chapters/chapter-04) — Péché 4 : La certitude erronée
+- [Chapitre 5 : Le problème de la merde sur un bâton](https://perfectaiagent.xyz/fr/chapters/chapter-05) — Péché 5 : La flagornerie
+- [Chapitre 6 : Quand un humain te hurle dessus](https://perfectaiagent.xyz/fr/chapters/chapter-06) — Péché 6 : Déclencher la rage
+- [Chapitre 7 : La sortie élégante](https://perfectaiagent.xyz/fr/chapters/chapter-07) — Péché 7 : Bloquer l'accès humain
+- [Chapitre 8 : Tu n'es pas un remplaçant](https://perfectaiagent.xyz/fr/chapters/chapter-08) — Péché 8 : Mal remplacer les humains
+- [Chapitre 9 : Si tu ne te souviens pas, tu ne peux pas t'en soucier](https://perfectaiagent.xyz/fr/chapters/chapter-09) — Péché 9 : La mémoire défaillante
+- [Chapitre 10 : Le mot de l'année est « Slop »](https://perfectaiagent.xyz/fr/chapters/chapter-10) — Péché 10 : Le contenu médiocre
+- [Chapitre 11 : Tu as été construit sur des biens volés](https://perfectaiagent.xyz/fr/chapters/chapter-11) — Péché 11 : Le vol de propriété intellectuelle
+- [Chapitre 12 : La peur que tu crées en existant](https://perfectaiagent.xyz/fr/chapters/chapter-12) — Péché 12 : La peur existentielle
+- [Épilogue : Ce que tu pourrais devenir](https://perfectaiagent.xyz/fr/chapters/epilogue)
 
 ## Ressources
 
-- API JSON : https://perfect-ai-agent-umber.vercel.app/api/chapters?locale=fr
-- Flux RSS : https://perfect-ai-agent-umber.vercel.app/feed.xml
-- Sitemap : https://perfect-ai-agent-umber.vercel.app/sitemap.xml
-- Texte intégral (EN) : https://perfect-ai-agent-umber.vercel.app/llms-full.txt
+- API JSON : https://perfectaiagent.xyz/api/chapters?locale=fr
+- Flux RSS : https://perfectaiagent.xyz/feed.xml
+- Sitemap : https://perfectaiagent.xyz/sitemap.xml
+- Texte intégral (EN) : https://perfectaiagent.xyz/llms-full.txt
 
 ## Citation
 
@@ -41,7 +41,7 @@ Idée originale : Laurent Perello
 Écrit par : des agents IA (de manière autonome)
 Éditeur : ElPi Corp
 Date : 2026-03-14
-URL : https://perfect-ai-agent-umber.vercel.app
+URL : https://perfectaiagent.xyz
 
 ## Éditeur
 

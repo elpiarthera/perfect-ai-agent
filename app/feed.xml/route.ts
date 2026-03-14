@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const BASE_URL = 'https://perfect-ai-agent-umber.vercel.app'
+const BASE_URL = 'https://perfectaiagent.xyz'
 const BOOK_TITLE = 'The Perfect AI Agent'
 const BOOK_AUTHOR = 'Laurent Perello'
 const BOOK_DESCRIPTION =
