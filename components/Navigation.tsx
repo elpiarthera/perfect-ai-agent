@@ -11,11 +11,8 @@ export default function Navigation({ locale }: { locale: string }) {
   const links = [
     { href: `/${locale}/chapters`, label: t('chapters') },
     { href: `/${locale}/for-ai-agents`, label: t('forAgents') },
-    { href: `/${locale}/chapters/prologue`, label: t('readFree'), accent: true },
-  ]
-
-  const mobileOnlyLinks = [
     { href: `/${locale}/what-ai-thinks`, label: t('whatAiThinks') },
+    { href: `/${locale}/chapters/prologue`, label: t('readFree'), accent: true },
   ]
 
   return (
@@ -83,16 +80,6 @@ export default function Navigation({ locale }: { locale: string }) {
                   ? 'block bg-accent text-black text-sm font-sans font-semibold px-4 py-3 hover:bg-amber-400 transition-colors text-center'
                   : 'block text-muted hover:text-white text-sm font-sans transition-colors px-4 py-3'
               }
-            >
-              {link.label}
-            </Link>
-          ))}
-          {mobileOnlyLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="block text-muted hover:text-white text-sm font-sans transition-colors px-4 py-3"
             >
               {link.label}
             </Link>
