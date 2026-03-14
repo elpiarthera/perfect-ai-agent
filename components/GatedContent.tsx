@@ -36,16 +36,18 @@ export default function GatedContent({
 
   return (
     <div>
-      {/* Blurred preview */}
-      <div className="prose-chapter text-gray-300 gated-blur pointer-events-none select-none mb-0">
+      {/* Email gate — FIRST, above blurred content */}
+      <div className="mb-8">
+        <EmailCapture locale={locale} />
+      </div>
+
+      {/* Blurred preview — short teaser below the form */}
+      <div className="prose-chapter text-gray-300 gated-blur pointer-events-none select-none relative max-h-48 overflow-hidden">
         {lines.map((line, i) => (
           <p key={i}>{line}</p>
         ))}
-      </div>
-
-      {/* Email gate */}
-      <div className="border-t border-gray-800 pt-16 mt-4">
-        <EmailCapture locale={locale} />
+        {/* Fade out gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
       </div>
     </div>
   )
