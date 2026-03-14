@@ -32,13 +32,15 @@ export default function GatedContent({
   }
 
   // Show blurred preview + email capture
-  const lines = preview.split('\n').filter(Boolean).slice(0, 6).join('\n\n')
+  const lines = preview.split('\n').filter(Boolean).slice(0, 6)
 
   return (
     <div>
       {/* Blurred preview */}
       <div className="prose-chapter text-gray-300 gated-blur pointer-events-none select-none mb-0">
-        <div dangerouslySetInnerHTML={{ __html: lines.replace(/\n\n/g, '</p><p>') }} />
+        {lines.map((line, i) => (
+          <p key={i}>{line}</p>
+        ))}
       </div>
 
       {/* Email gate */}
