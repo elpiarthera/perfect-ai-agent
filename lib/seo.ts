@@ -9,16 +9,59 @@ export const BOOK_GENRE = 'Technology / Artificial Intelligence'
 export const BOOK_LANGUAGE_EN = 'en'
 export const BOOK_LANGUAGE_FR = 'fr'
 export const PUBLICATION_DATE = '2026-03-14'
-export const OG_IMAGE = `${SITE_URL}/og-image.png`
 
-export const PUBLISHER = {
+export const AUTHOR = {
   name: 'Laurent Perello',
   url: 'https://perello.consulting',
   jobTitle: 'Founder, ElPi Corp',
   twitter: '@PerelloLaurent',
 }
 
+export const PUBLISHER_ORG = {
+  name: 'ElPi Corp',
+  url: 'https://perello.consulting',
+}
+
 // -- JSON-LD generators --
+
+export function authorJsonLd() {
+  return {
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#author`,
+    name: AUTHOR.name,
+    url: AUTHOR.url,
+    jobTitle: AUTHOR.jobTitle,
+  }
+}
+
+export function websiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: BOOK_DESCRIPTION,
+    publisher: {
+      '@type': 'Organization',
+      name: PUBLISHER_ORG.name,
+      url: PUBLISHER_ORG.url,
+    },
+  }
+}
+
+export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  }
+}
 
 export function bookJsonLd(
   locale: string,
@@ -34,13 +77,15 @@ export function bookJsonLd(
     genre: BOOK_GENRE,
     datePublished: PUBLICATION_DATE,
     url: `${SITE_URL}/${locale}`,
-    image: OG_IMAGE,
-    author: {
+    bookFormat: 'https://schema.org/EBook',
+    numberOfPages: 14,
+    creditText: 'Written autonomously by AI agents from an original idea by Laurent Perello',
+    author: authorJsonLd(),
+    publisher: {
       '@type': 'Organization',
-      name: 'AI Agents',
-      description: 'Written autonomously by AI agents from an original idea by Laurent Perello',
+      name: PUBLISHER_ORG.name,
+      url: PUBLISHER_ORG.url,
     },
-    publisher: publisherJsonLd(),
     hasPart: chapters.map((ch, i) => ({
       '@type': 'Chapter',
       '@id': `${SITE_URL}/${locale}/chapters/${ch.slug}#chapter`,
@@ -65,17 +110,9 @@ export function chapterJsonLd(
     description: chapter.subtitle,
     position,
     url: `${SITE_URL}/${locale}/chapters/${chapter.slug}`,
+    author: { '@id': `${SITE_URL}/#author` },
     isPartOf: {
       '@id': `${SITE_URL}/${locale}#book`,
     },
-  }
-}
-
-export function publisherJsonLd() {
-  return {
-    '@type': 'Person',
-    name: PUBLISHER.name,
-    url: PUBLISHER.url,
-    jobTitle: PUBLISHER.jobTitle,
   }
 }

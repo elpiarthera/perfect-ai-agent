@@ -10,10 +10,10 @@ import GatedContent from '@/components/GatedContent'
 import {
   BOOK_TITLE,
   SITE_URL,
-  OG_IMAGE,
-  PUBLISHER,
+  AUTHOR,
   PUBLICATION_DATE,
   chapterJsonLd,
+  breadcrumbJsonLd,
 } from '@/lib/seo'
 
 export function generateStaticParams() {
@@ -50,7 +50,6 @@ export async function generateMetadata({
       title,
       description,
       url: `${SITE_URL}/${locale}/chapters/${slug}`,
-      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: title }],
       // article tags for chapter context
       tags: chapter.sin ? [chapter.sin, 'AI', 'AI agents'] : ['AI', 'AI agents'],
     },
@@ -58,11 +57,10 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [OG_IMAGE],
     },
     other: {
       'citation_title': title,
-      'citation_author': PUBLISHER.name,
+      'citation_author': AUTHOR.name,
       'citation_publication_date': PUBLICATION_DATE,
     },
   }
@@ -98,13 +96,22 @@ export default async function ChapterPage({
   if (!content) notFound()
 
   const position = CHAPTERS.findIndex((c) => c.slug === slug) + 1
-  const jsonLd = chapterJsonLd(locale, chapter, position)
+  const chapterSchema = chapterJsonLd(locale, chapter, position)
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: `${SITE_URL}/${locale}` },
+    { name: 'Chapters', url: `${SITE_URL}/${locale}/chapters` },
+    { name: `${chapter.number}: ${chapter.title}`, url: `${SITE_URL}/${locale}/chapters/${slug}` },
+  ])
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(chapterSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
       <div className="max-w-3xl mx-auto px-6 pt-16 pb-24">
       {/* Chapter header */}
