@@ -13,8 +13,6 @@ import {
   websiteJsonLd,
 } from '@/lib/seo'
 
-export const dynamic = 'force-static'
-
 export async function generateMetadata({
   params,
 }: {
