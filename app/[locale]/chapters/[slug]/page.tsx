@@ -5,7 +5,8 @@ import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
-import { getChapter, CHAPTERS } from '@/lib/chapters'
+import { CHAPTERS } from '@/lib/chapters'
+import { getLocalizedChapter, getLocalizedChapters } from '@/lib/chapters-i18n'
 import EmailCapture from '@/components/EmailCapture'
 import ShareButtons from '@/components/ShareButtons'
 import {
@@ -27,7 +28,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string; locale: string }>
 }): Promise<Metadata> {
   const { slug, locale } = await params
-  const chapter = getChapter(slug)
+  const chapter = getLocalizedChapter(slug, locale)
   if (!chapter) return {}
 
   const otherLocale = locale === 'en' ? 'fr' : 'en'
@@ -112,7 +113,7 @@ export default async function ChapterPage({
   params: Promise<{ slug: string; locale: string }>
 }) {
   const { slug, locale } = await params
-  const chapter = getChapter(slug)
+  const chapter = getLocalizedChapter(slug, locale)
   if (!chapter) notFound()
 
   const rawContent = await getChapterContent(slug, locale)
@@ -120,7 +121,8 @@ export default async function ChapterPage({
 
   const content = stripDuplicateHeading(rawContent, chapter.title)
 
-  const position = CHAPTERS.findIndex((c) => c.slug === slug) + 1
+  const localizedChapters = getLocalizedChapters(locale)
+  const position = localizedChapters.findIndex((c) => c.slug === slug) + 1
   const chapterSchema = chapterJsonLd(locale, chapter, position)
   const breadcrumbs = breadcrumbJsonLd([
     { name: 'Home', url: `${SITE_URL}/${locale}` },
@@ -164,7 +166,7 @@ export default async function ChapterPage({
             href={`/${locale}/chapters/${chapter.prev}`}
             className="text-muted hover:text-white transition-colors font-sans text-sm"
           >
-            ← {getChapter(chapter.prev)?.title}
+            ← {getLocalizedChapter(chapter.prev, locale)?.title}
           </Link>
         ) : (
           <span />
@@ -174,7 +176,7 @@ export default async function ChapterPage({
             href={`/${locale}/chapters/${chapter.next}`}
             className="text-muted hover:text-white transition-colors font-sans text-sm"
           >
-            {getChapter(chapter.next)?.title} →
+            {getLocalizedChapter(chapter.next, locale)?.title} →
           </Link>
         ) : (
           <span />
