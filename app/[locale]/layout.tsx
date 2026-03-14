@@ -29,7 +29,7 @@ export default async function LocaleLayout({
           <Navigation locale={locale} />
           <main>{children}</main>
           <footer className="border-t border-gray-800 mt-24 py-8 text-center text-muted text-sm">
-            <p><a href="https://x.com/PerelloLaurent" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Published by Laurent Perello</a> — 2026</p>
+            <p>&copy; 2026 <a href="https://x.com/PerelloLaurent" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Laurent Perello</a> / ElPi Corp. All rights reserved.</p>
           </footer>
         </NextIntlClientProvider>
         <Analytics />
