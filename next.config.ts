@@ -4,6 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const withNextIntl = createNextIntlPlugin('./lib/i18n.ts')
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
   async headers() {
     return [
@@ -18,6 +19,10 @@ const nextConfig: NextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.systeme.io; frame-ancestors 'none'",
           },
         ],
       },

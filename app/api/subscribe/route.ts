@@ -1,9 +1,54 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// --- In-memory rate limiter ---
+const RATE_LIMIT_MAX = 5
+const RATE_LIMIT_WINDOW_MS = 60 * 1000 // 1 minute
+const rateLimitMap = new Map<string, number[]>()
+
+// Clean up stale entries every 5 minutes
+setInterval(() => {
+  const now = Date.now()
+  for (const [ip, timestamps] of rateLimitMap) {
+    const valid = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS)
+    if (valid.length === 0) {
+      rateLimitMap.delete(ip)
+    } else {
+      rateLimitMap.set(ip, valid)
+    }
+  }
+}, 5 * 60 * 1000)
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const timestamps = rateLimitMap.get(ip) || []
+  const valid = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS)
+
+  if (valid.length >= RATE_LIMIT_MAX) {
+    rateLimitMap.set(ip, valid)
+    return true
+  }
+
+  valid.push(now)
+  rateLimitMap.set(ip, valid)
+  return false
+}
+
+// --- Email validation ---
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 export async function POST(req: NextRequest) {
+  // Rate limit by IP
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429 }
+    )
+  }
+
   const { email, locale } = await req.json()
 
-  if (!email || !email.includes('@')) {
+  if (!email || !emailRegex.test(email)) {
     return NextResponse.json({ error: 'Invalid email' }, { status: 400 })
   }
 
@@ -46,6 +91,7 @@ export async function POST(req: NextRequest) {
   response.cookies.set('email_captured', 'true', {
     maxAge: 60 * 60 * 24 * 30, // 30 days
     httpOnly: true,
+    secure: true,
     sameSite: 'lax',
   })
 
