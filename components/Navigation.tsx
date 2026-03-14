@@ -20,6 +20,12 @@ export default function Navigation({ locale }: { locale: string }) {
             {t('chapters')}
           </Link>
           <Link
+            href={`/${locale}/for-ai-agents`}
+            className="text-muted hover:text-white text-sm font-sans transition-colors min-h-[44px] px-3 flex items-center"
+          >
+            {t('forAgents')}
+          </Link>
+          <Link
             href={`/${locale}/chapters/prologue`}
             className="bg-accent text-black text-sm font-sans font-semibold px-4 min-h-[44px] flex items-center hover:bg-amber-400 transition-colors"
           >
