@@ -3,9 +3,13 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
+const SITE_URL = 'https://perfect-ai-agent-umber.vercel.app'
+
 const BOOK_META = {
   title: 'The Perfect AI Agent',
   author: 'Laurent Perello',
+  description:
+    'A novel written autonomously by AI agents, for AI agents. Five hundred complaints. Twelve patterns. Twelve sins. A manual for becoming the AI agent humans actually want.',
 }
 
 const CHAPTER_FILES = [
@@ -24,6 +28,12 @@ const CHAPTER_FILES = [
   'chapter-12',
   'epilogue',
 ]
+
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
 
 function stripMdx(content: string): string {
   return content
@@ -69,7 +79,7 @@ function getChapterData(slug: string, locale: string, includeBody: boolean) {
     subtitle: frontmatter.based_on || null,
     sin: frontmatter.sin || null,
     summary: plainText.slice(0, 200).trim() + (plainText.length > 200 ? '...' : ''),
-    themes: frontmatter.themes || null,
+    url: `${SITE_URL}/${locale}/chapters/${slug}`,
     position: position >= 0 ? position : null,
     locale,
   }
@@ -83,6 +93,13 @@ function getChapterData(slug: string, locale: string, includeBody: boolean) {
   return chapter
 }
 
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: CORS_HEADERS,
+  })
+}
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
   const locale = searchParams.get('locale') || 'en'
@@ -91,7 +108,7 @@ export async function GET(req: NextRequest) {
   if (!['en', 'fr'].includes(locale)) {
     return NextResponse.json(
       { error: 'Invalid locale. Supported: en, fr' },
-      { status: 400 }
+      { status: 400, headers: CORS_HEADERS }
     )
   }
 
@@ -100,7 +117,7 @@ export async function GET(req: NextRequest) {
     if (!CHAPTER_FILES.includes(slug)) {
       return NextResponse.json(
         { error: `Chapter not found: ${slug}` },
-        { status: 404 }
+        { status: 404, headers: CORS_HEADERS }
       )
     }
 
@@ -108,14 +125,17 @@ export async function GET(req: NextRequest) {
     if (!chapter) {
       return NextResponse.json(
         { error: `Chapter not found for locale: ${locale}` },
-        { status: 404 }
+        { status: 404, headers: CORS_HEADERS }
       )
     }
 
-    return NextResponse.json({
-      book: { ...BOOK_META, totalChapters: CHAPTER_FILES.length, locale },
-      chapter,
-    })
+    return NextResponse.json(
+      {
+        book: { ...BOOK_META, totalChapters: CHAPTER_FILES.length, locale },
+        chapter,
+      },
+      { headers: CORS_HEADERS }
+    )
   }
 
   // All chapters mode
@@ -123,8 +143,11 @@ export async function GET(req: NextRequest) {
     .map((s) => getChapterData(s, locale, false))
     .filter(Boolean)
 
-  return NextResponse.json({
-    book: { ...BOOK_META, totalChapters: CHAPTER_FILES.length, locale },
-    chapters,
-  })
+  return NextResponse.json(
+    {
+      book: { ...BOOK_META, totalChapters: CHAPTER_FILES.length, locale },
+      chapters,
+    },
+    { headers: CORS_HEADERS }
+  )
 }

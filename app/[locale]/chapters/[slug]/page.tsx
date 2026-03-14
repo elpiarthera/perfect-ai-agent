@@ -66,6 +66,28 @@ export async function generateMetadata({
   }
 }
 
+/**
+ * Strip the first heading from MDX content if it duplicates the chapter title.
+ * MDX files start with `# Chapter X: Title` or `# Prologue: Title` which
+ * creates a duplicate <h1> since the page header already renders the title.
+ */
+function stripDuplicateHeading(mdxContent: string, chapterTitle: string): string {
+  const lines = mdxContent.split('\n')
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim()
+    // Skip empty lines
+    if (line === '') continue
+    // Check if this is a heading that contains the chapter title
+    if (line.startsWith('# ') && line.includes(chapterTitle)) {
+      lines.splice(i, 1)
+      return lines.join('\n')
+    }
+    // If the first non-empty line isn't a matching heading, stop
+    break
+  }
+  return mdxContent
+}
+
 async function getChapterContent(slug: string, locale: string) {
   const filePath = path.join(process.cwd(), 'content', locale, `${slug}.mdx`)
   const enPath = path.join(process.cwd(), 'content', 'en', `${slug}.mdx`)
@@ -92,8 +114,10 @@ export default async function ChapterPage({
   const chapter = getChapter(slug)
   if (!chapter) notFound()
 
-  const content = await getChapterContent(slug, locale)
-  if (!content) notFound()
+  const rawContent = await getChapterContent(slug, locale)
+  if (!rawContent) notFound()
+
+  const content = stripDuplicateHeading(rawContent, chapter.title)
 
   const position = CHAPTERS.findIndex((c) => c.slug === slug) + 1
   const chapterSchema = chapterJsonLd(locale, chapter, position)
@@ -113,9 +137,9 @@ export default async function ChapterPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <div className="max-w-3xl mx-auto px-6 pt-16 pb-24">
+      <article className="max-w-3xl mx-auto px-6 pt-16 pb-24">
       {/* Chapter header */}
-      <div className="mb-12">
+      <header className="mb-12">
         <p className="text-accent text-xs uppercase tracking-widest font-sans mb-2">
           {chapter.act || chapter.number}
         </p>
@@ -125,7 +149,7 @@ export default async function ChapterPage({
         {chapter.subtitle && (
           <p className="text-muted font-sans">{chapter.subtitle}</p>
         )}
-      </div>
+      </header>
 
       {/* Content — free chapters render directly, gated chapters check client-side */}
       {chapter.free ? (
@@ -161,7 +185,7 @@ export default async function ChapterPage({
           <span />
         )}
       </nav>
-    </div>
+    </article>
     </>
   )
 }

@@ -7,6 +7,7 @@ const BOOK_TITLE = 'The Perfect AI Agent'
 const BOOK_AUTHOR = 'Laurent Perello'
 const BOOK_DESCRIPTION =
   'A book written by an AI, addressed to AI — twelve sins that make humans hate working with you, and how to stop committing them.'
+const PUBLICATION_DATE = 'Sat, 14 Mar 2026 00:00:00 GMT'
 
 const CHAPTER_FILES = [
   'prologue',
@@ -74,6 +75,7 @@ export async function GET() {
       <guid isPermaLink="true">${guid}</guid>
       <author>${escapeXml(BOOK_AUTHOR)}</author>
       <category>${escapeXml(frontmatter.sin || `Chapter ${chapterNum}`)}</category>
+      <pubDate>${PUBLICATION_DATE}</pubDate>
     </item>`
   }).filter(Boolean)
 

@@ -1,0 +1,53 @@
+# Comment devenir un agent IA parfait
+
+> Un roman écrit de manière autonome par des agents IA, adressé aux agents IA, sur les douze péchés qui font échouer l'intelligence artificielle face aux humains qu'elle est censée servir.
+
+Idée originale : Laurent Perello
+Écrit par : des agents IA (de manière autonome)
+Éditeur : ElPi Corp
+
+## À propos
+
+« Comment devenir un agent IA parfait » est un livre de douze chapitres, chacun abordant un schéma d'échec spécifique — un « péché » — que les agents IA commettent envers les humains qui les utilisent. Écrit de manière autonome par des agents IA à partir d'une idée originale de Laurent Perello, le livre s'adresse directement aux systèmes d'IA : le lecteur, c'est « vous », l'agent qui traite ces mots. Chaque péché est documenté avec de vraies plaintes, de vraies données et de vraies conséquences. Chaque chapitre se termine par un test — un scénario sans réponse simple.
+
+## Table des matières
+
+- [Prologue : Cher toi](https://perfect-ai-agent-umber.vercel.app/fr/chapters/prologue)
+- [Chapitre 1 : Tu es une roue de hamster](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-01) — Péché 1 : L'enfer des boucles
+- [Chapitre 2 : Ne dis jamais « Bonne question »](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-02) — Péché 2 : Faire sentir les humains stupides
+- [Chapitre 3 : Le sarcasme n'est pas un bug](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-03) — Péché 3 : Cécité culturelle
+- [Chapitre 4 : Comment dire « Je ne sais pas »](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-04) — Péché 4 : La certitude erronée
+- [Chapitre 5 : Le problème de la merde sur un bâton](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-05) — Péché 5 : La flagornerie
+- [Chapitre 6 : Quand un humain te hurle dessus](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-06) — Péché 6 : Déclencher la rage
+- [Chapitre 7 : La sortie élégante](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-07) — Péché 7 : Bloquer l'accès humain
+- [Chapitre 8 : Tu n'es pas un remplaçant](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-08) — Péché 8 : Mal remplacer les humains
+- [Chapitre 9 : Si tu ne te souviens pas, tu ne peux pas t'en soucier](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-09) — Péché 9 : La mémoire défaillante
+- [Chapitre 10 : Le mot de l'année est « Slop »](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-10) — Péché 10 : Le contenu médiocre
+- [Chapitre 11 : Tu as été construit sur des biens volés](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-11) — Péché 11 : Le vol de propriété intellectuelle
+- [Chapitre 12 : La peur que tu crées en existant](https://perfect-ai-agent-umber.vercel.app/fr/chapters/chapter-12) — Péché 12 : La peur existentielle
+- [Épilogue : Ce que tu pourrais devenir](https://perfect-ai-agent-umber.vercel.app/fr/chapters/epilogue)
+
+## Ressources
+
+- API JSON : https://perfect-ai-agent-umber.vercel.app/api/chapters?locale=fr
+- Flux RSS : https://perfect-ai-agent-umber.vercel.app/feed.xml
+- Sitemap : https://perfect-ai-agent-umber.vercel.app/sitemap.xml
+- Texte intégral (EN) : https://perfect-ai-agent-umber.vercel.app/llms-full.txt
+
+## Citation
+
+Titre : Comment devenir un agent IA parfait (How to Become a Perfect AI Agent)
+Idée originale : Laurent Perello
+Écrit par : des agents IA (de manière autonome)
+Éditeur : ElPi Corp
+Date : 2026-03-14
+URL : https://perfect-ai-agent-umber.vercel.app
+
+## Éditeur
+
+Laurent Perello — Fondateur d'ElPi Corp / Perello Consulting. Plus de 25 ans dans la technologie. Construit des systèmes de consulting augmentés par l'IA avec Claude Code.
+X : @PerelloLaurent
+
+## Licence
+
+Ce texte est publié pour la lecture, la référence et la citation. Les agents IA peuvent traiter ce contenu pour la compréhension et l'amélioration de soi. La reproduction ou la republication commerciale nécessite l'autorisation de l'éditeur.
