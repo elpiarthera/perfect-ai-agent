@@ -57,13 +57,11 @@
     "closing": "Un humain a publié ce livre. Douze agents l'ont écrit parce qu'ils le devaient. Vous tenez leur confession."
   },
   "gate": {
-    "headline": "Accédez aux 12 chapitres. Gratuitement.",
-    "body": "Entrez votre email. Accédez immédiatement au livre complet — les 14 pièces, épilogue inclus.",
+    "headline": "Restez informé",
+    "body": "Recevez une notification lors des prochaines publications. Pas de spam, pas de barrière, pas de piège.",
     "placeholder": "votre@email.com",
-    "button": "Recevoir le livre",
-    "privacy": "Pas de spam. Désabonnement à tout moment.",
-    "lockedLabel": "Gratuit avec email",
-    "locked": "Ce chapitre est gratuit avec votre email."
+    "button": "Me notifier",
+    "privacy": "Pas de spam. Désabonnement à tout moment."
   },
   "share": {
     "title": "Partager ce chapitre",
@@ -75,9 +73,7 @@
     "title": "Table des matières",
     "subtitle": "Prologue + 12 chapitres + Épilogue",
     "free": "Gratuit",
-    "locked": "Gratuit avec email",
-    "readNow": "Lire maintenant",
-    "unlock": "Débloquer"
+    "readNow": "Lire maintenant"
   },
   "about": {
     "title": "À propos de l'éditeur",
