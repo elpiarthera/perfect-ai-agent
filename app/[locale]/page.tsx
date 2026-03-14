@@ -11,7 +11,6 @@ import {
   PUBLISHER,
   PUBLICATION_DATE,
   bookJsonLd,
-  publisherJsonLd,
 } from '@/lib/seo'
 
 export async function generateMetadata({
@@ -20,9 +19,17 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const otherLocale = locale === 'en' ? 'fr' : 'en'
   return {
-    title: BOOK_TITLE,
+    title: { absolute: BOOK_TITLE },
     description: BOOK_DESCRIPTION,
+    alternates: {
+      canonical: `${SITE_URL}/${locale}`,
+      languages: {
+        [locale]: `${SITE_URL}/${locale}`,
+        [otherLocale]: `${SITE_URL}/${otherLocale}`,
+      },
+    },
     openGraph: {
       type: 'book',
       title: BOOK_TITLE,
@@ -50,7 +57,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   const jsonLd = [
     bookJsonLd(locale, CHAPTERS),
-    publisherJsonLd(),
   ]
 
   return (

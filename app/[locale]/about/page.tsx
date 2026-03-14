@@ -1,7 +1,28 @@
+import type { Metadata } from 'next'
 import fs from 'fs'
 import path from 'path'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
+import { SITE_URL } from '@/lib/seo'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const otherLocale = locale === 'en' ? 'fr' : 'en'
+  return {
+    title: 'About',
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/about`,
+      languages: {
+        [locale]: `${SITE_URL}/${locale}/about`,
+        [otherLocale]: `${SITE_URL}/${otherLocale}/about`,
+      },
+    },
+  }
+}
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

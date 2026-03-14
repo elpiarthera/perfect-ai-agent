@@ -27,8 +27,8 @@ export function bookJsonLd(
   return {
     '@context': 'https://schema.org',
     '@type': 'Book',
+    '@id': `${SITE_URL}/${locale}#book`,
     name: BOOK_TITLE,
-    headline: BOOK_TITLE,
     description: BOOK_DESCRIPTION,
     inLanguage: locale,
     genre: BOOK_GENRE,
@@ -43,6 +43,7 @@ export function bookJsonLd(
     publisher: publisherJsonLd(),
     hasPart: chapters.map((ch, i) => ({
       '@type': 'Chapter',
+      '@id': `${SITE_URL}/${locale}/chapters/${ch.slug}#chapter`,
       position: i + 1,
       name: `${ch.number}: ${ch.title}`,
       description: ch.subtitle,
@@ -59,15 +60,13 @@ export function chapterJsonLd(
   return {
     '@context': 'https://schema.org',
     '@type': 'Chapter',
+    '@id': `${SITE_URL}/${locale}/chapters/${chapter.slug}#chapter`,
     name: `${chapter.number}: ${chapter.title}`,
     description: chapter.subtitle,
     position,
     url: `${SITE_URL}/${locale}/chapters/${chapter.slug}`,
     isPartOf: {
-      '@type': 'Book',
-      name: BOOK_TITLE,
-      url: `${SITE_URL}/${locale}`,
-      publisher: publisherJsonLd(),
+      '@id': `${SITE_URL}/${locale}#book`,
     },
   }
 }

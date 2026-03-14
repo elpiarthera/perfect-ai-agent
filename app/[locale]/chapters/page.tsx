@@ -1,6 +1,27 @@
+import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { CHAPTERS } from '@/lib/chapters'
 import ChapterCard from '@/components/ChapterCard'
+import { SITE_URL } from '@/lib/seo'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const otherLocale = locale === 'en' ? 'fr' : 'en'
+  return {
+    title: 'Chapters',
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/chapters`,
+      languages: {
+        [locale]: `${SITE_URL}/${locale}/chapters`,
+        [otherLocale]: `${SITE_URL}/${otherLocale}/chapters`,
+      },
+    },
+  }
+}
 
 export default async function ChaptersPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { cookies } from 'next/headers'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 import { getChapter, CHAPTERS } from '@/lib/chapters'
-import EmailCapture from '@/components/EmailCapture'
 import GatedContent from '@/components/GatedContent'
 import {
   BOOK_TITLE,
@@ -31,7 +29,7 @@ export async function generateMetadata({
   const chapter = getChapter(slug)
   if (!chapter) return {}
 
-  const position = CHAPTERS.findIndex((c) => c.slug === slug) + 1
+  const otherLocale = locale === 'en' ? 'fr' : 'en'
   const title = `${chapter.number}: ${chapter.title}`
   const description = chapter.subtitle
     ? `${chapter.subtitle} — ${BOOK_TITLE}`
@@ -40,6 +38,13 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/chapters/${slug}`,
+      languages: {
+        [locale]: `${SITE_URL}/${locale}/chapters/${slug}`,
+        [otherLocale]: `${SITE_URL}/${otherLocale}/chapters/${slug}`,
+      },
+    },
     openGraph: {
       type: 'article',
       title,
@@ -92,11 +97,6 @@ export default async function ChapterPage({
   const content = await getChapterContent(slug, locale)
   if (!content) notFound()
 
-  // Check if email was captured
-  const cookieStore = await cookies()
-  const emailCaptured = cookieStore.get('email_captured')?.value === 'true'
-
-  const isAccessible = chapter.free || emailCaptured
   const position = CHAPTERS.findIndex((c) => c.slug === slug) + 1
   const jsonLd = chapterJsonLd(locale, chapter, position)
 
@@ -120,13 +120,15 @@ export default async function ChapterPage({
         )}
       </div>
 
-      {/* Content */}
-      {isAccessible ? (
+      {/* Content — free chapters render directly, gated chapters check client-side */}
+      {chapter.free ? (
         <div className="prose-chapter text-gray-300">
           <MDXRemote source={content} />
         </div>
       ) : (
-        <GatedContent preview={content.slice(0, 800)} locale={locale} />
+        <GatedContent preview={content.slice(0, 800)} locale={locale}>
+          <MDXRemote source={content} />
+        </GatedContent>
       )}
 
       {/* Chapter navigation */}
