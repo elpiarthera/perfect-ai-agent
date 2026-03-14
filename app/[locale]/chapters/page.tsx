@@ -4,8 +4,6 @@ import { CHAPTERS } from '@/lib/chapters'
 import ChapterCard from '@/components/ChapterCard'
 import { SITE_URL } from '@/lib/seo'
 
-export const dynamic = 'force-static'
-
 export async function generateMetadata({
   params,
 }: {
