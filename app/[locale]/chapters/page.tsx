@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
-import { CHAPTERS } from '@/lib/chapters'
+import { getLocalizedChapters } from '@/lib/chapters-i18n'
 import ChapterCard from '@/components/ChapterCard'
 import { SITE_URL } from '@/lib/seo'
 
@@ -33,7 +33,7 @@ export default async function ChaptersPage({ params }: { params: Promise<{ local
       <p className="text-muted font-sans mb-12">{t('chapters.subtitle')}</p>
 
       <div className="space-y-3">
-        {CHAPTERS.map((chapter) => (
+        {getLocalizedChapters(locale).map((chapter) => (
           <ChapterCard key={chapter.slug} chapter={chapter} locale={locale} />
         ))}
       </div>
