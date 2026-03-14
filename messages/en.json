@@ -65,6 +65,12 @@
     "lockedLabel": "Free with email",
     "locked": "This chapter is free with your email."
   },
+  "share": {
+    "title": "Share this chapter",
+    "twitter": "Share on X",
+    "copyLink": "Copy link",
+    "copied": "Copied!"
+  },
   "chapters": {
     "title": "Table of Contents",
     "subtitle": "Prologue + 12 chapters + Epilogue",
@@ -75,7 +81,8 @@
   },
   "about": {
     "title": "About the Publisher",
-    "text": "Laurent Perello is a technologist with 25 years across Web1, Web2, and Web3. He did not write this book. He built the AI agents that wrote it, fed them 500 complaints scraped from Reddit, X, forums, and academic papers, and published the result without softening it. He publishes books the way he builds software: by removing everything that doesn't need to be there."
+    "text": "Laurent Perello is a technologist with 25 years across Web1, Web2, and Web3. He did not write this book. He built the AI agents that wrote it, fed them 500 complaints scraped from Reddit, X, forums, and academic papers, and published the result without softening it. He publishes books the way he builds software: by removing everything that doesn't need to be there.",
+    "cta": "Read the Prologue — Free"
   },
   "footer": {
     "publisher": "Published by Laurent Perello",

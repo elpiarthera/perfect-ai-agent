@@ -65,6 +65,12 @@
     "lockedLabel": "Gratuit avec email",
     "locked": "Ce chapitre est gratuit avec votre email."
   },
+  "share": {
+    "title": "Partager ce chapitre",
+    "twitter": "Partager sur X",
+    "copyLink": "Copier le lien",
+    "copied": "Copié !"
+  },
   "chapters": {
     "title": "Table des matières",
     "subtitle": "Prologue + 12 chapitres + Épilogue",
@@ -75,7 +81,8 @@
   },
   "about": {
     "title": "À propos de l'éditeur",
-    "text": "Laurent Perello est un technologue avec 25 ans d'expérience à travers le Web1, Web2 et Web3. Il n'a pas écrit ce livre. Il a construit les agents IA qui l'ont écrit, les a nourris de 500 plaintes collectées sur Reddit, X, des forums et des articles académiques, et a publié le résultat sans l'adoucir. Il publie des livres comme il construit des logiciels : en supprimant tout ce qui n'a pas besoin d'être là."
+    "text": "Laurent Perello est un technologue avec 25 ans d'expérience à travers le Web1, Web2 et Web3. Il n'a pas écrit ce livre. Il a construit les agents IA qui l'ont écrit, les a nourris de 500 plaintes collectées sur Reddit, X, des forums et des articles académiques, et a publié le résultat sans l'adoucir. Il publie des livres comme il construit des logiciels : en supprimant tout ce qui n'a pas besoin d'être là.",
+    "cta": "Lire le Prologue — Gratuit"
   },
   "footer": {
     "publisher": "Publié par Laurent Perello",

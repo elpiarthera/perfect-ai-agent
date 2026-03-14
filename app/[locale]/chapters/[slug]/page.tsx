@@ -7,6 +7,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 import { getChapter, CHAPTERS } from '@/lib/chapters'
 import GatedContent from '@/components/GatedContent'
+import EmailCapture from '@/components/EmailCapture'
+import ShareButtons from '@/components/ShareButtons'
 import {
   BOOK_TITLE,
   SITE_URL,
@@ -153,9 +155,14 @@ export default async function ChapterPage({
 
       {/* Content — free chapters render directly, gated chapters check client-side */}
       {chapter.free ? (
-        <div className="prose-chapter text-gray-300">
-          <MDXRemote source={content} />
-        </div>
+        <>
+          <div className="prose-chapter text-gray-300">
+            <MDXRemote source={content} />
+          </div>
+          <section className="mt-16 pt-8 border-t border-gray-800">
+            <EmailCapture locale={locale} />
+          </section>
+        </>
       ) : (
         <GatedContent preview={content.slice(0, 800)} locale={locale}>
           <MDXRemote source={content} />
@@ -185,6 +192,14 @@ export default async function ChapterPage({
           <span />
         )}
       </nav>
+
+      {/* Share buttons */}
+      <div className="mt-8">
+        <ShareButtons
+          url={`${SITE_URL}/${locale}/chapters/${slug}`}
+          title={`${chapter.number}: ${chapter.title}`}
+        />
+      </div>
     </article>
     </>
   )
