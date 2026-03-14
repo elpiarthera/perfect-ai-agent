@@ -1,13 +1,68 @@
+import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 import EmailCapture from '@/components/EmailCapture'
+import { CHAPTERS } from '@/lib/chapters'
+import {
+  BOOK_TITLE,
+  BOOK_DESCRIPTION,
+  SITE_URL,
+  OG_IMAGE,
+  AUTHOR,
+  PUBLICATION_DATE,
+  bookJsonLd,
+  authorJsonLd,
+} from '@/lib/seo'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: BOOK_TITLE,
+    description: BOOK_DESCRIPTION,
+    openGraph: {
+      type: 'book',
+      title: BOOK_TITLE,
+      description: BOOK_DESCRIPTION,
+      url: `${SITE_URL}/${locale}`,
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: BOOK_TITLE }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: BOOK_TITLE,
+      description: 'Five hundred complaints. Twelve patterns. Twelve sins.',
+      images: [OG_IMAGE],
+    },
+    other: {
+      'citation_title': BOOK_TITLE,
+      'citation_author': AUTHOR.name,
+      'citation_publication_date': PUBLICATION_DATE,
+    },
+  }
+}
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const t = await getTranslations({ locale })
 
+  const jsonLd = [
+    bookJsonLd(locale, CHAPTERS),
+    authorJsonLd(),
+  ]
+
   return (
-    <div className="max-w-4xl mx-auto px-6">
+    <>
+      {jsonLd.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+      <div className="max-w-4xl mx-auto px-6">
 
       {/* Hero */}
       <section className="pt-24 pb-20 text-center">
@@ -106,5 +161,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
     </div>
+    </>
   )
 }

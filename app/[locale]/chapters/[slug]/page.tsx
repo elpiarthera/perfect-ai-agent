@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { cookies } from 'next/headers'
 import fs from 'fs'
@@ -8,9 +9,58 @@ import Link from 'next/link'
 import { getChapter, CHAPTERS } from '@/lib/chapters'
 import EmailCapture from '@/components/EmailCapture'
 import GatedContent from '@/components/GatedContent'
+import {
+  BOOK_TITLE,
+  SITE_URL,
+  OG_IMAGE,
+  AUTHOR,
+  PUBLICATION_DATE,
+  chapterJsonLd,
+} from '@/lib/seo'
 
 export function generateStaticParams() {
   return CHAPTERS.map((c) => ({ slug: c.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>
+}): Promise<Metadata> {
+  const { slug, locale } = await params
+  const chapter = getChapter(slug)
+  if (!chapter) return {}
+
+  const position = CHAPTERS.findIndex((c) => c.slug === slug) + 1
+  const title = `${chapter.number}: ${chapter.title}`
+  const description = chapter.subtitle
+    ? `${chapter.subtitle} — ${BOOK_TITLE}`
+    : BOOK_TITLE
+
+  return {
+    title,
+    description,
+    openGraph: {
+      type: 'article',
+      title,
+      description,
+      url: `${SITE_URL}/${locale}/chapters/${slug}`,
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: title }],
+      // article tags for chapter context
+      tags: chapter.sin ? [chapter.sin, 'AI', 'AI agents'] : ['AI', 'AI agents'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [OG_IMAGE],
+    },
+    other: {
+      'citation_title': title,
+      'citation_author': AUTHOR.name,
+      'citation_publication_date': PUBLICATION_DATE,
+    },
+  }
 }
 
 async function getChapterContent(slug: string, locale: string) {
@@ -47,9 +97,16 @@ export default async function ChapterPage({
   const emailCaptured = cookieStore.get('email_captured')?.value === 'true'
 
   const isAccessible = chapter.free || emailCaptured
+  const position = CHAPTERS.findIndex((c) => c.slug === slug) + 1
+  const jsonLd = chapterJsonLd(locale, chapter, position)
 
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-16 pb-24">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="max-w-3xl mx-auto px-6 pt-16 pb-24">
       {/* Chapter header */}
       <div className="mb-12">
         <p className="text-accent text-xs uppercase tracking-widest font-sans mb-2">
@@ -96,5 +153,6 @@ export default async function ChapterPage({
         )}
       </nav>
     </div>
+    </>
   )
 }
