@@ -101,6 +101,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // For AI Agents page for each locale
+  const forAgentsMtime = getPageMtime("app/[locale]/for-ai-agents/page.tsx");
+  for (const locale of LOCALES) {
+    const otherLocale = locale === "en" ? "fr" : "en";
+    entries.push({
+      url: `${BASE_URL}/${locale}/for-ai-agents`,
+      lastModified: forAgentsMtime,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: {
+        languages: {
+          [locale]: `${BASE_URL}/${locale}/for-ai-agents`,
+          [otherLocale]: `${BASE_URL}/${otherLocale}/for-ai-agents`,
+        },
+      },
+    });
+  }
+
   // About page for each locale
   const aboutMtime = getFileMtime("about-website");
   for (const locale of LOCALES) {
