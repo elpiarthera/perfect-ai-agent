@@ -26,17 +26,7 @@ export default function ChapterCard({
           <p className="text-muted text-sm font-sans mt-0.5">{chapter.subtitle}</p>
         )}
       </div>
-      <div className="shrink-0">
-        {chapter.free ? (
-          <span className="text-accent text-xs font-sans uppercase tracking-wider border border-accent px-2 py-0.5">
-            Free
-          </span>
-        ) : (
-          <span className="text-muted text-xs font-sans uppercase tracking-wider">
-            Email
-          </span>
-        )}
-      </div>
+      <span className="text-muted group-hover:text-accent transition-colors">→</span>
     </Link>
   )
 }

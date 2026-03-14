@@ -2,11 +2,9 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
 
 export default function EmailCapture({ locale }: { locale: string }) {
   const t = useTranslations('gate')
-  const router = useRouter()
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [done, setDone] = useState(false)
@@ -27,7 +25,6 @@ export default function EmailCapture({ locale }: { locale: string }) {
       if (!res.ok) throw new Error('Subscription failed')
 
       setDone(true)
-      router.refresh()
     } catch {
       setError('Something went wrong. Please try again.')
     } finally {
@@ -39,7 +36,7 @@ export default function EmailCapture({ locale }: { locale: string }) {
     return (
       <div className="text-center py-8">
         <p className="font-serif text-xl text-white mb-2">You're in.</p>
-        <p className="text-gray-400 font-sans text-sm">All 12 chapters are now unlocked.</p>
+        <p className="text-gray-400 font-sans text-sm">We'll notify you when new content drops.</p>
       </div>
     )
   }

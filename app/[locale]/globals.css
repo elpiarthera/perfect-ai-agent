@@ -27,9 +27,3 @@ body {
 .prose-chapter blockquote { border-left: 3px solid #f59e0b; padding-left: 1.5rem; color: #9ca3af; font-style: italic; margin: 2rem 0; }
 .prose-chapter strong { color: #f3f4f6; }
 .prose-chapter em { color: #d1d5db; }
-
-.gated-blur {
-  filter: blur(8px);
-  user-select: none;
-  pointer-events: none;
-}

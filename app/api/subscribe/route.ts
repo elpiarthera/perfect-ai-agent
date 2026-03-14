@@ -87,13 +87,5 @@ export async function POST(req: NextRequest) {
 
   console.log(`[subscribe] New signup: ${email} (locale: ${locale})`)
 
-  const response = NextResponse.json({ success: true })
-  response.cookies.set('email_captured', 'true', {
-    maxAge: 60 * 60 * 24 * 30, // 30 days
-    httpOnly: true,
-    secure: true,
-    sameSite: 'lax',
-  })
-
-  return response
+  return NextResponse.json({ success: true })
 }

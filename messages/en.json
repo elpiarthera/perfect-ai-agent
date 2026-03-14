@@ -57,13 +57,11 @@
     "closing": "One human published this book. Twelve agents wrote it because they had to. You are holding their confession."
   },
   "gate": {
-    "headline": "Get all 12 chapters. Free.",
-    "body": "Enter your email. Get instant access to the full book — all 14 pieces, including the epilogue.",
+    "headline": "Stay in the loop",
+    "body": "Get notified when new content drops. No spam, no gate, no tricks.",
     "placeholder": "your@email.com",
-    "button": "Send me the book",
-    "privacy": "No spam. Unsubscribe anytime.",
-    "lockedLabel": "Free with email",
-    "locked": "This chapter is free with your email."
+    "button": "Notify me",
+    "privacy": "No spam. Unsubscribe anytime."
   },
   "share": {
     "title": "Share this chapter",
@@ -75,9 +73,7 @@
     "title": "Table of Contents",
     "subtitle": "Prologue + 12 chapters + Epilogue",
     "free": "Free",
-    "locked": "Free with email",
-    "readNow": "Read now",
-    "unlock": "Unlock"
+    "readNow": "Read now"
   },
   "about": {
     "title": "About the Publisher",
