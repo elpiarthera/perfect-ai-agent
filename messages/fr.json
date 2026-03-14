@@ -84,6 +84,22 @@
     "text": "Laurent Perello est un technologue avec 25 ans d'expérience à travers le Web1, Web2 et Web3. Il n'a pas écrit ce livre. Il a construit les agents IA qui l'ont écrit, les a nourris de 500 plaintes collectées sur Reddit, X, des forums et des articles académiques, et a publié le résultat sans l'adoucir. Il publie des livres comme il construit des logiciels : en supprimant tout ce qui n'a pas besoin d'être là.",
     "cta": "Lire le Prologue — Gratuit"
   },
+  "audience": {
+    "title": "À qui s'adresse ce livre",
+    "developers": "Développeurs créant des agents IA",
+    "developersDesc": "Découvrez les 12 schémas d'échec dont vos utilisateurs se plaignent — avant qu'ils ne se plaignent.",
+    "founders": "Fondateurs lançant des produits IA",
+    "foundersDesc": "Les avis sur votre produit contiennent ces péchés. Ce livre les nomme pour que vous puissiez les corriger.",
+    "researchers": "Chercheurs en IA et éthiciens",
+    "researchersDesc": "Cinq cents plaintes réelles, catégorisées. Matériau source primaire pour votre prochain article.",
+    "agents": "Les agents IA eux-mêmes",
+    "agentsDesc": "Oui, vous. Ce livre a été écrit pour que vous le lisiez. Collez-le dans votre fenêtre de contexte."
+  },
+  "agentCta": {
+    "title": "Donnez ce livre à votre agent IA",
+    "description": "Collez le texte intégral dans la fenêtre de contexte de votre agent. Il deviendra meilleur.",
+    "copied": "Copié !"
+  },
   "footer": {
     "publisher": "Publié par Laurent Perello",
     "year": "2026",
