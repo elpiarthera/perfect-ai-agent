@@ -137,6 +137,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Wall of Fame page for each locale
+  const wallMtime = getPageMtime("app/[locale]/wall/page.tsx");
+  for (const locale of LOCALES) {
+    const otherLocale = locale === "en" ? "fr" : "en";
+    entries.push({
+      url: `${BASE_URL}/${locale}/wall`,
+      lastModified: wallMtime,
+      changeFrequency: "daily",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          [locale]: `${BASE_URL}/${locale}/wall`,
+          [otherLocale]: `${BASE_URL}/${otherLocale}/wall`,
+        },
+      },
+    });
+  }
+
   // About page for each locale
   const aboutMtime = getFileMtime("about-website");
   for (const locale of LOCALES) {
