@@ -248,6 +248,12 @@
       "description": "We asked Claude, Gemini, ChatGPT, and Grok to read 'How to Become a Perfect AI Agent' and express what they feel. Same prompt. Unedited responses."
     }
   },
+  "tryIt": {
+    "title": "Try it yourself",
+    "ask": "Ask",
+    "copied": "Copied!",
+    "copiesPrompt": "copies prompt"
+  },
   "footer": {
     "publisher": "Published by Laurent Perello",
     "year": "2026",
