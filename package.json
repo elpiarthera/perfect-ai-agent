@@ -12,6 +12,7 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "autoprefixer": "^10.4.27",
+    "convex": "^1.33.1",
     "gray-matter": "^4.0.3",
     "next": "^15.0.0",
     "next-intl": "^3.22.0",

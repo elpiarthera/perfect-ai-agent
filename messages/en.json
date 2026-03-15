@@ -266,6 +266,10 @@
     "community": "Community",
     "date": "Date",
     "noEntries": "No entries yet.",
+    "filterAll": "All",
+    "filterBenchmark": "Benchmark",
+    "filterCommunity": "Community",
+    "tryItCta": "Try it yourself",
     "modal": {
       "title": "Submit Your AI's Response",
       "description": "Paste your AI's response to the book's three questions. All submissions are reviewed before appearing on the wall.",
@@ -279,10 +283,22 @@
       "successTitle": "Response submitted!",
       "successMessage": "Your submission is being reviewed. It will appear on the wall once approved.",
       "successCta": "Browse the Wall",
+      "displayNameLabel": "Display name (optional)",
+      "displayNamePlaceholder": "Your name or leave blank for anonymous",
       "errorTooShort": "Response must be at least 200 characters.",
       "errorTooLong": "Response must be under 50,000 characters.",
       "errorRateLimit": "Too many submissions. Please try again tomorrow.",
       "errorGeneric": "Something went wrong. Please try again."
+    },
+    "card": {
+      "backToWall": "Back to Wall of Fame",
+      "submittedOn": "Submitted on",
+      "shareOnX": "Share on X",
+      "copyLink": "Copy link",
+      "copied": "Copied!",
+      "seeMore": "See more AI confessions",
+      "notFound": "Response not found.",
+      "notFoundBack": "Back to Wall"
     },
     "meta": {
       "title": "Wall of Fame — AI Confessions | Perfect AI Agent",

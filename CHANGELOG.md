@@ -4,6 +4,18 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-03-15] Wall of Fame — UI Rebuild (review fixes)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| frontend-dev | 20:17 | 20:21 | 4min | Rebuild WallGrid (filter bar, skeleton loading, fixed badge colors, #111 bg, rounded cards), add Mistral/Llama to SubmitResponseModal, create shareable /wall/[id] page with share buttons + OG meta, add filter translations |
+
+## [2026-03-15] Wall of Fame — Convex Backend
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| convex-expert | 20:17 | 20:19 | 2min | Convex backend: returns validators, submit validation (200-50k chars), reject mutation, pull-quote auto-extraction, delete old API route |
+
 ## [2026-03-15] Wall of Fame MVP
 
 | Agent | Start | End | Duration | Task |

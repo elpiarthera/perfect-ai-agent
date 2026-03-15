@@ -1,36 +1,48 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useQuery } from 'convex/react'
 import { useTranslations } from 'next-intl'
+import { api } from '@/convex/_generated/api'
+import type { Doc } from '@/convex/_generated/dataModel'
 import SubmitResponseModal from './SubmitResponseModal'
 
-interface WallEntry {
-  id: string
-  modelName: string
-  date: string
-  pullQuote: string
-  responseText: string
-  source: 'benchmark' | 'community'
-}
+type FilterType = 'all' | 'benchmark' | 'community'
 
-function WallCard({ entry }: { entry: WallEntry }) {
+function WallCard({ entry, locale }: { entry: Doc<"wallResponses">; locale: string }) {
   const t = useTranslations('wall')
   const [expanded, setExpanded] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  const shareUrl = `https://perfectaiagent.xyz/${locale}/wall/${entry._id}`
+
+  function handleShare() {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+
+  const dateStr = new Date(entry.submittedAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
 
   return (
-    <div className="border border-gray-800 bg-surface/50 p-6 flex flex-col">
+    <article className="border border-gray-800 bg-[#111] rounded p-6 flex flex-col">
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
-        <h3 className="font-serif text-lg text-white font-semibold">
+        <h3 className="font-serif text-lg text-white font-bold">
           {entry.modelName}
         </h3>
         <div className="flex items-center gap-3 shrink-0">
-          <span className="text-xs text-gray-500 font-sans">{entry.date}</span>
+          <span className="text-xs text-gray-500 font-sans">{dateStr}</span>
           <span
             className={`text-xs font-sans px-2 py-0.5 rounded ${
               entry.source === 'benchmark'
                 ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
-                : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                : 'bg-gray-500/10 text-gray-400 border border-gray-500/20'
             }`}
           >
             {t(entry.source)}
@@ -52,55 +64,97 @@ function WallCard({ entry }: { entry: WallEntry }) {
         </div>
       )}
 
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="text-sm text-gray-500 hover:text-amber-500 transition-colors font-sans mt-auto self-start"
-      >
-        {expanded ? t('collapse') : t('readFull')}
-      </button>
+      {/* Actions */}
+      <div className="flex items-center gap-4 mt-auto pt-2">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="text-sm text-gray-500 hover:text-amber-500 transition-colors font-sans"
+        >
+          {expanded ? t('collapse') : t('readFull')}
+        </button>
+        <button
+          onClick={handleShare}
+          className="text-sm text-gray-500 hover:text-amber-500 transition-colors font-sans"
+          title="Copy share link"
+        >
+          {copied ? '✓ Copied!' : 'Share'}
+        </button>
+      </div>
+    </article>
+  )
+}
+
+function LoadingSkeleton() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16">
+      {[1, 2, 3, 4, 5, 6].map((i) => (
+        <div key={i} className="border border-gray-800 bg-[#111] rounded p-6 animate-pulse">
+          <div className="flex justify-between mb-4">
+            <div className="h-5 w-28 bg-gray-800 rounded" />
+            <div className="h-4 w-20 bg-gray-800 rounded" />
+          </div>
+          <div className="border-l-2 border-gray-800 pl-4 mb-4">
+            <div className="h-4 w-full bg-gray-800 rounded mb-2" />
+            <div className="h-4 w-3/4 bg-gray-800 rounded" />
+          </div>
+          <div className="h-4 w-24 bg-gray-800 rounded" />
+        </div>
+      ))}
     </div>
   )
 }
 
 export default function WallGrid({ locale }: { locale: string }) {
   const t = useTranslations('wall')
-  const [entries, setEntries] = useState<WallEntry[]>([])
-  const [loading, setLoading] = useState(true)
+  const entries = useQuery(api.wall.list)
   const [modalOpen, setModalOpen] = useState(false)
+  const [filter, setFilter] = useState<FilterType>('all')
 
-  useEffect(() => {
-    fetch('/wall-data.json')
-      .then((res) => res.json())
-      .then((data: WallEntry[]) => {
-        setEntries(data)
-        setLoading(false)
-      })
-      .catch(() => {
-        setLoading(false)
-      })
-  }, [])
+  const loading = entries === undefined
+
+  const filtered = entries?.filter((entry) => {
+    if (filter === 'all') return true
+    return entry.source === filter
+  })
 
   return (
     <>
-      {/* Submit button */}
-      <div className="mb-10">
+      {/* Controls: submit + filters */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 border-t border-gray-800 pt-8">
         <button
           onClick={() => setModalOpen(true)}
           className="bg-accent text-black px-6 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors"
         >
           {t('submitButton')}
         </button>
+
+        {/* Filter tabs */}
+        <div className="flex gap-1 font-sans text-sm">
+          {(['all', 'benchmark', 'community'] as const).map((f) => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              className={`px-4 py-2 transition-colors ${
+                filter === f
+                  ? 'text-amber-400 border-b-2 border-amber-500'
+                  : 'text-gray-500 hover:text-gray-300'
+              }`}
+            >
+              {t(f === 'all' ? 'filterAll' : f === 'benchmark' ? 'filterBenchmark' : 'filterCommunity')}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Grid */}
       {loading ? (
-        <div className="text-gray-500 font-sans text-sm py-12 text-center">Loading...</div>
-      ) : entries.length === 0 ? (
+        <LoadingSkeleton />
+      ) : !filtered || filtered.length === 0 ? (
         <div className="text-gray-500 font-sans text-sm py-12 text-center">{t('noEntries')}</div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-16">
-          {entries.map((entry) => (
-            <WallCard key={entry.id} entry={entry} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16">
+          {filtered.map((entry) => (
+            <WallCard key={entry._id} entry={entry} locale={locale} />
           ))}
         </div>
       )}
