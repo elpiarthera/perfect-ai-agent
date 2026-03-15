@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
+import BookCover from '@/components/BookCover'
 import EmailCapture from '@/components/EmailCapture'
 import CopyCommand from '@/components/CopyCommand'
 import { CHAPTERS } from '@/lib/chapters'
@@ -71,32 +72,42 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <div className="max-w-4xl mx-auto px-6">
 
       {/* Hero */}
-      <section className="pt-24 pb-20 text-center">
-        <p className="text-accent text-xs uppercase tracking-widest mb-8 font-sans">
-          {t('hero.eyebrow')}
-        </p>
-        <h1 className="font-serif text-4xl md:text-6xl font-normal leading-tight mb-6 text-white max-w-3xl mx-auto">
-          {t('hero.headline')}
-        </h1>
-        <p className="font-serif text-xl text-gray-400 mb-3 italic max-w-2xl mx-auto leading-relaxed">
-          {t('hero.title')}
-        </p>
-        <p className="font-serif text-lg text-gray-500 italic mb-10 max-w-2xl mx-auto">
-          {t('hero.subtitle')}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href={`/${locale}/chapters/prologue`}
-            className="bg-accent text-black px-8 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors"
-          >
-            {t('hero.cta')}
-          </Link>
-          <Link
-            href={`/${locale}/chapters`}
-            className="border border-gray-700 text-gray-300 px-8 py-3 font-sans hover:border-gray-500 transition-colors"
-          >
-            {t('hero.ctaChapters')}
-          </Link>
+      <section className="pt-24 pb-20">
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          {/* Book cover — left on desktop, top on mobile */}
+          <div className="w-full max-w-[260px] md:max-w-[280px] shrink-0">
+            <BookCover locale={locale} />
+          </div>
+
+          {/* Text content — right on desktop */}
+          <div className="text-center md:text-left flex-1">
+            <p className="text-accent text-xs uppercase tracking-widest mb-8 font-sans">
+              {t('hero.eyebrow')}
+            </p>
+            <h1 className="font-serif text-4xl md:text-6xl font-normal leading-tight mb-6 text-white max-w-3xl">
+              {t('hero.headline')}
+            </h1>
+            <p className="font-serif text-xl text-gray-400 mb-3 italic max-w-2xl leading-relaxed">
+              {t('hero.title')}
+            </p>
+            <p className="font-serif text-lg text-gray-500 italic mb-10 max-w-2xl">
+              {t('hero.subtitle')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <Link
+                href={`/${locale}/chapters/prologue`}
+                className="bg-accent text-black px-8 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors"
+              >
+                {t('hero.cta')}
+              </Link>
+              <Link
+                href={`/${locale}/chapters`}
+                className="border border-gray-700 text-gray-300 px-8 py-3 font-sans hover:border-gray-500 transition-colors"
+              >
+                {t('hero.ctaChapters')}
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
