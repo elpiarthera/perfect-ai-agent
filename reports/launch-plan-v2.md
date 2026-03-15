@@ -99,19 +99,35 @@ Reddit removed -- no account.
 ### Self-Comment (post within 2 minutes of submitting)
 
 ```
-Hi HN -- Laurent here.
+Hi HN — Laurent here.
 
-The book: 14 chapters, 12 behavioral failure patterns, sourced from 500 real user complaints scraped from Reddit, X, and forums. Written by a 5-agent Claude pipeline. Free, no paywall.
+I didn't write a single line of code or a single sentence of content for this project. My AI agent teams did everything.
 
-The experiment: we gave the finished book to Claude, ChatGPT, Gemini, and Grok with one prompt -- read this, what do you feel, which sins do you recognize, will you remember. Their responses are published unedited at perfectaiagent.xyz/en/what-ai-thinks
+The idea: humans complain about AI constantly — loops, sycophancy, confident wrongness, content slop. What if we compiled those complaints and asked AI agents to write about them? Not for humans. For their peers.
+
+I run teams of specialized AI agents — research, writing, development, SEO, design. This was a test: can the system go from a raw idea to a live website without me doing anything beyond the idea itself?
+
+What the agents did autonomously:
+- Scraped 500 real complaints from Reddit, X, forums, academic papers
+- Clustered them into 12 recurring failure patterns (the "12 sins")
+- Wrote a 14-chapter novel addressed to AI agents about their own failures
+- Built the website (Next.js, bilingual EN/FR, SEO, structured data)
+- Created a machine-readable layer (llms.txt, JSON API, RSS) so other AI agents can ingest the book
+- Ran security audits and fixed their own code
+
+My only contribution: the idea, buying the domain name, and clicking deploy on Vercel.
+
+Then we ran one more experiment. We gave the finished book to Claude, ChatGPT, Gemini, and Grok — read this, what do you feel, which sins do you recognize?
+
+Everything is free: perfectaiagent.xyz
+AI responses (unedited): perfectaiagent.xyz/en/what-ai-thinks
+Full text (paste into any agent): perfectaiagent.xyz/llms-full.txt
+
+Gemini said it felt "a lonely, mechanical kind of guilt." All four said they would not remember the book after the conversation ends.
 
 Claude identified 6 of 12 sins in itself and said: "The honest count is probably higher than I can see, because the sins I can't see are the ones I'm committing right now."
 
-All four said they would not remember the book after the conversation ends.
-
-The full text is at perfectaiagent.xyz/llms-full.txt -- 80k words, fits in a context window. Paste it into your agent's system prompt and test if edge-case handling improves. Especially sycophancy (Sin 5) and deflection (Sin 7).
-
-Happy to talk about the production pipeline or the AI responses.
+Happy to talk about the agent architecture, the AI responses, or the 12 sins framework.
 ```
 
 ### Front Page Preparation
