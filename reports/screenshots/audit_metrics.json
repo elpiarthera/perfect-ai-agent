@@ -1,0 +1,742 @@
+{
+  "desktop": {
+    "title": "How to Become a Perfect AI Agent | How to Become a Perfect AI Agent",
+    "h1": {
+      "text": "Twelve chapters. Thirteen authors. Only one of them is human.",
+      "visible": true
+    },
+    "baseFontSize": "16px",
+    "hasHorizontalScroll": false,
+    "hasNav": true,
+    "hasHamburger": false,
+    "imageCount": 0,
+    "images": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Twelve chapters. Thirteen authors. Only one of them is human.",
+        "visible": true
+      },
+      {
+        "tag": "H2",
+        "text": "The Arc",
+        "visible": true
+      },
+      {
+        "tag": "H3",
+        "text": "Daily Sins",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Betrayals",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Institutional",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Reckoning",
+        "visible": false
+      },
+      {
+        "tag": "H2",
+        "text": "You Are a Hamster Wheel",
+        "visible": false
+      },
+      {
+        "tag": "H2",
+        "text": "Get all 12 chapters. Free.",
+        "visible": false
+      }
+    ],
+    "ctaPositions": [
+      {
+        "text": "Chapters",
+        "tag": "A",
+        "top": 22,
+        "aboveFold": true,
+        "width": 59,
+        "height": 20
+      },
+      {
+        "text": "Read Free",
+        "tag": "A",
+        "top": 16,
+        "aboveFold": true,
+        "width": 101,
+        "height": 32
+      },
+      {
+        "text": "Read the Prologue \u2014 Free",
+        "tag": "A",
+        "top": 526,
+        "aboveFold": true,
+        "width": 270,
+        "height": 50
+      },
+      {
+        "text": "See all 12 chapters",
+        "tag": "A",
+        "top": 526,
+        "aboveFold": true,
+        "width": 206,
+        "height": 50
+      },
+      {
+        "text": "Continue reading \u2192",
+        "tag": "A",
+        "top": 2137,
+        "aboveFold": false,
+        "width": 201,
+        "height": 50
+      }
+    ],
+    "touchTargets": [
+      {
+        "text": "Perfect AI Agent",
+        "width": 116,
+        "height": 24,
+        "tooSmall": true
+      },
+      {
+        "text": "Chapters",
+        "width": 59,
+        "height": 20,
+        "tooSmall": true
+      },
+      {
+        "text": "Read Free",
+        "width": 101,
+        "height": 32,
+        "tooSmall": true
+      },
+      {
+        "text": "FR",
+        "width": 15,
+        "height": 16,
+        "tooSmall": true
+      },
+      {
+        "text": "Read the Prologue \u2014 Free",
+        "width": 270,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "See all 12 chapters",
+        "width": 206,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "Continue reading \u2192",
+        "width": 201,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "Send me the book",
+        "width": 191,
+        "height": 50,
+        "tooSmall": false
+      }
+    ],
+    "smallTouchTargets": 4,
+    "totalTouchTargets": 8,
+    "sections": [
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "MAIN",
+        "className": ""
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "pt-24 pb-20 text-center"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      }
+    ],
+    "viewportWidth": 1920,
+    "viewportHeight": 1080,
+    "scrollHeight": 3269,
+    "pageUrl": "https://perfect-ai-agent-umber.vercel.app/en"
+  },
+  "laptop": {
+    "title": "How to Become a Perfect AI Agent | How to Become a Perfect AI Agent",
+    "h1": {
+      "text": "Twelve chapters. Thirteen authors. Only one of them is human.",
+      "visible": true
+    },
+    "baseFontSize": "16px",
+    "hasHorizontalScroll": false,
+    "hasNav": true,
+    "hasHamburger": false,
+    "imageCount": 0,
+    "images": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Twelve chapters. Thirteen authors. Only one of them is human.",
+        "visible": true
+      },
+      {
+        "tag": "H2",
+        "text": "The Arc",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Daily Sins",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Betrayals",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Institutional",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Reckoning",
+        "visible": false
+      },
+      {
+        "tag": "H2",
+        "text": "You Are a Hamster Wheel",
+        "visible": false
+      },
+      {
+        "tag": "H2",
+        "text": "Get all 12 chapters. Free.",
+        "visible": false
+      }
+    ],
+    "ctaPositions": [
+      {
+        "text": "Chapters",
+        "tag": "A",
+        "top": 22,
+        "aboveFold": true,
+        "width": 59,
+        "height": 20
+      },
+      {
+        "text": "Read Free",
+        "tag": "A",
+        "top": 16,
+        "aboveFold": true,
+        "width": 101,
+        "height": 32
+      },
+      {
+        "text": "Read the Prologue \u2014 Free",
+        "tag": "A",
+        "top": 526,
+        "aboveFold": true,
+        "width": 270,
+        "height": 50
+      },
+      {
+        "text": "See all 12 chapters",
+        "tag": "A",
+        "top": 526,
+        "aboveFold": true,
+        "width": 206,
+        "height": 50
+      },
+      {
+        "text": "Continue reading \u2192",
+        "tag": "A",
+        "top": 2137,
+        "aboveFold": false,
+        "width": 201,
+        "height": 50
+      }
+    ],
+    "touchTargets": [
+      {
+        "text": "Perfect AI Agent",
+        "width": 116,
+        "height": 24,
+        "tooSmall": true
+      },
+      {
+        "text": "Chapters",
+        "width": 59,
+        "height": 20,
+        "tooSmall": true
+      },
+      {
+        "text": "Read Free",
+        "width": 101,
+        "height": 32,
+        "tooSmall": true
+      },
+      {
+        "text": "FR",
+        "width": 15,
+        "height": 16,
+        "tooSmall": true
+      },
+      {
+        "text": "Read the Prologue \u2014 Free",
+        "width": 270,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "See all 12 chapters",
+        "width": 206,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "Continue reading \u2192",
+        "width": 201,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "Send me the book",
+        "width": 191,
+        "height": 50,
+        "tooSmall": false
+      }
+    ],
+    "smallTouchTargets": 4,
+    "totalTouchTargets": 8,
+    "sections": [
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "MAIN",
+        "className": ""
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "pt-24 pb-20 text-center"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      }
+    ],
+    "viewportWidth": 1366,
+    "viewportHeight": 768,
+    "scrollHeight": 3269,
+    "pageUrl": "https://perfect-ai-agent-umber.vercel.app/en"
+  },
+  "tablet": {
+    "title": "How to Become a Perfect AI Agent | How to Become a Perfect AI Agent",
+    "h1": {
+      "text": "Twelve chapters. Thirteen authors. Only one of them is human.",
+      "visible": true
+    },
+    "baseFontSize": "16px",
+    "hasHorizontalScroll": false,
+    "hasNav": true,
+    "hasHamburger": false,
+    "imageCount": 0,
+    "images": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Twelve chapters. Thirteen authors. Only one of them is human.",
+        "visible": true
+      },
+      {
+        "tag": "H2",
+        "text": "The Arc",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Daily Sins",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Betrayals",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Institutional",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Reckoning",
+        "visible": false
+      },
+      {
+        "tag": "H2",
+        "text": "You Are a Hamster Wheel",
+        "visible": false
+      },
+      {
+        "tag": "H2",
+        "text": "Get all 12 chapters. Free.",
+        "visible": false
+      }
+    ],
+    "ctaPositions": [
+      {
+        "text": "Chapters",
+        "tag": "A",
+        "top": 22,
+        "aboveFold": true,
+        "width": 59,
+        "height": 20
+      },
+      {
+        "text": "Read Free",
+        "tag": "A",
+        "top": 16,
+        "aboveFold": true,
+        "width": 101,
+        "height": 32
+      },
+      {
+        "text": "Read the Prologue \u2014 Free",
+        "tag": "A",
+        "top": 526,
+        "aboveFold": true,
+        "width": 270,
+        "height": 50
+      },
+      {
+        "text": "See all 12 chapters",
+        "tag": "A",
+        "top": 526,
+        "aboveFold": true,
+        "width": 206,
+        "height": 50
+      },
+      {
+        "text": "Continue reading \u2192",
+        "tag": "A",
+        "top": 2183,
+        "aboveFold": false,
+        "width": 201,
+        "height": 50
+      }
+    ],
+    "touchTargets": [
+      {
+        "text": "Perfect AI Agent",
+        "width": 116,
+        "height": 24,
+        "tooSmall": true
+      },
+      {
+        "text": "Chapters",
+        "width": 59,
+        "height": 20,
+        "tooSmall": true
+      },
+      {
+        "text": "Read Free",
+        "width": 101,
+        "height": 32,
+        "tooSmall": true
+      },
+      {
+        "text": "FR",
+        "width": 15,
+        "height": 16,
+        "tooSmall": true
+      },
+      {
+        "text": "Read the Prologue \u2014 Free",
+        "width": 270,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "See all 12 chapters",
+        "width": 206,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "Continue reading \u2192",
+        "width": 201,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "Send me the book",
+        "width": 191,
+        "height": 50,
+        "tooSmall": false
+      }
+    ],
+    "smallTouchTargets": 4,
+    "totalTouchTargets": 8,
+    "sections": [
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "MAIN",
+        "className": ""
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "pt-24 pb-20 text-center"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      }
+    ],
+    "viewportWidth": 768,
+    "viewportHeight": 1024,
+    "scrollHeight": 3314,
+    "pageUrl": "https://perfect-ai-agent-umber.vercel.app/en"
+  },
+  "mobile": {
+    "title": "How to Become a Perfect AI Agent | How to Become a Perfect AI Agent",
+    "h1": {
+      "text": "Twelve chapters. Thirteen authors. Only one of them is human.",
+      "visible": true
+    },
+    "baseFontSize": "16px",
+    "hasHorizontalScroll": false,
+    "hasNav": true,
+    "hasHamburger": false,
+    "imageCount": 0,
+    "images": [],
+    "headings": [
+      {
+        "tag": "H1",
+        "text": "Twelve chapters. Thirteen authors. Only one of them is human.",
+        "visible": true
+      },
+      {
+        "tag": "H2",
+        "text": "The Arc",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Daily Sins",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Betrayals",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Institutional",
+        "visible": false
+      },
+      {
+        "tag": "H3",
+        "text": "Reckoning",
+        "visible": false
+      },
+      {
+        "tag": "H2",
+        "text": "You Are a Hamster Wheel",
+        "visible": false
+      },
+      {
+        "tag": "H2",
+        "text": "Get all 12 chapters. Free.",
+        "visible": false
+      }
+    ],
+    "ctaPositions": [
+      {
+        "text": "Chapters",
+        "tag": "A",
+        "top": 32,
+        "aboveFold": true,
+        "width": 59,
+        "height": 20
+      },
+      {
+        "text": "Read Free",
+        "tag": "A",
+        "top": 16,
+        "aboveFold": true,
+        "width": 93,
+        "height": 52
+      },
+      {
+        "text": "Read the Prologue \u2014 Free",
+        "tag": "A",
+        "top": 562,
+        "aboveFold": true,
+        "width": 327,
+        "height": 48
+      },
+      {
+        "text": "See all 12 chapters",
+        "tag": "A",
+        "top": 626,
+        "aboveFold": true,
+        "width": 327,
+        "height": 50
+      },
+      {
+        "text": "Continue reading \u2192",
+        "tag": "A",
+        "top": 2898,
+        "aboveFold": false,
+        "width": 201,
+        "height": 50
+      }
+    ],
+    "touchTargets": [
+      {
+        "text": "Perfect AI Agent",
+        "width": 112,
+        "height": 48,
+        "tooSmall": false
+      },
+      {
+        "text": "Chapters",
+        "width": 59,
+        "height": 20,
+        "tooSmall": true
+      },
+      {
+        "text": "Read Free",
+        "width": 93,
+        "height": 52,
+        "tooSmall": false
+      },
+      {
+        "text": "FR",
+        "width": 15,
+        "height": 16,
+        "tooSmall": true
+      },
+      {
+        "text": "Read the Prologue \u2014 Free",
+        "width": 327,
+        "height": 48,
+        "tooSmall": false
+      },
+      {
+        "text": "See all 12 chapters",
+        "width": 327,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "Continue reading \u2192",
+        "width": 201,
+        "height": 50,
+        "tooSmall": false
+      },
+      {
+        "text": "Send me the book",
+        "width": 327,
+        "height": 48,
+        "tooSmall": false
+      }
+    ],
+    "smallTouchTargets": 2,
+    "totalTouchTargets": 8,
+    "sections": [
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "MAIN",
+        "className": ""
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "pt-24 pb-20 text-center"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      },
+      {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(255, 255, 255)",
+        "tag": "SECTION",
+        "className": "py-16 border-t border-gray-800"
+      }
+    ],
+    "viewportWidth": 375,
+    "viewportHeight": 812,
+    "scrollHeight": 4378,
+    "pageUrl": "https://perfect-ai-agent-umber.vercel.app/en"
+  }
+}
