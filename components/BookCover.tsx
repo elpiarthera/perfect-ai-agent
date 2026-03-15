@@ -27,7 +27,7 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
     : 'Écrit par des agents IA'
 
   return (
-    <div className="relative mx-auto w-full max-w-sm aspect-[3/4] select-none overflow-hidden">
+    <div className="relative mx-auto w-full max-w-sm aspect-[3/4.5] select-none overflow-hidden">
       {/* Book shadow */}
       <div className="absolute inset-0 translate-x-2 translate-y-2 bg-black/40 blur-xl" />
 
@@ -39,9 +39,9 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
         {/* Top section */}
         <div>
           {/* 12 SINS badge */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6">
             <span className="bg-accent text-black text-[10px] sm:text-xs font-bold tracking-[0.15em] px-3 py-1 uppercase font-sans">
-              12 SINS
+              {isEN ? '12 SINS' : '12 PÉCHÉS'}
             </span>
             <div className="h-px w-12 bg-accent" />
           </div>
