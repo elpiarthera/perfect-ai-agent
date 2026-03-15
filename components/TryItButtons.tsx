@@ -26,8 +26,8 @@ const platforms: Record<Platform, PlatformConfig> = {
   },
   gemini: {
     label: 'Gemini',
-    needsClipboard: false,
-    getUrl: (encoded) => `https://gemini.google.com/app?q=${encoded}`,
+    needsClipboard: true,
+    getUrl: () => 'https://gemini.google.com/app',
   },
   perplexity: {
     label: 'Perplexity',
