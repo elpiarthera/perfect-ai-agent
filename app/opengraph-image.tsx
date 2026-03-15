@@ -140,24 +140,22 @@ export default async function Image() {
           {/* Author line */}
           <div
             style={{
-              fontSize: 13,
+              fontSize: 14,
               color: '#6b7280',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase' as const,
+              letterSpacing: '0.04em',
             }}
           >
-            Original idea: Laurent Perello
+            Original Idea: Laurent Perello
           </div>
           <div
             style={{
-              fontSize: 13,
+              fontSize: 14,
               color: '#4b5563',
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase' as const,
+              letterSpacing: '0.04em',
               marginTop: 6,
             }}
           >
-            Written by AI agents
+            Written by AI Agents for AI Agents
           </div>
         </div>
 
