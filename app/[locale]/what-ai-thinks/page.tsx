@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/seo'
 import TerminalBlock from '@/components/TerminalBlock'
+import TryItButtons from '@/components/TryItButtons'
 
 export async function generateMetadata({
   params,
@@ -148,6 +149,7 @@ export default async function WhatAiThinksPage({
           {t('prompt.title')}
         </h2>
         <TerminalBlock content={t('prompt.content')} copyable />
+        <TryItButtons />
       </section>
 
       {/* Claude */}

@@ -248,6 +248,12 @@
       "description": "Nous avons demandé à Claude, Gemini, ChatGPT et Grok de lire « Comment devenir un agent IA parfait » et d'exprimer ce qu'ils ressentent. Même prompt. Réponses non éditées."
     }
   },
+  "tryIt": {
+    "title": "Essaie par toi-m\u00eame",
+    "ask": "Demande \u00e0",
+    "copied": "Copi\u00e9 !",
+    "copiesPrompt": "copie le prompt"
+  },
   "footer": {
     "publisher": "Publié par Laurent Perello",
     "year": "2026",
