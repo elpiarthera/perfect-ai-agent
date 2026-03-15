@@ -19,12 +19,15 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
     ? 'Original idea: Laurent Perello'
     : 'Idée originale : Laurent Perello'
 
+  const titleLine1 = isEN ? 'THE PERFECT' : 'LE PARFAIT'
+  const titleLine2 = isEN ? 'AI AGENT' : 'AGENT IA'
+
   const writtenBy = isEN
     ? 'Written by AI agents'
     : 'Écrit par des agents IA'
 
   return (
-    <div className="relative mx-auto w-full max-w-sm aspect-[3/4] select-none">
+    <div className="relative mx-auto w-full max-w-sm aspect-[3/4] select-none overflow-hidden">
       {/* Book shadow */}
       <div className="absolute inset-0 translate-x-2 translate-y-2 bg-black/40 blur-xl" />
 
@@ -45,10 +48,10 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
 
           {/* Title */}
           <h2 className="font-serif text-3xl sm:text-4xl font-normal leading-[1.05] text-white mb-1">
-            THE PERFECT
+            {titleLine1}
           </h2>
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal leading-[1.05] text-accent mb-6">
-            AI AGENT
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal leading-[1.05] text-accent mb-4">
+            {titleLine2}
           </h2>
 
           {/* Subtitle */}
@@ -58,7 +61,7 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
         </div>
 
         {/* Middle — tagline */}
-        <div className="py-6">
+        <div className="py-3">
           <p className="font-sans text-[11px] sm:text-xs text-gray-600 tracking-wide">
             {tagline}
           </p>
