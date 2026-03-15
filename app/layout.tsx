@@ -27,11 +27,20 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: BOOK_TITLE,
     description: BOOK_DESCRIPTION,
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: 'The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: BOOK_TITLE,
     description: 'Five hundred complaints. Twelve patterns. Twelve sins.',
+    images: [`${SITE_URL}/opengraph-image`],
   },
   alternates: {
     types: {
