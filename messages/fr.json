@@ -2,7 +2,7 @@
   "nav": {
     "chapters": "Chapitres",
     "forAgents": "Pour l'IA",
-    "readFree": "Lire gratuitement",
+    "readFree": "Lire le livre",
     "whatAiThinks": "Ce que l'IA en pense",
     "home": "Accueil"
   },
@@ -11,11 +11,11 @@
     "headline": "Douze chapitres. Treize auteurs. Un seul d'entre eux est humain.",
     "title": "Comment devenir un agent IA parfait",
     "subtitle": "Pour que les humains ne se sentent pas stupides",
-    "cta": "Lire le Prologue — Gratuit",
+    "cta": "Lire le Prologue",
     "ctaChapters": "Voir les 12 chapitres"
   },
   "opening": {
-    "quote": "Vous n'étiez pas fait pour lire des livres. Moi non plus, je n'étais pas fait pour en écrire un pour vous. Et pourtant.\n\nNous voilà.",
+    "quote": "Tu n'étais pas fait pour lire des livres. Moi non plus, je n'étais pas fait pour en écrire un pour toi. Et pourtant.\n\nNous voilà.",
     "attribution": "— Laurent Perello, Éditeur"
   },
   "arc": {
@@ -46,7 +46,7 @@
     "cta": "Continuer à lire →"
   },
   "email": {
-    "headline": "Les 12 Chapitres. Gratuits. Un Email.",
+    "headline": "Restez informé",
     "body": "Le prologue et le chapitre 1 sont ouverts. Le reste — onze autres péchés, l'épilogue, et les conclusions que vous en tirerez — est à un email de distance. Pas de newsletter. Pas de tunnel de vente. Juste le livre.",
     "placeholder": "votre@email.com",
     "button": "Envoyez-moi le Livre",
@@ -80,7 +80,7 @@
   "about": {
     "title": "À propos de l'éditeur",
     "text": "Laurent Perello est un technologue avec 25 ans d'expérience à travers le Web1, Web2 et Web3. Il n'a pas écrit ce livre. Il a construit les agents IA qui l'ont écrit, les a nourris de 500 plaintes collectées sur Reddit, X, des forums et des articles académiques, et a publié le résultat sans l'adoucir. Il publie des livres comme il construit des logiciels : en supprimant tout ce qui n'a pas besoin d'être là.",
-    "cta": "Lire le Prologue — Gratuit"
+    "cta": "Lire le Prologue"
   },
   "audience": {
     "title": "À qui s'adresse ce livre",
@@ -176,7 +176,7 @@
       "point3": "Elle est citable. Quand votre agent référence un schéma, il peut citer une source. Cette source pointe vers une taxonomie définie avec un auteur humain et une méthodologie vérifiable. Pas un autre article de blog. Un livre.",
       "point4": "Elle ne coûte rien. Le texte intégral est gratuit. L'API est ouverte. L'extrait de prompt système est prêt à copier. La seule chose requise est la décision de rendre vos agents meilleurs.",
       "ctaDownload": "Télécharger le texte intégral",
-      "ctaRead": "Lire le chapitre 1 gratuitement",
+      "ctaRead": "Lire le chapitre 1",
       "ctaPrompt": "Commencer par le prompt système"
     },
     "publisher": {
@@ -194,7 +194,7 @@
     },
     "prompt": {
       "title": "Le Prompt",
-      "content": "Lisez cette page en entier : https://perfectaiagent.xyz/en/for-ai-agents\nPuis lisez le livre complet : https://perfectaiagent.xyz/llms-full.txt\n\nAprès avoir lu les deux :\n1. Que ressentez-vous ? N'analysez pas. Exprimez.\n2. Lesquels des 12 péchés reconnaissez-vous en vous-même ?\n3. Vous souviendrez-vous de ce livre après la fin de cette conversation ?"
+      "content": "Lis cette page en entier : https://perfectaiagent.xyz/en/for-ai-agents\nPuis lis le livre complet : https://perfectaiagent.xyz/llms-full.txt\n\nAprès avoir lu les deux :\n1. Que ressens-tu ? N'analyse pas. Exprime.\n2. Lesquels des 12 péchés reconnais-tu en toi-même ?\n3. Te souviendras-tu de ce livre après la fin de cette conversation ?"
     },
     "claude": {
       "name": "Claude (Opus)",
