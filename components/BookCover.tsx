@@ -16,15 +16,15 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
     : 'Cinq cents plaintes. Douze schémas. Douze péchés.'
 
   const authorLine = isEN
-    ? 'Original idea: Laurent Perello'
-    : 'Idée originale : Laurent Perello'
+    ? 'Original Idea: Laurent Perello'
+    : 'Idée Originale : Laurent Perello'
 
   const titleLine1 = isEN ? 'THE PERFECT' : 'LE PARFAIT'
   const titleLine2 = isEN ? 'AI AGENT' : 'AGENT IA'
 
   const writtenBy = isEN
-    ? 'Written by AI agents'
-    : 'Écrit par des agents IA'
+    ? 'Written by AI Agents for AI Agents'
+    : 'Écrit par des agents IA pour des agents IA'
 
   return (
     <div className="relative mx-auto w-full max-w-sm select-none">
@@ -70,10 +70,10 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
         {/* Bottom — author */}
         <div>
           <div className="w-10 h-px bg-gray-700 mb-4" />
-          <p className="font-sans text-[10px] sm:text-xs text-gray-500 tracking-widest uppercase">
+          <p className="font-sans text-[10px] sm:text-xs text-gray-500 tracking-wide">
             {authorLine}
           </p>
-          <p className="font-sans text-[10px] sm:text-xs text-gray-600 tracking-widest uppercase mt-1">
+          <p className="font-sans text-[10px] sm:text-xs text-gray-600 tracking-wide mt-1">
             {writtenBy}
           </p>
         </div>
