@@ -48,6 +48,11 @@ export default async function LocaleLayout({
                   </a>
                 </li>
                 <li>
+                  <a href={locale === 'fr' ? '/fr/schema-accessibilite' : '/en/accessibility-plan'} className="hover:text-white transition-colors">
+                    {locale === 'fr' ? 'Schéma pluriannuel' : 'Accessibility Plan'}
+                  </a>
+                </li>
+                <li>
                   <a href={locale === 'fr' ? '/fr/plan-du-site' : '/en/sitemap'} className="hover:text-white transition-colors">
                     {locale === 'fr' ? 'Plan du site' : 'Sitemap'}
                   </a>

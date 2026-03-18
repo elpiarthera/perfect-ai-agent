@@ -199,5 +199,63 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Accessibility declaration pages
+  const accessibilityMtime = getPageMtime("app/[locale]/accessibility/page.tsx");
+  entries.push({
+    url: `${BASE_URL}/en/accessibility`,
+    lastModified: accessibilityMtime,
+    changeFrequency: "yearly",
+    priority: 0.3,
+    alternates: {
+      languages: {
+        en: `${BASE_URL}/en/accessibility`,
+        fr: `${BASE_URL}/fr/accessibilite`,
+        "x-default": `${BASE_URL}/en/accessibility`,
+      },
+    },
+  });
+  entries.push({
+    url: `${BASE_URL}/fr/accessibilite`,
+    lastModified: accessibilityMtime,
+    changeFrequency: "yearly",
+    priority: 0.3,
+    alternates: {
+      languages: {
+        en: `${BASE_URL}/en/accessibility`,
+        fr: `${BASE_URL}/fr/accessibilite`,
+        "x-default": `${BASE_URL}/en/accessibility`,
+      },
+    },
+  });
+
+  // Accessibility multi-year plan pages
+  const planMtime = getPageMtime("app/[locale]/accessibility-plan/page.tsx");
+  entries.push({
+    url: `${BASE_URL}/en/accessibility-plan`,
+    lastModified: planMtime,
+    changeFrequency: "yearly",
+    priority: 0.3,
+    alternates: {
+      languages: {
+        en: `${BASE_URL}/en/accessibility-plan`,
+        fr: `${BASE_URL}/fr/schema-accessibilite`,
+        "x-default": `${BASE_URL}/en/accessibility-plan`,
+      },
+    },
+  });
+  entries.push({
+    url: `${BASE_URL}/fr/schema-accessibilite`,
+    lastModified: planMtime,
+    changeFrequency: "yearly",
+    priority: 0.3,
+    alternates: {
+      languages: {
+        en: `${BASE_URL}/en/accessibility-plan`,
+        fr: `${BASE_URL}/fr/schema-accessibilite`,
+        "x-default": `${BASE_URL}/en/accessibility-plan`,
+      },
+    },
+  });
+
   return entries;
 }
