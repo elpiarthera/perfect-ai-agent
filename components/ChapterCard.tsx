@@ -19,9 +19,9 @@ export default function ChapterCard({
           : chapter.slug.replace('chapter-', 'Ch. ')}
       </div>
       <div className="flex-1 min-w-0">
-        <h3 className="font-serif text-white group-hover:text-accent transition-colors truncate">
+        <h2 className="font-serif text-lg text-white group-hover:text-accent transition-colors truncate">
           {chapter.title}
-        </h3>
+        </h2>
         {chapter.subtitle && (
           <p className="text-muted text-sm font-sans mt-0.5">{chapter.subtitle}</p>
         )}

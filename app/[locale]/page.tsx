@@ -7,7 +7,9 @@ import CopyCommand from '@/components/CopyCommand'
 import { getLocalizedChapters } from '@/lib/chapters-i18n'
 import {
   BOOK_TITLE,
+  BOOK_TITLE_FR,
   BOOK_DESCRIPTION,
+  BOOK_DESCRIPTION_FR,
   SITE_URL,
   AUTHOR,
   PUBLICATION_DATE,
@@ -22,9 +24,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const otherLocale = locale === 'en' ? 'fr' : 'en'
+  const isFr = locale === 'fr'
+  const title = isFr ? BOOK_TITLE_FR : BOOK_TITLE
+  const description = isFr ? BOOK_DESCRIPTION_FR : BOOK_DESCRIPTION
+  const twitterDesc = isFr
+    ? 'Cinq cents plaintes. Douze schémas. Douze péchés.'
+    : 'Five hundred complaints. Twelve patterns. Twelve sins.'
+  const ogAlt = isFr
+    ? 'Le Parfait Agent IA — Cinq cents plaintes. Douze schémas. Douze péchés.'
+    : 'The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.'
+
   return {
-    title: { absolute: BOOK_TITLE },
-    description: BOOK_DESCRIPTION,
+    title: { absolute: title },
+    description,
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
       languages: {
@@ -34,26 +46,26 @@ export async function generateMetadata({
     },
     openGraph: {
       type: 'book',
-      title: BOOK_TITLE,
-      description: BOOK_DESCRIPTION,
+      title,
+      description,
       url: `${SITE_URL}/${locale}`,
       images: [
         {
           url: `${SITE_URL}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: 'The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.',
+          alt: ogAlt,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: BOOK_TITLE,
-      description: 'Five hundred complaints. Twelve patterns. Twelve sins.',
+      title,
+      description: twitterDesc,
       images: [`${SITE_URL}/opengraph-image`],
     },
     other: {
-      'citation_title': BOOK_TITLE,
+      'citation_title': title,
       'citation_author': AUTHOR.name,
       'citation_publication_date': PUBLICATION_DATE,
     },
@@ -116,7 +128,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="font-serif text-xl text-gray-400 mb-3 italic max-w-2xl leading-relaxed">
               {t('hero.title')}
             </p>
-            <p className="font-serif text-lg text-gray-500 italic mb-10 max-w-2xl">
+            <p className="font-serif text-lg text-gray-400 italic mb-10 max-w-2xl">
               {t('hero.subtitle')}
             </p>
             <div className="hidden md:flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -188,7 +200,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="py-16 border-t border-gray-800">
         <p className="text-accent text-xs uppercase tracking-widest font-sans mb-4">{t('teaser.eyebrow')}</p>
         <h2 className="font-serif text-3xl text-white mb-2">{t('teaser.title')}</h2>
-        <p className="text-gray-500 font-sans mb-8">{t('teaser.sin')}</p>
+        <p className="text-gray-400 font-sans mb-8">{t('teaser.sin')}</p>
         <div className="prose-chapter text-gray-300 mb-8">
           <blockquote className="border-l-4 border-accent pl-6 italic text-gray-400 mb-8">
             {t('teaser.quote')}

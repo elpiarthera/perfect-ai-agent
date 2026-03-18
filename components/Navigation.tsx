@@ -17,7 +17,7 @@ export default function Navigation({ locale }: { locale: string }) {
   ]
 
   return (
-    <nav className="border-b border-gray-800 px-6 py-2">
+    <nav aria-label={locale === 'fr' ? 'Navigation principale' : 'Main navigation'} className="border-b border-gray-800 px-6 py-2">
       <div className="max-w-4xl mx-auto flex items-center justify-between">
         <Link href={`/${locale}`} className="font-serif text-white hover:text-accent transition-colors min-h-[44px] flex items-center shrink-0">
           Perfect AI Agent
@@ -58,6 +58,8 @@ export default function Navigation({ locale }: { locale: string }) {
             onClick={() => setOpen(!open)}
             className="text-muted hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Menu"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             {open ? (
               <span className="text-xl leading-none">&times;</span>
@@ -70,7 +72,7 @@ export default function Navigation({ locale }: { locale: string }) {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden border-t border-gray-800 mt-2 pt-2 pb-4 space-y-1">
+        <div id="mobile-menu" className="md:hidden border-t border-gray-800 mt-2 pt-2 pb-4 space-y-1">
           {links.map((link) => (
             <Link
               key={link.href}

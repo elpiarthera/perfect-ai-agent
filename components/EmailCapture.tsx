@@ -47,13 +47,19 @@ export default function EmailCapture({ locale }: { locale: string }) {
       <h2 className="font-serif text-3xl text-white mb-3">{t('headline')}</h2>
       <p className="text-gray-400 font-sans mb-8 leading-relaxed">{t('body')}</p>
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+        <label htmlFor="email-newsletter" className="sr-only">
+          {locale === 'fr' ? 'Adresse email' : 'Email address'}
+        </label>
         <input
+          id="email-newsletter"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t('placeholder')}
           required
-          className="flex-1 bg-surface border border-gray-700 text-white px-4 py-3 font-sans focus:outline-none focus:border-accent"
+          aria-required="true"
+          aria-describedby={error ? 'email-error' : undefined}
+          className="flex-1 bg-surface border border-gray-700 text-white px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
         />
         <button
           type="submit"
@@ -63,7 +69,11 @@ export default function EmailCapture({ locale }: { locale: string }) {
           {loading ? '...' : t('button')}
         </button>
       </form>
-      {error && <p className="text-red-400 text-sm font-sans mt-3">{error}</p>}
+      {error && (
+        <p id="email-error" role="alert" className="text-red-400 text-sm font-sans mt-3">
+          {error}
+        </p>
+      )}
       <p className="text-muted text-xs font-sans mt-4">
         {t('privacy')}{' '}
         <Link href={`/${locale}/privacy`} className="underline hover:text-white transition-colors">

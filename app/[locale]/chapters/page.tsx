@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { locale } = await params
   const otherLocale = locale === 'en' ? 'fr' : 'en'
   return {
-    title: 'Chapters',
+    title: locale === 'fr' ? 'Chapitres' : 'Chapters',
     alternates: {
       canonical: `${SITE_URL}/${locale}/chapters`,
       languages: {

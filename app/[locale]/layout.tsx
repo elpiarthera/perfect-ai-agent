@@ -25,16 +25,35 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className="bg-background text-white min-h-screen font-sans antialiased">
+        <a href="#main-content" className="skip-link">
+          {locale === 'fr' ? 'Aller au contenu principal' : 'Skip to main content'}
+        </a>
         <NextIntlClientProvider messages={messages}>
-          <Navigation locale={locale} />
-          <main>{children}</main>
+          <header>
+            <Navigation locale={locale} />
+          </header>
+          <main id="main-content">{children}</main>
           <footer className="border-t border-gray-800 mt-24 py-8 text-center text-muted text-sm space-y-2">
             <p>&copy; 2026 <a href="https://x.com/PerelloLaurent" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Laurent Perello</a> / ElPi Corp. All rights reserved.</p>
-            <p>
-              <a href={`/${locale}/privacy`} className="hover:text-white transition-colors">
-                {locale === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'}
-              </a>
-            </p>
+            <nav aria-label={locale === 'fr' ? 'Liens de pied de page' : 'Footer links'}>
+              <ul className="flex flex-wrap justify-center gap-4 mt-2">
+                <li>
+                  <a href={`/${locale}/privacy`} className="hover:text-white transition-colors">
+                    {locale === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'}
+                  </a>
+                </li>
+                <li>
+                  <a href={locale === 'fr' ? '/fr/accessibilite' : '/en/accessibility'} className="hover:text-white transition-colors">
+                    {locale === 'fr' ? 'Accessibilité' : 'Accessibility'}
+                  </a>
+                </li>
+                <li>
+                  <a href={locale === 'fr' ? '/fr/plan-du-site' : '/en/sitemap'} className="hover:text-white transition-colors">
+                    {locale === 'fr' ? 'Plan du site' : 'Sitemap'}
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </footer>
         </NextIntlClientProvider>
         <Analytics />
