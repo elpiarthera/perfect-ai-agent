@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
 export default function EmailCapture({ locale }: { locale: string }) {
@@ -63,7 +64,12 @@ export default function EmailCapture({ locale }: { locale: string }) {
         </button>
       </form>
       {error && <p className="text-red-400 text-sm font-sans mt-3">{error}</p>}
-      <p className="text-muted text-xs font-sans mt-4">{t('privacy')}</p>
+      <p className="text-muted text-xs font-sans mt-4">
+        {t('privacy')}{' '}
+        <Link href={`/${locale}/privacy`} className="underline hover:text-white transition-colors">
+          {locale === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'}
+        </Link>
+      </p>
     </div>
   )
 }
