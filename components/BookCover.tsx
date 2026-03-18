@@ -44,13 +44,13 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
             <div className="h-px w-12 bg-accent" />
           </div>
 
-          {/* Title */}
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal leading-[1.05] text-white mb-1">
+          {/* Title — decorative only; real h1 is in the page heading */}
+          <p aria-hidden="true" className="font-serif text-3xl sm:text-4xl font-normal leading-[1.05] text-white mb-1">
             {titleLine1}
-          </h2>
-          <h2 className="font-serif text-3xl sm:text-4xl font-normal leading-[1.05] text-accent mb-4">
+          </p>
+          <p aria-hidden="true" className="font-serif text-3xl sm:text-4xl font-normal leading-[1.05] text-accent mb-4">
             {titleLine2}
-          </h2>
+          </p>
 
           {/* Subtitle */}
           <p className="font-serif text-sm sm:text-base text-gray-400 italic leading-relaxed max-w-[280px]">
@@ -60,7 +60,7 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
 
         {/* Middle — tagline */}
         <div>
-          <p className="font-sans text-[11px] sm:text-xs text-gray-600 tracking-wide">
+          <p className="font-sans text-[11px] sm:text-xs text-gray-400 tracking-wide">
             {tagline}
           </p>
         </div>
@@ -68,10 +68,10 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
         {/* Bottom — author */}
         <div>
           <div className="w-10 h-px bg-gray-700 mb-4" />
-          <p className="font-sans text-[10px] sm:text-xs text-gray-500 tracking-wide">
+          <p className="font-sans text-[10px] sm:text-xs text-gray-400 tracking-wide">
             {authorLine}
           </p>
-          <p className="font-sans text-[10px] sm:text-xs text-gray-600 tracking-wide mt-1">
+          <p className="font-sans text-[10px] sm:text-xs text-gray-400 tracking-wide mt-1">
             {writtenBy}
           </p>
         </div>

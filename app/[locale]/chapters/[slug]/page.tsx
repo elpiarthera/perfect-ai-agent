@@ -9,6 +9,7 @@ import { CHAPTERS } from '@/lib/chapters'
 import { getLocalizedChapter, getLocalizedChapters } from '@/lib/chapters-i18n'
 import EmailCapture from '@/components/EmailCapture'
 import ShareButtons from '@/components/ShareButtons'
+import Breadcrumb from '@/components/Breadcrumb'
 import {
   BOOK_TITLE,
   SITE_URL,
@@ -139,6 +140,12 @@ export default async function ChapterPage({
     { name: `${chapter.number}: ${chapter.title}`, url: `${SITE_URL}/${locale}/chapters/${slug}` },
   ])
 
+  const breadcrumbItems = [
+    { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
+    { label: locale === 'fr' ? 'Chapitres' : 'Chapters', href: `/${locale}/chapters` },
+    { label: `${chapter.number}: ${chapter.title}` },
+  ]
+
   return (
     <>
       <script
@@ -149,7 +156,8 @@ export default async function ChapterPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <article className="max-w-3xl mx-auto px-6 pt-16 pb-24">
+      <Breadcrumb items={breadcrumbItems} />
+      <article className="max-w-3xl mx-auto px-6 pt-8 pb-24">
       {/* Chapter header */}
       <header className="mb-12">
         <p className="text-accent text-xs uppercase tracking-widest font-sans mb-2">

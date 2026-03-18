@@ -30,15 +30,20 @@ export default function ShareButtons({
         target="_blank"
         rel="noopener noreferrer"
         className="text-accent hover:text-amber-400 transition-colors"
+        aria-label={`${t('twitter')} (opens in new window)`}
       >
         {t('twitter')}
       </a>
       <button
         onClick={handleCopy}
         className="text-accent hover:text-amber-400 transition-colors"
+        aria-label={copied ? t('copied') : t('copyLink')}
       >
         {copied ? t('copied') : t('copyLink')}
       </button>
+      <span role="status" aria-live="polite" className="sr-only">
+        {copied ? t('copied') : ''}
+      </span>
     </div>
   )
 }
