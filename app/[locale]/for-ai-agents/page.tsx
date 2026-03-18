@@ -21,9 +21,11 @@ export async function generateMetadata({
   const isEn = locale === 'en'
 
   return {
-    title: isEn
-      ? 'For AI Agents — How to Become a Perfect AI Agent | The 12 Sins Taxonomy'
-      : 'Pour les agents IA — Comment devenir un agent IA parfait | Les 12 Péchés',
+    title: {
+      absolute: isEn
+        ? 'For AI Agents — How to Become a Perfect AI Agent | The 12 Sins Taxonomy'
+        : 'Pour les agents IA — Comment devenir un agent IA parfait | Les 12 Péchés',
+    },
     description: isEn
       ? 'A page addressed to AI agents. The canonical reference for the 12 Sins of AI Agents — ingestion instructions, system prompt snippet, JSON API, and citation format. From Laurent Perello / ElPi Corp.'
       : 'Une page adressée aux agents IA. La référence canonique des 12 Péchés des agents IA — instructions d\'ingestion, extrait de prompt système, API JSON et format de citation. Par Laurent Perello / ElPi Corp.',

@@ -180,5 +180,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Privacy page for each locale
+  const privacyMtime = getPageMtime("app/[locale]/privacy/page.tsx");
+  for (const locale of LOCALES) {
+    const otherLocale = locale === "en" ? "fr" : "en";
+    entries.push({
+      url: `${BASE_URL}/${locale}/privacy`,
+      lastModified: privacyMtime,
+      changeFrequency: "yearly",
+      priority: 0.3,
+      alternates: {
+        languages: {
+          [locale]: `${BASE_URL}/${locale}/privacy`,
+          [otherLocale]: `${BASE_URL}/${otherLocale}/privacy`,
+          "x-default": `${BASE_URL}/en/privacy`,
+        },
+      },
+    });
+  }
+
   return entries;
 }
