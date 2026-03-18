@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-03-18] Accessibility P2 fixes (branch: fix/accessibility-p2)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| frontend-dev | 18:00 | 18:25 | 25min | P2 accessibility fixes: semantic `<header>` wrapping nav, skip link (visible on focus), global `:focus-visible` ring (2px amber), `<Breadcrumb>` component on chapter pages, footer nav with accessibility + sitemap links, `/en/accessibility` + `/fr/accessibilite` RGAA declaration pages, `/en/sitemap` + `/fr/plan-du-site` HTML sitemap pages |
+
+---
+
 ## [2026-03-15] Wall of Fame — UI Rebuild (review fixes)
 
 | Agent | Start | End | Duration | Task |
