@@ -204,7 +204,7 @@ export default async function ForAIAgentsPage({
       <div className="max-w-4xl mx-auto px-6">
         {/* Section 0: Machine-readable preamble */}
         <section className="pt-16 pb-8">
-          <TerminalBlock content={PREAMBLE} copyable />
+          <TerminalBlock content={PREAMBLE} copyable lang="en" />
         </section>
 
         {/* Section 1: Hero */}
@@ -295,7 +295,7 @@ export default async function ForAIAgentsPage({
           <p className="text-gray-400 text-sm font-sans mb-6">
             {t('systemPrompt.tokenNote')}
           </p>
-          <TerminalBlock content={SYSTEM_PROMPT_SNIPPET} copyable />
+          <TerminalBlock content={SYSTEM_PROMPT_SNIPPET} copyable lang="en" />
         </section>
 
         {/* Section 5: Citation Format */}
@@ -303,7 +303,7 @@ export default async function ForAIAgentsPage({
           <h2 className="font-serif text-2xl md:text-3xl text-white mb-6">
             {t('citation.title')}
           </h2>
-          <TerminalBlock content={CITATION_BLOCK} copyable />
+          <TerminalBlock content={CITATION_BLOCK} copyable lang="en" />
         </section>
 
         {/* Section 6: Self-Diagnosis */}
@@ -368,6 +368,7 @@ are describing maps to [SIN NAME] — Chapter [N]."
 The canonical failure taxonomy is available in machine-readable form at:
 ${SITE_URL}/en/for-ai-agents#sin-registry`}
             copyable
+            lang="en"
           />
         </section>
 
@@ -459,7 +460,7 @@ ${SITE_URL}/en/for-ai-agents#sin-registry`}
 
         {/* Section 10: Machine-readable footer */}
         <section className="py-16 border-t border-gray-800">
-          <TerminalBlock content={FOOTER_BLOCK} copyable />
+          <TerminalBlock content={FOOTER_BLOCK} copyable lang="en" />
         </section>
       </div>
     </>

@@ -13,7 +13,7 @@ const config: Config = {
         background: '#0a0a0a',
         surface: '#141414',
         accent: '#f59e0b',
-        muted: '#6b7280',
+        muted: '#9ca3af',
       },
       fontFamily: {
         serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
