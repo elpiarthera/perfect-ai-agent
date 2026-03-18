@@ -52,6 +52,14 @@ export async function generateMetadata({
       title,
       description,
       url: `${SITE_URL}/${locale}/chapters/${slug}`,
+      images: [
+        {
+          url: `${SITE_URL}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: 'The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.',
+        },
+      ],
       // article tags for chapter context
       tags: chapter.sin ? [chapter.sin, 'AI', 'AI agents'] : ['AI', 'AI agents'],
     },
@@ -59,6 +67,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title,
       description,
+      images: [`${SITE_URL}/opengraph-image`],
     },
     other: {
       'citation_title': title,

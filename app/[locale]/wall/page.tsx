@@ -28,11 +28,20 @@ export async function generateMetadata({
       siteName: 'Perfect AI Agent',
       type: 'website',
       locale: locale === 'en' ? 'en_US' : 'fr_FR',
+      images: [
+        {
+          url: `${SITE_URL}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: 'The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('meta.title'),
       description: t('meta.description'),
+      images: [`${SITE_URL}/opengraph-image`],
     },
   }
 }

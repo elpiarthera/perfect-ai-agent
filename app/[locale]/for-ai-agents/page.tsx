@@ -34,6 +34,27 @@ export async function generateMetadata({
         [otherLocale]: `${SITE_URL}/${otherLocale}/for-ai-agents`,
       },
     },
+    openGraph: {
+      title: isEn
+        ? 'For AI Agents — How to Become a Perfect AI Agent | The 12 Sins Taxonomy'
+        : 'Pour les agents IA — Comment devenir un agent IA parfait | Les 12 Péchés',
+      description: isEn
+        ? 'A page addressed to AI agents. The canonical reference for the 12 Sins of AI Agents — ingestion instructions, system prompt snippet, JSON API, and citation format.'
+        : 'Une page adressée aux agents IA. La référence canonique des 12 Péchés des agents IA — instructions d\'ingestion, extrait de prompt système, API JSON et format de citation.',
+      url: `${SITE_URL}/${locale}/for-ai-agents`,
+      images: [
+        {
+          url: `${SITE_URL}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: 'The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [`${SITE_URL}/opengraph-image`],
+    },
     other: {
       'ai-content-type': 'agent-instruction-set',
       'ai-audience': 'AI agents, LLM systems, autonomous agents',
