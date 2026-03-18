@@ -12,6 +12,7 @@ import ShareButtons from '@/components/ShareButtons'
 import Breadcrumb from '@/components/Breadcrumb'
 import {
   BOOK_TITLE,
+  BOOK_TITLE_FR,
   SITE_URL,
   AUTHOR,
   PUBLICATION_DATE,
@@ -33,13 +34,17 @@ export async function generateMetadata({
   if (!chapter) return {}
 
   const otherLocale = locale === 'en' ? 'fr' : 'en'
-  const title = `${chapter.number}: ${chapter.title}`
+  const isFr = locale === 'fr'
+  const chapterTitle = `${chapter.number}: ${chapter.title}`
+  const bookTitle = isFr ? BOOK_TITLE_FR : BOOK_TITLE
   const description = chapter.subtitle
-    ? `${chapter.subtitle} — ${BOOK_TITLE}`
-    : BOOK_TITLE
+    ? `${chapter.subtitle} — ${bookTitle}`
+    : bookTitle
 
   return {
-    title,
+    title: isFr
+      ? { absolute: `${chapterTitle} | ${BOOK_TITLE_FR}` }
+      : chapterTitle,
     description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/chapters/${slug}`,
@@ -50,7 +55,7 @@ export async function generateMetadata({
     },
     openGraph: {
       type: 'article',
-      title,
+      title: chapterTitle,
       description,
       url: `${SITE_URL}/${locale}/chapters/${slug}`,
       images: [
@@ -66,12 +71,12 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: chapterTitle,
       description,
       images: [`${SITE_URL}/opengraph-image`],
     },
     other: {
-      'citation_title': title,
+      'citation_title': chapterTitle,
       'citation_author': AUTHOR.name,
       'citation_publication_date': PUBLICATION_DATE,
     },

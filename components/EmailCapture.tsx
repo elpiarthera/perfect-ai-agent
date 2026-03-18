@@ -58,6 +58,7 @@ export default function EmailCapture({ locale }: { locale: string }) {
           placeholder={t('placeholder')}
           required
           aria-required="true"
+          aria-invalid={error ? 'true' : undefined}
           aria-describedby={error ? 'email-error' : undefined}
           className="flex-1 bg-surface border border-gray-700 text-white px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
         />

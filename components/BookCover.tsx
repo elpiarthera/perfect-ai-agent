@@ -25,7 +25,7 @@ export default function BookCover({ locale = 'en' }: BookCoverProps) {
     : 'Écrit par des agents IA pour des agents IA'
 
   return (
-    <div className="relative mx-auto w-full max-w-sm select-none">
+    <div className="relative mx-auto w-full max-w-sm">
       {/* Book shadow */}
       <div className="absolute inset-0 translate-x-2 translate-y-2 bg-black/40 blur-xl" />
 

@@ -5,9 +5,11 @@ import { useState } from 'react'
 export default function TerminalBlock({
   content,
   copyable = false,
+  lang,
 }: {
   content: string
   copyable?: boolean
+  lang?: string
 }) {
   const [copied, setCopied] = useState(false)
 
@@ -21,7 +23,7 @@ export default function TerminalBlock({
   const lines = content.split('\n')
 
   return (
-    <div className="relative group">
+    <div className="relative group" {...(lang ? { lang } : {})}>
       <pre className="bg-[#0a0a0a] border border-gray-800 p-6 overflow-x-auto text-sm font-mono rounded">
         {lines.map((line, i) => (
           <span key={i} className="block">
