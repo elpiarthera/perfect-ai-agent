@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import { getLocalizedChapters } from '@/lib/chapters-i18n'
 import ChapterCard from '@/components/ChapterCard'
 import { SITE_URL, BOOK_TITLE_FR } from '@/lib/seo'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
   params,
@@ -46,6 +47,11 @@ export default async function ChaptersPage({ params }: { params: Promise<{ local
   const t = await getTranslations({ locale })
 
   return (
+    <>
+    <Breadcrumb items={[
+      { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
+      { label: locale === 'fr' ? 'Chapitres' : 'Chapters' },
+    ]} />
     <div className="max-w-4xl mx-auto px-6 pt-16 pb-24">
       <h1 className="font-serif text-4xl text-white mb-2">{t('chapters.title')}</h1>
       <p className="text-muted font-sans mb-12">{t('chapters.subtitle')}</p>
@@ -56,5 +62,6 @@ export default async function ChaptersPage({ params }: { params: Promise<{ local
         ))}
       </div>
     </div>
+    </>
   )
 }

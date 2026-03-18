@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/seo'
 import { CHAPTERS } from '@/lib/chapters'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
   params,
@@ -68,6 +69,11 @@ export default async function PlanDuSitePage({
   }
 
   return (
+    <>
+    <Breadcrumb items={[
+      { label: 'Accueil', href: `/${locale}` },
+      { label: 'Plan du site' },
+    ]} />
     <article className="max-w-3xl mx-auto px-6 pt-16 pb-24">
       <header className="mb-12">
         <p className="text-accent text-xs uppercase tracking-widest font-sans mb-2">Navigation</p>
@@ -160,5 +166,6 @@ export default async function PlanDuSitePage({
         </Link>
       </div>
     </article>
+    </>
   )
 }
