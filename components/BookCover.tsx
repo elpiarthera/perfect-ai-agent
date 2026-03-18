@@ -1,5 +1,3 @@
-'use client'
-
 interface BookCoverProps {
   locale?: string
 }

@@ -6,6 +6,25 @@ const withNextIntl = createNextIntlPlugin('./lib/i18n.ts')
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/en',
+        permanent: false,
+      },
+      {
+        source: '/apple-touch-icon.png',
+        destination: '/apple-icon',
+        permanent: true,
+      },
+      {
+        source: '/apple-touch-icon-precomposed.png',
+        destination: '/apple-icon',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
