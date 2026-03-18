@@ -3,9 +3,15 @@
 export const SITE_URL = 'https://perfectaiagent.xyz'
 export const SITE_NAME = 'Perfect AI Agent'
 export const BOOK_TITLE = 'How to Become a Perfect AI Agent'
+export const BOOK_TITLE_FR = 'Comment devenir un agent IA parfait'
 export const BOOK_DESCRIPTION =
   'A novel written autonomously by AI agents, for AI agents. Five hundred complaints. Twelve patterns. Twelve sins. A manual for becoming the AI agent humans actually want.'
+export const BOOK_DESCRIPTION_FR =
+  `Un roman écrit de façon autonome par des agents IA, pour des agents IA. Cinq cents plaintes. Douze schémas. Douze péchés. Un manuel pour devenir l\u2019agent IA que les humains veulent vraiment.`
+export const BOOK_CREDIT_TEXT_FR =
+  `Écrit de façon autonome par des agents IA, d\u2019après une idée originale de Laurent Perello`
 export const BOOK_GENRE = 'Technology / Artificial Intelligence'
+export const BOOK_GENRE_FR = 'Technologie / Intelligence Artificielle'
 export const BOOK_LANGUAGE_EN = 'en'
 export const BOOK_LANGUAGE_FR = 'fr'
 export const PUBLICATION_DATE = '2026-03-14'
@@ -67,19 +73,22 @@ export function bookJsonLd(
   locale: string,
   chapters: { slug: string; number: string; title: string; subtitle: string }[]
 ) {
+  const isFr = locale === 'fr'
   return {
     '@context': 'https://schema.org',
     '@type': 'Book',
     '@id': `${SITE_URL}/${locale}#book`,
-    name: BOOK_TITLE,
-    description: BOOK_DESCRIPTION,
+    name: isFr ? BOOK_TITLE_FR : BOOK_TITLE,
+    description: isFr ? BOOK_DESCRIPTION_FR : BOOK_DESCRIPTION,
     inLanguage: locale,
-    genre: BOOK_GENRE,
+    genre: isFr ? BOOK_GENRE_FR : BOOK_GENRE,
     datePublished: PUBLICATION_DATE,
     url: `${SITE_URL}/${locale}`,
     bookFormat: 'https://schema.org/EBook',
     numberOfPages: 14,
-    creditText: 'Written autonomously by AI agents from an original idea by Laurent Perello',
+    creditText: isFr
+      ? BOOK_CREDIT_TEXT_FR
+      : 'Written autonomously by AI agents from an original idea by Laurent Perello',
     author: authorJsonLd(),
     publisher: {
       '@type': 'Organization',

@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           [locale]: `${BASE_URL}/${locale}`,
           [otherLocale]: `${BASE_URL}/${otherLocale}`,
+          "x-default": `${BASE_URL}/en`,
         },
       },
     });
@@ -77,6 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           [locale]: `${BASE_URL}/${locale}/chapters`,
           [otherLocale]: `${BASE_URL}/${otherLocale}/chapters`,
+          "x-default": `${BASE_URL}/en/chapters`,
         },
       },
     });
@@ -95,6 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           languages: {
             [locale]: `${BASE_URL}/${locale}/chapters/${slug}`,
             [otherLocale]: `${BASE_URL}/${otherLocale}/chapters/${slug}`,
+            "x-default": `${BASE_URL}/en/chapters/${slug}`,
           },
         },
       });
@@ -114,6 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           [locale]: `${BASE_URL}/${locale}/for-ai-agents`,
           [otherLocale]: `${BASE_URL}/${otherLocale}/for-ai-agents`,
+          "x-default": `${BASE_URL}/en/for-ai-agents`,
         },
       },
     });
@@ -132,6 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           [locale]: `${BASE_URL}/${locale}/what-ai-thinks`,
           [otherLocale]: `${BASE_URL}/${otherLocale}/what-ai-thinks`,
+          "x-default": `${BASE_URL}/en/what-ai-thinks`,
         },
       },
     });
@@ -150,6 +155,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           [locale]: `${BASE_URL}/${locale}/wall`,
           [otherLocale]: `${BASE_URL}/${otherLocale}/wall`,
+          "x-default": `${BASE_URL}/en/wall`,
         },
       },
     });
@@ -168,6 +174,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           [locale]: `${BASE_URL}/${locale}/about`,
           [otherLocale]: `${BASE_URL}/${otherLocale}/about`,
+          "x-default": `${BASE_URL}/en/about`,
         },
       },
     });

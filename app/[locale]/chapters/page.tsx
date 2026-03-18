@@ -20,6 +20,22 @@ export async function generateMetadata({
         [otherLocale]: `${SITE_URL}/${otherLocale}/chapters`,
       },
     },
+    openGraph: {
+      title: locale === 'en' ? 'Chapters | How to Become a Perfect AI Agent' : 'Chapitres | Comment devenir un agent IA parfait',
+      url: `${SITE_URL}/${locale}/chapters`,
+      images: [
+        {
+          url: `${SITE_URL}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: 'The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [`${SITE_URL}/opengraph-image`],
+    },
   }
 }
 

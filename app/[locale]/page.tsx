@@ -4,7 +4,7 @@ import Link from 'next/link'
 import BookCover from '@/components/BookCover'
 import EmailCapture from '@/components/EmailCapture'
 import CopyCommand from '@/components/CopyCommand'
-import { CHAPTERS } from '@/lib/chapters'
+import { getLocalizedChapters } from '@/lib/chapters-i18n'
 import {
   BOOK_TITLE,
   BOOK_DESCRIPTION,
@@ -37,11 +37,20 @@ export async function generateMetadata({
       title: BOOK_TITLE,
       description: BOOK_DESCRIPTION,
       url: `${SITE_URL}/${locale}`,
+      images: [
+        {
+          url: `${SITE_URL}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: 'The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.',
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: BOOK_TITLE,
       description: 'Five hundred complaints. Twelve patterns. Twelve sins.',
+      images: [`${SITE_URL}/opengraph-image`],
     },
     other: {
       'citation_title': BOOK_TITLE,
@@ -55,9 +64,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   const t = await getTranslations({ locale })
 
+  const localizedChapters = getLocalizedChapters(locale)
   const jsonLd = [
     websiteJsonLd(),
-    bookJsonLd(locale, CHAPTERS),
+    bookJsonLd(locale, localizedChapters),
   ]
 
   return (
@@ -72,10 +82,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <div className="max-w-4xl mx-auto px-6">
 
       {/* Hero */}
-      <section className="pt-24 pb-20">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          {/* Book cover — left on desktop, top on mobile */}
-          <div className="w-full max-w-[260px] md:max-w-[280px] shrink-0">
+      <section className="pt-12 md:pt-24 pb-20">
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-16">
+          {/* CTAs above the cover on mobile — hidden on md+ */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:hidden w-full">
+            <Link
+              href={`/${locale}/chapters/prologue`}
+              className="bg-accent text-black px-8 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors text-center"
+            >
+              {t('hero.cta')}
+            </Link>
+            <Link
+              href={`/${locale}/chapters`}
+              className="border border-gray-700 text-gray-300 px-8 py-3 font-sans hover:border-gray-500 transition-colors text-center"
+            >
+              {t('hero.ctaChapters')}
+            </Link>
+          </div>
+
+          {/* Book cover — left on desktop, below CTAs on mobile */}
+          <div className="w-full max-w-[220px] md:max-w-[280px] shrink-0">
             <BookCover locale={locale} />
           </div>
 
@@ -93,7 +119,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <p className="font-serif text-lg text-gray-500 italic mb-10 max-w-2xl">
               {t('hero.subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="hidden md:flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
                 href={`/${locale}/chapters/prologue`}
                 className="bg-accent text-black px-8 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors"
