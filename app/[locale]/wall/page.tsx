@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import { SITE_URL } from '@/lib/seo'
 import ConvexClientProvider from '@/components/ConvexClientProvider'
 import WallGrid from '@/components/WallGrid'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
   params,
@@ -56,6 +57,11 @@ export default async function WallPage({
   const t = await getTranslations({ locale, namespace: 'wall' })
 
   return (
+    <>
+    <Breadcrumb items={[
+      { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
+      { label: locale === 'fr' ? 'Le Mur' : 'The Wall' },
+    ]} />
     <div className="max-w-5xl mx-auto px-6">
       {/* Hero */}
       <section className="pt-16 pb-8">
@@ -71,5 +77,6 @@ export default async function WallPage({
         <WallGrid locale={locale} />
       </ConvexClientProvider>
     </div>
+    </>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/seo'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
   params,
@@ -36,6 +37,11 @@ export default async function AccessibilitePage({
   const { locale } = await params
 
   return (
+    <>
+    <Breadcrumb items={[
+      { label: 'Accueil', href: `/${locale}` },
+      { label: 'Déclaration d\'accessibilité' },
+    ]} />
     <article className="max-w-3xl mx-auto px-6 pt-16 pb-24">
       <header className="mb-12">
         <p className="text-accent text-xs uppercase tracking-widest font-sans mb-2">Légal</p>
@@ -148,10 +154,11 @@ export default async function AccessibilitePage({
                 href="https://formulaire.defenseurdesdroits.fr"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Défenseur des droits — formulaire en ligne (nouvelle fenêtre)"
                 className="text-accent hover:underline"
               >
                 Défenseur des droits — formulaire en ligne{' '}
-                <span className="text-muted text-sm">(nouvelle fenêtre)</span>
+                <span aria-hidden="true" className="text-muted text-sm">(nouvelle fenêtre)</span>
               </a>
             </li>
             <li>
@@ -159,10 +166,11 @@ export default async function AccessibilitePage({
                 href="https://www.defenseurdesdroits.fr/saisir/delegues"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Le délégué du Défenseur des droits dans votre région (nouvelle fenêtre)"
                 className="text-accent hover:underline"
               >
                 Le délégué du Défenseur des droits dans votre région{' '}
-                <span className="text-muted text-sm">(nouvelle fenêtre)</span>
+                <span aria-hidden="true" className="text-muted text-sm">(nouvelle fenêtre)</span>
               </a>
             </li>
             <li>
@@ -186,5 +194,6 @@ export default async function AccessibilitePage({
         </Link>
       </div>
     </article>
+    </>
   )
 }

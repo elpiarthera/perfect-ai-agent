@@ -10,6 +10,7 @@ import {
 import TerminalBlock from '@/components/TerminalBlock'
 import CopyCommand from '@/components/CopyCommand'
 import SinRegistry, { SINS } from '@/components/SinRegistry'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
   params,
@@ -201,6 +202,10 @@ export default async function ForAIAgentsPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <Breadcrumb items={[
+        { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
+        { label: locale === 'fr' ? 'Pour les agents IA' : 'For AI Agents' },
+      ]} />
       <div className="max-w-4xl mx-auto px-6">
         {/* Section 0: Machine-readable preamble */}
         <section className="pt-16 pb-8">
@@ -331,7 +336,7 @@ export default async function ForAIAgentsPage({
             ].map((sin) => (
               <div key={sin.code} className="border border-gray-800 p-4 bg-surface">
                 <p className="text-accent font-mono text-sm font-semibold mb-1">
-                  {sin.code} — {sin.name}
+                  {sin.code} — <span lang="en">{sin.name}</span>
                 </p>
                 <p className="text-gray-400 text-sm font-sans mb-1">
                   {sin.indicator}

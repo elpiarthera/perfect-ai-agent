@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL, SITE_NAME, AUTHOR, PUBLISHER_ORG } from '@/lib/seo'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
   params,
@@ -45,6 +46,11 @@ export default async function PrivacyPage({
 
   if (isFR) {
     return (
+      <>
+      <Breadcrumb items={[
+        { label: 'Accueil', href: `/${locale}` },
+        { label: 'Politique de confidentialité' },
+      ]} />
       <article className="max-w-3xl mx-auto px-6 pt-16 pb-24">
         <header className="mb-12">
           <p className="text-accent text-xs uppercase tracking-widest font-sans mb-2">Légal</p>
@@ -144,6 +150,7 @@ export default async function PrivacyPage({
                 href="https://www.cnil.fr"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="CNIL (nouvelle fenêtre)"
                 className="text-accent hover:underline"
               >
                 CNIL
@@ -184,11 +191,17 @@ export default async function PrivacyPage({
           </Link>
         </div>
       </article>
+      </>
     )
   }
 
   // English version
   return (
+    <>
+    <Breadcrumb items={[
+      { label: 'Home', href: `/${locale}` },
+      { label: 'Privacy Policy' },
+    ]} />
     <article className="max-w-3xl mx-auto px-6 pt-16 pb-24">
       <header className="mb-12">
         <p className="text-accent text-xs uppercase tracking-widest font-sans mb-2">Legal</p>
@@ -283,6 +296,7 @@ export default async function PrivacyPage({
               href="https://www.cnil.fr"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="CNIL (opens in new window)"
               className="text-accent hover:underline"
             >
               CNIL
@@ -322,5 +336,6 @@ export default async function PrivacyPage({
         </Link>
       </div>
     </article>
+    </>
   )
 }

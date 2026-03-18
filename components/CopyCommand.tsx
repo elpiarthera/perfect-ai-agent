@@ -21,10 +21,19 @@ export default function CopyCommand({ command }: { command: string }) {
       </pre>
       <button
         onClick={handleCopy}
+        aria-label={copied ? t('copied') : 'Copy to clipboard'}
         className="absolute top-3 right-3 text-xs font-sans px-3 py-1.5 border border-gray-700 text-gray-400 hover:text-accent hover:border-accent transition-colors rounded"
       >
         {copied ? t('copied') : 'Copy'}
       </button>
+      <span
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="sr-only"
+      >
+        {copied ? t('copied') : ''}
+      </span>
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { SITE_URL } from '@/lib/seo'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
   params,
@@ -53,6 +54,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     : fs.readFileSync(enPath, 'utf-8')
 
   return (
+    <>
+    <Breadcrumb items={[
+      { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
+      { label: locale === 'fr' ? 'À propos' : 'About' },
+    ]} />
     <div className="max-w-3xl mx-auto px-6 pt-16 pb-24">
       <div className="prose prose-lg prose-invert prose-chapter">
         <MDXRemote source={content} />
@@ -66,5 +72,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </Link>
       </div>
     </div>
+    </>
   )
 }

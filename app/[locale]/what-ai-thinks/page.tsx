@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { SITE_URL } from '@/lib/seo'
 import TerminalBlock from '@/components/TerminalBlock'
 import TryItButtons from '@/components/TryItButtons'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
   params,
@@ -141,6 +142,11 @@ export default async function WhatAiThinksPage({
   const t = await getTranslations({ locale, namespace: 'whatAiThinks' })
 
   return (
+    <>
+    <Breadcrumb items={[
+      { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
+      { label: locale === 'fr' ? 'Ce que pense l\'IA' : 'What AI Thinks' },
+    ]} />
     <div className="max-w-4xl mx-auto px-6">
       {/* Hero */}
       <section className="pt-16 pb-8">
@@ -268,5 +274,6 @@ export default async function WhatAiThinksPage({
         </div>
       </section>
     </div>
+    </>
   )
 }

@@ -26,7 +26,7 @@ const SINS: Sin[] = [
 export default function SinRegistry({ locale }: { locale: string }) {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm font-sans">
+      <table className="w-full text-sm font-sans" lang="en">
         <thead>
           <tr className="border-b border-gray-700">
             <th className="text-left py-3 px-3 text-accent font-semibold">#</th>
