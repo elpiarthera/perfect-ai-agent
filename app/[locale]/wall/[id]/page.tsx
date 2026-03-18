@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { SITE_URL } from '@/lib/seo'
+import ConvexClientProvider from '@/components/ConvexClientProvider'
 import WallCardPage from './WallCardPage'
 
 export async function generateMetadata({
@@ -43,5 +44,9 @@ export default async function WallCardRoute({
 }) {
   const { locale, id } = await params
 
-  return <WallCardPage locale={locale} id={id} />
+  return (
+    <ConvexClientProvider>
+      <WallCardPage locale={locale} id={id} />
+    </ConvexClientProvider>
+  )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { SITE_URL } from '@/lib/seo'
+import ConvexClientProvider from '@/components/ConvexClientProvider'
 import WallGrid from '@/components/WallGrid'
 
 export async function generateMetadata({
@@ -66,7 +67,9 @@ export default async function WallPage({
         </p>
       </section>
 
-      <WallGrid locale={locale} />
+      <ConvexClientProvider>
+        <WallGrid locale={locale} />
+      </ConvexClientProvider>
     </div>
   )
 }
