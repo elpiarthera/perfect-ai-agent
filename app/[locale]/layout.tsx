@@ -34,7 +34,7 @@ export default async function LocaleLayout({
           </header>
           <main id="main-content">{children}</main>
           <footer className="border-t border-gray-800 mt-24 py-8 text-center text-muted text-sm space-y-2">
-            <p>&copy; 2026 <a href="https://x.com/PerelloLaurent" target="_blank" rel="noopener noreferrer" aria-label="Laurent Perello on X (opens in new window)" className="hover:text-white transition-colors">Laurent Perello</a> / ElPi Corp. All rights reserved.</p>
+            <p>&copy; 2026 <a href="https://x.com/PerelloLaurent" target="_blank" rel="noopener noreferrer" aria-label="Laurent Perello on X (opens in new window)" className="hover:text-white transition-colors">Laurent Perello</a> / ElPi Corp. {locale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}</p>
             <nav aria-label={locale === 'fr' ? 'Liens de pied de page' : 'Footer links'}>
               <ul className="flex flex-wrap justify-center gap-4 mt-2">
                 <li>

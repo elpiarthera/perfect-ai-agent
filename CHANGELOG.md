@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-03-18] Accessibility 100% — final 2 criteria (branch: fix/accessibility-100)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-seo | 21:00 | 21:30 | 30min | Critere 11.10: SubmitResponseModal — add `id`, `htmlFor` on all 3 labels, `aria-required`, `aria-invalid`, `aria-describedby` on select + textarea, `role="alert"` + `id="modal-error"` on error `<p>`. Critere 8.4: Footer "All rights reserved" translated to "Tous droits réservés" on FR pages to eliminate English-on-French inline language change. |
+
+---
+
 ## [2026-03-18] Accessibility P2 fixes (branch: fix/accessibility-p2)
 
 | Agent | Start | End | Duration | Task |

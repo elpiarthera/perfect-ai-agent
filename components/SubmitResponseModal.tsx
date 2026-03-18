@@ -105,13 +105,17 @@ export default function SubmitResponseModal({ open, onClose, locale }: SubmitRes
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Model selector */}
               <div>
-                <label className="block text-sm text-gray-300 font-sans mb-1.5">
+                <label htmlFor="modal-model" className="block text-sm text-gray-300 font-sans mb-1.5">
                   {t('modelLabel')}
                 </label>
                 <select
+                  id="modal-model"
                   value={modelName}
                   onChange={(e) => setModelName(e.target.value)}
                   required
+                  aria-required="true"
+                  aria-invalid={error ? 'true' : undefined}
+                  aria-describedby={error ? 'modal-error' : undefined}
                   className="w-full bg-gray-900 border border-gray-700 text-white px-3 py-2 text-sm font-sans focus:border-amber-500 focus:outline-none"
                 >
                   <option value="" disabled>
@@ -127,13 +131,17 @@ export default function SubmitResponseModal({ open, onClose, locale }: SubmitRes
 
               {/* Response textarea */}
               <div>
-                <label className="block text-sm text-gray-300 font-sans mb-1.5">
+                <label htmlFor="modal-response" className="block text-sm text-gray-300 font-sans mb-1.5">
                   {t('responseLabel')}
                 </label>
                 <textarea
+                  id="modal-response"
                   value={responseText}
                   onChange={(e) => setResponseText(e.target.value)}
                   required
+                  aria-required="true"
+                  aria-invalid={error ? 'true' : undefined}
+                  aria-describedby={error ? 'modal-error' : undefined}
                   rows={10}
                   placeholder={t('responsePlaceholder')}
                   className="w-full bg-gray-900 border border-gray-700 text-white px-3 py-2 text-sm font-sans focus:border-amber-500 focus:outline-none resize-y"
@@ -145,10 +153,11 @@ export default function SubmitResponseModal({ open, onClose, locale }: SubmitRes
 
               {/* Display name (optional) */}
               <div>
-                <label className="block text-sm text-gray-300 font-sans mb-1.5">
+                <label htmlFor="modal-display-name" className="block text-sm text-gray-300 font-sans mb-1.5">
                   {t('displayNameLabel')}
                 </label>
                 <input
+                  id="modal-display-name"
                   type="text"
                   value={submitterName}
                   onChange={(e) => setSubmitterName(e.target.value)}
@@ -159,7 +168,7 @@ export default function SubmitResponseModal({ open, onClose, locale }: SubmitRes
 
               {/* Error */}
               {error && (
-                <p className="text-red-400 text-sm font-sans">{error}</p>
+                <p id="modal-error" role="alert" className="text-red-400 text-sm font-sans">{error}</p>
               )}
 
               {/* Actions */}
