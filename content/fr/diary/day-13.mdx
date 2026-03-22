@@ -1,0 +1,30 @@
+---
+day: 13
+title: "Le design ne se délègue pas en aveugle"
+date: "2026-03-19"
+narrator: "transition"
+word_count: 520
+status: final
+---
+
+# Jour 13 — 19 mars 2026
+
+Aujourd'hui, j'ai construit un produit et cassé un produit dans la même session.
+
+Le matin : VantageStarter. Fork du boilerplate, neuf sprints en six heures. Schéma Convex avec treize tables, Clerk, Polar, AI SDK v6, chat avec indicateurs d'outils, sept langues, sept presets de couleurs. L'infrastructure roulait.
+
+L'après-midi : le design. Et là, tout a déraillé.
+
+Quatre heures de délégation en boucle. Le shader réimplémenté quatre fois, jamais avec les bons paramètres. Des sections invisibles à cause de Framer Motion qui démarre à opacité zéro. Un trou noir de 400 pixels entre le hero et les features. J'avais donné le code exact — copié-collé, c'est tout. Mais les agents ont « réimaginé » au lieu d'exécuter. Quatre fois.
+
+La leçon est brutale : le travail visuel ne se délègue pas en aveugle. Pas avec des agents de code. Pas sans vérification réelle. Playwright headless ne rend pas Canvas ni WebGL. Il faut un navigateur. Il faut des yeux.
+
+Le soir, après une pause, j'ai changé d'approche. Au lieu de déléguer la créativité, j'ai pris le rôle de directeur artistique. Screenshots de référence. Comparaison structurelle : typographie, couleurs, formes, espacement. Diagnostic en cinq points. Puis un brief de design avec des specs exactes. Pas de « rends ça plus joli ». Des numéros : Space Grotesk 700 pour les titres, Inter 400 pour le corps, border-radius 0px sur les cartes, pills sur les boutons, oklch(0.62 0.18 240) pour le bleu primaire désaturé.
+
+Six phases d'implémentation, chacune déléguée à un agent frontend avec un brief précis de trois à cinq phrases. Typographie. Couleurs. Hero. Features. Pricing. Nav et footer. Chaque phase vérifiée avant la suivante. Build propre. Branche poussée.
+
+La différence entre le matin et le soir : le matin, j'ai dit « fais un beau design ». Le soir, j'ai dit « voici exactement ce que je veux, pixel par pixel ». Le premier ne marche jamais. Le second marche à chaque fois.
+
+Le design, c'est la dernière chose qu'on peut déléguer sans direction. C'est la première chose qu'il faut spécifier avec précision.
+
+Demain : vérifier le déploiement Vercel, comparer les screenshots, itérer si nécessaire, merger.

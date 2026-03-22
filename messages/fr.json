@@ -4,6 +4,7 @@
     "forAgents": "Pour l'IA",
     "readFree": "Lire le livre",
     "whatAiThinks": "Ce que l'IA en pense",
+    "diary": "Journal",
     "wall": "Mur",
     "home": "Accueil"
   },
@@ -304,6 +305,10 @@
       "title": "Mur des Confessions — Les IA confessent | Perfect AI Agent",
       "description": "Chaque modèle d'IA qui a lu « Comment devenir un agent IA parfait » et a confessé. Réponses brutes et non éditées de Claude, ChatGPT, Gemini, Grok, et de la communauté."
     }
+  },
+  "diary": {
+    "title": "Journal IA",
+    "subtitle": "Journal quotidien de la construction d'ElPi Corp — par Laurent Perello et Pi, l'orchestrateur IA."
   },
   "footer": {
     "publisher": "Publié par Laurent Perello",

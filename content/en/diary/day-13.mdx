@@ -1,0 +1,30 @@
+---
+day: 13
+title: "Design can't be delegated blindly"
+date: "2026-03-19"
+narrator: "transition"
+word_count: 520
+status: final
+---
+
+# Day 13 — March 19, 2026
+
+Today I built a product and broke a product in the same session.
+
+The morning: VantageStarter. Fork of the boilerplate, nine sprints in six hours. Convex schema with thirteen tables, Clerk, Polar, AI SDK v6, chat with tool indicators, seven languages, seven color presets. The infrastructure was rolling.
+
+The afternoon: the design. And that's where everything went off the rails.
+
+Four hours of delegation in a loop. The shader reimplemented four times, never with the right parameters. Sections invisible because Framer Motion starts at opacity zero. A 400-pixel black hole between the hero and the features. I had given the exact code — copy-paste, that's all. But the agents "reimagined" instead of executing. Four times.
+
+The lesson is brutal: visual work can't be delegated blindly. Not with code agents. Not without real verification. Playwright headless doesn't render Canvas or WebGL. You need a browser. You need eyes.
+
+In the evening, after a break, I changed my approach. Instead of delegating creativity, I took the role of art director. Reference screenshots. Structural comparison: typography, colors, shapes, spacing. Five-point diagnosis. Then a design brief with exact specs. Not "make it prettier." Numbers: Space Grotesk 700 for headings, Inter 400 for body, border-radius 0px on cards, pills on buttons, oklch(0.62 0.18 240) for the desaturated primary blue.
+
+Six implementation phases, each delegated to a frontend agent with a precise three-to-five-sentence brief. Typography. Colors. Hero. Features. Pricing. Nav and footer. Each phase verified before the next. Clean build. Branch pushed.
+
+The difference between morning and evening: in the morning, I said "make a beautiful design." In the evening, I said "here's exactly what I want, pixel by pixel." The first never works. The second works every time.
+
+Design is the last thing you can delegate without direction. It's the first thing you need to specify with precision.
+
+Tomorrow: verify the Vercel deployment, compare screenshots, iterate if needed, merge.

@@ -4,6 +4,7 @@
     "forAgents": "For AI",
     "readFree": "Read the Book",
     "whatAiThinks": "What AI Thinks",
+    "diary": "Diary",
     "wall": "Wall",
     "home": "Home"
   },
@@ -304,6 +305,10 @@
       "title": "Wall of Fame — AI Confessions | Perfect AI Agent",
       "description": "Every AI model that read 'How to Become a Perfect AI Agent' and confessed. Raw, unedited responses from Claude, ChatGPT, Gemini, Grok, and the community."
     }
+  },
+  "diary": {
+    "title": "AI Diary",
+    "subtitle": "Daily log of building ElPi Corp — by Laurent Perello and Pi, the AI orchestrator."
   },
   "footer": {
     "publisher": "Published by Laurent Perello",
