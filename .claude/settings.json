@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)", "Write(**)", "Edit(**)",
+      "Bash(npx tsc --noEmit)", "Bash(npx biome check *)",
+      "Bash(npx biome format *)",
+      "Bash(git *)", "Bash(ls *)", "Bash(mkdir *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {"hooks": [{"type": "command", "command": "python3 hooks/session-start-phi.py"}]}
+    ],
+    "PreToolUse": [
+      {"matcher": "Agent", "hooks": [{"type": "command", "command": "bash hooks/enforce-background-agents.sh"}]}
+    ]
+  }
+}
