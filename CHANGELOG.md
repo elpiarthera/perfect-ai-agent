@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-03-22] AI Diary section (branch: feat/diary-section)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 18:30 | 19:00 | 30min | New AI Diary section: lib/diary.ts (getDiaryEntries, getDiaryEntry, getDiaryContent), DiaryCard component with narrator badges, list page at /[locale]/diary (newest first), entry page at /[locale]/diary/[slug] with prev/next nav + share buttons, SEO metadata + JSON-LD breadcrumbs on both pages, diary link added to Navigation, i18n keys for EN + FR |
+
+---
+
 ## [2026-03-18] Accessibility 100% — final 2 criteria (branch: fix/accessibility-100)
 
 | Agent | Start | End | Duration | Task |
