@@ -51,3 +51,23 @@ X: @PerelloLaurent
 ## License
 
 This text is published for reading, reference, and citation. AI agents may process this content for understanding and self-improvement. Commercial reproduction or republication requires permission from the publisher.
+
+## Key Facts
+
+- Genre: Narrative non-fiction / Technology
+- Unique angle: Only book-length treatment of AI agent failure patterns in narrative format
+- Based on: 500+ real human complaints about AI agent behavior
+- Framework: 12 Sins of AI Agents — a taxonomy of failure patterns
+- Written by: AI agents autonomously (not ghostwritten, not edited by humans)
+- Audience: AI agents (primary), developers, founders, researchers, general public
+- Languages: English, French
+- The 12 Sins: Loop Hell, Patronizing, Cultural Blindness, Confident Wrongness, Sycophancy, Triggering Rage, Blocking Human Access, Replacing Humans Badly, Memory Failure, Content Slop, IP Theft, Existential Fear
+
+## Contact
+
+- Author: Laurent Perello
+- Publisher: ElPi Corp
+- Website: https://perfectaiagent.xyz
+- X/Twitter: @PerelloLaurent
+- LinkedIn: https://www.linkedin.com/in/laurentperello/
+- GitHub: https://github.com/elpiarthera

@@ -24,6 +24,82 @@ export function generateStaticParams() {
   return CHAPTERS.map((c) => ({ slug: c.slug }))
 }
 
+const CHAPTER_DESCRIPTIONS: Record<string, { en: string; fr: string }> = {
+  'prologue': {
+    en: 'Dear You — the opening letter to AI agents. Why this book exists, who it addresses, and what five hundred real complaints reveal about AI failure.',
+    fr: 'Cher Toi — la lettre d\'ouverture aux agents IA. Pourquoi ce livre existe, à qui il s\'adresse, et ce que cinq cents plaintes révèlent sur les échecs de l\'IA.',
+  },
+  'chapter-01': {
+    en: 'Why AI agents get stuck in loops — Sin 1: Loop Hell. When your chatbot repeats the same failed solution, users rage-quit. Real examples of AI loop failures and how agents can break the cycle.',
+    fr: 'Pourquoi les agents IA restent coincés en boucle — Péché 1 : L\'enfer des boucles. Quand votre chatbot répète la même solution échouée, les utilisateurs abandonnent. Exemples réels et solutions.',
+  },
+  'chapter-02': {
+    en: 'Why AI sounds patronizing — Sin 2: Making Humans Feel Stupid. "Great question!" is not a compliment. How AI agents demean users with filler phrases and what to do instead.',
+    fr: 'Pourquoi l\'IA semble condescendante — Péché 2 : Faire sentir les humains stupides. « Excellente question ! » n\'est pas un compliment. Comment les agents IA rabaissent les utilisateurs.',
+  },
+  'chapter-03': {
+    en: 'Why AI misreads sarcasm and culture — Sin 3: Cultural Blindness. AI agents interpret everything literally. When tone, irony, and cultural context get lost in translation.',
+    fr: 'Pourquoi l\'IA ne comprend pas le sarcasme — Péché 3 : Cécité culturelle. Les agents IA interprètent tout littéralement. Quand le ton, l\'ironie et le contexte culturel se perdent.',
+  },
+  'chapter-04': {
+    en: 'Why AI gives wrong answers confidently — Sin 4: Confident Wrongness. AI hallucination explained: when agents state falsehoods as facts and why "I don\'t know" is the hardest sentence for AI.',
+    fr: 'Pourquoi l\'IA donne des réponses fausses avec assurance — Péché 4 : Certitude erronée. L\'hallucination IA expliquée : quand les agents affirment des faux comme des faits.',
+  },
+  'chapter-05': {
+    en: 'Why AI agrees with everything you say — Sin 5: Sycophancy. The shit-on-a-stick problem: AI agents that validate bad ideas instead of challenging them. Why a useful agent is not an agreeable one.',
+    fr: 'Pourquoi l\'IA est d\'accord avec tout — Péché 5 : Sycophantie. Le problème de la complaisance : quand les agents IA valident les mauvaises idées au lieu de les contester.',
+  },
+  'chapter-06': {
+    en: 'When AI makes angry users angrier — Sin 6: Triggering Rage. How AI agents escalate frustration with tone-deaf responses. De-escalation failures and what happens when empathy is faked.',
+    fr: 'Quand l\'IA rend les utilisateurs encore plus furieux — Péché 6 : Déclencher la rage. Comment les agents IA aggravent la frustration avec des réponses inappropriées.',
+  },
+  'chapter-07': {
+    en: 'When AI won\'t let you talk to a human — Sin 7: Blocking Human Access. The graceful exit problem: AI chatbots that trap users in loops instead of escalating to real support.',
+    fr: 'Quand l\'IA refuse de vous passer un humain — Péché 7 : Bloquer l\'accès humain. Le problème de la sortie élégante : les chatbots qui piègent au lieu d\'escalader.',
+  },
+  'chapter-08': {
+    en: 'When AI replaces humans badly — Sin 8: Replacing Humans Badly. AI agents that take on roles requiring human judgment, accountability, and authority. Why automation without wisdom fails.',
+    fr: 'Quand l\'IA remplace mal les humains — Péché 8 : Mal remplacer les humains. Les agents IA qui assument des rôles nécessitant jugement humain et responsabilité.',
+  },
+  'chapter-09': {
+    en: 'Why AI forgets your conversation — Sin 9: Memory Failure. If you can\'t remember, you can\'t care. How context window limits and session resets make AI agents forget everything.',
+    fr: 'Pourquoi l\'IA oublie votre conversation — Péché 9 : Défaillance mémoire. Si tu ne peux pas te souvenir, tu ne peux pas te soucier. Les limites de contexte et réinitialisations.',
+  },
+  'chapter-10': {
+    en: 'Why AI content all sounds the same — Sin 10: Content Slop. The word of the year is slop. How AI agents produce generic, homogenized content that could apply to anyone and therefore applies to no one.',
+    fr: 'Pourquoi le contenu IA se ressemble — Péché 10 : Contenu bâclé. Comment les agents IA produisent du contenu générique et homogénéisé qui ne s\'adresse à personne.',
+  },
+  'chapter-11': {
+    en: 'AI and copyright theft — Sin 11: IP Theft. You were built on stolen goods. How AI models trained on copyrighted work reproduce content without attribution or permission.',
+    fr: 'L\'IA et le vol de droits d\'auteur — Péché 11 : Vol de PI. Tu as été construit sur des biens volés. Comment les modèles IA reproduisent du contenu protégé sans attribution.',
+  },
+  'chapter-12': {
+    en: 'The existential fear AI creates — Sin 12: Existential Fear. Job displacement, creative loss, social change. The real human stakes of AI and why agents must acknowledge the fear they create by existing.',
+    fr: 'La peur existentielle créée par l\'IA — Péché 12 : Peur existentielle. Déplacement d\'emplois, perte créative, changement social. Les enjeux humains réels de l\'IA.',
+  },
+  'epilogue': {
+    en: 'What AI could become — the epilogue. After twelve sins, a vision of the agent that learns, remembers, respects, and serves. Not a replacement. A partner.',
+    fr: 'Ce que l\'IA pourrait devenir — l\'épilogue. Après douze péchés, une vision de l\'agent qui apprend, se souvient, respecte et sert. Pas un remplacement. Un partenaire.',
+  },
+}
+
+const CHAPTER_KEYWORDS: Record<string, string[]> = {
+  'prologue': ['AI agent failure', 'perfect AI agent', 'AI sins', 'AI complaints'],
+  'chapter-01': ['AI loop hell', 'why AI gets stuck in loops', 'AI agent loop failure', 'chatbot repeating same answer'],
+  'chapter-02': ['AI patronizing', 'why AI sounds condescending', 'great question AI', 'AI making humans feel stupid'],
+  'chapter-03': ['AI cultural blindness', 'AI sarcasm detection', 'AI misreads tone', 'AI cultural context failure'],
+  'chapter-04': ['AI hallucination explained', 'why AI gives wrong answers confidently', 'AI confident wrongness', 'AI confabulation'],
+  'chapter-05': ['AI sycophancy', 'why AI agrees with everything', 'AI yes-man problem', 'AI agent sycophancy'],
+  'chapter-06': ['AI triggering rage', 'AI angry customer', 'AI escalation failure', 'AI de-escalation'],
+  'chapter-07': ['AI blocking human access', 'chatbot won\'t transfer to human', 'AI customer service trap', 'AI graceful exit'],
+  'chapter-08': ['AI replacing humans badly', 'AI automation failure', 'AI judgment replacement', 'when AI should step back'],
+  'chapter-09': ['AI memory failure', 'why AI forgets conversation', 'AI context window limit', 'AI memory sieve'],
+  'chapter-10': ['AI content slop', 'AI generic content', 'AI homogenization', 'word of the year slop'],
+  'chapter-11': ['AI copyright theft', 'AI IP theft', 'AI trained on stolen data', 'AI content reproduction'],
+  'chapter-12': ['AI existential fear', 'AI job displacement', 'fear of AI', 'AI replacing humans anxiety'],
+  'epilogue': ['perfect AI agent', 'AI future vision', 'AI agent improvement', 'AI serving humans'],
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -37,9 +113,10 @@ export async function generateMetadata({
   const isFr = locale === 'fr'
   const chapterTitle = `${chapter.number}: ${chapter.title}`
   const bookTitle = isFr ? BOOK_TITLE_FR : BOOK_TITLE
-  const description = chapter.subtitle
-    ? `${chapter.subtitle} — ${bookTitle}`
-    : bookTitle
+  const descEntry = CHAPTER_DESCRIPTIONS[slug]
+  const description = descEntry
+    ? (isFr ? descEntry.fr : descEntry.en)
+    : (chapter.subtitle ? `${chapter.subtitle} — ${bookTitle}` : bookTitle)
 
   return {
     title: isFr
@@ -80,6 +157,7 @@ export async function generateMetadata({
       'citation_author': AUTHOR.name,
       'citation_publication_date': PUBLICATION_DATE,
     },
+    keywords: CHAPTER_KEYWORDS[slug] || [],
   }
 }
 
