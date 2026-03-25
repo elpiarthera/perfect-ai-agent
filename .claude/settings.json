@@ -1,18 +1,32 @@
 {
   "permissions": {
     "allow": [
-      "Read(**)", "Write(**)", "Edit(**)",
-      "Bash(npx tsc --noEmit)", "Bash(npx biome check *)",
-      "Bash(npx biome format *)",
-      "Bash(git *)", "Bash(ls *)", "Bash(mkdir *)"
+      "Read(**)",
+      "Write(**)",
+      "Edit(**)",
+      "Bash(*)",
+      "Agent(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "mcp__vantage-memory__*",
+      "mcp__convex__*",
+      "mcp__composio__*",
+      "mcp__firecrawl__*"
     ]
   },
   "hooks": {
     "SessionStart": [
-      {"hooks": [{"type": "command", "command": "python3 hooks/session-start-phi.py"}]}
-    ],
-    "PreToolUse": [
-      {"matcher": "Agent", "hooks": [{"type": "command", "command": "bash hooks/enforce-background-agents.sh"}]}
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/session-start-phi.py"
+          }
+        ]
+      }
     ]
-  }
+  },
+  "additionalDirectories": [
+    "/root/coding/elpi-corp"
+  ]
 }
