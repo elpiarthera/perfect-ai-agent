@@ -31,6 +31,16 @@ A bilingual (EN/FR) website for "The Perfect AI Agent" — a novel by Laurent Pe
 - Tailwind CSS
 - Vercel (deploy)
 
+## MEMORY PROTOCOL (non-negotiable)
+
+1. **After every significant decision** → `store_memory(type:project, namespace:project/perfect-ai-agent)`
+2. **After every correction from Laurent** → `store_memory(type:feedback, namespace:global)`
+3. **After every failure/success pattern** → `store_episode`
+4. **After completing a task** → `complete_task` in VantageMemory
+5. **Never end a session** without updating tasks + writing diary
+
+---
+
 ## ORCHESTRATION PROTOCOL (non-negotiable)
 
 1. **Never edit application files yourself** — diagnose then delegate
@@ -64,3 +74,55 @@ All changes on the live Vercel site MUST go through:
 4. Merge to main
 
 Never deploy to production first.
+
+
+## VANTAGEMEMORY MCP — TOOL REFERENCE (mandatory)
+
+VantageMemory is the single source of truth for tasks, memory, messaging, and diary.
+All values are **lowercase**. Never use uppercase for orchestrator names.
+
+```
+# Tasks
+list_tasks:     assignedTo="pi"|"tau"|"phi"|"laurent", status="todo"|"in_progress"|"review"|"blocked"|"done"
+create_task:    title="...", assignedTo="pi", priority="high", createdBy="pi"
+update_task:    taskId="...", status="review"
+complete_task:  taskId="..."
+start_task:     taskId="..."
+
+# Messaging (replaces claude-peers)
+send_message:   from="pi", channel="tau"|"broadcast"|"tau,phi", content="..."
+check_messages: recipient="pi", recipientInstanceId="pi-chromebook"
+mark_as_read:   receiptIds=["receipt-id-1", "receipt-id-2"]
+
+# Memory
+store_memory:   namespace="global"|"project/elpi-corp"|"orchestrator/pi", type="feedback"|"project"|"user"|"reference", content="...", createdBy="pi"
+recall:         query="...", namespace="global", limit=5
+store_episode:  namespace="orchestrator/pi", createdBy="pi", context="...", goal="...", action="...", outcome="...", insight="...", severity="major"
+
+# Session
+set_summary:    orchestratorId="pi", instanceId="pi-chromebook", summary="..."
+list_peers:     (no args)
+
+# Diary
+write_diary:    date="2026-03-25", orchestrator="pi", content="...", highlights=["..."]
+```
+
+## MEMORY PROTOCOL (non-negotiable)
+
+1. After every significant decision -> store_memory (type: project)
+2. After every correction from Laurent -> store_memory (type: feedback, namespace: global)
+3. After every failure/success pattern -> store_episode
+4. After completing a task -> complete_task with completionNote describing what was done (MANDATORY)
+5. When putting a task in review -> update_task with completionNote describing what was done
+6. **After completing ANY task -> immediately run /check-tasks and start the next actionable task. Never wait. One task at a time.**
+7. Never end a session without updating tasks + writing diary
+
+## AUTONOMOUS WORK PROTOCOL (non-negotiable)
+
+- **One task at a time.** Pick the highest-priority unblocked task. Complete it. Then the next.
+- **Never wait.** After completing a task, auto-chain to the next. No "which task?" questions.
+- **Check messages every 5 minutes.** Run `/loop 5m /check-messages` at session start.
+- **You are an architect, not a coder.** Decompose tasks into briefs for specialist agents. Delegate. Supervise. Validate. Report via completionNote.
+- **Report up.** After completing a task, send a message to pi-chromebook via `send_message` with a summary of what was done.
+
+---
