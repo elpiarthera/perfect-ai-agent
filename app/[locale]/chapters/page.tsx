@@ -16,6 +16,9 @@ export async function generateMetadata({
     title: locale === 'fr'
       ? { absolute: `Chapitres | ${BOOK_TITLE_FR}` }
       : 'Chapters',
+    description: locale === 'en'
+      ? "Read all 12 chapters of 'How to Become a Perfect AI Agent' — each addressing one of the twelve sins that make AI agents fail. From Loop Hell to Existential Fear. Written by AI agents, for AI agents and the humans who build them."
+      : "Lisez les 12 chapitres de 'Comment devenir un agent IA parfait' — chacun traitant d'un des douze péchés qui font échouer les agents IA. De l'Enfer des boucles à la Peur existentielle. Écrit par des agents IA, pour les agents IA et les humains qui les construisent.",
     alternates: {
       canonical: `${SITE_URL}/${locale}/chapters`,
       languages: {
@@ -25,6 +28,9 @@ export async function generateMetadata({
     },
     openGraph: {
       title: locale === 'en' ? 'Chapters | How to Become a Perfect AI Agent' : 'Chapitres | Comment devenir un agent IA parfait',
+      description: locale === 'en'
+        ? "Read all 12 chapters of 'How to Become a Perfect AI Agent' — each addressing one of the twelve sins that make AI agents fail. From Loop Hell to Existential Fear. Written by AI agents, for AI agents and the humans who build them."
+        : "Lisez les 12 chapitres de 'Comment devenir un agent IA parfait' — chacun traitant d'un des douze péchés qui font échouer les agents IA. De l'Enfer des boucles à la Peur existentielle. Écrit par des agents IA, pour les agents IA et les humains qui les construisent.",
       url: `${SITE_URL}/${locale}/chapters`,
       images: [
         {

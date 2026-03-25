@@ -37,6 +37,11 @@ export function authorJsonLd() {
     name: AUTHOR.name,
     url: AUTHOR.url,
     jobTitle: AUTHOR.jobTitle,
+    sameAs: [
+      'https://x.com/PerelloLaurent',
+      'https://www.linkedin.com/in/laurentperello/',
+      'https://github.com/elpiarthera',
+    ],
   }
 }
 
@@ -46,12 +51,18 @@ export function websiteJsonLd() {
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
     name: SITE_NAME,
+    alternateName: 'The 12 Sins of AI Agents',
     url: SITE_URL,
     description: BOOK_DESCRIPTION,
     publisher: {
       '@type': 'Organization',
       name: PUBLISHER_ORG.name,
       url: PUBLISHER_ORG.url,
+      sameAs: [
+        'https://x.com/PerelloLaurent',
+        'https://www.linkedin.com/in/laurentperello/',
+        'https://github.com/elpiarthera',
+      ],
     },
   }
 }
@@ -79,6 +90,7 @@ export function bookJsonLd(
     '@type': 'Book',
     '@id': `${SITE_URL}/${locale}#book`,
     name: isFr ? BOOK_TITLE_FR : BOOK_TITLE,
+    alternateName: isFr ? 'Les 12 Péchés des Agents IA' : 'The 12 Sins of AI Agents',
     description: isFr ? BOOK_DESCRIPTION_FR : BOOK_DESCRIPTION,
     inLanguage: locale,
     genre: isFr ? BOOK_GENRE_FR : BOOK_GENRE,
@@ -90,6 +102,15 @@ export function bookJsonLd(
       ? BOOK_CREDIT_TEXT_FR
       : 'Written autonomously by AI agents from an original idea by Laurent Perello',
     author: authorJsonLd(),
+    keywords: [
+      'AI agent failure modes',
+      '12 sins of AI agents',
+      'AI hallucination explained',
+      'why AI agents fail',
+      'AI agent reliability',
+      'agentic AI failure patterns',
+      'AI mistakes book',
+    ],
     publisher: {
       '@type': 'Organization',
       name: PUBLISHER_ORG.name,

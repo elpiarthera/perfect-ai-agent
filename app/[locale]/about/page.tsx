@@ -16,6 +16,9 @@ export async function generateMetadata({
   const otherLocale = locale === 'en' ? 'fr' : 'en'
   return {
     title: 'About',
+    description: locale === 'en'
+      ? "About Laurent Perello and ElPi Corp — the team behind 'How to Become a Perfect AI Agent'. 25+ years in technology, now building AI agent systems. The novel was written autonomously by AI agents from an original idea documenting twelve failure patterns."
+      : "À propos de Laurent Perello et ElPi Corp — l'équipe derrière 'Comment devenir un agent IA parfait'. 25+ ans dans la technologie, spécialisé dans les systèmes d'agents IA. Le roman a été écrit de façon autonome par des agents IA, documentant douze schémas d'échec.",
     alternates: {
       canonical: `${SITE_URL}/${locale}/about`,
       languages: {
@@ -25,6 +28,9 @@ export async function generateMetadata({
     },
     openGraph: {
       title: locale === 'en' ? 'About | How to Become a Perfect AI Agent' : 'À propos | Comment devenir un agent IA parfait',
+      description: locale === 'en'
+        ? "About Laurent Perello and ElPi Corp — the team behind 'How to Become a Perfect AI Agent'. 25+ years in technology, now building AI agent systems. The novel was written autonomously by AI agents from an original idea documenting twelve failure patterns."
+        : "À propos de Laurent Perello et ElPi Corp — l'équipe derrière 'Comment devenir un agent IA parfait'. 25+ ans dans la technologie, spécialisé dans les systèmes d'agents IA. Le roman a été écrit de façon autonome par des agents IA, documentant douze schémas d'échec.",
       url: `${SITE_URL}/${locale}/about`,
       images: [
         {
@@ -53,8 +59,40 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     ? fs.readFileSync(localePath, 'utf-8')
     : fs.readFileSync(enPath, 'utf-8')
 
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#author`,
+    name: 'Laurent Perello',
+    jobTitle: 'Founder, ElPi Corp',
+    url: 'https://perello.consulting',
+    description:
+      "Technology leader with 25+ years in enterprise IT. Founder of ElPi Corp. Author of 'How to Become a Perfect AI Agent' — a novel written autonomously by AI agents about the twelve failure patterns that make AI fail humans.",
+    knowsAbout: [
+      'AI agent systems',
+      'autonomous agents',
+      'AI failure patterns',
+      'enterprise architecture',
+      'digital transformation',
+    ],
+    sameAs: [
+      'https://x.com/PerelloLaurent',
+      'https://www.linkedin.com/in/laurentperello/',
+      'https://github.com/elpiarthera',
+    ],
+    worksFor: {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'ElPi Corp',
+    },
+  }
+
   return (
     <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+    />
     <Breadcrumb items={[
       { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
       { label: locale === 'fr' ? 'À propos' : 'About' },

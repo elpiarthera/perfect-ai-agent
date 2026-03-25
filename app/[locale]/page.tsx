@@ -80,6 +80,25 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const jsonLd = [
     websiteJsonLd(),
     bookJsonLd(locale, localizedChapters),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      'name': 'ElPi Corp',
+      'alternateName': 'Perello Consulting',
+      'url': 'https://perello.consulting',
+      'description': "AI-powered consulting — building autonomous agent systems that work. Publisher of 'How to Become a Perfect AI Agent'.",
+      'founder': {
+        '@type': 'Person',
+        '@id': `${SITE_URL}/#author`,
+        'name': 'Laurent Perello',
+      },
+      'sameAs': [
+        'https://x.com/PerelloLaurent',
+        'https://www.linkedin.com/in/laurentperello/',
+        'https://github.com/elpiarthera',
+      ],
+    },
   ]
 
   return (
