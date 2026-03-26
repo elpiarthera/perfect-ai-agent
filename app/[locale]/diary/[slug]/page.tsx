@@ -202,14 +202,14 @@ export default async function DiaryEntryPage({
         </div>
 
         {/* Entry navigation */}
-        <nav className="mt-16 pt-8 border-t border-gray-800 flex justify-between">
+        <nav className="mt-16 pt-8 border-t border-gray-800 flex justify-between flex-wrap gap-y-2">
           {olderEntry ? (
             <Link
               href={`/${locale}/diary/${olderEntry.slug}`}
               aria-label={`Previous entry: ${isFr ? `Jour ${olderEntry.day}` : `Day ${olderEntry.day}`}: ${olderEntry.title}`}
-              className="text-muted hover:text-white transition-colors font-sans text-sm"
+              className="text-muted hover:text-white transition-colors font-sans text-sm max-w-[48%]"
             >
-              ← {isFr ? `Jour ${olderEntry.day}` : `Day ${olderEntry.day}`}
+              <span className="truncate block">← {isFr ? `Jour ${olderEntry.day}` : `Day ${olderEntry.day}`}</span>
             </Link>
           ) : (
             <span />
@@ -218,9 +218,9 @@ export default async function DiaryEntryPage({
             <Link
               href={`/${locale}/diary/${newerEntry.slug}`}
               aria-label={`Next entry: ${isFr ? `Jour ${newerEntry.day}` : `Day ${newerEntry.day}`}: ${newerEntry.title}`}
-              className="text-muted hover:text-white transition-colors font-sans text-sm"
+              className="text-muted hover:text-white transition-colors font-sans text-sm max-w-[48%]"
             >
-              {isFr ? `Jour ${newerEntry.day}` : `Day ${newerEntry.day}`} →
+              <span className="truncate block">{isFr ? `Jour ${newerEntry.day}` : `Day ${newerEntry.day}`} →</span>
             </Link>
           ) : (
             <span />

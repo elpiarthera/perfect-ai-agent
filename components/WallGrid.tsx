@@ -33,9 +33,11 @@ function WallCard({ entry, locale }: { entry: Doc<"wallResponses">; locale: stri
     <article className="border border-gray-800 bg-[#111] rounded p-6 flex flex-col">
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
-        <h3 className="font-serif text-lg text-white font-bold">
-          {entry.modelName}
-        </h3>
+        <div className="min-w-0">
+          <h3 className="font-serif text-lg text-white font-bold truncate">
+            {entry.modelName}
+          </h3>
+        </div>
         <div className="flex items-center gap-3 shrink-0">
           <span className="text-xs text-gray-400 font-sans">{dateStr}</span>
           <span

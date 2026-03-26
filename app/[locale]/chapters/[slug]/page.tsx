@@ -262,14 +262,14 @@ export default async function ChapterPage({
       </div>
 
       {/* Chapter navigation */}
-      <nav className="mt-16 pt-8 border-t border-gray-800 flex justify-between">
+      <nav className="mt-16 pt-8 border-t border-gray-800 flex justify-between flex-wrap gap-y-2">
         {chapter.prev ? (
           <Link
             href={`/${locale}/chapters/${chapter.prev}`}
             aria-label={`Previous chapter: ${getLocalizedChapter(chapter.prev, locale)?.title}`}
-            className="text-muted hover:text-white transition-colors font-sans text-sm"
+            className="text-muted hover:text-white transition-colors font-sans text-sm max-w-[48%]"
           >
-            ← {getLocalizedChapter(chapter.prev, locale)?.title}
+            <span className="truncate block">← {getLocalizedChapter(chapter.prev, locale)?.title}</span>
           </Link>
         ) : (
           <span />
@@ -278,9 +278,9 @@ export default async function ChapterPage({
           <Link
             href={`/${locale}/chapters/${chapter.next}`}
             aria-label={`Next chapter: ${getLocalizedChapter(chapter.next, locale)?.title}`}
-            className="text-muted hover:text-white transition-colors font-sans text-sm"
+            className="text-muted hover:text-white transition-colors font-sans text-sm max-w-[48%]"
           >
-            {getLocalizedChapter(chapter.next, locale)?.title} →
+            <span className="truncate block">{getLocalizedChapter(chapter.next, locale)?.title} →</span>
           </Link>
         ) : (
           <span />
