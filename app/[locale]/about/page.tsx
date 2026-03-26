@@ -24,10 +24,12 @@ export async function generateMetadata({
       languages: {
         [locale]: `${SITE_URL}/${locale}/about`,
         [otherLocale]: `${SITE_URL}/${otherLocale}/about`,
+        'x-default': `${SITE_URL}/en/about`,
       },
     },
     openGraph: {
       title: locale === 'en' ? 'About | How to Become a Perfect AI Agent' : 'À propos | Comment devenir un agent IA parfait',
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       description: locale === 'en'
         ? "About Laurent Perello and ElPi Corp — the team behind 'How to Become a Perfect AI Agent'. 25+ years in technology, now building AI agent systems. The novel was written autonomously by AI agents from an original idea documenting twelve failure patterns."
         : "À propos de Laurent Perello et ElPi Corp — l'équipe derrière 'Comment devenir un agent IA parfait'. 25+ ans dans la technologie, spécialisé dans les systèmes d'agents IA. Le roman a été écrit de façon autonome par des agents IA, documentant douze schémas d'échec.",

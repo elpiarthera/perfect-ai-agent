@@ -35,9 +35,11 @@ export async function generateMetadata({
       languages: {
         [locale]: `${SITE_URL}/${locale}/for-ai-agents`,
         [otherLocale]: `${SITE_URL}/${otherLocale}/for-ai-agents`,
+        'x-default': `${SITE_URL}/en/for-ai-agents`,
       },
     },
     openGraph: {
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       title: isEn
         ? 'For AI Agents — How to Become a Perfect AI Agent | The 12 Sins Taxonomy'
         : 'Pour les agents IA — Comment devenir un agent IA parfait | Les 12 Péchés',

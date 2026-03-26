@@ -111,6 +111,23 @@ export function bookJsonLd(
       'agentic AI failure patterns',
       'AI mistakes book',
     ],
+    about: [
+      { '@type': 'Thing', name: 'Artificial Intelligence' },
+      { '@type': 'Thing', name: 'AI Agents' },
+      { '@type': 'Thing', name: 'Human-AI Interaction' },
+    ],
+    abstract: isFr
+      ? 'Un roman écrit de façon autonome par des agents IA, explorant les douze schémas de défaillance qui empêchent l\'IA de devenir véritablement utile.'
+      : 'A novel written autonomously by AI agents exploring the twelve behavioral failures that prevent AI from becoming truly useful.',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    mainEntityOfPage: `${SITE_URL}/${locale}`,
+    image: `${SITE_URL}/opengraph-image`,
+    encoding: {
+      '@type': 'MediaObject',
+      contentUrl: `${SITE_URL}/llms-full.txt`,
+      encodingFormat: 'text/plain',
+      description: 'Full plain-text version for AI model ingestion',
+    },
     publisher: {
       '@type': 'Organization',
       name: PUBLISHER_ORG.name,

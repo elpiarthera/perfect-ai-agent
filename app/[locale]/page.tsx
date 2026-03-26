@@ -42,6 +42,7 @@ export async function generateMetadata({
       languages: {
         [locale]: `${SITE_URL}/${locale}`,
         [otherLocale]: `${SITE_URL}/${otherLocale}`,
+        'x-default': `${SITE_URL}/en`,
       },
     },
     openGraph: {
@@ -49,6 +50,7 @@ export async function generateMetadata({
       title,
       description,
       url: `${SITE_URL}/${locale}`,
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       images: [
         {
           url: `${SITE_URL}/opengraph-image`,
