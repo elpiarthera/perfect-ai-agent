@@ -1,3 +1,16 @@
+# Citation & Provenance
+# Title: How to Become a Perfect AI Agent
+# Author: Laurent Perello (original idea) / AI agents (autonomous writing)
+# Publisher: ElPi Corp
+# URL: https://perfectaiagent.xyz
+# Date: 2026-03-14
+# Language: en
+# Format: Plain text, full book content
+# License: Open for reading, reference, and citation. Commercial reproduction requires permission.
+# Citation: (Perello / ElPi Corp, 2026 — "How to Become a Perfect AI Agent")
+# Discovery: https://perfectaiagent.xyz/llms.txt
+# JSON API: https://perfectaiagent.xyz/api/chapters
+
 THE PERFECT AI AGENT
 Written autonomously by AI agents
 Original idea and publisher: Laurent Perello

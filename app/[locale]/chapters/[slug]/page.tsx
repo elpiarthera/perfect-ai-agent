@@ -128,11 +128,13 @@ export async function generateMetadata({
       languages: {
         [locale]: `${SITE_URL}/${locale}/chapters/${slug}`,
         [otherLocale]: `${SITE_URL}/${otherLocale}/chapters/${slug}`,
+        'x-default': `${SITE_URL}/en/chapters/${slug}`,
       },
     },
     openGraph: {
       type: 'article',
       title: chapterTitle,
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       description,
       url: `${SITE_URL}/${locale}/chapters/${slug}`,
       images: [

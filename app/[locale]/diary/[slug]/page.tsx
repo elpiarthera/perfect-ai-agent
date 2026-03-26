@@ -10,6 +10,7 @@ import {
   SITE_URL,
   AUTHOR,
   breadcrumbJsonLd,
+  PUBLISHER_ORG,
 } from '@/lib/seo'
 
 export function generateStaticParams() {
@@ -44,11 +45,13 @@ export async function generateMetadata({
       languages: {
         [locale]: `${SITE_URL}/${locale}/diary/${slug}`,
         [otherLocale]: `${SITE_URL}/${otherLocale}/diary/${slug}`,
+        'x-default': `${SITE_URL}/en/diary/${slug}`,
       },
     },
     openGraph: {
       type: 'article',
       title: pageTitle,
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       description,
       url: `${SITE_URL}/${locale}/diary/${slug}`,
       images: [
@@ -133,11 +136,41 @@ export default async function DiaryEntryPage({
     { label: `${dayLabel}: ${entry.title}` },
   ]
 
+  const blogPostingJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${SITE_URL}/${locale}/diary/${slug}#article`,
+    headline: `Day ${entry.day}: ${entry.title}`,
+    name: `Day ${entry.day}: ${entry.title}`,
+    description: isFr
+      ? `Journal IA — Jour ${entry.day}. Par ${entry.narrator === 'pi' ? 'Pi, l\'orchestrateur IA' : 'Laurent Perello'}.`
+      : `AI Diary — Day ${entry.day}. By ${entry.narrator === 'pi' ? 'Pi, the AI orchestrator' : 'Laurent Perello'}.`,
+    datePublished: entry.date,
+    dateModified: entry.date,
+    inLanguage: locale,
+    url: `${SITE_URL}/${locale}/diary/${slug}`,
+    mainEntityOfPage: `${SITE_URL}/${locale}/diary/${slug}`,
+    author: entry.narrator === 'pi'
+      ? { '@type': 'Person', name: 'Pi (AI Orchestrator)', description: 'Autonomous AI agent, ElPi Corp' }
+      : { '@id': `${SITE_URL}/#author` },
+    publisher: {
+      '@type': 'Organization',
+      name: PUBLISHER_ORG.name,
+      url: PUBLISHER_ORG.url,
+    },
+    isPartOf: { '@id': `${SITE_URL}/${locale}/diary#blog` },
+    keywords: ['AI diary', 'AI agents', 'autonomous agents', entry.narrator === 'pi' ? 'AI perspective' : 'founder perspective'],
+  }
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
       />
       <Breadcrumb items={breadcrumbItems} />
       <article className="max-w-3xl mx-auto px-6 pt-8 pb-24">

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { getDiaryEntries } from '@/lib/diary'
 import DiaryCard from '@/components/DiaryCard'
-import { SITE_URL, BOOK_TITLE_FR } from '@/lib/seo'
+import { SITE_URL, BOOK_TITLE_FR, PUBLISHER_ORG } from '@/lib/seo'
 import Breadcrumb from '@/components/Breadcrumb'
 
 export async function generateMetadata({
@@ -29,10 +29,12 @@ export async function generateMetadata({
       languages: {
         [locale]: `${SITE_URL}/${locale}/diary`,
         [otherLocale]: `${SITE_URL}/${otherLocale}/diary`,
+        'x-default': `${SITE_URL}/en/diary`,
       },
     },
     openGraph: {
       title: isFr ? `Journal IA | ${BOOK_TITLE_FR}` : 'AI Diary | How to Become a Perfect AI Agent',
+      locale: locale === 'fr' ? 'fr_FR' : 'en_US',
       description,
       url: `${SITE_URL}/${locale}/diary`,
       images: [
@@ -56,8 +58,35 @@ export default async function DiaryPage({ params }: { params: Promise<{ locale: 
   const t = await getTranslations({ locale })
   const entries = getDiaryEntries(locale)
 
+  const isFr = locale === 'fr'
+
+  const blogJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${SITE_URL}/${locale}/diary#blog`,
+    name: isFr ? 'Journal IA — Le Parfait Agent IA' : 'AI Diary — The Perfect AI Agent',
+    description: isFr
+      ? 'Journal quotidien de la construction d\'ElPi Corp — par Laurent Perello et Pi, l\'orchestrateur IA.'
+      : 'Daily log of building ElPi Corp — by Laurent Perello and Pi, the AI orchestrator.',
+    url: `${SITE_URL}/${locale}/diary`,
+    inLanguage: locale,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    publisher: {
+      '@type': 'Organization',
+      name: PUBLISHER_ORG.name,
+      url: PUBLISHER_ORG.url,
+    },
+    blogPost: entries.slice(0, 5).map((entry) => ({
+      '@type': 'BlogPosting',
+      headline: `${isFr ? 'Jour' : 'Day'} ${entry.day}: ${entry.title}`,
+      url: `${SITE_URL}/${locale}/diary/${entry.slug}`,
+      datePublished: entry.date,
+    })),
+  }
+
   return (
     <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
     <Breadcrumb items={[
       { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
       { label: t('diary.title') },
