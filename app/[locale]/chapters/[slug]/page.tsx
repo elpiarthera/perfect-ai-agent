@@ -158,12 +158,7 @@ export async function generateMetadata({
       'citation_title': chapterTitle,
       'citation_author': AUTHOR.name,
       'citation_publication_date': PUBLICATION_DATE,
-      'DC.title': chapterTitle,
-      'DC.creator': AUTHOR.name,
-      'DC.date': PUBLICATION_DATE,
-      'DC.type': 'Text',
-      'DC.format': 'text/html',
-      'DC.language': locale,
+      // DC tags rendered as JSX meta tags below (Next.js other field doesn't support dots in names)
     },
     keywords: CHAPTER_KEYWORDS[slug] || [],
   }
@@ -247,6 +242,13 @@ export default async function ChapterPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
+      {/* Dublin Core meta tags — rendered as JSX because Next.js other field drops dots in names */}
+      <meta name="DC.title" content={`${chapter.number}: ${chapter.title}`} />
+      <meta name="DC.creator" content={AUTHOR.name} />
+      <meta name="DC.date" content={PUBLICATION_DATE} />
+      <meta name="DC.type" content="Text" />
+      <meta name="DC.format" content="text/html" />
+      <meta name="DC.language" content={locale} />
       <Breadcrumb items={breadcrumbItems} />
       <article className="max-w-3xl mx-auto px-6 pt-8 pb-24">
       {/* Chapter header */}
