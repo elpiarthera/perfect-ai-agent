@@ -43,7 +43,7 @@ export default function TerminalBlock({
           <button
             onClick={handleCopy}
             aria-label={copied ? 'Copied to clipboard' : 'Copy code block to clipboard'}
-            className="absolute top-3 right-3 text-xs font-sans px-3 py-1.5 border border-gray-700 text-gray-400 hover:text-accent hover:border-accent transition-colors rounded"
+            className="absolute top-3 right-3 text-xs font-sans px-3 py-1.5 border border-gray-700 text-gray-400 hover:text-accent hover:border-accent transition-colors rounded min-h-[36px] min-w-[36px]"
           >
             {copied ? 'Copied!' : 'Copy'}
           </button>

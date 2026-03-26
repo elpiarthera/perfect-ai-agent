@@ -91,7 +91,7 @@ export default async function DiaryPage({ params }: { params: Promise<{ locale: 
       { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
       { label: t('diary.title') },
     ]} />
-    <div className="max-w-4xl mx-auto px-6 pt-16 pb-24">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-16 pb-24">
       <h1 className="font-serif text-4xl text-white mb-2">{t('diary.title')}</h1>
       <p className="text-muted font-sans mb-12">{t('diary.subtitle')}</p>
 

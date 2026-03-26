@@ -28,8 +28,8 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'cohere-ai', allow: '/' },
       { userAgent: 'meta-externalagent', allow: '/' },
       { userAgent: 'anthropic-ai', allow: '/' },
-      // Default — allow all, block API internals
-      { userAgent: '*', allow: '/', disallow: '/api/' },
+      // Default — allow all, block API internals; llms files explicitly listed for AI crawlers
+      { userAgent: '*', allow: ['/', '/llms.txt', '/llms-full.txt'], disallow: '/api/' },
     ],
     sitemap: 'https://perfectaiagent.xyz/sitemap.xml',
   }

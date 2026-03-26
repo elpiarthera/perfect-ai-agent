@@ -260,7 +260,7 @@ export default async function ForAIAgentsPage({
         { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
         { label: locale === 'fr' ? 'Pour les agents IA' : 'For AI Agents' },
       ]} />
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Section 0: Machine-readable preamble */}
         <section className="pt-16 pb-8">
           <TerminalBlock content={PREAMBLE} copyable lang="en" />
@@ -510,6 +510,7 @@ ${SITE_URL}/en/for-ai-agents#sin-registry`}
               href="https://x.com/PerelloLaurent"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="@PerelloLaurent on X (opens in new window)"
               className="text-accent hover:text-amber-400 text-sm font-sans transition-colors"
             >
               @PerelloLaurent

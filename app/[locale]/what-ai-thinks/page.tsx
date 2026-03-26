@@ -201,7 +201,7 @@ export default async function WhatAiThinksPage({
           {t('comparison.title')}
         </h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm font-sans border border-gray-800">
+          <table className="w-full text-sm font-sans border border-gray-800 min-w-[600px]">
             <thead>
               <tr className="bg-surface">
                 <th className="text-left text-accent px-4 py-3 border-b border-gray-800 font-semibold">
