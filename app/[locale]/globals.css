@@ -10,7 +10,7 @@
   width: 1px;
   height: 1px;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
 }
 .skip-link:focus {
   position: fixed;

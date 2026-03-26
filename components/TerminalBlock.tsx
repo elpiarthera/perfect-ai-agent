@@ -36,12 +36,18 @@ export default function TerminalBlock({
         ))}
       </pre>
       {copyable && (
-        <button
-          onClick={handleCopy}
-          className="absolute top-3 right-3 text-xs font-sans px-3 py-1.5 border border-gray-700 text-gray-400 hover:text-accent hover:border-accent transition-colors rounded"
-        >
-          {copied ? 'Copied!' : 'Copy'}
-        </button>
+        <>
+          <span role="status" aria-live="polite" className="sr-only">
+            {copied ? 'Copied to clipboard' : ''}
+          </span>
+          <button
+            onClick={handleCopy}
+            aria-label={copied ? 'Copied to clipboard' : 'Copy code block to clipboard'}
+            className="absolute top-3 right-3 text-xs font-sans px-3 py-1.5 border border-gray-700 text-gray-400 hover:text-accent hover:border-accent transition-colors rounded"
+          >
+            {copied ? 'Copied!' : 'Copy'}
+          </button>
+        </>
       )}
     </div>
   )

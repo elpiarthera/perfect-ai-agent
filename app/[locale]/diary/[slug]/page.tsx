@@ -206,6 +206,7 @@ export default async function DiaryEntryPage({
           {olderEntry ? (
             <Link
               href={`/${locale}/diary/${olderEntry.slug}`}
+              aria-label={`Previous entry: ${isFr ? `Jour ${olderEntry.day}` : `Day ${olderEntry.day}`}: ${olderEntry.title}`}
               className="text-muted hover:text-white transition-colors font-sans text-sm"
             >
               ← {isFr ? `Jour ${olderEntry.day}` : `Day ${olderEntry.day}`}
@@ -216,6 +217,7 @@ export default async function DiaryEntryPage({
           {newerEntry ? (
             <Link
               href={`/${locale}/diary/${newerEntry.slug}`}
+              aria-label={`Next entry: ${isFr ? `Jour ${newerEntry.day}` : `Day ${newerEntry.day}`}: ${newerEntry.title}`}
               className="text-muted hover:text-white transition-colors font-sans text-sm"
             >
               {isFr ? `Jour ${newerEntry.day}` : `Day ${newerEntry.day}`} →

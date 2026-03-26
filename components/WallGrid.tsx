@@ -37,7 +37,7 @@ function WallCard({ entry, locale }: { entry: Doc<"wallResponses">; locale: stri
           {entry.modelName}
         </h3>
         <div className="flex items-center gap-3 shrink-0">
-          <span className="text-xs text-gray-500 font-sans">{dateStr}</span>
+          <span className="text-xs text-gray-400 font-sans">{dateStr}</span>
           <span
             className={`text-xs font-sans px-2 py-0.5 rounded ${
               entry.source === 'benchmark'
@@ -68,13 +68,13 @@ function WallCard({ entry, locale }: { entry: Doc<"wallResponses">; locale: stri
       <div className="flex items-center gap-4 mt-auto pt-2">
         <button
           onClick={() => setExpanded(!expanded)}
-          className="text-sm text-gray-500 hover:text-amber-500 transition-colors font-sans"
+          className="text-sm text-gray-400 hover:text-amber-500 transition-colors font-sans"
         >
           {expanded ? t('collapse') : t('readFull')}
         </button>
         <button
           onClick={handleShare}
-          className="text-sm text-gray-500 hover:text-amber-500 transition-colors font-sans"
+          className="text-sm text-gray-400 hover:text-amber-500 transition-colors font-sans"
           title="Copy share link"
         >
           {copied ? '✓ Copied!' : 'Share'}
