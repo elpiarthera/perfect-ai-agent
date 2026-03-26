@@ -54,7 +54,8 @@ export async function GET() {
   const contentDir = path.join(process.cwd(), 'content', 'en')
   const buildDate = new Date().toUTCString()
 
-  const items = CHAPTER_FILES.map((slug) => {
+  // FIX 1: per-chapter pubDate from frontmatter
+  const chapterItems = CHAPTER_FILES.map((slug) => {
     const filePath = path.join(contentDir, `${slug}.mdx`)
     if (!fs.existsSync(filePath)) return null
 
@@ -67,17 +68,68 @@ export async function GET() {
     const chapterNum = frontmatter.chapter ?? 0
     const link = `${BASE_URL}/en/chapters/${slug}`
     const guid = `${BASE_URL}/en/chapters/${slug}`
+    const pubDate = frontmatter.date
+      ? new Date(frontmatter.date).toUTCString()
+      : PUBLICATION_DATE
+    const sortDate = frontmatter.date ? new Date(frontmatter.date).getTime() : new Date(PUBLICATION_DATE).getTime()
 
-    return `    <item>
+    return {
+      sortDate,
+      xml: `    <item>
       <title>${escapeXml(title)}</title>
       <description>${escapeXml(description)}</description>
       <link>${link}</link>
       <guid isPermaLink="true">${guid}</guid>
       <author>${escapeXml(BOOK_AUTHOR)}</author>
       <category>${escapeXml(frontmatter.sin || `Chapter ${chapterNum}`)}</category>
-      <pubDate>${PUBLICATION_DATE}</pubDate>
-    </item>`
-  }).filter(Boolean)
+      <pubDate>${pubDate}</pubDate>
+    </item>`,
+    }
+  }).filter(Boolean) as { sortDate: number; xml: string }[]
+
+  // FIX 2: diary entries
+  const diaryDir = path.join(process.cwd(), 'content', 'en', 'diary')
+  const diaryFiles = fs.existsSync(diaryDir)
+    ? fs.readdirSync(diaryDir).filter((f) => f.endsWith('.mdx'))
+    : []
+
+  const diaryItems = diaryFiles.map((file) => {
+    const slug = file.replace(/\.mdx$/, '')
+    const filePath = path.join(diaryDir, file)
+    const raw = fs.readFileSync(filePath, 'utf-8')
+    const { data: frontmatter, content } = matter(raw)
+
+    const plainText = stripMdxToPlain(content)
+    const description = plainText.slice(0, 300).trim() + (plainText.length > 300 ? '...' : '')
+    const title = frontmatter.title || slug
+    const link = `${BASE_URL}/en/diary/${slug}`
+    const guid = `${BASE_URL}/en/diary/${slug}`
+    const pubDate = frontmatter.date
+      ? new Date(frontmatter.date).toUTCString()
+      : PUBLICATION_DATE
+    const sortDate = frontmatter.date ? new Date(frontmatter.date).getTime() : new Date(PUBLICATION_DATE).getTime()
+    // FIX 3: narrator-based author for diary items
+    const author =
+      frontmatter.narrator === 'pi' ? 'Pi (AI Orchestrator)' : BOOK_AUTHOR
+
+    return {
+      sortDate,
+      xml: `    <item>
+      <title>${escapeXml(title)}</title>
+      <description>${escapeXml(description)}</description>
+      <link>${link}</link>
+      <guid isPermaLink="true">${guid}</guid>
+      <author>${escapeXml(author)}</author>
+      <category>AI Diary</category>
+      <pubDate>${pubDate}</pubDate>
+    </item>`,
+    }
+  }).filter(Boolean) as { sortDate: number; xml: string }[]
+
+  // Merge and sort all items by date descending
+  const allItems = [...chapterItems, ...diaryItems]
+    .sort((a, b) => b.sortDate - a.sortDate)
+    .map((item) => item.xml)
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -89,7 +141,7 @@ export async function GET() {
     <managingEditor>${escapeXml(BOOK_AUTHOR)}</managingEditor>
     <lastBuildDate>${buildDate}</lastBuildDate>
     <atom:link href="${BASE_URL}/feed.xml" rel="self" type="application/rss+xml" />
-${items.join('\n')}
+${allItems.join('\n')}
   </channel>
 </rss>`
 

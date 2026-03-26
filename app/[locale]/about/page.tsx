@@ -99,14 +99,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       { label: locale === 'fr' ? 'Accueil' : 'Home', href: `/${locale}` },
       { label: locale === 'fr' ? 'À propos' : 'About' },
     ]} />
-    <div className="max-w-3xl mx-auto px-6 pt-16 pb-24">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-16 pb-24">
       <div className="prose prose-lg prose-invert prose-chapter">
         <MDXRemote source={content} />
       </div>
       <div className="mt-12 pt-8 border-t border-gray-800">
         <Link
           href={`/${locale}/chapters/prologue`}
-          className="bg-accent text-black px-8 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors"
+          className="bg-accent text-black px-8 py-3 font-sans font-semibold hover:bg-amber-400 transition-colors w-full sm:w-auto text-center"
         >
           {t('about.cta')}
         </Link>

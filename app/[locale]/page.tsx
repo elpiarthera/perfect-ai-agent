@@ -112,7 +112,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
       {/* Hero */}
       <section className="pt-12 md:pt-24 pb-20">
@@ -171,8 +171,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* Audience targeting */}
-      <section className="py-16 border-t border-gray-800">
-        <h2 className="font-serif text-2xl text-white mb-10 text-center">{t('audience.title')}</h2>
+      <section aria-labelledby="audience-title" className="py-16 border-t border-gray-800">
+        <h2 id="audience-title" className="font-serif text-2xl text-white mb-10 text-center">{t('audience.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {([
             { title: t('audience.developers'), description: t('audience.developersDesc') },
@@ -199,8 +199,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* 4-Act Arc */}
-      <section className="py-16 border-t border-gray-800">
-        <h2 className="font-serif text-2xl text-white mb-10 text-center">{t('arc.title')}</h2>
+      <section aria-labelledby="arc-title" className="py-16 border-t border-gray-800">
+        <h2 id="arc-title" className="font-serif text-2xl text-white mb-10 text-center">{t('arc.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {([
             { name: t('arc.act1Name'), subtitle: t('arc.act1Subtitle'), description: t('arc.act1Description') },
@@ -218,9 +218,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* Chapter 1 free teaser */}
-      <section className="py-16 border-t border-gray-800">
+      <section aria-labelledby="teaser-title" className="py-16 border-t border-gray-800">
         <p className="text-accent text-xs uppercase tracking-widest font-sans mb-4">{t('teaser.eyebrow')}</p>
-        <h2 className="font-serif text-3xl text-white mb-2">{t('teaser.title')}</h2>
+        <h2 id="teaser-title" className="font-serif text-3xl text-white mb-2">{t('teaser.title')}</h2>
         <p className="text-gray-400 font-sans mb-8">{t('teaser.sin')}</p>
         <div className="prose-chapter text-gray-300 mb-8">
           <blockquote className="border-l-4 border-accent pl-6 italic text-gray-400 mb-8">
@@ -242,7 +242,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* Back cover blurb */}
-      <section className="py-16 border-t border-gray-800 max-w-2xl mx-auto">
+      <section aria-label="Book blurb" className="py-16 border-t border-gray-800 max-w-2xl mx-auto">
         <p className="font-serif text-gray-300 leading-relaxed mb-6">{t('blurb.p1')}</p>
         <p className="font-serif text-gray-300 leading-relaxed mb-6">{t('blurb.p2')}</p>
         <p className="font-serif text-gray-300 leading-relaxed mb-6">{t('blurb.p3')}</p>
@@ -255,8 +255,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       </section>
 
       {/* Agent CTA */}
-      <section className="py-16 border-t border-gray-800">
-        <h2 className="font-serif text-2xl text-white mb-4 text-center">{t('agentCta.title')}</h2>
+      <section aria-labelledby="agent-cta-title" className="py-16 border-t border-gray-800">
+        <h2 id="agent-cta-title" className="font-serif text-2xl text-white mb-4 text-center">{t('agentCta.title')}</h2>
         <p className="text-gray-400 text-center font-sans mb-8 max-w-xl mx-auto">
           {t('agentCta.description')}
         </p>

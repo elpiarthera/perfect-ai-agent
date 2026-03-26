@@ -72,24 +72,22 @@ export default function Navigation({ locale }: { locale: string }) {
       </div>
 
       {/* Mobile dropdown */}
-      {open && (
-        <div id="mobile-menu" className="md:hidden border-t border-gray-800 mt-2 pt-2 pb-4 space-y-1">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className={
-                link.accent
-                  ? 'block bg-accent text-black text-sm font-sans font-semibold px-4 py-3 hover:bg-amber-400 transition-colors text-center'
-                  : 'block text-muted hover:text-white text-sm font-sans transition-colors px-4 py-3'
-              }
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      <div id="mobile-menu" className={`${open ? '' : 'hidden'} md:hidden border-t border-gray-800 mt-2 pt-2 pb-4 space-y-1`} aria-hidden={!open}>
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={() => setOpen(false)}
+            className={
+              link.accent
+                ? 'block bg-accent text-black text-sm font-sans font-semibold px-4 py-3 hover:bg-amber-400 transition-colors text-center'
+                : 'block text-muted hover:text-white text-sm font-sans transition-colors px-4 py-3'
+            }
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
     </nav>
   )
 }

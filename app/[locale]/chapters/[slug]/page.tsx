@@ -158,6 +158,12 @@ export async function generateMetadata({
       'citation_title': chapterTitle,
       'citation_author': AUTHOR.name,
       'citation_publication_date': PUBLICATION_DATE,
+      'DC.title': chapterTitle,
+      'DC.creator': AUTHOR.name,
+      'DC.date': PUBLICATION_DATE,
+      'DC.type': 'Text',
+      'DC.format': 'text/html',
+      'DC.language': locale,
     },
     keywords: CHAPTER_KEYWORDS[slug] || [],
   }
