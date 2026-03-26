@@ -29,14 +29,14 @@ export default function ShareButtons({
         href={twitterUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-accent hover:text-amber-400 transition-colors"
+        className="text-accent hover:text-amber-400 transition-colors min-h-[44px] flex items-center"
         aria-label={`${t('twitter')} (opens in new window)`}
       >
         {t('twitter')}
       </a>
       <button
         onClick={handleCopy}
-        className="text-accent hover:text-amber-400 transition-colors"
+        className="text-accent hover:text-amber-400 transition-colors min-h-[44px] flex items-center"
         aria-label={copied ? t('copied') : t('copyLink')}
       >
         {copied ? t('copied') : t('copyLink')}
