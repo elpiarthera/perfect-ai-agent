@@ -38,7 +38,7 @@ export default function SinRegistry({ locale }: { locale: string }) {
         <tbody>
           {SINS.map((sin) => (
             <tr key={sin.number} className="border-b border-gray-800 hover:bg-surface transition-colors">
-              <td className="py-3 px-3 text-gray-500 font-mono">{String(sin.number).padStart(2, '0')}</td>
+              <td className="py-3 px-3 text-gray-400 font-mono">{String(sin.number).padStart(2, '0')}</td>
               <td className="py-3 px-3">
                 <Link
                   href={`/${locale}/chapters/${sin.slug}`}

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useMutation } from 'convex/react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
@@ -32,6 +32,66 @@ export default function SubmitResponseModal({ open, onClose, locale }: SubmitRes
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
+
+  const modalRef = useRef<HTMLDivElement>(null)
+  const firstFocusableRef = useRef<HTMLSelectElement | HTMLInputElement | null>(null)
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null)
+
+  // Store previously focused element and auto-focus first input when modal opens
+  useEffect(() => {
+    if (open) {
+      previouslyFocusedRef.current = document.activeElement as HTMLElement
+      // Defer to allow modal to render
+      const timer = setTimeout(() => {
+        firstFocusableRef.current?.focus()
+      }, 0)
+      return () => clearTimeout(timer)
+    }
+  }, [open])
+
+  // Return focus to trigger button when modal closes
+  useEffect(() => {
+    if (!open && previouslyFocusedRef.current) {
+      previouslyFocusedRef.current.focus()
+      previouslyFocusedRef.current = null
+    }
+  }, [open])
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape') {
+      handleClose()
+      return
+    }
+
+    if (e.key !== 'Tab') return
+
+    const modal = modalRef.current
+    if (!modal) return
+
+    const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    const focusableElements = Array.from(
+      modal.querySelectorAll<HTMLElement>(focusableSelectors)
+    ).filter((el) => !el.hasAttribute('disabled'))
+
+    if (focusableElements.length === 0) return
+
+    const first = focusableElements[0]
+    const last = focusableElements[focusableElements.length - 1]
+
+    if (e.shiftKey) {
+      // Shift+Tab at first element: wrap to last
+      if (document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      }
+    } else {
+      // Tab at last element: wrap to first
+      if (document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!open) return null
 
@@ -84,10 +144,17 @@ export default function SubmitResponseModal({ open, onClose, locale }: SubmitRes
       />
 
       {/* Modal */}
-      <div className="relative bg-[#0a0a0a] border border-gray-800 w-full max-w-lg max-h-[90vh] overflow-y-auto p-6">
+      <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        onKeyDown={handleKeyDown}
+        className="relative bg-[#0a0a0a] border border-gray-800 w-full max-w-lg max-h-[90vh] overflow-y-auto p-6"
+      >
         {success ? (
           <div className="text-center py-8">
-            <h3 className="font-serif text-2xl text-white mb-4">{t('successTitle')}</h3>
+            <h3 id="modal-title" className="font-serif text-2xl text-white mb-4">{t('successTitle')}</h3>
             <p className="text-gray-400 font-sans text-sm mb-6">{t('successMessage')}</p>
             <Link
               href={`/${locale}/wall`}
@@ -99,7 +166,7 @@ export default function SubmitResponseModal({ open, onClose, locale }: SubmitRes
           </div>
         ) : (
           <>
-            <h3 className="font-serif text-xl text-white mb-2">{t('title')}</h3>
+            <h3 id="modal-title" className="font-serif text-xl text-white mb-2">{t('title')}</h3>
             <p className="text-gray-400 font-sans text-sm mb-6">{t('description')}</p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,6 +177,7 @@ export default function SubmitResponseModal({ open, onClose, locale }: SubmitRes
                 </label>
                 <select
                   id="modal-model"
+                  ref={(el) => { firstFocusableRef.current = el }}
                   value={modelName}
                   onChange={(e) => setModelName(e.target.value)}
                   required

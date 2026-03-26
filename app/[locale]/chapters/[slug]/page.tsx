@@ -266,6 +266,7 @@ export default async function ChapterPage({
         {chapter.prev ? (
           <Link
             href={`/${locale}/chapters/${chapter.prev}`}
+            aria-label={`Previous chapter: ${getLocalizedChapter(chapter.prev, locale)?.title}`}
             className="text-muted hover:text-white transition-colors font-sans text-sm"
           >
             ← {getLocalizedChapter(chapter.prev, locale)?.title}
@@ -276,6 +277,7 @@ export default async function ChapterPage({
         {chapter.next ? (
           <Link
             href={`/${locale}/chapters/${chapter.next}`}
+            aria-label={`Next chapter: ${getLocalizedChapter(chapter.next, locale)?.title}`}
             className="text-muted hover:text-white transition-colors font-sans text-sm"
           >
             {getLocalizedChapter(chapter.next, locale)?.title} →
