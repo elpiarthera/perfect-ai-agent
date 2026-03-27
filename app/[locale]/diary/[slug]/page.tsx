@@ -12,6 +12,15 @@ import {
   breadcrumbJsonLd,
   PUBLISHER_ORG,
 } from '@/lib/seo'
+import AudioPlayer from '@/components/AudioPlayer'
+
+/** Audio URLs per diary slug per locale. Add entries as narration is generated. */
+const DIARY_AUDIO: Record<string, Record<string, string>> = {
+  'day-20': {
+    en: 'https://v3b.fal.media/files/b/0a93c32b/bSx8AUeb47bX3sMUDZICW_speech.mp3',
+    fr: 'https://v3b.fal.media/files/b/0a93c339/JyfuL4GAOFcI5hEZXkz_1_speech.mp3',
+  },
+}
 
 export function generateStaticParams() {
   const entries = getDiaryEntries('en')
@@ -195,6 +204,17 @@ export default async function DiaryEntryPage({
           </h1>
           <p className="text-muted font-sans text-sm">{formattedDate}</p>
         </header>
+
+        {/* Audio player — shown only for entries with generated narration */}
+        {DIARY_AUDIO[slug]?.[locale] && (
+          <div className="mb-10">
+            <AudioPlayer
+              src={DIARY_AUDIO[slug][locale]}
+              title={`${dayLabel}: ${entry.title}`}
+              narrator={entry.narrator === 'pi' ? 'Pi' : 'Laurent Perello'}
+            />
+          </div>
+        )}
 
         {/* Entry content */}
         <div className="prose-chapter text-gray-300">
