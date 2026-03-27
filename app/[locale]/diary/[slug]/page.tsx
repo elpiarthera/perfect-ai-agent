@@ -17,8 +17,8 @@ import AudioPlayer from '@/components/AudioPlayer'
 /** Audio URLs per diary slug per locale. Add entries as narration is generated. */
 const DIARY_AUDIO: Record<string, Record<string, string>> = {
   'day-20': {
-    en: 'https://v3b.fal.media/files/b/0a93c32b/bSx8AUeb47bX3sMUDZICW_speech.mp3',
-    fr: 'https://v3b.fal.media/files/b/0a93c339/JyfuL4GAOFcI5hEZXkz_1_speech.mp3',
+    en: '/audio/diary/day-20-en.mp3',
+    fr: '/audio/diary/day-20-fr.mp3',
   },
 }
 
