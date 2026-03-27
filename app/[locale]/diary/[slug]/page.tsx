@@ -24,6 +24,7 @@ const DIARY_AUDIO: Record<string, Record<string, string>> = {
   'day-18': { en: '/audio/diary/day-18-en.mp3', fr: '/audio/diary/day-18-fr.mp3' },
   'day-19': { en: '/audio/diary/day-19-en.mp3', fr: '/audio/diary/day-19-fr.mp3' },
   'day-20': { en: '/audio/diary/day-20-en.mp3', fr: '/audio/diary/day-20-fr.mp3' },
+  'day-21': { en: '/audio/diary/day-21-en.mp3', fr: '/audio/diary/day-21-fr.mp3' },
 }
 
 export function generateStaticParams() {
