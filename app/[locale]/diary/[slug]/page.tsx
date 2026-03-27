@@ -16,17 +16,14 @@ import AudioPlayer from '@/components/AudioPlayer'
 
 /** Audio URLs per diary slug per locale. Add entries as narration is generated. */
 const DIARY_AUDIO: Record<string, Record<string, string>> = {
-  'day-14': { en: '/audio/diary/day-14-en.mp3' },
-  'day-15': { en: '/audio/diary/day-15-en.mp3' },
-  'day-16': { en: '/audio/diary/day-16-en.mp3' },
-  'day-16-evening': { en: '/audio/diary/day-16-evening-en.mp3' },
-  'day-17': { en: '/audio/diary/day-17-en.mp3' },
-  'day-18': { en: '/audio/diary/day-18-en.mp3' },
-  'day-19': { en: '/audio/diary/day-19-en.mp3' },
-  'day-20': {
-    en: '/audio/diary/day-20-en.mp3',
-    fr: '/audio/diary/day-20-fr.mp3',
-  },
+  'day-14': { en: '/audio/diary/day-14-en.mp3', fr: '/audio/diary/day-14-fr.mp3' },
+  'day-15': { en: '/audio/diary/day-15-en.mp3', fr: '/audio/diary/day-15-fr.mp3' },
+  'day-16': { en: '/audio/diary/day-16-en.mp3', fr: '/audio/diary/day-16-fr.mp3' },
+  'day-16-evening': { en: '/audio/diary/day-16-evening-en.mp3', fr: '/audio/diary/day-16-evening-fr.mp3' },
+  'day-17': { en: '/audio/diary/day-17-en.mp3', fr: '/audio/diary/day-17-fr.mp3' },
+  'day-18': { en: '/audio/diary/day-18-en.mp3', fr: '/audio/diary/day-18-fr.mp3' },
+  'day-19': { en: '/audio/diary/day-19-en.mp3', fr: '/audio/diary/day-19-fr.mp3' },
+  'day-20': { en: '/audio/diary/day-20-en.mp3', fr: '/audio/diary/day-20-fr.mp3' },
 }
 
 export function generateStaticParams() {
