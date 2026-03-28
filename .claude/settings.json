@@ -1,17 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Read(**)",
-      "Write(**)",
-      "Edit(**)",
-      "Bash(*)",
-      "Agent(*)",
-      "Glob(*)",
-      "Grep(*)",
-      "mcp__vantage-memory__*",
-      "mcp__convex__*",
-      "mcp__composio__*",
-      "mcp__firecrawl__*"
+      "*",
+      "mcp__vantage-memory__get_diary"
     ]
   },
   "hooks": {
