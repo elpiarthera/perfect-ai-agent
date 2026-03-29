@@ -12,21 +12,8 @@ import {
   breadcrumbJsonLd,
   PUBLISHER_ORG,
 } from '@/lib/seo'
-import AudioPlayer from '@/components/AudioPlayer'
+import DiaryAudioPlayer from '@/components/DiaryAudioPlayer'
 
-/** Audio URLs per diary slug per locale. Add entries as narration is generated. */
-const DIARY_AUDIO: Record<string, Record<string, string>> = {
-  'day-14': { en: '/audio/diary/day-14-en.mp3', fr: '/audio/diary/day-14-fr.mp3' },
-  'day-15': { en: '/audio/diary/day-15-en.mp3', fr: '/audio/diary/day-15-fr.mp3' },
-  'day-16': { en: '/audio/diary/day-16-en.mp3', fr: '/audio/diary/day-16-fr.mp3' },
-  'day-16-evening': { en: '/audio/diary/day-16-evening-en.mp3', fr: '/audio/diary/day-16-evening-fr.mp3' },
-  'day-17': { en: '/audio/diary/day-17-en.mp3', fr: '/audio/diary/day-17-fr.mp3' },
-  'day-18': { en: '/audio/diary/day-18-en.mp3', fr: '/audio/diary/day-18-fr.mp3' },
-  'day-19': { en: '/audio/diary/day-19-en.mp3', fr: '/audio/diary/day-19-fr.mp3' },
-  'day-20': { en: '/audio/diary/day-20-en.mp3', fr: '/audio/diary/day-20-fr.mp3' },
-  'day-21': { en: '/audio/diary/day-21-en.mp3', fr: '/audio/diary/day-21-fr.mp3' },
-  'day-22': { en: '/audio/diary/day-22-en.mp3', fr: '/audio/diary/day-22-fr.mp3' },
-}
 
 export function generateStaticParams() {
   const entries = getDiaryEntries('en')
@@ -211,16 +198,15 @@ export default async function DiaryEntryPage({
           <p className="text-muted font-sans text-sm">{formattedDate}</p>
         </header>
 
-        {/* Audio player — shown only for entries with generated narration */}
-        {DIARY_AUDIO[slug]?.[locale] && (
-          <div className="mb-10">
-            <AudioPlayer
-              src={DIARY_AUDIO[slug][locale]}
-              title={`${dayLabel}: ${entry.title}`}
-              narrator={entry.narrator === 'pi' ? 'Pi' : 'Laurent Perello'}
-            />
-          </div>
-        )}
+        {/* Audio player — fetches URL from Convex file storage */}
+        <div className="mb-10">
+          <DiaryAudioPlayer
+            slug={slug}
+            locale={locale}
+            title={`${dayLabel}: ${entry.title}`}
+            narrator={entry.narrator === 'pi' ? 'Pi' : 'Laurent Perello'}
+          />
+        </div>
 
         {/* Entry content */}
         <div className="prose-chapter text-gray-300">
