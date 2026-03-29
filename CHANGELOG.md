@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-03-29] Migrate audio storage to Convex file storage (branch: feat/convex-audio-storage-29032026)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 10:00 | 10:30 | 30min | Migrate diary audio from git repo (123 MB) to Convex file storage. New audioFiles table in schema, convex/audio.ts (getAudioUrl query, generateUploadUrl + saveAudioFile mutations), DiaryAudioPlayer client component (fetches URL from Convex via useQuery), migration script at scripts/migrate-audio-to-convex.mts. Diary page updated to use DiaryAudioPlayer instead of hardcoded DIARY_AUDIO map. |
+
+---
+
 ## [2026-03-22] AI Diary section (branch: feat/diary-section)
 
 | Agent | Start | End | Duration | Task |
