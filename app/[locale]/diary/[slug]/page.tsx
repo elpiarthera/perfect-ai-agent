@@ -13,6 +13,8 @@ import {
   PUBLISHER_ORG,
 } from '@/lib/seo'
 import AudioPlayer from '@/components/AudioPlayer'
+import EmailCapture from '@/components/EmailCapture'
+import VantagePeersBanner from '@/components/VantagePeersBanner'
 
 /** Audio URLs per diary slug per locale. Add entries as narration is generated. */
 const DIARY_AUDIO: Record<string, Record<string, string>> = {
@@ -270,6 +272,16 @@ export default async function DiaryEntryPage({
             url={`${SITE_URL}/${locale}/diary/${slug}`}
             title={`${dayLabel}: ${entry.title}`}
           />
+        </div>
+
+        {/* Email capture */}
+        <div className="mt-8">
+          <EmailCapture locale={locale} />
+        </div>
+
+        {/* VantagePeers CTA */}
+        <div className="mt-6">
+          <VantagePeersBanner locale={locale} />
         </div>
       </article>
     </>

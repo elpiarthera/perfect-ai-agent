@@ -1,20 +1,24 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 
-export default function EmailCapture({ locale }: { locale: string }) {
-  const t = useTranslations('gate')
+interface EmailCaptureProps {
+  locale: string
+}
+
+export default function EmailCapture({ locale }: EmailCaptureProps) {
   const [email, setEmail] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [done, setDone] = useState(false)
-  const [error, setError] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const isFr = locale === 'fr'
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setLoading(true)
-    setError('')
+    if (!email) return
+
+    setStatus('loading')
+    setErrorMessage('')
 
     try {
       const res = await fetch('/api/subscribe', {
@@ -23,64 +27,59 @@ export default function EmailCapture({ locale }: { locale: string }) {
         body: JSON.stringify({ email, locale }),
       })
 
-      if (!res.ok) throw new Error('Subscription failed')
-
-      setDone(true)
+      if (res.ok) {
+        setStatus('success')
+        setEmail('')
+      } else {
+        const data = await res.json()
+        setErrorMessage(data.error || (isFr ? 'Une erreur est survenue.' : 'Something went wrong.'))
+        setStatus('error')
+      }
     } catch {
-      setError('Something went wrong. Please try again.')
-    } finally {
-      setLoading(false)
+      setErrorMessage(isFr ? 'Une erreur est survenue.' : 'Something went wrong.')
+      setStatus('error')
     }
   }
 
-  if (done) {
+  if (status === 'success') {
     return (
-      <div className="text-center py-8">
-        <p className="font-serif text-xl text-white mb-2">You're in.</p>
-        <p className="text-gray-400 font-sans text-sm">We'll notify you when new content drops.</p>
+      <div className="rounded-lg border border-gray-800 bg-surface p-6 font-sans">
+        <p className="text-accent text-sm">
+          {isFr ? 'Inscrit ! On vous notifiera.' : "Subscribed! We'll notify you."}
+        </p>
       </div>
     )
   }
 
   return (
-    <div className="max-w-xl mx-auto text-center">
-      <h2 className="font-serif text-3xl text-white mb-3">{t('headline')}</h2>
-      <p className="text-gray-400 font-sans mb-8 leading-relaxed">{t('body')}</p>
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-        <label htmlFor="email-newsletter" className="sr-only">
-          {locale === 'fr' ? 'Adresse email' : 'Email address'}
-        </label>
+    <div className="rounded-lg border border-gray-800 bg-surface p-6 font-sans">
+      <h3 className="text-gray-300 text-sm font-medium mb-3">
+        {isFr
+          ? 'Soyez notifie quand le prochain chapitre sort'
+          : 'Get notified when the next chapter drops'}
+      </h3>
+      <form onSubmit={handleSubmit} className="flex gap-2">
         <input
-          id="email-newsletter"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder={t('placeholder')}
+          placeholder="your@email.com"
           required
-          aria-required="true"
-          aria-invalid={error ? 'true' : undefined}
-          aria-describedby={error ? 'email-error' : undefined}
-          className="flex-1 bg-surface border border-gray-700 text-white px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+          className="flex-1 rounded-lg border border-gray-800 bg-transparent px-3 py-2 text-sm text-gray-300 placeholder-gray-600 focus:border-accent focus:outline-none transition-colors"
         />
         <button
           type="submit"
-          disabled={loading}
-          className="bg-accent text-black font-sans font-semibold px-6 py-3 hover:bg-amber-400 transition-colors disabled:opacity-50"
+          disabled={status === 'loading'}
+          className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-black hover:bg-amber-400 transition-colors disabled:opacity-50"
         >
-          {loading ? '...' : t('button')}
+          {status === 'loading'
+            ? (isFr ? 'Envoi...' : 'Sending...')
+            : (isFr ? 'Recevoir' : 'Get notified')}
         </button>
       </form>
-      {error && (
-        <p id="email-error" role="alert" className="text-red-400 text-sm font-sans mt-3">
-          {error}
-        </p>
+      {status === 'error' && (
+        <p className="mt-2 text-red-400 text-xs">{errorMessage}</p>
       )}
-      <p className="text-muted text-xs font-sans mt-4">
-        {t('privacy')}{' '}
-        <Link href={`/${locale}/privacy`} className="underline hover:text-white transition-colors">
-          {locale === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'}
-        </Link>
-      </p>
     </div>
   )
 }
