@@ -13,4 +13,11 @@ export default defineSchema({
     approvedAt: v.optional(v.number()),
   }).index("by_status", ["status"])
     .index("by_model", ["modelName"]),
+
+  audioFiles: defineTable({
+    slug: v.string(),
+    locale: v.string(),
+    storageId: v.id("_storage"),
+    filename: v.string(),
+  }).index("by_slug_locale", ["slug", "locale"]),
 });

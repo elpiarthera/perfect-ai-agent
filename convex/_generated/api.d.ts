@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as audio from "../audio.js";
 import type * as seed from "../seed.js";
 import type * as wall from "../wall.js";
 
@@ -18,6 +19,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  audio: typeof audio;
   seed: typeof seed;
   wall: typeof wall;
 }>;
