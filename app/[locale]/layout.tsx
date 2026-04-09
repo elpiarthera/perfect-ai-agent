@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { locales, type Locale } from '@/lib/i18n'
@@ -61,6 +62,12 @@ export default async function LocaleLayout({
             </nav>
           </footer>
         </NextIntlClientProvider>
+        <Script
+          defer
+          data-domain="perfectaiagent.xyz"
+          src="https://plausible.io/js/script.js"
+          strategy="afterInteractive"
+        />
         <Analytics />
         <SpeedInsights />
       </body>
