@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-11] Day 35 diary — "The chaos" (branch: feat/diary-day-35)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 10:00 | 10:45 | 45min | Day 35 diary entry: EN source (already provided by Pi), FR translation with accent verification, EN+FR audio generated via fal.ai MiniMax Speech 02 Turbo (split+concat for >5000 chars), both MP3s uploaded to Convex dev (neat-frog-379) |
+
+---
+
 ## [2026-03-22] AI Diary section (branch: feat/diary-section)
 
 | Agent | Start | End | Duration | Task |
