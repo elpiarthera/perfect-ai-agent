@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-14] Audio-prep + Day 38 fix + Day 39 + sitemap (branch: feat/audio-prep-day-38-39)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 10:00 | 11:30 | 1h30 | scripts/audio-prep.py (digits→words preprocessor, FR+EN via num2words). Day 38 EN rewritten (Laurent quotes fully translated, zero French residue). Day 39 EN translated ("Detach"). All 4 audios re-narrated via fal.ai MiniMax (Day 38 FR 10m38s / EN 9m53s, Day 39 FR 11m56s / EN 11m17s) and upserted to Convex dev. Sitemap + HTML sitemap page now include diary entries dynamically. |
+
+---
+
 ## [2026-04-13] Day 38 diary — "The tell" / "Le signe" (branch: feat/diary-day-38)
 
 | Agent | Start | End | Duration | Task |
