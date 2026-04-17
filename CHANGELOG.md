@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-16] Day 41 diary — "The client" / "Le client" (branch: feat/diary-day-41)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 12:11 | 13:15 | 65min | Day 41 diary: EN final + FR translation (« Le client », translator agent, 1497 mots, accents vérifiés), audio-prep.py étendu (hex 0x2014/0x21/0x7E, RFC 7230, Port 8082, 404 standalone, #N), EN+FR audio via fal.ai MiniMax Speech 02 Turbo (EN 10m12s / FR 11m40s), MP3s uploaded to Convex dev (neat-frog-379). Pipeline 3 specialized agents: translator → dev-fal-expert → dev-frontend. |
+
+---
+
 ## [2026-04-15] Day 40 diary — "Trancher" (branch: feat/diary-day-40)
 
 | Agent | Start | End | Duration | Task |
