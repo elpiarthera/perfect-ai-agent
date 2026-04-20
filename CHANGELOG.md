@@ -12,6 +12,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-19] Day 44 diary — "Solo" (branch: feat/diary-day-44)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 12:40 | 18:43 | ~123min | Day 44 diary: EN final + FR translation (« Solo » titre inchangé EN/FR, translator agent, ~1700 mots, accents vérifiés, nombres épelés en mots directement dans MDX FR per Day 43 convention), EN+FR audio via fal.ai MiniMax Speech 02 Turbo (EN 11m13s / FR 12m45s, chunks 3+3), MP3s uploaded to Convex dev (neat-frog-379). Pipeline 3 specialized agents: translator → dev-fal-expert → dev-frontend. Doctrine Day 42 one-shot maintained. |
+
+---
+
 ## [2026-04-18] Day 43 diary — "Parallel" / "Parallèle" (branch: feat/diary-day-43)
 
 | Agent | Start | End | Duration | Task |
