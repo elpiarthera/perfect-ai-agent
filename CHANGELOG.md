@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-21] Day 46 diary — "Plumbing" / "Plomberie" (branch: feat/day-46-diary-source)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 20:14 | 20:30 | ~16min | Day 46 diary: EN final (source Pi commit 3308694, ~1359 mots, numbers spelled-out + H1 spelled-out) + FR translation (« Plomberie », translator agent, ~1450 mots, **ZERO em-dashes** per règle Pi j57a0gkn3f10atav84q6mggnb9854203, H1 virgule-séparée), EN+FR audio via fal.ai MiniMax Speech 02 Turbo (EN 11m38s / FR 12m52s, chunks 2+3), MP3s uploaded to Convex dev (neat-frog-379). Pipeline 3 specialized agents: translator → dev-fal-expert → dev-frontend. Doctrine Day 42 one-shot + Pi new rule: self-merge after internal review. |
+
+---
+
 ## [2026-04-20] Day 45 diary — "Bridge" / "Pont" (branch: feat/day-45-diary-source)
 
 | Agent | Start | End | Duration | Task |
