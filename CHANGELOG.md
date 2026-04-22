@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Day 47 diary — "Précision" / "Precision" (branch: feat/day-47-diary-source)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 18:45 | 18:57 | ~12min | Day 47 diary: EXCEPTION pattern — FR source written directly by Pi (commit 27cfbe0, 1211 mots) + EN translation (« Precision », translator agent, 1190 mots, ZERO em-dashes, H1 spelled-out). EN+FR audio via fal.ai MiniMax Speech 02 Turbo (EN 8m24s / FR 9m13s, chunks 2+2). MP3s uploaded to Convex PROD (laudable-hedgehog-797 — first use post-pipeline config fix fd99161 verified). Pipeline 3 specialized agents: translator (FR→EN reverse) → dev-fal-expert → dev-frontend. Doctrine Day 42 + self-merge. Laurent valide demain. |
+
+---
+
 ## [2026-04-22] Ahrefs cascade fix — 308 redirects + /fr/journal + 404 title (branch: fix/ahrefs-cascade-308-redirects-hreflang-titles)
 
 | Agent | Start | End | Duration | Task |
