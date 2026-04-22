@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] IndexNow direct API (branch: feat/indexnow-direct-api)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-convex-expert | 20:00 | 20:30 | ~30min | Mission k572b8wepjp1nv9vyh5z620frn85b4hz. L1: /public/6afd4401-c939-4f0a-8262-03a1bfe743cc.txt — UUID key file for IndexNow ownership verification. L2: lib/indexnow.ts — server-side helper with runtime typeof env var checks, UUID regex validation, new URL() try/catch per-URL host filtering, 10k URL cap truncation (Tau PR #14 patterns). L3: app/api/indexnow-bulk/route.ts — POST-only endpoint, always-required Bearer auth (INDEXNOW_BULK_SECRET), collects static pages + chapter slugs + final diary entries from filesystem (mirrors sitemap.xml/route.ts logic), calls notifyIndexNow(). L4: local+prod curl tests documented. L5: deliverables/perfect-ai-agent/patterns/indexnow-direct-api.md — pattern doc with PAA-specific deltas vs Alpha PR #56 + Tau PR #14. Requires Laurent: INDEXNOW_API_KEY, INDEXNOW_HOST, INDEXNOW_BULK_SECRET env vars in Vercel. |
+
+---
+
 ## [2026-04-22] Ahrefs T6+T7 — meta description 120-160 + title <=60 (branch: fix/ahrefs-meta-title-length-v3)
 
 | Agent | Start | End | Duration | Task |
