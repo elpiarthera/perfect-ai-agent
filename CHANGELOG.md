@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Fix sitemap GSC "could not be read" — RSC header 500 (branch: fix/sitemap-gsc-readable)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi (SEO) | 09:00 | 09:30 | 30min | Root cause: app/sitemap.ts (MetadataRoute.Sitemap) includes Vary:rsc in response headers. When Googlebot sends RSC:1, Vercel serves cached 500 HTML instead of XML. Fix: replaced app/sitemap.ts with app/sitemap.xml/route.ts (explicit Route Handler), sets Content-Type:application/xml + Cache-Control without RSC Vary. Build passes, local XML validates (134 URLs). GSC re-submit required after deploy. |
+
+---
+
 ## [2026-04-21] Day 46 diary — "Plumbing" / "Plomberie" (branch: feat/day-46-diary-source)
 
 | Agent | Start | End | Duration | Task |
