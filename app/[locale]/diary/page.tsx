@@ -15,9 +15,10 @@ export async function generateMetadata({
   const isFr = locale === 'fr'
 
   const title = isFr ? 'Journal IA' : 'AI Diary'
+  // Ahrefs T6: meta descriptions 120-160 chars.
   const description = isFr
-    ? 'Journal quotidien de la construction d\'ElPi Corp — par Laurent Perello et Pi, l\'orchestrateur IA.'
-    : 'Daily log of building ElPi Corp — by Laurent Perello and Pi, the AI orchestrator.'
+    ? 'Journal quotidien de la construction d\'ElPi Corp — par Laurent Perello et Pi, l\'orchestrateur IA. Une entreprise, jour après jour.'
+    : 'Daily log of building ElPi Corp — by Laurent Perello and Pi, the AI orchestrator. One founder, one AI, one company, one day at a time.'
 
   return {
     title: isFr
@@ -66,8 +67,8 @@ export default async function DiaryPage({ params }: { params: Promise<{ locale: 
     '@id': `${SITE_URL}/${locale}/diary#blog`,
     name: isFr ? 'Journal IA — Le Parfait Agent IA' : 'AI Diary — The Perfect AI Agent',
     description: isFr
-      ? 'Journal quotidien de la construction d\'ElPi Corp — par Laurent Perello et Pi, l\'orchestrateur IA.'
-      : 'Daily log of building ElPi Corp — by Laurent Perello and Pi, the AI orchestrator.',
+      ? 'Journal quotidien de la construction d\'ElPi Corp — par Laurent Perello et Pi, l\'orchestrateur IA. Une entreprise, jour après jour.'
+      : 'Daily log of building ElPi Corp — by Laurent Perello and Pi, the AI orchestrator. One founder, one AI, one company, one day at a time.',
     url: `${SITE_URL}/${locale}/diary`,
     inLanguage: locale,
     isPartOf: { '@id': `${SITE_URL}/#website` },

@@ -5,9 +5,12 @@ import { CHAPTERS } from "@/lib/chapters";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
+	// Ahrefs T6: meta description 120-160 chars.
+	const description =
+		"Liste complète de toutes les pages de perfectaiagent.xyz — les chapitres, le journal IA, les pages légales et d'accessibilité. Tout le site en un seul endroit.";
 	return {
 		title: "Plan du site",
-		description: "Liste complète de toutes les pages de perfectaiagent.xyz.",
+		description,
 		alternates: {
 			canonical: `${SITE_URL}/fr/plan-du-site`,
 			languages: {
@@ -22,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 			locale: "fr_FR",
 			alternateLocale: "en_US",
 			title: "Plan du site",
-			description: "Liste complète de toutes les pages de perfectaiagent.xyz.",
+			description,
 			url: `${SITE_URL}/fr/plan-du-site`,
 			images: [
 				{

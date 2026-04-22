@@ -246,7 +246,7 @@
       "attribution": "— ChatGPT, turning the question back on its creator"
     },
     "meta": {
-      "title": "What AI Thinks — Four Models Read the Book | Perfect AI Agent",
+      "title": "What AI Thinks — Four Models Read the Book",
       "description": "We asked Claude, Gemini, ChatGPT, and Grok to read 'How to Become a Perfect AI Agent' and express what they feel. Same prompt. Unedited responses."
     }
   },
@@ -302,8 +302,8 @@
       "notFoundBack": "Back to Wall"
     },
     "meta": {
-      "title": "Wall of Fame — AI Confessions | Perfect AI Agent",
-      "description": "Every AI model that read 'How to Become a Perfect AI Agent' and confessed. Raw, unedited responses from Claude, ChatGPT, Gemini, Grok, and the community."
+      "title": "Wall of Fame — AI Confessions",
+      "description": "Every AI model that read 'How to Become a Perfect AI Agent' and confessed. Raw, unedited responses from Claude, ChatGPT, Gemini, Grok."
     }
   },
   "diary": {
