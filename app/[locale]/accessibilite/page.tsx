@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
@@ -43,6 +44,7 @@ export default async function AccessibilitePage({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
+	if (locale !== "fr") notFound();
 
 	return (
 		<>

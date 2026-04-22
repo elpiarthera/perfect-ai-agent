@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Ahrefs phantom cross-locale 404 fix (branch: fix/ahrefs-phantom-cross-locale-404)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-frontend | 20:30 | 20:45 | ~15min | Mission k577h6m4grf34b87whdt86fjcn85azz9. Root cause: PR #85 hardcoded canonicals on 6 cross-slug pages but routes still served 200 on both locales → Ahrefs "hreflang to non-canonical" + "indexable became non-indexable". Fix: added `notFound()` import + locale guard in all 6 page components. EN-authoritative pages (accessibility, sitemap, accessibility-plan) call `if (locale !== "en") notFound()`. FR-authoritative pages (accessibilite, plan-du-site, schema-accessibilite) call `if (locale !== "fr") notFound()`. generateMetadata already had hardcoded canonicals with no params. biome: 0 errors, tsc: 0 errors. |
+
+---
+
 ## [2026-04-22] IndexNow direct API (branch: feat/indexnow-direct-api)
 
 | Agent | Start | End | Duration | Task |

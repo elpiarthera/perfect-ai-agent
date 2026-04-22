@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { CHAPTERS } from "@/lib/chapters";
 import { getDiaryEntries } from "@/lib/diary";
@@ -45,15 +46,16 @@ export default async function SitemapPage({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
+	if (locale !== "en") notFound();
 
 	const diaryEntries = getDiaryEntries(locale);
-	const diaryTitle = locale === "fr" ? "Le Journal de Pi" : "AI Diary";
+	const diaryTitle = "AI Diary";
 
 	const mainPages = [
 		{ label: "Home", href: `/${locale}` },
 		{ label: "Chapters", href: `/${locale}/chapters` },
 		{
-			label: locale === "fr" ? "Le Journal de Pi" : "AI Diary",
+			label: "AI Diary",
 			href: `/${locale}/diary`,
 		},
 		{ label: "For AI Agents", href: `/${locale}/for-ai-agents` },
@@ -138,8 +140,7 @@ export default async function SitemapPage({
 										href={`/${locale}/diary/${entry.slug}`}
 										className="text-accent hover:underline font-sans"
 									>
-										{locale === "fr" ? "Jour" : "Day"} {entry.day}:{" "}
-										{entry.title}
+										{"Day"} {entry.day}: {entry.title}
 									</Link>
 									{entry.date && (
 										<span className="text-muted text-sm font-sans ml-3">
