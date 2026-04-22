@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # generate-day41-audio.sh
 # Generates Day 41 EN + FR audio via fal.ai MiniMax Speech-02 Turbo,
-# concatenates chunks, uploads to Convex dev (neat-frog-379).
+# concatenates chunks, uploads to Convex prod (laudable-hedgehog-797).
 #
 # Prerequisites:
 #   - FAL_KEY in .env.local (account must have balance)
 #   - ffmpeg installed
 #   - npx tsx available
-#   - NEXT_PUBLIC_CONVEX_URL in .env.local
+#   - CONVEX_URL_AUDIO in .env.local (prod URL; falls back to NEXT_PUBLIC_CONVEX_URL)
 #
 # Usage: bash scripts/generate-day41-audio.sh
 
@@ -20,7 +20,10 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 source "$PROJECT_DIR/.env.local"
 
 FAL_KEY="${FAL_KEY:?FAL_KEY not set}"
-CONVEX_URL="${NEXT_PUBLIC_CONVEX_URL:?NEXT_PUBLIC_CONVEX_URL not set}"
+# Audio uploads target PROD explicitly. perfectaiagent.xyz reads from PROD;
+# writing to DEV (neat-frog-379) makes audio invisible to users (Days 35-46 bug, 2026-04-09 → 2026-04-22).
+CONVEX_URL="${CONVEX_URL_AUDIO:-${NEXT_PUBLIC_CONVEX_URL:?CONVEX_URL_AUDIO or NEXT_PUBLIC_CONVEX_URL must be set}}"
+echo "[audio] Writing audio to deployment: $CONVEX_URL"
 
 EN_CHUNK1="/tmp/day-41-en-chunk1.txt"
 EN_CHUNK2="/tmp/day-41-en-chunk2.txt"

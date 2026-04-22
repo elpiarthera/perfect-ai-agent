@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Fix audio pipeline prod target (branch: fix/audio-prod-deployment-target)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-senior-dev | 09:00 | 09:20 | ~20min | Root cause: narration scripts `scripts/generate-dayNN-audio.sh` sourced `NEXT_PUBLIC_CONVEX_URL` from `.env.local` which pointed to DEV (`neat-frog-379`). Since ~2026-04-09 Days 35-46 EN+FR audio (24 files) uploaded to DEV, invisible on perfectaiagent.xyz (reads from PROD `laudable-hedgehog-797`). Fix: (1) new env `CONVEX_URL_AUDIO=https://laudable-hedgehog-797.convex.cloud` in `.env.local` (gitignored, set locally). (2) All 6 existing scripts (Days 41-46) now read `CONVEX_URL="${CONVEX_URL_AUDIO:-${NEXT_PUBLIC_CONVEX_URL:?...}}"` with explicit start-of-run log `[audio] Writing audio to deployment: $CONVEX_URL`. Header docs updated to say "Convex prod". Prereq note points to `CONVEX_URL_AUDIO`. Scope: pipeline config only; L2 migration of existing 24 DEV audios is a separate track (`fix/audio-migrate-dev-to-prod-days-35-46`). |
+
+---
+
 ## [2026-04-21] Day 46 diary — "Plumbing" / "Plomberie" (branch: feat/day-46-diary-source)
 
 | Agent | Start | End | Duration | Task |
