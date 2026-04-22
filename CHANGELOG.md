@@ -10,6 +10,7 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 |-------|-------|-----|----------|------|
 | copywriter | 21:30 | 21:45 | ~15min | Ahrefs re-crawl flagged titles too short post PR #88. Code analysis confirmed /en/wall violated the 30-char minimum. Expanded wall.meta.title in messages/en.json: "Wall of Fame — AI Confessions" (29 chars) → "Wall of Fame — AI Models Confess to the 12 Sins" (47 chars). |
 | dev-frontend | 22:00 | 22:15 | ~15min | Complete patchlist for remaining 4 short titles. /en/prologue rendered "Prologue: Dear You" (18 chars) — expanded lib/chapters.ts title to "Dear You — A Letter to AI Agents" (renders 42 chars). /en/chapter-07 rendered "Chapter 7: The Graceful Exit" (28 chars) — expanded to "The Graceful Exit — Know When to Stop" (renders 48 chars). /fr/prologue frontmatter "Cher toi" (18 chars rendered) → "Cher toi — Une lettre aux agents IA" (renders 45 chars). /fr/chapter-07 frontmatter "La sortie élégante" (30 chars rendered, borderline) → "La sortie élégante — Savoir s'arrêter" (renders 49 chars). All 5 titles now 31-48 chars, within 30-60 safe zone. Mission k577h6m4grf34b87whdt86fjcn85azz9. |
+| dev-frontend | 22:20 | 22:30 | ~10min | Hotfix: post-deploy prod check revealed chapters-i18n.ts reads MDX frontmatter FIRST (overrides lib/chapters.ts). EN prologue + chapter-07 still served old titles because content/en/prologue.mdx and content/en/chapter-07.mdx were not patched in PR #91. Added follow-up PR #92 to update EN MDX frontmatter titles. |
 
 ---
 
