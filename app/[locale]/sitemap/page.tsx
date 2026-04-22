@@ -5,28 +5,23 @@ import { CHAPTERS } from "@/lib/chapters";
 import { getDiaryEntries } from "@/lib/diary";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
-export async function generateMetadata({
-	params,
-}: {
-	params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-	const { locale } = await params;
-
+export async function generateMetadata(): Promise<Metadata> {
 	return {
 		title: "Sitemap",
 		description: `Complete list of all pages on ${SITE_NAME}.`,
 		alternates: {
-			canonical: `${SITE_URL}/${locale}/sitemap`,
+			canonical: `${SITE_URL}/en/sitemap`,
 			languages: {
 				en: `${SITE_URL}/en/sitemap`,
 				fr: `${SITE_URL}/fr/plan-du-site`,
+				"x-default": `${SITE_URL}/en/sitemap`,
 			},
 		},
 		openGraph: {
 			type: "website",
 			title: "Sitemap",
 			description: `Complete list of all pages on ${SITE_NAME}.`,
-			url: `${SITE_URL}/${locale}/sitemap`,
+			url: `${SITE_URL}/en/sitemap`,
 		},
 	};
 }
