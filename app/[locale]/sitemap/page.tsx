@@ -19,9 +19,20 @@ export async function generateMetadata(): Promise<Metadata> {
 		},
 		openGraph: {
 			type: "website",
+			siteName: SITE_NAME,
+			locale: "en_US",
+			alternateLocale: "fr_FR",
 			title: "Sitemap",
 			description: `Complete list of all pages on ${SITE_NAME}.`,
 			url: `${SITE_URL}/en/sitemap`,
+			images: [
+				{
+					url: `${SITE_URL}/opengraph-image`,
+					width: 1200,
+					height: 630,
+					alt: "The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.",
+				},
+			],
 		},
 	};
 }

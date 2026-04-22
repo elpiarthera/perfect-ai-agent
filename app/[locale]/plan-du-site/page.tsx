@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { CHAPTERS } from "@/lib/chapters";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
@@ -18,9 +18,20 @@ export async function generateMetadata(): Promise<Metadata> {
 		},
 		openGraph: {
 			type: "website",
+			siteName: SITE_NAME,
+			locale: "fr_FR",
+			alternateLocale: "en_US",
 			title: "Plan du site",
 			description: "Liste complète de toutes les pages de perfectaiagent.xyz.",
 			url: `${SITE_URL}/fr/plan-du-site`,
+			images: [
+				{
+					url: `${SITE_URL}/opengraph-image`,
+					width: 1200,
+					height: 630,
+					alt: "The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.",
+				},
+			],
 		},
 	};
 }

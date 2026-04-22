@@ -30,9 +30,20 @@ export async function generateMetadata({
 		},
 		openGraph: {
 			type: "website",
+			siteName: SITE_NAME,
+			locale: locale === "fr" ? "fr_FR" : "en_US",
+			alternateLocale: locale === "fr" ? "en_US" : "fr_FR",
 			title,
 			description,
 			url: `${SITE_URL}/${locale}/privacy`,
+			images: [
+				{
+					url: `${SITE_URL}/opengraph-image`,
+					width: 1200,
+					height: 630,
+					alt: "The Perfect AI Agent — Five hundred complaints. Twelve patterns. Twelve sins.",
+				},
+			],
 		},
 	};
 }
