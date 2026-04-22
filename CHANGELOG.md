@@ -12,6 +12,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Ahrefs Wave 1 T5: Fix vantageteam.dev 307 redirect (branch: fix/ahrefs-broken-internal-links)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-frontend | 11:30 | 11:45 | ~15min | Audited 4 Ahrefs CSVs (223 rows total). All flagged links are external (Is link internal = false). Only actionable fix in scope: VantagePeersBanner href updated from `https://vantageteam.dev` (307 temporary redirect) to `https://www.vantageteam.dev` (canonical). Affects all diary pages (EN+FR, days 1-46 and day-16-evening). External 4xx (MIT, Gartner, Sprout Social) and external 3xx (defenseurdesdroits.fr, cnil.fr) are out of scope per task brief. |
+
+---
+
 ## [2026-04-22] Migrate audio Days 35-46 DEV→PROD (branch: fix/audio-migrate-dev-to-prod-days-35-46)
 
 | Agent | Start | End | Duration | Task |
