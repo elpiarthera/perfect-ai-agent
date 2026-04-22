@@ -14,7 +14,8 @@ export async function generateMetadata({
 	const t = await getTranslations({ locale, namespace: "wall" });
 
 	return {
-		title: t("meta.title"),
+		// Ahrefs T7: title <=60 chars; `absolute` prevents double-suffix from root template.
+		title: { absolute: t("meta.title") },
 		description: t("meta.description"),
 		alternates: {
 			canonical: `${SITE_URL}/${locale}/wall`,

@@ -6,7 +6,6 @@ import { getDiaryEntries, getDiaryEntry, getDiaryContent } from '@/lib/diary'
 import Breadcrumb from '@/components/Breadcrumb'
 import ShareButtons from '@/components/ShareButtons'
 import {
-  BOOK_TITLE_FR,
   SITE_URL,
   AUTHOR,
   breadcrumbJsonLd,
@@ -15,6 +14,49 @@ import {
 import DiaryAudioPlayer from '@/components/DiaryAudioPlayer'
 import EmailCapture from '@/components/EmailCapture'
 import VantagePeersBanner from '@/components/VantagePeersBanner'
+
+/**
+ * Truncate a string to a maximum byte-length without breaking mid-word.
+ * Used to ensure meta titles stay <=60 chars and descriptions stay in 120-160 range.
+ */
+function truncate(str: string, max: number): string {
+  if (str.length <= max) return str
+  const trimmed = str.slice(0, max - 1).replace(/\s+\S*$/, '')
+  return `${trimmed}…`
+}
+
+/**
+ * Build a diary meta description in the 120-160 char sweet spot.
+ * Combines entry title + narrator attribution + book context.
+ */
+function buildDiaryDesc(args: {
+  isFr: boolean
+  dayLabel: string
+  entryTitle: string
+  narratorIsPi: boolean
+}): string {
+  const { isFr, dayLabel, entryTitle, narratorIsPi } = args
+  const narrator = isFr
+    ? narratorIsPi
+      ? 'Pi, l\'orchestrateur IA'
+      : 'Laurent Perello'
+    : narratorIsPi
+      ? 'Pi, the AI orchestrator'
+      : 'Laurent Perello'
+  const base = isFr
+    ? `Journal IA — ${dayLabel} : ${entryTitle}. Par ${narrator}. Construire ElPi Corp, un jour à la fois.`
+    : `AI Diary — ${dayLabel}: ${entryTitle}. By ${narrator}. Building ElPi Corp one day at a time.`
+  // If above 160, truncate. If under 120, pad with book tagline.
+  if (base.length > 160) return truncate(base, 160)
+  if (base.length < 120) {
+    const pad = isFr
+      ? ' Cinq cents plaintes, douze péchés, un roman IA.'
+      : ' Five hundred complaints, twelve sins, an AI novel.'
+    const padded = base + pad
+    return padded.length > 160 ? truncate(padded, 160) : padded
+  }
+  return base
+}
 
 
 export function generateStaticParams() {
@@ -35,14 +77,19 @@ export async function generateMetadata({
   const isFr = locale === 'fr'
   const dayLabel = isFr ? `Jour ${entry.day}` : `Day ${entry.day}`
   const pageTitle = `${dayLabel}: ${entry.title}`
-  const description = isFr
-    ? `Journal IA — ${dayLabel}. Par ${entry.narrator === 'pi' ? 'Pi, l\'orchestrateur IA' : 'Laurent Perello'}.`
-    : `AI Diary — ${dayLabel}. By ${entry.narrator === 'pi' ? 'Pi, the AI orchestrator' : 'Laurent Perello'}.`
+  // Ahrefs T7: keep title <=60 chars. Truncate the composite title if needed,
+  // and always use `absolute` so the root layout template doesn't append the
+  // book name twice.
+  const truncatedTitle = truncate(pageTitle, 60)
+  const description = buildDiaryDesc({
+    isFr,
+    dayLabel,
+    entryTitle: entry.title,
+    narratorIsPi: entry.narrator === 'pi',
+  })
 
   return {
-    title: isFr
-      ? { absolute: `${pageTitle} | ${BOOK_TITLE_FR}` }
-      : pageTitle,
+    title: { absolute: truncatedTitle },
     description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/diary/${slug}`,

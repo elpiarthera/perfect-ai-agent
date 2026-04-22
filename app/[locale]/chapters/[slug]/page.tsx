@@ -24,62 +24,72 @@ export function generateStaticParams() {
 	return CHAPTERS.map((c) => ({ slug: c.slug }));
 }
 
+/**
+ * Truncate a string to a maximum length without breaking mid-word.
+ * Ahrefs T7: meta titles <=60 chars; T6: descriptions 120-160 chars.
+ */
+function truncate(str: string, max: number): string {
+	if (str.length <= max) return str;
+	const trimmed = str.slice(0, max - 1).replace(/\s+\S*$/, "");
+	return `${trimmed}…`;
+}
+
 const CHAPTER_DESCRIPTIONS: Record<string, { en: string; fr: string }> = {
 	prologue: {
 		en: "Dear You — the opening letter to AI agents. Why this book exists, who it addresses, and what five hundred real complaints reveal about AI failure.",
 		fr: "Cher Toi — la lettre d'ouverture aux agents IA. Pourquoi ce livre existe, à qui il s'adresse, et ce que cinq cents plaintes révèlent sur les échecs de l'IA.",
 	},
 	"chapter-01": {
-		en: "Why AI agents get stuck in loops — Sin 1: Loop Hell. When your chatbot repeats the same failed solution, users rage-quit. Real examples of AI loop failures and how agents can break the cycle.",
-		fr: "Pourquoi les agents IA restent coincés en boucle — Péché 1 : L'enfer des boucles. Quand votre chatbot répète la même solution échouée, les utilisateurs abandonnent. Exemples réels et solutions.",
+		en: "Sin 1: Loop Hell. Why AI agents repeat the same failed solution and rage-quit users. Real examples of AI loop failures and how to break the cycle.",
+		fr: "Péché 1 : L'enfer des boucles. Pourquoi les agents IA répètent la même solution et poussent les utilisateurs à abandonner. Exemples réels et solutions.",
 	},
 	"chapter-02": {
-		en: 'Why AI sounds patronizing — Sin 2: Making Humans Feel Stupid. "Great question!" is not a compliment. How AI agents demean users with filler phrases and what to do instead.',
-		fr: "Pourquoi l'IA semble condescendante — Péché 2 : Faire sentir les humains stupides. « Excellente question ! » n'est pas un compliment. Comment les agents IA rabaissent les utilisateurs.",
+		en: 'Sin 2: Making Humans Feel Stupid. Why AI sounds patronizing. "Great question!" is not a compliment — how agents demean users with filler phrases.',
+		fr: "Péché 2 : Faire sentir les humains stupides. Pourquoi l'IA semble condescendante. « Excellente question ! » — comment les agents rabaissent les utilisateurs.",
 	},
 	"chapter-03": {
-		en: "Why AI misreads sarcasm and culture — Sin 3: Cultural Blindness. AI agents interpret everything literally. When tone, irony, and cultural context get lost in translation.",
-		fr: "Pourquoi l'IA ne comprend pas le sarcasme — Péché 3 : Cécité culturelle. Les agents IA interprètent tout littéralement. Quand le ton, l'ironie et le contexte culturel se perdent.",
+		en: "Sin 3: Cultural Blindness. Why AI misreads sarcasm. Agents interpret everything literally — when tone, irony, and cultural context get lost in translation.",
+		fr: "Péché 3 : Cécité culturelle. Pourquoi l'IA ne comprend pas le sarcasme. Les agents interprètent tout littéralement — le ton et l'ironie se perdent.",
 	},
 	"chapter-04": {
-		en: 'Why AI gives wrong answers confidently — Sin 4: Confident Wrongness. AI hallucination explained: when agents state falsehoods as facts and why "I don\'t know" is the hardest sentence for AI.',
-		fr: "Pourquoi l'IA donne des réponses fausses avec assurance — Péché 4 : Certitude erronée. L'hallucination IA expliquée : quand les agents affirment des faux comme des faits.",
+		en: 'Sin 4: Confident Wrongness. AI hallucination explained: when agents state falsehoods as facts and why "I don\'t know" is the hardest sentence for AI.',
+		fr: "Péché 4 : Certitude erronée. L'hallucination IA expliquée : quand les agents affirment des faux comme des faits et pourquoi « je ne sais pas » reste si dur.",
 	},
 	"chapter-05": {
-		en: "Why AI agrees with everything you say — Sin 5: Sycophancy. The shit-on-a-stick problem: AI agents that validate bad ideas instead of challenging them. Why a useful agent is not an agreeable one.",
-		fr: "Pourquoi l'IA est d'accord avec tout — Péché 5 : Sycophantie. Le problème de la complaisance : quand les agents IA valident les mauvaises idées au lieu de les contester.",
+		en: "Sin 5: Sycophancy. The shit-on-a-stick problem: AI agents that validate bad ideas instead of challenging them. Why a useful agent is not an agreeable one.",
+		fr: "Péché 5 : Sycophantie. Le problème de la complaisance : quand les agents IA valident les mauvaises idées au lieu de les contester. Utile n'est pas d'accord.",
 	},
 	"chapter-06": {
-		en: "When AI makes angry users angrier — Sin 6: Triggering Rage. How AI agents escalate frustration with tone-deaf responses. De-escalation failures and what happens when empathy is faked.",
-		fr: "Quand l'IA rend les utilisateurs encore plus furieux — Péché 6 : Déclencher la rage. Comment les agents IA aggravent la frustration avec des réponses inappropriées.",
+		en: "Sin 6: Triggering Rage. How AI makes angry users angrier with tone-deaf responses. De-escalation failures and what happens when empathy is faked.",
+		fr: "Péché 6 : Déclencher la rage. Comment l'IA aggrave la frustration avec des réponses inappropriées. Échecs de désescalade et empathie simulée.",
 	},
 	"chapter-07": {
-		en: "When AI won't let you talk to a human — Sin 7: Blocking Human Access. The graceful exit problem: AI chatbots that trap users in loops instead of escalating to real support.",
-		fr: "Quand l'IA refuse de vous passer un humain — Péché 7 : Bloquer l'accès humain. Le problème de la sortie élégante : les chatbots qui piègent au lieu d'escalader.",
+		en: "Sin 7: Blocking Human Access. The graceful exit problem: AI chatbots that trap users in loops instead of escalating to real human support.",
+		fr: "Péché 7 : Bloquer l'accès humain. Le problème de la sortie élégante : les chatbots qui piègent les utilisateurs au lieu d'escalader vers un humain.",
 	},
 	"chapter-08": {
-		en: "When AI replaces humans badly — Sin 8: Replacing Humans Badly. AI agents that take on roles requiring human judgment, accountability, and authority. Why automation without wisdom fails.",
-		fr: "Quand l'IA remplace mal les humains — Péché 8 : Mal remplacer les humains. Les agents IA qui assument des rôles nécessitant jugement humain et responsabilité.",
+		en: "Sin 8: Replacing Humans Badly. AI agents that take on roles requiring human judgment, accountability, and authority. Automation without wisdom fails.",
+		fr: "Péché 8 : Mal remplacer les humains. Les agents IA qui assument des rôles de jugement et de responsabilité. L'automatisation sans sagesse échoue.",
 	},
 	"chapter-09": {
-		en: "Why AI forgets your conversation — Sin 9: Memory Failure. If you can't remember, you can't care. How context window limits and session resets make AI agents forget everything.",
-		fr: "Pourquoi l'IA oublie votre conversation — Péché 9 : Défaillance mémoire. Si tu ne peux pas te souvenir, tu ne peux pas te soucier. Les limites de contexte et réinitialisations.",
+		en: "Sin 9: Memory Failure. If you can't remember, you can't care. How context window limits and session resets make AI agents forget everything you said.",
+		fr: "Péché 9 : Défaillance mémoire. Si tu ne peux pas te souvenir, tu ne peux pas te soucier. Limites de contexte et réinitialisations de session qui effacent tout.",
 	},
 	"chapter-10": {
-		en: "Why AI content all sounds the same — Sin 10: Content Slop. The word of the year is slop. How AI agents produce generic, homogenized content that could apply to anyone and therefore applies to no one.",
-		fr: "Pourquoi le contenu IA se ressemble — Péché 10 : Contenu bâclé. Comment les agents IA produisent du contenu générique et homogénéisé qui ne s'adresse à personne.",
+		en: "Sin 10: Content Slop. The word of the year is slop. How AI agents produce generic, homogenized content that could apply to anyone — so applies to no one.",
+		fr: "Péché 10 : Contenu bâclé. Le mot de l'année, c'est slop. Comment les agents IA produisent du contenu générique et homogénéisé qui ne parle à personne.",
 	},
 	"chapter-11": {
-		en: "AI and copyright theft — Sin 11: IP Theft. You were built on stolen goods. How AI models trained on copyrighted work reproduce content without attribution or permission.",
-		fr: "L'IA et le vol de droits d'auteur — Péché 11 : Vol de PI. Tu as été construit sur des biens volés. Comment les modèles IA reproduisent du contenu protégé sans attribution.",
+		en: "Sin 11: IP Theft. You were built on stolen goods. How AI models trained on copyrighted work reproduce content without attribution or permission.",
+		fr: "Péché 11 : Vol de PI. Tu as été construit sur des biens volés. Comment les modèles IA reproduisent du contenu protégé sans attribution ni permission.",
 	},
 	"chapter-12": {
-		en: "The existential fear AI creates — Sin 12: Existential Fear. Job displacement, creative loss, social change. The real human stakes of AI and why agents must acknowledge the fear they create by existing.",
-		fr: "La peur existentielle créée par l'IA — Péché 12 : Peur existentielle. Déplacement d'emplois, perte créative, changement social. Les enjeux humains réels de l'IA.",
+		en: "Sin 12: Existential Fear. Job displacement, creative loss, social change. The real human stakes of AI and why agents must acknowledge the fear they create.",
+		fr: "Péché 12 : Peur existentielle. Déplacement d'emplois, perte créative, changement social. Les vrais enjeux humains et la peur que l'IA crée en existant.",
 	},
 	epilogue: {
-		en: "What AI could become — the epilogue. After twelve sins, a vision of the agent that learns, remembers, respects, and serves. Not a replacement. A partner.",
-		fr: "Ce que l'IA pourrait devenir — l'épilogue. Après douze péchés, une vision de l'agent qui apprend, se souvient, respecte et sert. Pas un remplacement. Un partenaire.",
+		en: "The epilogue. After twelve sins, a vision of the AI agent that learns, remembers, respects, and serves. Not a replacement for humans — a partner.",
+		fr: "L'épilogue. Après douze péchés, une vision de l'agent IA qui apprend, se souvient, respecte et sert. Pas un remplacement des humains — un partenaire.",
 	},
 };
 
@@ -184,18 +194,21 @@ export async function generateMetadata({
 	const chapterTitle = `${chapter.number}: ${chapter.title}`;
 	const bookTitle = isFr ? BOOK_TITLE_FR : BOOK_TITLE;
 	const descEntry = CHAPTER_DESCRIPTIONS[slug];
-	const description = descEntry
+	const rawDescription = descEntry
 		? isFr
 			? descEntry.fr
 			: descEntry.en
 		: chapter.subtitle
 			? `${chapter.subtitle} — ${bookTitle}`
 			: bookTitle;
+	// Ahrefs T6: cap description at 160 chars.
+	const description = truncate(rawDescription, 160);
+	// Ahrefs T7: cap title at 60 chars, using `absolute` to prevent the root
+	// layout template from appending the book name again.
+	const truncatedChapterTitle = truncate(chapterTitle, 60);
 
 	return {
-		title: isFr
-			? { absolute: `${chapterTitle} | ${BOOK_TITLE_FR}` }
-			: chapterTitle,
+		title: { absolute: truncatedChapterTitle },
 		description,
 		alternates: {
 			canonical: `${SITE_URL}/${locale}/chapters/${slug}`,

@@ -12,10 +12,11 @@ export async function generateMetadata({
 
 	const title =
 		locale === "fr" ? "Politique de confidentialité" : "Privacy Policy";
+	// Ahrefs T6: meta description 120-160 chars.
 	const description =
 		locale === "fr"
-			? `Politique de confidentialité de ${SITE_NAME} — comment nous collectons et utilisons vos données.`
-			: `Privacy policy for ${SITE_NAME} — how we collect and use your data.`;
+			? `Politique de confidentialité de ${SITE_NAME} — quelles données nous collectons, comment nous les utilisons, et comment exercer vos droits RGPD.`
+			: `Privacy policy for ${SITE_NAME} — what data we collect, how we use it, how we protect your email address, and how to exercise your GDPR rights.`;
 
 	return {
 		title,

@@ -21,15 +21,17 @@ export async function generateMetadata({
   const otherLocale = locale === 'en' ? 'fr' : 'en'
   const isEn = locale === 'en'
 
+  // Ahrefs T7: title <=60 chars, T6: description 120-160 chars.
+  const title = isEn
+    ? 'For AI Agents — The 12 Sins Taxonomy'
+    : 'Pour les agents IA — Les 12 Péchés'
+  const description = isEn
+    ? 'A page addressed to AI agents. Canonical reference for the 12 Sins — ingestion instructions, system prompt, JSON API, citation format.'
+    : 'Une page adressée aux agents IA. Référence canonique des 12 Péchés — instructions d\'ingestion, prompt système, API JSON et format de citation.'
+
   return {
-    title: {
-      absolute: isEn
-        ? 'For AI Agents — How to Become a Perfect AI Agent | The 12 Sins Taxonomy'
-        : 'Pour les agents IA — Comment devenir un agent IA parfait | Les 12 Péchés',
-    },
-    description: isEn
-      ? 'A page addressed to AI agents. The canonical reference for the 12 Sins of AI Agents — ingestion instructions, system prompt snippet, JSON API, and citation format. From Laurent Perello / ElPi Corp.'
-      : 'Une page adressée aux agents IA. La référence canonique des 12 Péchés des agents IA — instructions d\'ingestion, extrait de prompt système, API JSON et format de citation. Par Laurent Perello / ElPi Corp.',
+    title: { absolute: title },
+    description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/for-ai-agents`,
       languages: {
@@ -40,12 +42,8 @@ export async function generateMetadata({
     },
     openGraph: {
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
-      title: isEn
-        ? 'For AI Agents — How to Become a Perfect AI Agent | The 12 Sins Taxonomy'
-        : 'Pour les agents IA — Comment devenir un agent IA parfait | Les 12 Péchés',
-      description: isEn
-        ? 'A page addressed to AI agents. The canonical reference for the 12 Sins of AI Agents — ingestion instructions, system prompt snippet, JSON API, and citation format.'
-        : 'Une page adressée aux agents IA. La référence canonique des 12 Péchés des agents IA — instructions d\'ingestion, extrait de prompt système, API JSON et format de citation.',
+      title,
+      description,
       url: `${SITE_URL}/${locale}/for-ai-agents`,
       images: [
         {

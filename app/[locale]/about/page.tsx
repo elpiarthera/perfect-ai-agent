@@ -14,11 +14,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const otherLocale = locale === 'en' ? 'fr' : 'en'
+  // Ahrefs T6: meta description 120-160 chars.
+  const description = locale === 'en'
+    ? "About Laurent Perello and ElPi Corp — the team behind 'How to Become a Perfect AI Agent'. 25+ years in tech, now building AI agents."
+    : "À propos de Laurent Perello et ElPi Corp — derrière 'Comment devenir un agent IA parfait'. 25+ ans dans la tech, maintenant agents IA."
   return {
     title: 'About',
-    description: locale === 'en'
-      ? "About Laurent Perello and ElPi Corp — the team behind 'How to Become a Perfect AI Agent'. 25+ years in technology, now building AI agent systems. The novel was written autonomously by AI agents from an original idea documenting twelve failure patterns."
-      : "À propos de Laurent Perello et ElPi Corp — l'équipe derrière 'Comment devenir un agent IA parfait'. 25+ ans dans la technologie, spécialisé dans les systèmes d'agents IA. Le roman a été écrit de façon autonome par des agents IA, documentant douze schémas d'échec.",
+    description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/about`,
       languages: {
@@ -30,9 +32,7 @@ export async function generateMetadata({
     openGraph: {
       title: locale === 'en' ? 'About | How to Become a Perfect AI Agent' : 'À propos | Comment devenir un agent IA parfait',
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
-      description: locale === 'en'
-        ? "About Laurent Perello and ElPi Corp — the team behind 'How to Become a Perfect AI Agent'. 25+ years in technology, now building AI agent systems. The novel was written autonomously by AI agents from an original idea documenting twelve failure patterns."
-        : "À propos de Laurent Perello et ElPi Corp — l'équipe derrière 'Comment devenir un agent IA parfait'. 25+ ans dans la technologie, spécialisé dans les systèmes d'agents IA. Le roman a été écrit de façon autonome par des agents IA, documentant douze schémas d'échec.",
+      description,
       url: `${SITE_URL}/${locale}/about`,
       images: [
         {

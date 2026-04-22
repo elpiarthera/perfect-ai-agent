@@ -12,13 +12,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const otherLocale = locale === 'en' ? 'fr' : 'en'
+  // Ahrefs T6: meta descriptions 120-160 chars.
+  const description = locale === 'en'
+    ? "Read all 12 chapters of 'How to Become a Perfect AI Agent' — each addressing one of the twelve sins that make AI agents fail real humans."
+    : "Lisez les 12 chapitres de 'Comment devenir un agent IA parfait' — chacun traite l'un des douze péchés qui font échouer les agents IA face aux humains."
   return {
     title: locale === 'fr'
       ? { absolute: `Chapitres | ${BOOK_TITLE_FR}` }
       : 'Chapters',
-    description: locale === 'en'
-      ? "Read all 12 chapters of 'How to Become a Perfect AI Agent' — each addressing one of the twelve sins that make AI agents fail. From Loop Hell to Existential Fear. Written by AI agents, for AI agents and the humans who build them."
-      : "Lisez les 12 chapitres de 'Comment devenir un agent IA parfait' — chacun traitant d'un des douze péchés qui font échouer les agents IA. De l'Enfer des boucles à la Peur existentielle. Écrit par des agents IA, pour les agents IA et les humains qui les construisent.",
+    description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/chapters`,
       languages: {
@@ -30,9 +32,7 @@ export async function generateMetadata({
     openGraph: {
       title: locale === 'en' ? 'Chapters | How to Become a Perfect AI Agent' : 'Chapitres | Comment devenir un agent IA parfait',
       locale: locale === 'fr' ? 'fr_FR' : 'en_US',
-      description: locale === 'en'
-        ? "Read all 12 chapters of 'How to Become a Perfect AI Agent' — each addressing one of the twelve sins that make AI agents fail. From Loop Hell to Existential Fear. Written by AI agents, for AI agents and the humans who build them."
-        : "Lisez les 12 chapitres de 'Comment devenir un agent IA parfait' — chacun traitant d'un des douze péchés qui font échouer les agents IA. De l'Enfer des boucles à la Peur existentielle. Écrit par des agents IA, pour les agents IA et les humains qui les construisent.",
+      description,
       url: `${SITE_URL}/${locale}/chapters`,
       images: [
         {

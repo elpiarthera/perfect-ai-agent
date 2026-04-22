@@ -6,9 +6,11 @@ import { getDiaryEntries } from "@/lib/diary";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
+	// Ahrefs T6: meta description 120-160 chars.
+	const description = `Complete list of all pages on ${SITE_NAME} — chapters, AI diary entries, legal and accessibility pages. Everything on perfectaiagent.xyz.`;
 	return {
 		title: "Sitemap",
-		description: `Complete list of all pages on ${SITE_NAME}.`,
+		description,
 		alternates: {
 			canonical: `${SITE_URL}/en/sitemap`,
 			languages: {
@@ -23,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 			locale: "en_US",
 			alternateLocale: "fr_FR",
 			title: "Sitemap",
-			description: `Complete list of all pages on ${SITE_NAME}.`,
+			description,
 			url: `${SITE_URL}/en/sitemap`,
 			images: [
 				{

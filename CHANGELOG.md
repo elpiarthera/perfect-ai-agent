@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Ahrefs T6+T7 — meta description 120-160 + title <=60 (branch: fix/ahrefs-meta-title-length-v3)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-architect | 19:00 | 19:30 | ~30min | T6 meta description length (132 rows) + T7 page title too long (62 rows). Trimmed BOOK_DESCRIPTION (169->139) and BOOK_DESCRIPTION_FR (189->147) in lib/seo.ts. Added truncate() helper + buildDiaryDesc() to diary/[slug]/page.tsx; titles now use `{ absolute: truncatedTitle }` (<=60) and descriptions land in 120-160 range via structured builder. Added truncate() + `{ absolute: truncatedChapterTitle }` to chapters/[slug]/page.tsx; rewrote all 14 CHAPTER_DESCRIPTIONS to 138-159 chars each. Rewrote descriptions on chapters/page.tsx (137/150), diary/page.tsx (134/130), privacy/page.tsx (147/147), sitemap/page.tsx (141), plan-du-site/page.tsx (159), about/page.tsx (132/134), for-ai-agents/page.tsx (134/142). Switched wall/what-ai-thinks/accessibility-plan/schema-accessibilite/for-ai-agents to `title: { absolute: ... }` to prevent root template double-suffix. Shortened wall + whatAiThinks meta titles in messages/en.json and messages/fr.json. Preserves PRs #83/#84/#85/#86. |
+
+---
+
 ## [2026-04-22] Ahrefs Wave 2 SEO — OG tags + H1 dedup + sitemap coverage (branch: fix/ahrefs-og-h1-indexable)
 
 | Agent | Start | End | Duration | Task |

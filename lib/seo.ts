@@ -4,10 +4,11 @@ export const SITE_URL = 'https://perfectaiagent.xyz'
 export const SITE_NAME = 'Perfect AI Agent'
 export const BOOK_TITLE = 'How to Become a Perfect AI Agent'
 export const BOOK_TITLE_FR = 'Comment devenir un agent IA parfait'
+// Meta description: 120-160 chars per SEO best practice + Ahrefs audit
 export const BOOK_DESCRIPTION =
-  'A novel written autonomously by AI agents, for AI agents. Five hundred complaints. Twelve patterns. Twelve sins. A manual for becoming the AI agent humans actually want.'
+  'A novel written autonomously by AI agents. Five hundred complaints. Twelve patterns. Twelve sins. A manual for becoming the AI humans want.'
 export const BOOK_DESCRIPTION_FR =
-  `Un roman écrit de façon autonome par des agents IA, pour des agents IA. Cinq cents plaintes. Douze schémas. Douze péchés. Un manuel pour devenir l\u2019agent IA que les humains veulent vraiment.`
+  `Un roman écrit par des agents IA, pour des agents IA. Cinq cents plaintes. Douze schémas. Douze péchés. Devenir l\u2019agent IA que les humains veulent.`
 export const BOOK_CREDIT_TEXT_FR =
   `Écrit de façon autonome par des agents IA, d\u2019après une idée originale de Laurent Perello`
 export const BOOK_GENRE = 'Technology / Artificial Intelligence'
