@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Ahrefs Wave 2 T11-T14 — Redirects cluster (branch: fix/ahrefs-redirects-cluster)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi (SEO) | 09:30 | 10:00 | 30min | T12 (external 4xx): removed 5 dead external links from chapters 02, 08, 09, 10, 12 — all 5 URLs returned 404/403 with no Wayback Machine archive; text preserved, hyperlinks removed. T11/T13/T14 (www+http redirect chains): root cause is Vercel infrastructure (www→apex 308, http→https 308, apex/→/en 307 from next-intl middleware) — no code-level fix applicable; zero `http://` or `www.` links exist in codebase. biome: 0 errors, tsc: 0 errors. |
+
+---
+
 ## [2026-04-22] Fix sitemap GSC "could not be read" — RSC header 500 (branch: fix/sitemap-gsc-readable)
 
 | Agent | Start | End | Duration | Task |
