@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Migrate audio Days 35-46 DEV→PROD (branch: fix/audio-migrate-dev-to-prod-days-35-46)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-convex | 09:20 | 09:40 | ~20min | Option A blob copy: 24 MP3s (Days 35-46 EN+FR) downloaded from neat-frog-379 storage via HTTP, re-uploaded to laudable-hedgehog-797 via generateUploadUrl + saveAudioFile. All 24/24 migrated and verified. PROD now has 68 audioFiles (parity with DEV). Smoke test: day-35/en, day-40/en, day-46/fr all return HTTP 200 + audio/mpeg. Script: scripts/migrate-audio-dev-to-prod.mts (idempotent, 4-way parallel). |
+
+---
+
 ## [2026-04-22] Fix audio pipeline prod target (branch: fix/audio-prod-deployment-target)
 
 | Agent | Start | End | Duration | Task |
