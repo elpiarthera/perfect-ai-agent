@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Ahrefs hreflang cluster Wave 1 — T1-T4 fixes (branch: fix/ahrefs-hreflang-cluster)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| seo-developer | 12:00 | 12:40 | ~40min | Fixed 4 Ahrefs hreflang error categories across 9 page files. T1 (more-than-one-page): cross-slug pages (accessibilite/accessibility, plan-du-site/sitemap, schema-accessibilite/accessibility-plan) had locale-dynamic canonicals pointing into other locale's slug group. Fixed by hardcoding canonical to the authoritative locale URL per page. T2 (missing reciprocal): wall, privacy, what-ai-thinks had dynamic `[locale]/[otherLocale]` keys that biome flagged; replaced with explicit `en:`/`fr:` keys for consistent bilateral declarations. T3 (hreflang-to-redirect): root cause was stale Ahrefs crawl; current codebase already uses `/en` not `/`; no additional fix needed beyond consistent canonical. T4 (x-default missing): added `x-default` pointing to EN URL on wall, privacy, what-ai-thinks, accessibilite, accessibility, plan-du-site, sitemap, schema-accessibilite, accessibility-plan. biome: 0 errors. tsc: 0 errors. Also removed unused `otherLocale` and `locale` variables from generateMetadata functions where no longer needed. |
+
+---
+
 ## [2026-04-22] Ahrefs Wave 2 T11-T14 — Redirects cluster (branch: fix/ahrefs-redirects-cluster)
 
 | Agent | Start | End | Duration | Task |
