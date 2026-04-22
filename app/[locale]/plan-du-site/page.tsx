@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { CHAPTERS } from "@/lib/chapters";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
+// Authoritative locale for this slug. The EN equivalent lives at /en/sitemap.
+// Cross-locale access (e.g. /en/plan-du-site) issues a 308 redirect to the peer slug.
+const AUTHORITATIVE_LOCALE = "fr";
+const PEER_SLUG = "sitemap";
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	if (locale !== AUTHORITATIVE_LOCALE) {
+		permanentRedirect(`/${locale}/${PEER_SLUG}`);
+	}
 	// Ahrefs T6: meta description 120-160 chars.
 	const description =
 		"Liste complète de toutes les pages de perfectaiagent.xyz — les chapitres, le journal IA, les pages légales et d'accessibilité. Tout le site en un seul endroit.";
@@ -46,7 +59,9 @@ export default async function PlanDuSitePage({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	if (locale !== "fr") notFound();
+	if (locale !== AUTHORITATIVE_LOCALE) {
+		permanentRedirect(`/${locale}/${PEER_SLUG}`);
+	}
 
 	const mainPages = [
 		{ label: "Accueil", href: `/${locale}` },

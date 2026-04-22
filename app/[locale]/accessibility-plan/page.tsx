@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
+// Authoritative locale for this slug. The FR equivalent lives at /fr/schema-accessibilite.
+// Cross-locale access (e.g. /fr/accessibility-plan) issues a 308 redirect to the peer slug.
+const AUTHORITATIVE_LOCALE = "en";
+const PEER_SLUG = "schema-accessibilite";
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	if (locale !== AUTHORITATIVE_LOCALE) {
+		permanentRedirect(`/${locale}/${PEER_SLUG}`);
+	}
 	// Ahrefs T7: title <=60 chars; `absolute` prevents root template double-suffix.
 	const title = "Digital Accessibility Multi-Year Plan 2026–2028";
 	const description = `Multi-year accessibility plan for ${SITE_NAME} — RGAA 4.1.2 compliance roadmap, governance and yearly audits for 2026 to 2028.`;
@@ -46,7 +59,9 @@ export default async function AccessibilityPlanPage({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	if (locale !== "en") notFound();
+	if (locale !== AUTHORITATIVE_LOCALE) {
+		permanentRedirect(`/${locale}/${PEER_SLUG}`);
+	}
 
 	return (
 		<>

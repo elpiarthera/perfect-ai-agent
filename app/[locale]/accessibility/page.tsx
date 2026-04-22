@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
+// Authoritative locale for this slug. The FR equivalent lives at /fr/accessibilite.
+// Cross-locale access (e.g. /fr/accessibility) issues a 308 redirect to the peer slug
+// rather than a 404 — preserves link equity and prevents Ahrefs regression.
+const AUTHORITATIVE_LOCALE = "en";
+const PEER_SLUG = "accessibilite";
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	if (locale !== AUTHORITATIVE_LOCALE) {
+		permanentRedirect(`/${locale}/${PEER_SLUG}`);
+	}
 	const title = "Accessibility Declaration";
 	const description = `Accessibility statement for ${SITE_NAME} — RGAA 4.1.2 compliance status and contact information.`;
 
@@ -45,7 +59,9 @@ export default async function AccessibilityPage({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	if (locale !== "en") notFound();
+	if (locale !== AUTHORITATIVE_LOCALE) {
+		permanentRedirect(`/${locale}/${PEER_SLUG}`);
+	}
 
 	return (
 		<>
