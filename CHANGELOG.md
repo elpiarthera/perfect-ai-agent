@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Ahrefs cascade fix — 308 redirects + /fr/journal + 404 title (branch: fix/ahrefs-cascade-308-redirects-hreflang-titles)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-architect | 23:00 | 23:20 | ~20min | URGENT cascade fix before Laurent's demo. Reverts PR #90 notFound() pattern (which created 6 new Ahrefs 404 flags) and replaces with `permanentRedirect()` (HTTP 308) to the peer-locale canonical slug. Pairs: `/fr/accessibility` → `/fr/accessibilite`, `/en/accessibilite` → `/en/accessibility`, `/fr/sitemap` → `/fr/plan-du-site`, `/en/plan-du-site` → `/en/sitemap`, `/fr/accessibility-plan` → `/fr/schema-accessibilite`, `/en/schema-accessibilite` → `/en/accessibility-plan`. Both `generateMetadata` and default export guard. Plus: added `/fr/journal` → `/fr/diary` (and EN symmetry) redirects in next.config.ts since the FR nav label "Journal" caused external crawlers to guess the wrong URL. Plus: created app/not-found.tsx with explicit metadata (`title.absolute` + `robots.index: false`) to eliminate the duplicate `<title>` tag Ahrefs flagged on the Next.js default 404. Hreflang emission and /en/accessibility title length verified as already-correct (Eta post-mortem items 2 and 3 were false positives — grep was case-sensitive for `hreflang` but Next.js emits `hrefLang`; title is 60 chars exactly). Biome + tsc clean. Mission k577h6m4grf34b87whdt86fjcn85azz9. |
+
+---
+
 ## [2026-04-22] Ahrefs title too short — complete patch: wall + prologue + chapter 7 (branch: fix/ahrefs-title-too-short)
 
 | Agent | Start | End | Duration | Task |

@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import { CHAPTERS } from "@/lib/chapters";
 import { getDiaryEntries } from "@/lib/diary";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
+// Authoritative locale for this slug. The FR equivalent lives at /fr/plan-du-site.
+// Cross-locale access (e.g. /fr/sitemap) issues a 308 redirect to the peer slug.
+const AUTHORITATIVE_LOCALE = "en";
+const PEER_SLUG = "plan-du-site";
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+	const { locale } = await params;
+	if (locale !== AUTHORITATIVE_LOCALE) {
+		permanentRedirect(`/${locale}/${PEER_SLUG}`);
+	}
 	// Ahrefs T6: meta description 120-160 chars.
 	const description = `Complete list of all pages on ${SITE_NAME} — chapters, AI diary entries, legal and accessibility pages. Everything on perfectaiagent.xyz.`;
 	return {
@@ -46,7 +59,9 @@ export default async function SitemapPage({
 	params: Promise<{ locale: string }>;
 }) {
 	const { locale } = await params;
-	if (locale !== "en") notFound();
+	if (locale !== AUTHORITATIVE_LOCALE) {
+		permanentRedirect(`/${locale}/${PEER_SLUG}`);
+	}
 
 	const diaryEntries = getDiaryEntries(locale);
 	const diaryTitle = "AI Diary";
