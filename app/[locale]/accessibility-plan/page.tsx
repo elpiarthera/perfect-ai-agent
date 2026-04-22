@@ -13,7 +13,7 @@ export async function generateMetadata({
   const description = `Multi-year accessibility plan for ${SITE_NAME} — RGAA 4.1.2 compliance roadmap and governance for 2026–2028.`
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/accessibility-plan`,

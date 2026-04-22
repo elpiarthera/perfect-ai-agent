@@ -13,7 +13,7 @@ export async function generateMetadata({
   const description = 'Schéma pluriannuel d\'accessibilité numérique de perfectaiagent.xyz — feuille de route RGAA 4.1.2 et gouvernance pour la période 2026–2028.'
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/schema-accessibilite`,

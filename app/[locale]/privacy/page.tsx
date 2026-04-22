@@ -14,8 +14,8 @@ export async function generateMetadata({
   const title = locale === 'fr' ? 'Politique de confidentialité' : 'Privacy Policy'
   const description =
     locale === 'fr'
-      ? `Politique de confidentialité de ${SITE_NAME} — comment nous collectons et utilisons vos données.`
-      : `Privacy policy for ${SITE_NAME} — how we collect and use your data.`
+      ? `Politique de confidentialité de ${SITE_NAME} — données collectées, finalités, droits RGPD, conservation et sous-traitants. Aucun cookie publicitaire.`
+      : `Privacy policy for ${SITE_NAME} — what data we collect, why, your GDPR rights, retention period, and third-party processors. No advertising cookies.`
 
   return {
     title,

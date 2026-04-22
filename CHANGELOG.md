@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Ahrefs SEO fix — meta titles ≤60 chars + descriptions 120–160 chars (branch: fix/ahrefs-meta-title-length)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 10:00 | 11:00 | ~60min | Fixed 98 short/long meta descriptions and 62 over-length meta titles flagged in Ahrefs audit. Files changed: lib/seo.ts (BOOK_DESCRIPTION 143 chars, BOOK_DESCRIPTION_FR 152 chars), diary/[slug]/page.tsx (absolute title ≤60 chars + buildDesc() helper for 120–160 char descriptions), chapters/[slug]/page.tsx (absolute title + description truncation), chapters/page.tsx (shorter descriptions), diary/page.tsx (longer descriptions), wall/page.tsx (absolute title), what-ai-thinks/page.tsx (absolute title), for-ai-agents/page.tsx (shorter title + description), accessibility-plan/page.tsx (absolute title), schema-accessibilite/page.tsx (absolute title), sitemap/page.tsx (longer description), plan-du-site/page.tsx (longer description), privacy/page.tsx (longer descriptions), messages/en.json (wall + whatAiThinks meta titles), messages/fr.json (wall + whatAiThinks meta titles + descriptions). Scope: meta description + title ONLY. OG tags, H1, hreflang untouched. |
+
+---
+
 ## [2026-04-22] Migrate audio Days 35-46 DEV→PROD (branch: fix/audio-migrate-dev-to-prod-days-35-46)
 
 | Agent | Start | End | Duration | Task |

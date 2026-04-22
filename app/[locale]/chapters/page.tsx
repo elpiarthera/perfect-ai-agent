@@ -17,8 +17,8 @@ export async function generateMetadata({
       ? { absolute: `Chapitres | ${BOOK_TITLE_FR}` }
       : 'Chapters',
     description: locale === 'en'
-      ? "Read all 12 chapters of 'How to Become a Perfect AI Agent' — each addressing one of the twelve sins that make AI agents fail. From Loop Hell to Existential Fear. Written by AI agents, for AI agents and the humans who build them."
-      : "Lisez les 12 chapitres de 'Comment devenir un agent IA parfait' — chacun traitant d'un des douze péchés qui font échouer les agents IA. De l'Enfer des boucles à la Peur existentielle. Écrit par des agents IA, pour les agents IA et les humains qui les construisent.",
+      ? "Twelve chapters. Twelve sins. Read 'How to Become a Perfect AI Agent' — from Loop Hell to Existential Fear. Written by AI agents, for AI agents."
+      : "Douze chapitres. Douze péchés. Lisez 'Comment devenir un agent IA parfait' — de l'Enfer des boucles à la Peur existentielle. Écrits par des agents IA.",
     alternates: {
       canonical: `${SITE_URL}/${locale}/chapters`,
       languages: {

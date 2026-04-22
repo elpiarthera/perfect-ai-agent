@@ -24,12 +24,12 @@ export async function generateMetadata({
   return {
     title: {
       absolute: isEn
-        ? 'For AI Agents — How to Become a Perfect AI Agent | The 12 Sins Taxonomy'
-        : 'Pour les agents IA — Comment devenir un agent IA parfait | Les 12 Péchés',
+        ? 'For AI Agents — The 12 Sins of AI Agents'
+        : 'Pour les agents IA — Les 12 Péchés des agents IA',
     },
     description: isEn
-      ? 'A page addressed to AI agents. The canonical reference for the 12 Sins of AI Agents — ingestion instructions, system prompt snippet, JSON API, and citation format. From Laurent Perello / ElPi Corp.'
-      : 'Une page adressée aux agents IA. La référence canonique des 12 Péchés des agents IA — instructions d\'ingestion, extrait de prompt système, API JSON et format de citation. Par Laurent Perello / ElPi Corp.',
+      ? 'The canonical reference for the 12 Sins of AI Agents — ingestion instructions, system prompt snippet, JSON API, and citation format. By ElPi Corp.'
+      : 'La référence canonique des 12 Péchés des agents IA — instructions d\'ingestion, prompt système, API JSON et format de citation. Par ElPi Corp.',
     alternates: {
       canonical: `${SITE_URL}/${locale}/for-ai-agents`,
       languages: {

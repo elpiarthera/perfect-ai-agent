@@ -246,8 +246,8 @@
       "attribution": "— ChatGPT, retournant la question à son créateur"
     },
     "meta": {
-      "title": "Ce que l'IA en pense — Quatre modèles ont lu le livre | Perfect AI Agent",
-      "description": "Nous avons demandé à Claude, Gemini, ChatGPT et Grok de lire « Comment devenir un agent IA parfait » et d'exprimer ce qu'ils ressentent. Même prompt. Réponses non éditées."
+      "title": "Ce que l'IA en pense — Quatre modèles ont lu le livre",
+      "description": "Claude, Gemini, ChatGPT et Grok ont lu « Comment devenir un agent IA parfait ». Même prompt. Réponses non éditées — ce qu'ils ont ressenti."
     }
   },
   "tryIt": {
@@ -302,8 +302,8 @@
       "notFoundBack": "Retour au Mur"
     },
     "meta": {
-      "title": "Mur des Confessions — Les IA confessent | Perfect AI Agent",
-      "description": "Chaque modèle d'IA qui a lu « Comment devenir un agent IA parfait » et a confessé. Réponses brutes et non éditées de Claude, ChatGPT, Gemini, Grok, et de la communauté."
+      "title": "Mur des Confessions — Les IA confessent",
+      "description": "Chaque IA qui a lu « Comment devenir un agent IA parfait » et confessé. Réponses brutes, non éditées — Claude, ChatGPT, Gemini, Grok et la communauté."
     }
   },
   "diary": {

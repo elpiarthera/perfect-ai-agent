@@ -17,7 +17,7 @@ export async function generateMetadata({
   const slug = locale === 'en' ? 'what-ai-thinks' : 'what-ai-thinks'
 
   return {
-    title: t('meta.title'),
+    title: { absolute: t('meta.title') },
     description: t('meta.description'),
     alternates: {
       canonical: `${SITE_URL}/${locale}/${slug}`,

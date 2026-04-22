@@ -11,9 +11,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
 
+  const planDesc = 'Index complet de toutes les pages de perfectaiagent.xyz — chapitres, journal IA, référence agents, pages légales, et les deux versions linguistiques.'
+
   return {
     title: 'Plan du site',
-    description: 'Liste complète de toutes les pages de perfectaiagent.xyz.',
+    description: planDesc,
     alternates: {
       canonical: `${SITE_URL}/${locale}/plan-du-site`,
       languages: {

@@ -114,14 +114,21 @@ export async function generateMetadata({
   const chapterTitle = `${chapter.number}: ${chapter.title}`
   const bookTitle = isFr ? BOOK_TITLE_FR : BOOK_TITLE
   const descEntry = CHAPTER_DESCRIPTIONS[slug]
-  const description = descEntry
+  const rawDescription = descEntry
     ? (isFr ? descEntry.fr : descEntry.en)
     : (chapter.subtitle ? `${chapter.subtitle} — ${bookTitle}` : bookTitle)
+  // Enforce 160-char max on description
+  const description = rawDescription.length <= 160
+    ? rawDescription
+    : rawDescription.slice(0, 157) + '...'
+
+  // Title: ≤ 60 chars via absolute (bypasses site-wide suffix template)
+  const truncatedChapterTitle = chapterTitle.length <= 60
+    ? chapterTitle
+    : chapterTitle.slice(0, 57) + '...'
 
   return {
-    title: isFr
-      ? { absolute: `${chapterTitle} | ${BOOK_TITLE_FR}` }
-      : chapterTitle,
+    title: { absolute: truncatedChapterTitle },
     description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/chapters/${slug}`,

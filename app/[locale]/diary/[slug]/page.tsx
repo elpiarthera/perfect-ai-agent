@@ -6,7 +6,6 @@ import { getDiaryEntries, getDiaryEntry, getDiaryContent } from '@/lib/diary'
 import Breadcrumb from '@/components/Breadcrumb'
 import ShareButtons from '@/components/ShareButtons'
 import {
-  BOOK_TITLE_FR,
   SITE_URL,
   AUTHOR,
   breadcrumbJsonLd,
@@ -35,14 +34,39 @@ export async function generateMetadata({
   const isFr = locale === 'fr'
   const dayLabel = isFr ? `Jour ${entry.day}` : `Day ${entry.day}`
   const pageTitle = `${dayLabel}: ${entry.title}`
+
+  // Title: ≤ 60 chars via absolute (bypasses site-wide suffix template)
+  const truncatedTitle = pageTitle.length <= 60
+    ? pageTitle
+    : pageTitle.slice(0, 57) + '...'
+
+  // Description: 120-160 chars
+  const narratorLabel = entry.narrator === 'pi'
+    ? (isFr ? 'Pi, orchestrateur IA' : 'Pi, the AI orchestrator')
+    : 'Laurent Perello'
+
+  function buildDesc(prefix: string, t: string, by: string, suffix: string): string {
+    const base = `${prefix}${t}". ${by}.`
+    if (base.length < 120) return `${base} ${suffix}`
+    return base.length <= 160 ? base : base.slice(0, 157) + '...'
+  }
+
   const description = isFr
-    ? `Journal IA — ${dayLabel}. Par ${entry.narrator === 'pi' ? 'Pi, l\'orchestrateur IA' : 'Laurent Perello'}.`
-    : `AI Diary — ${dayLabel}. By ${entry.narrator === 'pi' ? 'Pi, the AI orchestrator' : 'Laurent Perello'}.`
+    ? buildDesc(
+        `Journal IA — ${dayLabel} : "`,
+        entry.title,
+        `Par ${narratorLabel}`,
+        `Chronique quotidienne de la construction d'ElPi Corp.`
+      )
+    : buildDesc(
+        `AI Diary — ${dayLabel}: "`,
+        entry.title,
+        `By ${narratorLabel}`,
+        `Daily chronicle of building ElPi Corp with autonomous AI agents.`
+      )
 
   return {
-    title: isFr
-      ? { absolute: `${pageTitle} | ${BOOK_TITLE_FR}` }
-      : pageTitle,
+    title: { absolute: truncatedTitle },
     description,
     alternates: {
       canonical: `${SITE_URL}/${locale}/diary/${slug}`,

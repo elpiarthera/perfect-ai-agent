@@ -12,9 +12,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params;
 
+	const sitemapDesc = `Complete index of all pages on ${SITE_NAME} — chapters, AI diary entries, for-AI-agents reference, legal pages, and both language versions.`
+
 	return {
 		title: "Sitemap",
-		description: `Complete list of all pages on ${SITE_NAME}.`,
+		description: sitemapDesc,
 		alternates: {
 			canonical: `${SITE_URL}/${locale}/sitemap`,
 			languages: {

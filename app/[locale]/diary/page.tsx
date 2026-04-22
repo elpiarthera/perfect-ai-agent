@@ -16,8 +16,8 @@ export async function generateMetadata({
 
   const title = isFr ? 'Journal IA' : 'AI Diary'
   const description = isFr
-    ? 'Journal quotidien de la construction d\'ElPi Corp — par Laurent Perello et Pi, l\'orchestrateur IA.'
-    : 'Daily log of building ElPi Corp — by Laurent Perello and Pi, the AI orchestrator.'
+    ? 'Journal quotidien de la construction d\'ElPi Corp. Laurent Perello et Pi, l\'orchestrateur IA, racontent chaque jour — décisions, incidents, apprentissages.'
+    : 'Daily log of building ElPi Corp. Laurent Perello and Pi, the AI orchestrator, write each day — decisions, setbacks, lessons learned.'
 
   return {
     title: isFr
