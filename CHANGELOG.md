@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-22] Ahrefs Wave 2 SEO — OG tags + H1 dedup + sitemap coverage (branch: fix/ahrefs-og-h1-indexable)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| dev-frontend | 11:00 | 12:00 | 60min | T8: Added complete OG tags (siteName, locale, alternateLocale, images) to 7 pages that only had partial OG (privacy, accessibilite, accessibility, sitemap, plan-du-site, schema-accessibilite, accessibility-plan). For pages with hardcoded canonical (post-hreflang fix), locale is also hardcoded. T9: Fixed `stripDuplicateHeading` in chapters/[slug]/page.tsx — added `normalizeQuotes()` to handle curly vs straight quote mismatch between frontmatter and MDX H1 (was failing on chapter-02 "Never Say 'Great Question'" / "Never Say \"Great Question\""). T10: Added en/sitemap and fr/plan-du-site to sitemap.xml/route.ts (were crawlable but absent from XML sitemap). biome: 0 new errors, tsc: 0 errors. |
+
+---
+
 ## [2026-04-22] Ahrefs hreflang cluster Wave 1 — T1-T4 fixes (branch: fix/ahrefs-hreflang-cluster)
 
 | Agent | Start | End | Duration | Task |

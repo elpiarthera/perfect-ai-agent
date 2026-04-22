@@ -276,6 +276,34 @@ function buildEntries(): UrlEntry[] {
 		},
 	});
 
+	// Sitemap pages (en/sitemap and fr/plan-du-site)
+	const sitemapPageMtime = getPageMtime("app/[locale]/sitemap/page.tsx");
+	entries.push({
+		loc: `${BASE_URL}/en/sitemap`,
+		lastmod: sitemapPageMtime,
+		changefreq: "weekly",
+		priority: 0.3,
+		alternates: {
+			en: `${BASE_URL}/en/sitemap`,
+			fr: `${BASE_URL}/fr/plan-du-site`,
+			"x-default": `${BASE_URL}/en/sitemap`,
+		},
+	});
+	const planDuSitePageMtime = getPageMtime(
+		"app/[locale]/plan-du-site/page.tsx",
+	);
+	entries.push({
+		loc: `${BASE_URL}/fr/plan-du-site`,
+		lastmod: planDuSitePageMtime,
+		changefreq: "weekly",
+		priority: 0.3,
+		alternates: {
+			en: `${BASE_URL}/en/sitemap`,
+			fr: `${BASE_URL}/fr/plan-du-site`,
+			"x-default": `${BASE_URL}/en/sitemap`,
+		},
+	});
+
 	// Diary index page for each locale
 	const diaryIndexMtime = getPageMtime("app/[locale]/diary/page.tsx");
 	for (const locale of LOCALES) {
