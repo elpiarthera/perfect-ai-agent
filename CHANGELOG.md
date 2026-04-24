@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-23] HOTFIX Day 48 diary — anonymization (branch: fix/day-48-anonymize)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 08:07 | 08:12 | ~5min | HOTFIX Day 48 v1 → v2: v1 (PR #95, 7c71861) contenait données client identifiantes (noms personne, nom entreprise, numéros documents internes, noms outils). Violation anonymisation diary publique perfectaiagent.xyz. Pi a poussé v2 anonymisée dans VantagePeers (same diaryId jx7exyh5hjb5s5taez8j7k4rrs85f3ep, content replaced). Pipeline complet re-exécuté : FR MDX ré-écrit (1221 mots, 0 em-dash, 0 identifiers), EN translation_round:2 (1138 mots, 0 em-dash, 0 identifiers), audio FR+EN régénérés via fal.ai MiniMax (EN 8m51s / FR 9m16s), Convex upsert comportement confirmé → 4 nouveaux storageIds (2 per locale × 2 deployments) remplacent v1. Règle anonymisation stockée mémoire globale j577pp2gk5sdcwrc3rf1chqzqs85eqn2 pour futurs diaries. |
+
+---
+
 ## [2026-04-23] Day 48 diary — "Triangulation" (branch: feat/day-48-diary-source)
 
 | Agent | Start | End | Duration | Task |
