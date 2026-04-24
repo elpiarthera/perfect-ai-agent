@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-23] Day 48 diary — "Triangulation" (branch: feat/day-48-diary-source)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 07:04 | 07:10 | ~6min | Day 48 diary: EXCEPTION pattern — FR source written directly by Pi (written from VantagePeers diary jx7exyh5hjb5s5taez8j7k4rrs85f3ep, 1255 mots, MDX wrapper authored by Phi, status:final) + EN translation (« Triangulation » title preserved, translator agent reverse FR→EN, 1169 words, ZERO em-dashes). EN+FR audio via fal.ai MiniMax Speech 02 Turbo (EN 10m00s / FR 10m09s). **DUAL-WRITE** both Convex PROD laudable-hedgehog-797 AND DEV neat-frog-379 (Vercel NEXT_PUBLIC_CONVEX_URL flip pending — Day 47 hotfix pattern integrated into Day 48 generation script). Pipeline 3 specialized agents: translator (FR→EN reverse) → dev-fal-expert (dual-write) → dev-frontend (ship). |
+
+---
+
 ## [2026-04-22] Day 47 diary — "Précision" / "Precision" (branch: feat/day-47-diary-source)
 
 | Agent | Start | End | Duration | Task |
