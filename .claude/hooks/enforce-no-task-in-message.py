@@ -16,7 +16,7 @@ Skip rules (priority order):
 Fail-open: any unexpected exception -> sys.exit(0).
 
 Spec: analysis/no-task-in-message-hook-spec-2026-04-24.md
-Version: 1.0.0
+Version: 1.0.1
 """
 import json
 import re
@@ -82,10 +82,18 @@ CHANNEL_EXEMPT = {
 
 STDERR_MSG = (
     "BLOCKED: Message contains action instructions without a task reference.\n\n"
-    "Inter-orchestrator messages that ask the recipient to EXECUTE work must either:\n"
-    "  (a) reference an existing task via `task k...` / `taskId: ...` / `Task ID: ...`, OR\n"
-    "  (b) be tagged `[INFO ONLY]`, `[STATUS]`, or `[DONE]` at line start (status/ack only), OR\n"
-    "  (c) be sent to the pi-chromebook channel (Laurent-facing exempt).\n\n"
+    "Inter-orchestrator messages that ask the recipient to EXECUTE work must use ONE of\n"
+    "the 5 exemption mechanisms below:\n\n"
+    "  Markers (prefix at line start):\n"
+    "    (a) `[INFO ONLY]` — informational, no action requested.\n"
+    "    (b) `[STATUS]`   — status update (verbs check/verify/fix are routine here).\n"
+    "    (c) `[DONE]`     — completion confirmation.\n\n"
+    "  Channels (exempt by default — no marker needed):\n"
+    "    (d) `pi-chromebook` — Laurent-facing channel.\n"
+    "    (e) `pi-vps`        — Pi instance (self-dispatches aren't task assignments).\n"
+    "    (f) `broadcast`     — fleet-wide announcements, not task dispatches.\n\n"
+    "  Task reference (proves work is tracked):\n"
+    "    (g) `task k<id>` / `taskId: k<id>` / `Task ID: k<id>` somewhere in content.\n\n"
     "Why: free-form \"do X then do Y\" text bypasses the task system — no VERIFICATION, no TESTS,\n"
     "no traceability, no completionNote audit trail. Work gets lost.\n\n"
     "Fix (2 minutes):\n"
