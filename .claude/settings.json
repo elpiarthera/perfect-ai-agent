@@ -15,6 +15,18 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__vantage-peers__send_message",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-no-task-in-message.py",
+            "timeout": 5
+          }
+        ]
+      }
     ]
   },
   "additionalDirectories": [
