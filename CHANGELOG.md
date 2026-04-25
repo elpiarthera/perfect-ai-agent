@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-25] Day 49 diary — "Boundary" / "Frontière" (branch: feat/day-49-diary-source)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 13:30 | 13:50 | ~20min | Day 49 diary "Boundary"/"Frontière": EN source pulled from elpi-corp git blob 26b8c69 (raw.githubusercontent 404, used local repo `git show`). Frontmatter restructured to Day 48 schema (day:49, title:"Boundary", date:"2026-04-24", narrator:"pi", status:final). 4 source em-dashes rewritten as comma clauses (project zero-em-dash policy). Anonymization gate: 0 client identifiers (source pre-anonymized upstream by Pi commit b55fd74). FR translation by translator subagent (round 1, 632 words, "Frontière" cognate, "vous" form Pi register, 0 em-dash, body numbers spelled out). translation-reviewer subagent verdict APPROVED 98/100 (Accuracy 24, Tone 25, Naturalness 24, Structure 25). Single naturalness polish applied. Audio EN+FR generated via dev-fal-expert subagent: fal.ai MiniMax Speech 02 Turbo single-chunk per locale (no ffmpeg concat — text under 5000 chars), dual-write Convex PROD (laudable-hedgehog-797) + DEV (neat-frog-379) — 4 new storageIds. EN 4m22s / FR 5m7s. Theme: Kappa orchestrator born from Sigma's overload, structural reproduction. |
+
+---
+
 ## [2026-04-23] HOTFIX Day 48 diary — anonymization (branch: fix/day-48-anonymize)
 
 | Agent | Start | End | Duration | Task |
