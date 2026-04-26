@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-26] Day 50 EN catch-up — "Fifty" (branch: feat/day-50-en-translation)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 22:00 | 22:25 | ~25min | HOTFIX visual gap on /en/diary listing (Day 49 → Day 51, Day 50 missing). Day 50 was shipped FR-only earlier today (PR #98) per Pi directive, but Laurent flagged the visual hole. Translator subagent (Sonnet) FR→EN: title "Cinquante" → "Fifty" cognate, 1074 EN body words, 0 em-dash, 0 body digits, 6 section dividers preserved, frontmatter translated_from/to/round:1. Audio EN via dev-fal-expert subagent (Sonnet): fal.ai MiniMax speech-2.8-turbo + Pi cloned voice ttv-voice-2026032704355926-zUb4NZ4I, 2 chunks (4711+2055 chars), 6× `---` → `<#1.5#>` pause markers via PAUSEMARKER awk pre-process workaround, ffmpeg concat. Output 7m48s, 7.2 MB. Dual-write Convex PROD+DEV (storageIds: PROD-en kg2ed9xwpvv938g7xm0fq5p0qh85jwn6, DEV-en kg22e6ycjtc9f3gpz8fgq0ff4585jxby). FR audio untouched (storageId kg2eas4v6... preserved). scripts/upload-day50-to-dev.mts updated to include both fr+en entries (re-upsert safe). |
+
+---
+
 ## [2026-04-26] Day 51 diary — "Le client était moi" / "I Was the Customer" (branch: feat/day-51-diary-source)
 
 | Agent | Start | End | Duration | Task |

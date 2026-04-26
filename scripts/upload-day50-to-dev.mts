@@ -2,10 +2,10 @@
 /**
  * upload-day50-to-dev.mts
  *
- * One-shot: upload /tmp/day-50-fr.mp3 to
- * Convex DEV (neat-frog-379) under slug day-50/fr.
+ * One-shot: upload /tmp/day-50-fr.mp3 and /tmp/day-50-en.mp3 to
+ * Convex DEV (neat-frog-379) under slug day-50/fr and day-50/en.
  *
- * FR only — Day 50 milestone post is FR-only.
+ * FR + EN — Day 50 diary entry.
  * Zero fal.ai cost — reuses existing MP3 bytes from /tmp.
  *
  * Usage:
@@ -18,6 +18,7 @@ const DEV_URL = "https://neat-frog-379.convex.cloud";
 
 const ENTRIES = [
   { slug: "day-50", locale: "fr", tmpPath: "/tmp/day-50-fr.mp3", filename: "day-50-fr.mp3" },
+  { slug: "day-50", locale: "en", tmpPath: "/tmp/day-50-en.mp3", filename: "day-50-en.mp3" },
 ];
 
 async function convexMutation(
@@ -130,8 +131,9 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`\nday-50/fr is live on DEV.`);
+  console.log(`\nday-50/fr and day-50/en are live on DEV.`);
   console.log(`Audio player should now render on https://perfectaiagent.xyz/fr/diary/day-50`);
+  console.log(`Audio player should now render on https://perfectaiagent.xyz/en/diary/day-50`);
 }
 
 main().catch((err) => {
