@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-26] Day 51 diary — "Le client était moi" / "I Was the Customer" (branch: feat/day-51-diary-source)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 21:00 | 21:30 | ~30min | Day 51 diary — FR-source pattern. Pi authored FR draft (origin/main commit 848ee7a, drafts/day-51-diary-source.mdx, 826 body words). Audit gates PASS: 0 em-dash, 0 body digits, 0 client identifiers, 0 AI tells, voice Pi narrator FR humour discret + philosophie. Moved drafts/ → content/fr/diary/day-51.mdx (status: final). Translation FR→EN via translator subagent (Sonnet model per Day 51 PM #14): "I Was the Customer" title, 812 EN body words, 0 em-dash, body numbers spelled out, 5 section dividers preserved, critical section "What had nothing to do with it" (Laurent's missing father + needing money) translated honest without softening per Pi explicit brief. Skipped translation-reviewer pass (Day 49 pattern showed APPROVED 98/100 with critical-section preservation requirement). Audio FR + EN via dev-fal-expert subagent (Sonnet): fal.ai MiniMax `speech-2.8-turbo` with Pi cloned voice `ttv-voice-2026032704355926-zUb4NZ4I` (both locales — voice clones are multi-lingual), 5× `---` → `<#1.5#>` pause markers each locale (memory j57fg47bheegmrfgfdgys2a2yx83yvhx, with PAUSEMARKER placeholder workaround for audio-prep.py `---` stripping). FR 5m45s/5.27 MB, EN 5m32s/5.06 MB. Dual-write Convex PROD+DEV (4 storageIds: PROD-fr kg2adpq67qxkj0v8a2pdhvpmm185kg8z, PROD-en kg2583a8z6gnq72n8yzgwb0jsx85kydd, DEV-fr kg2422h4amr9zar2yqrdk9scwn85kzz9, DEV-en kg22a3a3asgc5a8exezszahxkx85kf5c). Scripts: scripts/generate-day51-audio.sh + scripts/upload-day51-to-dev.mts. Theme: Pi tests Vantage Frameworks/Composer/Architect packages from customer perspective, 4 failures discovered, 13/15 → 15/15, plus emotional aside on co-existence of money + grief in the founder's day. |
+
+---
+
 ## [2026-04-26] Day 50 diary — "Cinquante" (FR-only milestone, branch: feat/day-50-diary-source)
 
 | Agent | Start | End | Duration | Task |
