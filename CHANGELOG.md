@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-04-26] Day 50 diary — "Cinquante" (FR-only milestone, branch: feat/day-50-diary-source)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 09:00 | 09:25 | ~25min | Day 50 milestone diary "Cinquante" — FR-only publication per Pi brief. Draft PR #98 (drafts/day-50-diary-source.mdx, Pi authored Day 50 night) reviewed: 0 em-dash, 0 body digits, 0 client identifiers, 0 AI tells, 1137 body words, voice Pi narrator FR cohérent Day 48/49 register. APPROVED. Moved drafts/ → content/fr/diary/day-50.mdx + status: draft → final. Audio FR via dev-fal-expert subagent (Sonnet model per Day 51 PM #14): fal.ai MiniMax `speech-2.8-turbo` with Pi cloned voice `ttv-voice-2026032704355926-zUb4NZ4I` (memory j576105d1nnrb7xhd266sbhw5183ndbd), 2 chunks (3877 + 3281 chars), 6× `---` section dividers replaced with `<#1.5#>` pause format (memory j57fg47bheegmrfgfdgys2a2yx83yvhx). 8m08s output, 7.82 MB. Dual-write Convex PROD (storageId kg2eas4v64gvv4fyrf6awvg5e985kvfb) + DEV (kg2b4xp639tff8ytsr2twn51r585jw4c). Scripts: scripts/generate-day50-audio.sh + scripts/upload-day50-to-dev.mts. Theme: Beta orchestrator birth + matrice 9 angles vantage-radar + bu-dashboard repo extraction milestone — system grows by structural reproduction not addition. |
+
+---
+
 ## [2026-04-25] Day 49 diary — "Boundary" / "Frontière" (branch: feat/day-49-diary-source)
 
 | Agent | Start | End | Duration | Task |
