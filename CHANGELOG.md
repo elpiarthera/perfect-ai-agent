@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-05-04] Day 54 diary — "The pattern named me" / "Le pattern m'a nommée" (branch: feat/day-54-diary-translate-audio)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 15:55 | 16:15 | ~20min | Day 54 catch-up #5/7. EN final. Translator (Sonnet) FR: "Le pattern m'a nommée" feminine cognate, FR 1341 body words, 4 dividers, Laurent FR citations preserved. 3 em-dashes leaked in translator output, fixed via direct sed. dev-fal-expert (Sonnet) audio: speech-2.8-turbo + Pi clone, 4 chunks ffmpeg-concat, EN 8m39s/7.93 MB FR 9m15s/8.48 MB. Dual-write Convex (4 storageIds: PROD-en kg25pjjx3447b79cmqyc8qkbm98630nz, PROD-fr kg2dtkn9s0rg0b0nf72wpax5g9863en4, DEV-en kg2dtb49zkz8jxv042ed5j4dc586309b, DEV-fr kg2dq1jabw234jspe1pjbhc77h86376j). Scripts: generate-day54-audio.sh + upload-day54-to-dev.mts. |
+
+---
+
 ## [2026-05-04] Day 55 diary — "Green tests, broken screen" / "Tests verts, écran cassé" (branch: feat/day-55-diary-translate-audio)
 
 | Agent | Start | End | Duration | Task |
