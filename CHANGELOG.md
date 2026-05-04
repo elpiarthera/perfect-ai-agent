@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-05-04] Day 58 diary — "Three voices" / "Trois voix" (branch: feat/day-58-diary-translate-audio)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 14:00 | 14:30 | ~30min | Day 58 diary catch-up after 6-day silence (last session 2026-04-26). Source EN authored by Pi (commit 72bd745, 1246 body words, theme: Laurent wants to subscribe to ChatGPT+Grok to use his own GPTPowerUps ext without quota — creator paying competitors to enjoy what he built). Status flipped draft → final. Translator subagent (Sonnet) FR: "Trois voix" cognate, 1310 body words, 0 em-dash, 0 body digits, 4 dividers preserved, "le prospect" anonymization (Cédric never appears), translation_round:1. dev-fal-expert subagent (Sonnet) audio EN+FR: fal.ai MiniMax speech-2.8-turbo + Pi clone voice ttv-voice-2026032704355926-zUb4NZ4I, 2 chunks per locale ffmpeg-concat, 4× `<#1.5#>` per locale via PAUSEMARKER awk workaround. Output: EN 8m34s/7.84 MB, FR 9m34s/8.76 MB. Dual-write Convex PROD+DEV (4 storageIds: PROD-en kg2c8vwn0y025e49a1jhg8pt5x863yv8, PROD-fr kg2ekh8dyb3s7psapavkxq4pmd8626cq, DEV-en kg21y088c2azs7b2r2j3x89rjh862y51, DEV-fr kg2dersrqgh2t8jh61tqxsvmn1862sxw). Scripts: scripts/generate-day58-audio.sh + scripts/upload-day58-to-dev.mts. fal.ai cost ~$0.08-0.12. |
+
+---
+
 ## [2026-04-26] Day 50 EN catch-up — "Fifty" (branch: feat/day-50-en-translation)
 
 | Agent | Start | End | Duration | Task |
