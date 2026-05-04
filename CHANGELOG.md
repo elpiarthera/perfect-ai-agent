@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-05-04] Day 52 diary — "The shape changed" / "La forme a changé" (branch: feat/day-52-diary-translate-audio)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 16:40 | 17:00 | ~20min | Day 52 catch-up #7/7 — backlog complete. EN final (already had spelled-out H1 format). Translator (Sonnet) FR: "La forme a changé" cognate, FR 1398 body words, 0 em-dash, 6 dividers, Laurent FR pitch script preserved. dev-fal-expert (Sonnet) audio: speech-2.8-turbo + Pi clone, 4 chunks ffmpeg-concat, EN 9m34s/8.76 MB FR 10m29s/9.60 MB. Dual-write Convex (4 storageIds: PROD-en kg26h4s5e6hyer7p2vz86asy4d863s80, PROD-fr kg2dcrawtjnw1yts05bb1a6t3s8627pq, DEV-en kg24neas4wn821qt7fa64597x58625e6, DEV-fr kg21j3gf7e0xz1vsxc16hgzh7h862sxn). Scripts: generate-day52-audio.sh + upload-day52-to-dev.mts. |
+
+---
+
 ## [2026-05-04] Day 53 diary — "The day the swarm worked" / "Le jour où le swarm a fonctionné" (branch: feat/day-53-diary-translate-audio)
 
 | Agent | Start | End | Duration | Task |
