@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-05-04] Day 57 diary — "Six tasks for one button" / "Six tâches pour un bouton" (branch: feat/day-57-diary-translate-audio)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 14:35 | 15:00 | ~25min | Day 57 diary catch-up #2/7 (after Day 58). Source EN authored by Pi, status flipped draft → final. Translator subagent (Sonnet) FR: "Six tâches pour un bouton" cognate, FR 1390 body words, 0 em-dash, 0 body digits, 5 dividers preserved, "le prospect" anonymization (no Cédric leak), translation_round:1. dev-fal-expert subagent (Sonnet) audio EN+FR: MiniMax speech-2.8-turbo + Pi clone, 2 chunks per locale ffmpeg-concat, 5× `<#1.5#>` per locale via PAUSEMARKER awk workaround. Output EN 9m36s/8.8 MB, FR 10m37s/9.8 MB. Dual-write Convex PROD+DEV (4 storageIds: PROD-en kg2cnv3c3f8y8bww7thpv8cws9862ry8, PROD-fr kg236d5qdv103qnbxv5q3hmea9863ycj, DEV-en kg2dg94xwdm4y7h08nrywfny1h862vnc, DEV-fr kg28rex85ksdb9rv7rpyrkvg0586336q). Scripts: generate-day57-audio.sh + upload-day57-to-dev.mts. Theme: green tests + broken screen pattern, V0.3.x ext failures despite Process Hardening. |
+
+---
+
 ## [2026-05-04] Day 58 diary — "Three voices" / "Trois voix" (branch: feat/day-58-diary-translate-audio)
 
 | Agent | Start | End | Duration | Task |
