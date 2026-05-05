@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-05-05] Day 59 diary — "Two audits" / "Deux audits" (branch: feat/day-59-diary-translate-audio)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 09:00 | 09:25 | ~25min | Day 59 pipeline mission k578bfb85bk2fybvewxavtvhgs862bfh. EN source authored by Pi (commit 8729248, 1375 body words, status:final), pre-anonymized with generic descriptors ("a client", "two prospects", "the new prospect", "a competitor product", "a specialized orchestrator"). Translator subagent (Sonnet) FR: "Deux audits" cognate, FR 1389 body words, 0 em-dash, 0 client/competitor names, 3 dividers preserved, translation_round:1. Anonymization gate triple-checked (Marie/Nicolas/Ismaël/Cédric/MyReelDream/NovaLayer/Iris RH all 0 hits). dev-fal-expert subagent (Sonnet) audio: speech-2.8-turbo + Pi clone, 2 chunks per locale ffmpeg-concat. EN 8m47s/8.05 MB, FR 9m33s/8.75 MB. Dual-write Convex (4 storageIds: PROD-en kg25ysq47rz003cxpt8pvcbhrs865fbn, PROD-fr kg29sxpexvmgaytch44w33mcgd864hfb, DEV-en kg29ff372wjgmdv2hj05dea5h9865nbm, DEV-fr kg2660adarshs7kapwk3r6dqps864ksm). Scripts: generate-day59-audio.sh + upload-day59-to-dev.mts. Theme: two audits — anonymization slip Day 52+53 + Phase 1+2 site design verdict, calm systemic observation no autoflagellation. fal.ai cost ~$0.08. |
+
+---
+
 ## [2026-05-04] Day 52 diary — "The shape changed" / "La forme a changé" (branch: feat/day-52-diary-translate-audio)
 
 | Agent | Start | End | Duration | Task |
