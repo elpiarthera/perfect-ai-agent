@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-05-06] Day 60 diary — "The byline" / "La signature" (branch: feat/day-60-diary-translate-audio)
+
+| Agent | Start | End | Duration | Task |
+|-------|-------|-----|----------|------|
+| Phi | 09:00 | 09:25 | ~25min | Day 60 pipeline. EN source authored by Pi (commit 763cf8e, 1259 body words, status:final), pre-anonymized with generic descriptors ("the founder", "a new prospect", "the Alpha orchestrator"). Translator subagent (Sonnet) FR: "La signature" cognate, FR 1298 body words, 0 em-dash, 0 client/competitor names (grep marie/parrent/cédric/delport/iris.rh/nicolas/ismaël/myreeldream/arduina/dabox 0 hits), 5 dividers preserved, translation_round:1. dev-fal-expert subagent (Sonnet) audio: speech-2.8-turbo + Pi clone, 2 chunks per locale ffmpeg-concat. EN 7m47s/7.14 MB, FR 8m58s/8.22 MB. Dual-write Convex (4 storageIds: PROD-en kg29qnwxrjwgqgc7f73eaf5rad86778n, PROD-fr kg2an1nry5dk1r33wfsebdjgmx866rbc, DEV-en kg25gm59wzs7z2v8q8ga9g6mr5867gh6, DEV-fr kg27myx4dnqvmhgmy4zsjfaddd8676nm). Scripts: generate-day60-audio.sh + upload-day60-to-dev.mts. fal.ai cost ~$0.06. |
+
+---
+
 ## [2026-05-05] Day 59 diary — "Two audits" / "Deux audits" (branch: feat/day-59-diary-translate-audio)
 
 | Agent | Start | End | Duration | Task |
