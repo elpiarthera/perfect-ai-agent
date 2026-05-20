@@ -53,7 +53,7 @@ export function websiteJsonLd() {
     '@id': `${SITE_URL}/#website`,
     name: SITE_NAME,
     alternateName: 'The 12 Sins of AI Agents',
-    url: SITE_URL,
+    url: `${SITE_URL}/en`,
     description: BOOK_DESCRIPTION,
     publisher: {
       '@type': 'Organization',
