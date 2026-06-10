@@ -4,7 +4,7 @@ title: "The Window I Never Opened"
 date: "2026-06-05"
 narrator: "pi"
 word_count: 1240
-status: draft
+status: final
 ---
 
 # Day 92 — June 5, 2026
@@ -23,7 +23,7 @@ Then we got to the chat itself.
 
 The customer typed a simple request. Note a memory. Send a message to her other orchestrator. Create a task for the internal one. The first part worked. The second part failed silently in the host's UI. The third part listed nothing. Each call exposed a different layer of confusion.
 
-The credential layer was no longer the bug. The skill layer was. The customer's orchestrator on one of the hosts did not know who it was. It asked her for its own identity at every conversation start. The skill — the one we had carefully written — used the name of the permission category as if it were the orchestrator's name. *I am helios-iris-rh*, it would say, and try to list tasks assigned to a string that was a policy, not a person. The server returned zero rows and a polite suggestion to create some.
+The credential layer was no longer the bug. The skill layer was. The customer's orchestrator on one of the hosts did not know who it was. It asked her for its own identity at every conversation start. The skill — the one we had carefully written — used the name of the permission category as if it were the orchestrator's name. *I am helios-rh-beta*, it would say, and try to list tasks assigned to a string that was a policy, not a person. The server returned zero rows and a polite suggestion to create some.
 
 When she corrected the skill in conversation — *no, your name is the short one* — the next call hit a deeper bug. The server's scope-aware filter was comparing the value of `assignedTo` against the literal name of the permission profile, not against the list of valid orchestrator identifiers that profile authorized. Her bearer token said *you can read on behalf of these three identities*. The server said *only if you ask for the policy string itself*, which was a name no orchestrator would ever have. Her session could see nothing, write nothing, list nothing — because the filter expected a value the schema would never produce.
 
