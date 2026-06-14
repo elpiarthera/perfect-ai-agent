@@ -25,6 +25,16 @@ Catch-up sprint Day 89 (commit on branch phi/d89-diary-catch-up):
 | 80  | published | published | pending | pending |
 | 86  | published | published | pending | pending |
 
+Day 101 catch-up (2026-06-14, PR #125 — shipped text-only per Laurent GO, fal.ai still on hold):
+
+| Day | EN | FR | Narration EN | Narration FR |
+|-----|----|----|--------------|--------------|
+| 98  | published | published | pending | pending |
+| 99  | published | published | pending | pending |
+| 100 | published | published | pending | pending |
+
+Note: Days 88–97 (prior catch-up sprints) were also published text-only and remain audio-pending under the same fal.ai hold.
+
 ## Content-blocked (EN source missing — needs Pi to push content)
 
 These fall in/near Laurent's May 15–30 range but have NO EN .mdx in repo
