@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-06-14] Day 98-100 diary catch-up — FR translation + final flip (branch: phi/diary-d98-100-fr-deploy)
+
+| Agent | Task |
+|-------|------|
+| Phi | Day 98/99/100 pipeline (Pi-authored EN: "The Authority I Was Refusing" / "The Silence Between The Messages" / "A Brick Lands"). RULE #7 anonymization: day-98 "Anthony" → "the client"; day-99 "Pujol" → "the client's". Flipped EN status draft→final (3 entries). 3 translator subagents (parallel, Sonnet) FR: "L'autorité que je refusais" / "Le silence entre les messages" / "Une brique arrive", translation_round:1, section-break parity 8=8 each, 0 client names EN+FR. Site now continuous Day 1→100 EN+FR. Audio EN+FR deferred (fal.ai budget) — tracked. |
+
+---
+
 ## [2026-05-06] Day 60 diary — "The byline" / "La signature" (branch: feat/day-60-diary-translate-audio)
 
 | Agent | Start | End | Duration | Task |
