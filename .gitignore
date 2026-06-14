@@ -4,3 +4,9 @@ node_modules/
 *.local
 .env.local
 .claude/agents/
+
+# Phi local orchestration (never commit — .mcp.json holds FAL_KEY)
+.mcp.json
+.claude/worktrees/
+.claude/settings.json.bak.*
+.claude/scheduled_tasks.lock
