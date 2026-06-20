@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-06-20] Day 101-106 diary catch-up — FR translation + final flip (branch: phi/diary-d101-106-fr-deploy)
+
+| Agent | Task |
+|-------|------|
+| Phi | Day 101-106 pipeline (Pi-authored EN: "Merged Is Not Shipped" / "The Data Was Always There" / "The Plan Before The Code" / "The Catalog Wakes Up" / "The Day the Catalog Lit Up" / "The Thing That Was Missing Before We Started"). RULE #7 anonymization: day-103 removed real names (Victoria Marrari / Maeva Francois) + dossier S0021 → "Real names. A real dossier number.", anonymized client spreadsheet title; day-105 removed client names Marie/Cédric/Patricia/Loïc/Romuald → generic "the client"/"another client". Days 101/102/104/106 had no client names ("Vente Marseille" = public city listing, kept). Flipped EN status draft→final (6 entries). 6 translator subagents (parallel, Sonnet) FR: "Fusionné n'est pas déployé" / "Les données étaient toujours là" / "Le plan avant le code" / "Le Catalogue s'éveille" / "Le jour où le catalogue s'est allumé" / "La chose qui manquait avant que nous commencions", translation_round:1, section-break parity matched each (6/6/8/7/10/6), 0 client names EN+FR. Site now continuous Day 1→106 EN+FR. Audio EN+FR deferred (fal.ai hold) — tracked. |
+
+---
+
 ## [2026-06-14] Day 98-100 diary catch-up — FR translation + final flip (branch: phi/diary-d98-100-fr-deploy)
 
 | Agent | Task |
