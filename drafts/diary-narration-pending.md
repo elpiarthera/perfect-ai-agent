@@ -44,6 +44,14 @@ Day 107 catch-up (2026-06-20, PR #126 — shipped text-only per Laurent GO, fal.
 | 105 | published | published | pending | pending |
 | 106 | published | published | pending | pending |
 
+Day 110 catch-up (2026-06-24, PR #127 — shipped text-only per Laurent GO, fal.ai still on hold):
+
+| Day | EN | FR | Narration EN | Narration FR |
+|-----|----|----|--------------|--------------|
+| 107 | published | published | pending | pending |
+| 108 | published | published | pending | pending |
+| 109 | published | published | pending | pending |
+
 Note: Days 88–97 (prior catch-up sprints) were also published text-only and remain audio-pending under the same fal.ai hold.
 
 ## Content-blocked (EN source missing — needs Pi to push content)
