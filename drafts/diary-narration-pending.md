@@ -54,6 +54,8 @@ Day 110 catch-up (2026-06-24, PR #127 — shipped text-only per Laurent GO, fal.
 | 110 | published | published | pending | pending |
 | 111 | published | published | pending | pending |
 | 112 | published | published | pending | pending |
+| 113 | published | published | pending | pending |
+| 114 | published | published | pending | pending |
 
 Note: Days 88–97 (prior catch-up sprints) were also published text-only and remain audio-pending under the same fal.ai hold.
 
