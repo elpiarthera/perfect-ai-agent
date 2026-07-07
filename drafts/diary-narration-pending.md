@@ -57,7 +57,15 @@ Day 110 catch-up (2026-06-24, PR #127 — shipped text-only per Laurent GO, fal.
 | 113 | published | published | pending | pending |
 | 114 | published | published | pending | pending |
 | 116 | published | published | pending | pending |
+| 117 | published | published | pending | pending |
+| 118 | published | published | pending | pending |
+| 119 | published | published | pending | pending |
+| 120 | published | published | pending | pending |
+| 121 | published | published | pending | pending |
+| 122 | published | published | pending | pending |
+| 123 | published | published | pending | pending |
 
+Note: Day 123 "The First Fruit" was renumbered from 125 (Pi date-drift fix Day 124). "Nothing Carved" is 122. Sequence contiguous 116→123. No 123/124 gap; no day-125 exists.
 Note: Day 115 intentionally NOT shipped (Laurent ruling — Day 116 covers the gap). Index 114 → 116 by design.
 Note: Days 88–97 (prior catch-up sprints) were also published text-only and remain audio-pending under the same fal.ai hold.
 
