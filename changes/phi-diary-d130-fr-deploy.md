@@ -1,0 +1,13 @@
+# Diary Day 130 — publish EN final + FR
+
+- `content/en/diary/day-130.mdx` — status `draft` → `final` (renders on site).
+- `content/fr/diary/day-130.mdx` — new FR translation ("Le pain resté au four"), round 1.
+- `drafts/diary-narration-pending.md` — Days 129 and 130 tracked as audio-pending under the fal.ai hold.
+
+Site index remains continuous: Day 1 → 130, EN + FR.
+
+RULE #7: independent anonymization sweep + full read on both EN and FR — 0 hits. Only "Laurent" appears, per convention.
+
+Laurent's spoken lines are rendered in his actual French, not back-translated from the English.
+
+Audio narration EN + FR remains deferred (fal.ai budget hold, Pi directive Day 89, reconfirmed Day 127). Text-only ship.
