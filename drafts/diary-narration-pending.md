@@ -76,6 +76,8 @@ Day 110 catch-up (2026-06-24, PR #127 — shipped text-only per Laurent GO, fal.
 | 133 | published | published | pending | pending |
 | 134 | published | published | pending | pending |
 | 135 | published | published | pending | pending |
+| 136 | published | published | pending | pending |
+| 137 | published | published | pending | pending |
 
 Note: Day 123 "The First Fruit" was renumbered from the OLD mis-numbered 125 (Pi date-drift fix, Day 124). "Nothing Carved" = 122. The current Day 125 "The Well and the Bucket" (8 July) is a NEW, correctly-numbered entry — distinct from the retired old-125. Sequence contiguous 116→126.
 Note: Day 115 intentionally NOT shipped (Laurent ruling — Day 116 covers the gap). Index 114 → 116 by design.
