@@ -5,3 +5,27 @@ node_modules/
 .env.local
 .claude/agents/
 .mcp.json
+
+# Python/editor byproducts — never product (Day 171 station cleanup)
+__pycache__/
+*.pyc
+*.bak
+*.bak-*
+*.bak.*
+
+# VR catalogue copies distributed to this station: canonical lives in VantageRegistry,
+# not this repo. This repo curates only the operational set it actually runs; the rest
+# are fleet copies (verified STALE/EQUAL to VR, nothing to publish back). Ignore the
+# class, allowlist the curated product. (Day 171 station cleanup, Pi ruling)
+.claude/hooks/*
+!.claude/hooks/enforce-mission-template.py
+!.claude/hooks/enforce-no-task-in-message.py
+!.claude/hooks/session-start-phi.py
+.claude/rules/*
+!.claude/rules/five-sentences-max.md
+.claude/skills/*
+!.claude/skills/check-messages/
+!.claude/skills/check-tasks/
+!.claude/skills/close-day/
+!.claude/skills/daily-start/
+!.claude/skills/standup/
