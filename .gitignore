@@ -29,3 +29,4 @@ __pycache__/
 !.claude/skills/close-day/
 !.claude/skills/daily-start/
 !.claude/skills/standup/
+.claude/settings.local.json

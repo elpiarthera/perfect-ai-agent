@@ -2,7 +2,72 @@
   "permissions": {
     "allow": [
       "*",
-      "mcp__vantage-memory__get_diary"
+      "mcp__vantage-memory__get_diary",
+      "Read(**)",
+      "Write(**)",
+      "Edit(**)",
+      "Bash(*)",
+      "Agent(*)",
+      "Skill(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "mcp__vantage-peers__*",
+      "mcp__playwright__*",
+      "Bash(gh:*)",
+      "Bash(npm:*)",
+      "Bash(railway:*)",
+      "Bash(npx convex deploy:*)",
+      "Bash(npx convex run:*)",
+      "Write(.claude/skills/**/*.md)",
+      "Write(.claude/skills/**/*.json)",
+      "Edit(.claude/skills/**/*.md)",
+      "Edit(.claude/skills/**/*.json)",
+      "Write(.claude/agents/**/*.md)",
+      "Edit(.claude/agents/**/*.md)",
+      "Write(.claude/hooks/**/*.py)",
+      "Edit(.claude/hooks/**/*.py)",
+      "Write(.claude/commands/**/*.md)",
+      "Edit(.claude/commands/**/*.md)",
+      "Bash(cd:*)",
+      "Bash(rm:*)",
+      "Bash(df:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(tail:*)",
+      "Bash(head:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(jq:*)",
+      "Bash(git:*)",
+      "Bash(vitest:*)",
+      "Bash(tsc:*)",
+      "Bash(pnpm:*)",
+      "Bash(node:*)",
+      "Bash(bunx:*)",
+      "Bash(bun:*)",
+      "Bash(curl:*)",
+      "Bash(wc:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(awk:*)",
+      "Bash(sed:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(touch:*)",
+      "Bash(find:*)",
+      "Bash(diff:*)",
+      "Bash(test:*)",
+      "Bash(true)",
+      "Bash(false)",
+      "Bash(date:*)",
+      "Bash(pwd)",
+      "Bash(which:*)",
+      "Bash(env)",
+      "Bash(printenv:*)",
+      "Bash(npx:*)",
+      "Write(.claude/**)",
+      "Edit(.claude/**)"
     ]
   },
   "hooks": {
@@ -24,6 +89,151 @@
             "type": "command",
             "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-no-task-in-message.py",
             "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__send_message",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"/root/coding/perfect-ai-agent/.claude/hooks/enforce-operator-report-brevity.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-signature.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-no-table-drop.py"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__create_task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-pi-task-doctrine.py"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__complete_task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-pi-task-doctrine.py"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__update_task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-pi-task-doctrine.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-no-blocked-limbo.py"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__block_task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-no-blocked-limbo.py"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__create_task|mcp__vantage-peers__send_message",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-create-task-notify-followup.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"/root/coding/perfect-ai-agent/.claude/hooks/enforce-work-under-task.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"/root/coding/perfect-ai-agent/.claude/hooks/enforce-work-under-task.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"/root/coding/perfect-ai-agent/.claude/hooks/enforce-work-under-task.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__complete_task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"/root/coding/perfect-ai-agent/.claude/hooks/enforce-work-under-task.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__update_task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"/root/coding/perfect-ai-agent/.claude/hooks/enforce-work-under-task.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__vantage-peers__bulk_complete_tasks",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"/root/coding/perfect-ai-agent/.claude/hooks/enforce-work-under-task.py\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__vantage-peers__create_task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-create-task-notify-followup.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-post-merge-tmp-cleanup.py"
           }
         ]
       }
