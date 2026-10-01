@@ -1,0 +1,3 @@
+### Changed
+- Station config committed (Pi operator order 2026-10-01): 16 `.claude/agents` files that were symlinks into a workspace that no longer holds them are now regular files with catalogue content. The 6 the distributor had already replaced are kept as delivered. The 10 that had disappeared were restored from VantageRegistry `get_agent_content`, each verified by sha256 against the catalogue contentHash.
+- `.claude/settings.json` hook wiring, `.claude/rules/five-sentences-max.md` v5.0.0, and `.claude/scripts/` (active_task_flag.py, reap-worktree.sh, suite_cost_check.py, unrouted_branch_check.py) are the fleet-distributed copies.
