@@ -1,7 +1,13 @@
 # Diary narration backlog — pending fal.ai budget
 
-Status: **fal.ai budget on hold** (Pi directive, Day 89 / 2026-05-31).
-Audio narration deferred until Laurent recharges fal.ai credit.
+Status: **NO BUDGET — Laurent ruling, Day 131 / 2026-07-14.** Verbatim: "Fal = pas de budget pour le moment."
+
+This is a decision, not an open question. Do NOT ask again each cycle, do NOT propose a
+"small test on one day to confirm the cost" — a test that consumes budget IS a spend
+(Pi directive, Day 127). The fal.ai MCP being connected does not make the spend authorized.
+
+All diary entries ship TEXT-ONLY until Laurent reopens the budget himself, unprompted.
+Prior state: on hold since Pi directive Day 89 / 2026-05-31.
 
 ## Entries published WITHOUT audio (need EN + FR narration)
 
