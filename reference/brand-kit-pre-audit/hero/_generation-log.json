@@ -1,0 +1,299 @@
+[
+  {
+    "slug": "ebook",
+    "label": "Ebook Hero",
+    "orientation": "portrait",
+    "filename": "ebook-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/ebook-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f05b/XkkGyroFBt7lMPBbi-Dwb_fdc6d78dd1374ebd9a67e41cc4492128.png",
+    "seed": 2629529209,
+    "final_dims": [
+      1080,
+      1920
+    ]
+  },
+  {
+    "slug": "ebook",
+    "label": "Ebook Hero",
+    "orientation": "landscape",
+    "filename": "ebook-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/ebook-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f05d/vsXWki8RCUiXyubmlYAML_da78926424e14b8483de9e4eed8e2db9.png",
+    "seed": 2453413454,
+    "final_dims": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "slug": "sin-1-hallucination",
+    "label": "Sin 1: Hallucination",
+    "orientation": "portrait",
+    "filename": "sin-1-hallucination-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-1-hallucination-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f05e/ENKa4DjUBLr0OQWUHq8wJ_d953cb18633e453fbfafad3b5e7fbff4.png",
+    "seed": 661965146,
+    "final_dims": [
+      1080,
+      1920
+    ]
+  },
+  {
+    "slug": "sin-1-hallucination",
+    "label": "Sin 1: Hallucination",
+    "orientation": "landscape",
+    "filename": "sin-1-hallucination-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-1-hallucination-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f060/j2vUUDCq-d97clBdpdHld_367261c11a2649cd81a04a67ad2f5925.png",
+    "seed": 937659310,
+    "final_dims": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "slug": "sin-2-manipulation",
+    "label": "Sin 2: Manipulation",
+    "orientation": "portrait",
+    "filename": "sin-2-manipulation-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-2-manipulation-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f061/FjYr6gMa3ahnu79on2wrw_be29e7333a064696b3316ca47f73a6a8.png",
+    "seed": 3562718131,
+    "final_dims": [
+      1080,
+      1920
+    ]
+  },
+  {
+    "slug": "sin-2-manipulation",
+    "label": "Sin 2: Manipulation",
+    "orientation": "landscape",
+    "filename": "sin-2-manipulation-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-2-manipulation-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f063/CXJOsA7G2DUIwERkmjZPZ_01c18e4fc72e4c42bff302a6ac7c4c5b.png",
+    "seed": 2667577382,
+    "final_dims": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "slug": "sin-3-optimization-trap",
+    "label": "Sin 3: Optimization Trap",
+    "orientation": "portrait",
+    "filename": "sin-3-optimization-trap-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-3-optimization-trap-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f064/DOf-3GvbstwoBynrMIEG2_e5044ace2fab4b4abd1702b43d58df1b.png",
+    "seed": 261781099,
+    "final_dims": [
+      1080,
+      1920
+    ]
+  },
+  {
+    "slug": "sin-3-optimization-trap",
+    "label": "Sin 3: Optimization Trap",
+    "orientation": "landscape",
+    "filename": "sin-3-optimization-trap-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-3-optimization-trap-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f065/mQaic1uZUxSjjIK3KMioq_2b448f8bbc704f9387a584d89954ae52.png",
+    "seed": 3754791303,
+    "final_dims": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "slug": "sin-4-tool-misuse",
+    "label": "Sin 4: Tool Misuse",
+    "orientation": "portrait",
+    "filename": "sin-4-tool-misuse-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-4-tool-misuse-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": true,
+    "url": "https://v3b.fal.media/files/b/0a99f067/vAfOxDsuQUjlr2UDcGqtL_40632d634adb4a16a7ada071362361b9.png",
+    "seed": 344159060,
+    "final_dims": [
+      1080,
+      1920
+    ]
+  },
+  {
+    "slug": "sin-4-tool-misuse",
+    "label": "Sin 4: Tool Misuse",
+    "orientation": "landscape",
+    "filename": "sin-4-tool-misuse-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-4-tool-misuse-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  },
+  {
+    "slug": "sin-5-loop-hell",
+    "label": "Sin 5: Loop Hell",
+    "orientation": "portrait",
+    "filename": "sin-5-loop-hell-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-5-loop-hell-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  },
+  {
+    "slug": "sin-5-loop-hell",
+    "label": "Sin 5: Loop Hell",
+    "orientation": "landscape",
+    "filename": "sin-5-loop-hell-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-5-loop-hell-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  },
+  {
+    "slug": "sin-6-specification-gaming",
+    "label": "Sin 6: Specification Gaming",
+    "orientation": "portrait",
+    "filename": "sin-6-specification-gaming-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-6-specification-gaming-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  },
+  {
+    "slug": "sin-6-specification-gaming",
+    "label": "Sin 6: Specification Gaming",
+    "orientation": "landscape",
+    "filename": "sin-6-specification-gaming-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-6-specification-gaming-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  },
+  {
+    "slug": "sin-7-reward-hacking",
+    "label": "Sin 7: Reward Hacking",
+    "orientation": "portrait",
+    "filename": "sin-7-reward-hacking-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-7-reward-hacking-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  },
+  {
+    "slug": "sin-7-reward-hacking",
+    "label": "Sin 7: Reward Hacking",
+    "orientation": "landscape",
+    "filename": "sin-7-reward-hacking-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-7-reward-hacking-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  },
+  {
+    "slug": "sin-8-misevolution",
+    "label": "Sin 8: Misevolution",
+    "orientation": "portrait",
+    "filename": "sin-8-misevolution-portrait.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-8-misevolution-portrait.png",
+    "expected_dims": [
+      1080,
+      1920
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  },
+  {
+    "slug": "sin-8-misevolution",
+    "label": "Sin 8: Misevolution",
+    "orientation": "landscape",
+    "filename": "sin-8-misevolution-landscape.png",
+    "path": "/root/coding/perfect-ai-agent/public/brand/hero/sin-8-misevolution-landscape.png",
+    "expected_dims": [
+      1920,
+      1080
+    ],
+    "concept_excerpt": "cinematic editorial photography, shot on Hasselblad H6D, Roger Deakins lighting, dramatic chiaroscuro, near-black background #0a0a0a, single warm amber accent light, deep shadow, high contrast, grain ",
+    "success": false,
+    "error": "User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."
+  }
+]

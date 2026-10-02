@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Perfect AI Agent — Favicon">
+  <title>Perfect AI Agent</title>
+  <!--
+    Perfect AI Agent — Favicon / App Icon
+    256×256 master. Rasterize at 256, 128, 64, 32, 16px.
+    Glyph only: π mark + amber underline
+    Background: #0a0a0a (book brand dark) — NOT transparent for favicon usage
+    For app icons add border-radius 20% (51px) at raster stage
+  -->
+
+  <!-- Background fill -->
+  <rect x="0" y="0" width="256" height="256" fill="#0a0a0a"/>
+
+  <!-- π glyph — master scale, optically centered -->
+  <!-- Total glyph height: 148px. Canvas 256px. Top: (256-148)/2 = 54px -->
+  <!-- Glyph width: 144px. Canvas 256px. Left: (256-144)/2 = 56px -->
+  <g id="glyph" transform="translate(56, 54)">
+    <!-- Crossbar — full width 144px, height 18px (proportional at all scales) -->
+    <rect x="0" y="0" width="144" height="18" rx="0" fill="#ffffff"/>
+    <!-- Left leg — x=24, width=18, height=108 -->
+    <rect x="24" y="18" width="18" height="108" rx="0" fill="#ffffff"/>
+    <!-- Right leg — x=102, width=18, height=108 -->
+    <rect x="102" y="18" width="18" height="108" rx="0" fill="#ffffff"/>
+    <!-- Amber underline — visual signature, 36px wide centered (x=54), height=8 -->
+    <rect x="54" y="134" width="36" height="8" rx="4" fill="#f59e0b"/>
+  </g>
+</svg>

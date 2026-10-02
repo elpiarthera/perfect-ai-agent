@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 60" width="580" height="60" role="img" aria-label="Perfect AI Agent">
+  <title>Perfect AI Agent — Horizontal Lockup</title>
+  <!--
+    Perfect AI Agent — Lockup Horizontal
+    Glyph (π) left + wordmark right, single baseline alignment
+    Dark version: white ink on transparent (place over #0a0a0a or #141414)
+    Clear space: 1× glyph-width (48px) on all sides
+  -->
+
+  <!-- Background: transparent (no fill rect) -->
+
+  <!-- π glyph — 48×48 optical bounding box, vertically centered in 60px height -->
+  <!-- Vertical center: 30px. Glyph height ~38px, top margin = (60-38)/2 = 11px -->
+  <g id="glyph" transform="translate(0, 10)">
+    <!-- Crossbar — full width of glyph unit -->
+    <rect x="4" y="0" width="40" height="5" rx="0" fill="#ffffff"/>
+    <!-- Left leg -->
+    <rect x="10" y="5" width="5" height="26" rx="0" fill="#ffffff"/>
+    <!-- Right leg -->
+    <rect x="33" y="5" width="5" height="26" rx="0" fill="#ffffff"/>
+    <!-- Amber signature underline — visual footnote mark, π's "footnote" -->
+    <rect x="19" y="35" width="10" height="2.5" rx="1.25" fill="#f59e0b"/>
+  </g>
+
+  <!-- Vertical divider — thin rule separating glyph from wordmark -->
+  <rect x="62" y="12" width="1" height="36" rx="0" fill="#ffffff" opacity="0.2"/>
+
+  <!-- Wordmark: PERFECT · AI · AGENT — all on one line, baseline 40px -->
+  <!-- Glyph block = 48+14 = 76px offset. Divider at 62. Text starts at 80. -->
+
+  <text
+    x="76"
+    y="40"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="26"
+    letter-spacing="-0.3"
+    xml:space="preserve">PERFECT</text>
+
+  <!-- Amber interpunct -->
+  <circle cx="242" cy="32" r="2.5" fill="#f59e0b"/>
+
+  <text
+    x="252"
+    y="40"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="26"
+    letter-spacing="-0.3"
+    xml:space="preserve">AI</text>
+
+  <!-- Amber interpunct -->
+  <circle cx="300" cy="32" r="2.5" fill="#f59e0b"/>
+
+  <text
+    x="310"
+    y="40"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="26"
+    letter-spacing="-0.3"
+    xml:space="preserve">AGENT</text>
+
+  <!-- Sub-caption: tagline in tracked small caps -->
+  <text
+    x="76"
+    y="54"
+    fill="#9ca3af"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="400"
+    font-size="8.5"
+    letter-spacing="2.8"
+    xml:space="preserve">A NOVEL BY LAURENT PERELLO</text>
+</svg>
