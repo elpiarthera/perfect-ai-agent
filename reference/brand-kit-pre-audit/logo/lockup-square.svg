@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="Perfect AI Agent">
+  <title>Perfect AI Agent — Square Lockup</title>
+  <!--
+    Perfect AI Agent — Lockup Square (Stamp / 1:1)
+    Glyph centered above wordmark, square format
+    Dark version: white ink on transparent
+    Use: social avatars, book spine, embossing, stamps, OG image overlays
+    Clear space: 1× glyph-width (60px) on all sides
+  -->
+
+  <!-- Outer border frame — thin rule, editorial stamp quality -->
+  <rect x="16" y="16" width="288" height="288" rx="0" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.35"/>
+  <!-- Inner frame — double-rule editorial motif -->
+  <rect x="22" y="22" width="276" height="276" rx="0" fill="none" stroke="#f59e0b" stroke-width="0.75" opacity="0.6"/>
+
+  <!-- π glyph — large, centered, proportional to stamp format -->
+  <!-- Center at (160, 120). Glyph unit 80×70. Top-left at (120, 85) -->
+  <g id="glyph" transform="translate(120, 85)">
+    <!-- Crossbar — 80px wide, 9px tall -->
+    <rect x="0" y="0" width="80" height="9" rx="0" fill="#ffffff"/>
+    <!-- Left leg — starts at x=14 from crossbar left, 9px wide, 52px tall -->
+    <rect x="14" y="9" width="9" height="52" rx="0" fill="#ffffff"/>
+    <!-- Right leg — starts at x=57 from left, 9px wide, 52px tall -->
+    <rect x="57" y="9" width="9" height="52" rx="0" fill="#ffffff"/>
+    <!-- Amber signature underline — centered under glyph -->
+    <rect x="31" y="67" width="18" height="4" rx="2" fill="#f59e0b"/>
+  </g>
+
+  <!-- Horizontal rule — separates glyph from text block -->
+  <rect x="60" y="176" width="200" height="0.75" fill="#ffffff" opacity="0.25"/>
+
+  <!-- Wordmark — centered, three lines for the square stamp format -->
+  <!-- Line 1: PERFECT -->
+  <text
+    x="160"
+    y="205"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="32"
+    letter-spacing="1"
+    text-anchor="middle"
+    xml:space="preserve">PERFECT</text>
+
+  <!-- Line 2: AI — with amber accent flanking characters -->
+  <text
+    x="160"
+    y="242"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="32"
+    letter-spacing="1"
+    text-anchor="middle"
+    xml:space="preserve">AI</text>
+
+  <!-- Amber flanking marks for AI line — editorial ornament -->
+  <rect x="108" y="231" width="14" height="1.5" fill="#f59e0b" opacity="0.7"/>
+  <rect x="198" y="231" width="14" height="1.5" fill="#f59e0b" opacity="0.7"/>
+
+  <!-- Line 3: AGENT -->
+  <text
+    x="160"
+    y="279"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="32"
+    letter-spacing="1"
+    text-anchor="middle"
+    xml:space="preserve">AGENT</text>
+</svg>
