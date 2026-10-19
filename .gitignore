@@ -21,6 +21,7 @@ __pycache__/
 !.claude/hooks/enforce-mission-template.py
 !.claude/hooks/enforce-no-task-in-message.py
 !.claude/hooks/session-start-phi.py
+!.claude/hooks/enforce-pr-opened-via-skill.py
 .claude/rules/*
 !.claude/rules/five-sentences-max.md
 .claude/skills/*
