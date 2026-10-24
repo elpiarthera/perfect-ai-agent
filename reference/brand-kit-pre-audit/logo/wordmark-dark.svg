@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 72" width="520" height="72" role="img" aria-label="Perfect AI Agent">
+  <title>Perfect AI Agent</title>
+  <!--
+    Perfect AI Agent — Wordmark Dark
+    For use on dark backgrounds (#0a0a0a, #141414)
+    Ink: white #ffffff with cream accent on glyph
+    Typography: Georgia-equivalent geometry, custom-kerned, tight tracking
+    Glyph: stylized π (Pi — AI narrator of the book)
+  -->
+  <defs>
+    <style>
+      .wordmark { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- π glyph — geometric, hand-crafted, 44×44 optical unit -->
+  <!-- Crossbar: horizontal stroke at top -->
+  <!-- Left leg: descends vertically from crossbar left quarter, slight serif foot -->
+  <!-- Right leg: descends vertically from crossbar right quarter, slight serif foot -->
+  <g id="glyph" transform="translate(0, 14)">
+    <!-- Crossbar -->
+    <rect x="4" y="0" width="40" height="4.5" rx="0" fill="#ffffff"/>
+    <!-- Left leg — vertical, no foot (clean modern) -->
+    <rect x="10" y="4.5" width="4.5" height="28" rx="0" fill="#ffffff"/>
+    <!-- Right leg -->
+    <rect x="33.5" y="4.5" width="4.5" height="28" rx="0" fill="#ffffff"/>
+    <!-- Amber accent dot — sub-signature mark below glyph, 1px above baseline -->
+    <rect x="19.5" y="36" width="9" height="2" rx="1" fill="#f59e0b"/>
+  </g>
+
+  <!-- Wordmark text — rendered as paths for pixel-perfect rendering -->
+  <!-- Using text element with precise letter-spacing; convert to paths for production -->
+  <!-- "PERFECT AI AGENT" — all caps, tight tracking -->
+
+  <!-- Word: PERFECT -->
+  <text
+    x="62"
+    y="50"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="28"
+    letter-spacing="-0.4"
+    xml:space="preserve">PERFECT</text>
+
+  <!-- Separator dot — amber accent -->
+  <circle cx="237" cy="42" r="2.5" fill="#f59e0b"/>
+
+  <!-- Word: AI -->
+  <text
+    x="247"
+    y="50"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="28"
+    letter-spacing="-0.4"
+    xml:space="preserve">AI</text>
+
+  <!-- Separator dot — amber accent -->
+  <circle cx="298" cy="42" r="2.5" fill="#f59e0b"/>
+
+  <!-- Word: AGENT -->
+  <text
+    x="308"
+    y="50"
+    fill="#ffffff"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="28"
+    letter-spacing="-0.4"
+    xml:space="preserve">AGENT</text>
+
+  <!-- Tagline — optional, shown in dark variant -->
+  <text
+    x="62"
+    y="66"
+    fill="#9ca3af"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="400"
+    font-size="9"
+    letter-spacing="2.5"
+    xml:space="preserve">A NOVEL BY LAURENT PERELLO</text>
+</svg>
