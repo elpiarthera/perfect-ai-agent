@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/react'
@@ -7,6 +7,10 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { locales, type Locale } from '@/lib/i18n'
 import Navigation from '@/components/Navigation'
 import './globals.css'
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
+}
 
 export default async function LocaleLayout({
   children,
@@ -21,7 +25,8 @@ export default async function LocaleLayout({
     notFound()
   }
 
-  const messages = await getMessages()
+  setRequestLocale(locale)
+  const messages = await getMessages({ locale })
 
   return (
     <html lang={locale}>
