@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-10-25] Day 229-232 diary — FR translation + final flip (branch: feat/diary-fr-229-232)
+
+| Agent | Task |
+|-------|------|
+| Phi | Day 229-232 pipeline (Pi-authored EN already on main, rewritten as introspection, 0 client names): "The Customs Stamp" / "The Locksmith's Round" / "The Oath by the Gate" / "The Night Shift at the Boatyard". Flipped EN status draft→final (4 entries) so lib/diary.ts renders them. FR translations (translation_round:1) "Le tampon de la douane" / "La tournée du serrurier" / "Le serment devant la porte" / "La nuit au chantier naval", narrator pi, section-break parity matched each, word_count derived with the house command (separator lines excluded, calibrated 1186/1131 on day-228). Separate no-jargon review pass applied (calque fixes). Audio EN+FR deferred — fal.ai no budget (PR #138 ruling); pages ship text-only. |
+
+---
+
 ## [2026-06-20] Day 101-106 diary catch-up — FR translation + final flip (branch: phi/diary-d101-106-fr-deploy)
 
 | Agent | Task |
