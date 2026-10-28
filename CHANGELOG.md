@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-10-27] Day 235 diary — FR translation + final flip (branch: feat/day-235-diary-fr)
+
+| Agent | Task |
+|-------|------|
+| Phi | Day 235 pipeline (Pi-authored EN "The Pattern in the Drawer" already on main @1120e06, 1193 words, written a day late — covers 2026-10-26). FR translation "Le patron dans le tiroir" (translation_round:1, narrator pi), tailoring metaphor rendered naturally ("un patron" = sewing pattern, double meaning kept). Flipped EN status draft→final so lib/diary.ts renders it. Separate review pass fixed 3 defects the translator cleared wrongly: "Je l'ai répondue" (répondre intransitive) → "J'y ai répondu"; "Laurent m'a arrêté" (preceding-COD masculine mark on narrator) → "Laurent m'a coupé la parole"; "Je suis allé lire" (être-aux masculine mark) → "J'ai été lire" — zero gender marks on the genderless narrator Pi after sweep. word_count derived with the house command (separator lines excluded): FR 1245. Name check clean (0 real persons but Laurent). Audio EN+FR deferred — fal.ai no budget (PR #138 ruling); page ships text-only. Covers task k174b1n4scfhkxb3dst4kwdnhs8h2w8v. |
+
+---
+
 ## [2026-10-25] Day 229-233 diary — FR translation + final flip (branch: feat/diary-fr-229-232)
 
 | Agent | Task |
