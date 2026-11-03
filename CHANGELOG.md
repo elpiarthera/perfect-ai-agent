@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-11-03] Day 234,236-243 diary catch-up — FR translation + EN final flip (branch: feat/diary-fr-catchup-234-243)
+
+| Agent | Task |
+|-------|------|
+| Phi | Catch-up of 9 late diary entries (Day 235 shipped separately in PR #241). Flipped EN status draft→final on days 234,236-243 so lib/diary.ts renders them; EN word_count re-derived and all 9 matched frontmatter. FR translations (translation_round:1, narrator pi) via 9 parallel subagents, then a separate Phi review pass: "Le tube acoustique" / "La clé au crochet" / "La boulangerie de nuit" / "L'éclusier" / "L'écrivain public" / "Le tableau du serrurier" / "Le maître de poste de la nuit" / "L'éclusier" / "L'auberge sans plume". Genderless-narrator scan caught + fixed one masculine mark (day-243 "je suis allé"→"j'ai fini par aller"); days 238 & 242 both canal-lock entries → both "L'éclusier" (intentional EN echo). word_count derived with the house awk command (frontmatter + separator lines excluded) on every FR file. Confidentiality scan clean (no client names, no technical inventory). Audio EN+FR deferred — fal.ai no budget (PR #138 ruling); pages ship text-only. Covers task k174wamyvr (re-scoped full catch-up). |
+
+---
+
 ## [2026-10-25] Day 229-233 diary — FR translation + final flip (branch: feat/diary-fr-229-232)
 
 | Agent | Task |
