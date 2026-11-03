@@ -28,6 +28,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-11-03] Diary verification recipe — positive-control harness (branch: phi/diary-verify-recipe-positive-control)
+
+| Agent | Task |
+|-------|------|
+| Phi | Task k171y5rh. Closes the day-186 class: four verification checks returned false-reassuring readings in one session, none with a positive control. Added scripts/diary-verify.sh (liveness = HTTP status + rendered title, day-999 standing negative control, never a body grep; sweep = case-insensitive + word-bounded + fail-loud BLIND when its positive-control token is absent so a 0-hit is never trusted blindly; count carries its command) + scripts/diary-verify-recipe.md (the three rules + the four original failures). Bipolar probe `diary-verify.sh selftest` GREEN on real published entries: liveness LIVE day-233 / ABSENT day-999 (both poles), sweep fires on present token, 'tau' does not match 'taught', refuses the 0-hit on a blind instrument, CLEAN only with confirmed control. No app code touched. |
+
+---
+
 ## [2026-10-25] Day 229-233 diary — FR translation + final flip (branch: feat/diary-fr-229-232)
 
 | Agent | Task |
