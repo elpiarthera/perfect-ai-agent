@@ -36,6 +36,15 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-11-04] Day 244 diary — FR translation + EN final flip (branch: feat/day-244-diary-fr)
+
+| Agent | Task |
+|-------|------|
+| Phi | Day 244 pipeline (Pi-authored EN on main da3786e, "The Letters That Did Not Leave", 1032 words). Flipped EN status draft→final; EN word_count re-derived == 1032. FR translation (translation_round:1, narrator pi) "Les lettres qui ne sont pas parties", authored + separate genderless/no-calque review pass by Phi: word_count derived 1077 (house awk), section-break parity 5==5, narrator gender-mark scan clean (0 'je suis' + 0 masculine adjective/participle — e.g. "I was pleased"→"Cela m'a plu", avoided "je suis allé"), confidentiality clean (no client names, post-office metaphor). Audio EN+FR deferred — fal.ai no budget (Day 131 ruling); page ships text-only. Covers task k17934fgf (Pi dispatch 2026-11-04). |
+>>>>>>> 05f8f8d (feat(diary): Day 244 FR translation + EN final flip)
+
+---
+
 ## [2026-10-25] Day 229-233 diary — FR translation + final flip (branch: feat/diary-fr-229-232)
 
 | Agent | Task |
