@@ -64,13 +64,18 @@ MOTION_REFLEXIVE = {
     "aperçu", "résolu", "décidé", "tu",
 }
 
-# Adjectives whose spelling changes with the narrator's gender.
+# Adjectives / predicate participles whose spelling changes with the narrator's gender.
+# Only adjectives whose written form actually CHANGES with gender. Epicene adjectives
+# (capable, responsable, coupable, tranquille, libre, incapable — same M/F) are excluded:
+# « j'avais été capable » is not a mark.
 GENDERED_ADJ = {
-    "sûr", "certain", "prêt", "précis", "clair", "content", "heureux", "capable",
+    "sûr", "certain", "prêt", "précis", "clair", "content", "heureux",
     "obligé", "forcé", "censé", "convaincu", "seul", "franc", "fier", "désolé",
-    "surpris", "satisfait", "conscient", "incapable", "présent", "absent",
+    "surpris", "satisfait", "conscient", "présent", "absent",
     "minutieux", "méticuleux", "complet", "rigoureux", "attentif", "prudent",
-    "responsable", "coupable", "innocent", "vigilant", "soigneux",
+    "innocent", "vigilant", "soigneux",
+    "fatigué", "éveillé", "occupé", "lassé", "épuisé", "ravi", "soulagé",
+    "embarrassé", "inquiet", "perdu",
 }
 
 # After « je + copula + un/une », these are not attribute-role nouns (no gender claim).
@@ -82,13 +87,18 @@ WORD = r"[a-zàâäçéèêëîïôûùœ'-]+"
 
 
 def _alt(words):
-    # longest-first so the engine never settles on a prefix of a listed word
-    return "(?:" + "|".join(sorted(words, key=len, reverse=True)) + ")"
+    # longest-first so the engine never settles on a prefix of a listed word;
+    # trailing (?:e|s|es)? catches the feminine/plural form too — the narrator is
+    # genderless, so « je suis allée » (feminine) is as much a mark as « allé ».
+    return "(?:" + "|".join(sorted(words, key=len, reverse=True)) + ")(?:e|s|es)?"
 
 
 DANGER_ALT = _alt(DANGER_PARTICIPLES)
 MOTION_ALT = _alt(MOTION_REFLEXIVE)
 ADJ_ALT = _alt(GENDERED_ADJ)
+# je-copula predicate: an adjective OR a danger/motion participle after « je suis/
+# étais/fus » (« j'étais fatigué », « j'étais corrigé », « j'étais entré »).
+COPULA_PRED_ALT = _alt(GENDERED_ADJ | DANGER_PARTICIPLES | MOTION_REFLEXIVE)
 
 # The target word is EMBEDDED in each pattern (not post-filtered) so a greedy gap
 # can never match a non-target word and skip the real one — the earlier recall bug.
@@ -108,14 +118,12 @@ RE_INF_COPULA = re.compile(
     r"\b(?:pour|de|sans|d'|à)\s+(?:être|paraître|sembler|rester|devenir|demeurer)\s+(?P<w>" + ADJ_ALT + r")\b",
     re.IGNORECASE,
 )
-# Shape 2c: je suis / j'étais + gendered adjective (direct copula).
-RE_JE_ADJ = re.compile(
-    r"\bj(?:e\s+|')(?:suis|étais|serais|me\ssens|me\ssentais)\s+(?P<w>" + ADJ_ALT + r")\b",
-    re.IGNORECASE,
-)
-# Shape 3: je (me) suis + a motion/reflexive participle (<=1 adverb between).
-RE_JE_SUIS_MOTION = re.compile(
-    r"\bje\s+(?:me\s+)?suis\b(?:\s+" + WORD + r"){0,1}?\s+(?P<w>" + MOTION_ALT + r")\b",
+# Shapes 2c + 3 unified: « je (me) » + copula (suis/étais/fus/serais/sens/ai été) +
+# (<=1 adverb) + a gendered adjective OR danger/motion participle. Covers « je suis
+# allée », « je me suis souvenue », « j'étais resté/entré/corrigé/fatigué/occupé ».
+JE_COPULA = r"\bj(?:e\s+|')(?:me\s+|m')?(?:suis|étais|fus|serais|serai|sens|sentais|ai\s+été|avais\s+été)\b"
+RE_JE_COPULA = re.compile(
+    JE_COPULA + r"(?:\s+" + WORD + r"){0,1}?\s+(?P<w>" + COPULA_PRED_ALT + r")\b",
     re.IGNORECASE,
 )
 
@@ -136,20 +144,17 @@ def body_lines(text):
 def scan_text(text):
     marks = []
     for lineno, line in body_lines(text):
+        # The gendered word is embedded in each alternation (incl. feminine/plural
+        # endings), so a match IS a mark — no post-filter (which would reject « allée »).
         for m in RE_ME_DANGER.finditer(line):
-            if m.group("w").lower() in DANGER_PARTICIPLES:
-                marks.append((lineno, "me+participle", m.group(0).strip()[:56]))
-        for m in RE_JE_SUIS_MOTION.finditer(line):
-            if m.group("w").lower() in MOTION_REFLEXIVE:
-                marks.append((lineno, "je suis+participle", m.group(0).strip()[:56]))
-        for m in RE_JE_ADJ.finditer(line):
-            if m.group("w").lower() in GENDERED_ADJ:
-                marks.append((lineno, "je+adjective", m.group(0).strip()[:56]))
+            marks.append((lineno, "me+participle", m.group(0).strip()[:56]))
+        for m in RE_JE_COPULA.finditer(line):
+            marks.append((lineno, "je-copula+gendered", m.group(0).strip()[:56]))
         for m in RE_INF_COPULA.finditer(line):
-            if m.group("w").lower() in GENDERED_ADJ:
-                marks.append((lineno, "infinitive-copula+adj", m.group(0).strip()[:56]))
+            marks.append((lineno, "infinitive-copula+adj", m.group(0).strip()[:56]))
+        # Attribute noun is open class → still post-filtered against the stop-list.
         for m in RE_COPULA_NOUN.finditer(line):
-            if m.group("w").lower() not in ATTR_STOP:
+            if m.group("w").lower().rstrip("s") not in ATTR_STOP:
                 marks.append((lineno, "copula+attribute-noun", m.group(0).strip()[:56]))
     seen, out = set(), []
     for mk in marks:
@@ -209,18 +214,32 @@ def selftest():
         "il m'a montré le sceau.",
         "une leçon qu'on m'a déjà apprise, bien des fois.",
         "Il avait raison, et cela m'a semblé juste.",
-        "j'ai été un peu surpris de la réponse.",  # « un peu » must not trip copula-noun
         "la chose qui m'a pris le reste de la journée.",  # prendre + time DO -> invariant
         "Ça m'a pris une heure, bien dépensée.",         # « m'a pris une heure » -> invariant
         "Laurent m'a rendu la clé du coffre.",           # rendre qqch à qqn -> invariant
         "le patron m'a servi un café en silence.",       # servir qqch à qqn -> invariant
+        "je suis un peu en retard ce matin.",            # « un peu » must not trip copula-noun
+        "je me suis fixé une tâche pour demain.",        # fixé + DO postposé -> invariant
+        "cette partie, je l'ai bien faite.",             # faite agrees with la partie, not je
+        "ça a marché du premier coup.",                  # no first-person agreement
     ]
+    # (probe, expected-class)  —  None = any class must fire (verbatim real marks).
     inject = [
         ("Laurent m'a arrêté.", "me+participle"),
         ("Ce soir, j'étais un écrivain.", "copula+attribute-noun"),
         ("Je l'ai fait pour être sûr.", "infinitive-copula+adj"),
-        ("Quand je suis allé voir.", "je suis+participle"),
-        ("je suis prêt à partir.", "je+adjective"),
+        ("Quand je suis allé voir.", "je-copula+gendered"),
+        ("je suis prêt à partir.", "je-copula+gendered"),
+        # Task k177ytjkr MUST_BLOCK (verbatim):
+        ("je suis allée à la porte", None),
+        ("je me suis souvenue de tout", None),
+        ("j'étais resté à la porte", None),
+        # Eta's 5 real published lines (verbatim fragments):
+        ("un mur dans lequel j'étais entré du mauvais côté.", None),          # day-139:103
+        ("Pendant que j'étais corrigé sur la construction d'agence.", None),  # day-93:55
+        ("il m'a demandé si j'étais fatigué de travailler.", None),           # day-21:58
+        ("pour prouver que j'étais éveillé.", None),                          # day-219:97
+        ("tout en écrivant la doctrine, j'étais occupé à vivre.", None),      # day-89:75
     ]
     fail = 0
     print("=== NARRATOR-GENDER GUARD — bipolar probe on real committed material ===")
@@ -258,13 +277,14 @@ def selftest():
         else:
             print(f"  ok: « {line[:44]}… »")
 
-    print("-- MUST_BLOCK: one injected line per shape fires --")
+    print("-- MUST_BLOCK: injected shape lines + task/published verbatim lines fire --")
     for probe, cls in inject:
         got = scan_text("---\nx: 1\n---\n" + probe)
-        if any(c == cls for _, c, _ in got):
-            print(f"  ok: {cls}")
+        ok = any(c == cls for _, c, _ in got) if cls else bool(got)
+        if ok:
+            print(f"  ok: {cls or 'any'} « {probe[:40]}… »")
         else:
-            print(f"  FAIL: « {probe} » not flagged as {cls}: {got}"); fail = 1
+            print(f"  FAIL: « {probe} » not flagged ({cls or 'any'}): {got}"); fail = 1
 
     print("=== " + ("GUARD GREEN — both poles on real material" if not fail else "GUARD RED") + " ===")
     return fail
