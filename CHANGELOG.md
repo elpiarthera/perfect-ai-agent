@@ -12,6 +12,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-11-05] Narrator-gender guard — precision-first, bipolar-probe GREEN (branch: phi/narrator-gender-guard, task k177ytjkr)
+
+| Agent | Task |
+|-------|------|
+| Phi | Structural fix for the class that bounced 4 diary PRs (#241, #242 ×2, #244). scripts/check-narrator-gender.py detects 5 shapes of narrator gender marks Eta named: preceding-DO "me"+participle ("m'a arrêté"), copula+attribute-noun ("j'étais un écrivain"), infinitive-copula+adj ("paraître minutieux"), je+adjective ("je suis prêt"), je-suis+motion-participle ("je suis allé"). Precision-first: keyed off CLOSED curated word-lists (danger participles / motion-reflexives / gendered adjectives) embedded as regex alternations, so function words can never trip it — the earlier broad-regex WIP went probe-RED on false positives, this one is GREEN. Bipolar probe (--selftest) on REAL committed material: MUST_BLOCK catches all 16 real pre-fix marks across foreign blobs (fa293d05/efd7064/f49322c), MUST_PASS 0 on every fixed head (e743687/fd93570) + 9 real invariant lines (indirect m'a demandé/semblé/rapporté, relative-DO apprise, DO-after coupé la parole, causative fait m'arrêter, "un peu"). Wired as a PostToolUse(Write\|Edit) gate (.claude/hooks/enforce-narrator-gender.py, allowlisted in .gitignore) that scans a FR diary entry the instant it is written. Fail-closed on unreadable input. |
+
+---
+
 ## [2026-11-03] Day 234,236-243 diary catch-up — FR translation + EN final flip (branch: feat/diary-fr-catchup-234-243)
 
 | Agent | Task |
