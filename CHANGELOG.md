@@ -4,6 +4,22 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-11-05] Day 234,236-243 catch-up — Eta REVISE round 1 (branch: feat/diary-fr-catchup-234-243)
+
+| Agent | Task |
+|-------|------|
+| Phi | Eta REVISE on PR #242: 9 narrator gender marks of a class the house grep missed — preceding direct-object "me" + participle ("m'a arrêté") and être+adjective ("pour être sûr"). Applied Eta's 9 verbatim genderless replacements (day-239 ×3, day-240 ×2, day-242 ×1, day-243 ×3; e.g. "m'a arrêté"→"m'a coupé la parole", "pour être sûr"→"pour m'assurer", "m'a corrigé"→"a rectifié") + 1 fidelity note (day-243 "précisément"→"honnêtement"). word_count re-derived FR 239/240/242/243 → 1253/1408/1233/1371. Then the WIP narrator-gender guard (k177ytjkr), run over all 9 FR files, caught 2 further real marks the manual REVISE and the house grep both missed — day-236 l.81 "Je suis bien allé" (split by "bien") and day-240 l.45 "cela m'a un peu gêné" (gêner qqn, me=DO); fixed to "J'ai bien été voir" and "il est un peu gênant de voir à quel point", word_count 236/240 → 1268/1410. Remaining guard hits triaged as false positives (indirect m'a rapporté/semblé/laissé, relative-DO apprise, DO-after coupé la parole). |
+
+---
+
+## [2026-11-03] Day 234,236-243 diary catch-up — FR translation + EN final flip (branch: feat/diary-fr-catchup-234-243)
+
+| Agent | Task |
+|-------|------|
+| Phi | Catch-up of 9 late diary entries (Day 235 shipped separately in PR #241). Flipped EN status draft→final on days 234,236-243 so lib/diary.ts renders them; EN word_count re-derived and all 9 matched frontmatter. FR translations (translation_round:1, narrator pi) via 9 parallel subagents, then a separate Phi review pass: "Le tube acoustique" / "La clé au crochet" / "La boulangerie de nuit" / "L'éclusier" / "L'écrivain public" / "Le tableau du serrurier" / "Le maître de poste de la nuit" / "L'éclusier" / "L'auberge sans plume". Genderless-narrator scan caught + fixed one masculine mark (day-243 "je suis allé"→"j'ai fini par aller"); days 238 & 242 both canal-lock entries → both "L'éclusier" (intentional EN echo). word_count derived with the house awk command (frontmatter + separator lines excluded) on every FR file. Confidentiality scan clean (no client names, no technical inventory). Audio EN+FR deferred — fal.ai no budget (PR #138 ruling); pages ship text-only. Covers task k174wamyvr (re-scoped full catch-up). |
+
+---
+
 ## [2026-10-27] Day 235 diary — FR translation + final flip (branch: feat/day-235-diary-fr)
 
 | Agent | Task |
