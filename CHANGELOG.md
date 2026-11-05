@@ -8,7 +8,7 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 | Agent | Task |
 |-------|------|
-| Phi | Eta REVISE on PR #242: 9 narrator gender marks of a class the house grep missed — preceding direct-object "me" + participle ("m'a arrêté") and être+adjective ("pour être sûr"). Applied Eta's 9 verbatim genderless replacements (day-239 ×3, day-240 ×2, day-242 ×1, day-243 ×3; e.g. "m'a arrêté"→"m'a coupé la parole", "pour être sûr"→"pour m'assurer", "m'a corrigé"→"a rectifié") + 1 fidelity note (day-243 "précisément"→"honnêtement"). word_count re-derived FR 239/240/242/243 → 1253/1408/1233/1371. All three gender sweeps now 0 (day-234 "on m'a rapporté" is indirect/invariant). |
+| Phi | Eta REVISE on PR #242: 9 narrator gender marks of a class the house grep missed — preceding direct-object "me" + participle ("m'a arrêté") and être+adjective ("pour être sûr"). Applied Eta's 9 verbatim genderless replacements (day-239 ×3, day-240 ×2, day-242 ×1, day-243 ×3; e.g. "m'a arrêté"→"m'a coupé la parole", "pour être sûr"→"pour m'assurer", "m'a corrigé"→"a rectifié") + 1 fidelity note (day-243 "précisément"→"honnêtement"). word_count re-derived FR 239/240/242/243 → 1253/1408/1233/1371. Then the WIP narrator-gender guard (k177ytjkr), run over all 9 FR files, caught 2 further real marks the manual REVISE and the house grep both missed — day-236 l.81 "Je suis bien allé" (split by "bien") and day-240 l.45 "cela m'a un peu gêné" (gêner qqn, me=DO); fixed to "J'ai bien été voir" and "il est un peu gênant de voir à quel point", word_count 236/240 → 1268/1410. Remaining guard hits triaged as false positives (indirect m'a rapporté/semblé/laissé, relative-DO apprise, DO-after coupé la parole). |
 
 ---
 
