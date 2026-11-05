@@ -71,18 +71,24 @@ resistance.
 
 ## Proof the recipe itself fires — bipolar probe
 
-`bash scripts/diary-verify.sh selftest` exercises **both poles on real published
-entries**, not synthetic fixtures alone:
+`bash scripts/diary-verify.sh selftest` exercises **both poles on committed diary
+entries** — never a synthetic fixture — and **landing-asserts** every anchor first
+(a pole whose token has moved proves nothing). Run it from the repo root:
 
-- liveness reads day-233 FR as `LIVE` **and** day-999 as `ABSENT`;
-- sweep fires on a present token, stays word-bounded (`tau` does not match `taught`),
-  **refuses** a 0-hit when its control is absent, and reports `CLEAN` only with a
-  confirmed-present control;
+- liveness reads day-233 FR as `LIVE` **and** day-999 as `ABSENT` (real production site);
+- landing asserts: `Laurent` present in `content/fr/diary/day-233.mdx` (l.19), and
+  `taught` present with bare `tau` absent in `content/en/diary/day-233.mdx` (l.26) —
+  each fails loud if the anchor has moved;
+- **case-insensitivity pole:** a lowercase pattern `laurent` must HIT `Laurent` in the
+  real FR entry (the pole case-folding previously lacked);
+- **word-boundary pole:** `tau` must stay `CLEAN` against the real EN entry (not match
+  `taught`), control `taught` confirmed present;
+- **blind-instrument pole:** an absent control token on the real FR entry must `FAIL
+  LOUD` (`BLIND`, exit 3), refusing the 0-hit;
 - count carries its command.
 
-The probe asserts each injected token actually landed before trusting a red or green
-result. A probe written by whoever wrote the matcher only proves the matcher understands
-itself — so the liveness pole runs against the real production site, not a mock.
+A probe written by whoever wrote the matcher only proves the matcher understands itself —
+so every pole runs against real committed material and the live production site, not a mock.
 
 ## Cross-reference
 
