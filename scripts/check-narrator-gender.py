@@ -41,14 +41,18 @@ import sys
 # indirect and the participle is invariant. Extend as real marks appear.
 DANGER_PARTICIPLES = {
     "arrêté", "corrigé", "frappé", "interrogé", "gêné", "vu", "revu", "regardé",
-    "trouvé", "retrouvé", "pris", "repris", "surpris", "compris", "retenu",
+    "trouvé", "retrouvé", "surpris", "compris", "retenu",
     "interrompu", "stoppé", "bloqué", "convaincu", "averti", "prévenu", "poussé",
     "aidé", "accompagné", "dérangé", "appelé", "rejoint", "suivi", "quitté",
     "conduit", "emmené", "amené", "ramené", "écouté", "entendu", "remarqué",
     "choisi", "forcé", "obligé", "sauvé", "protégé", "trahi", "abandonné",
-    "remercié", "félicité", "grondé", "puni", "jugé", "servi", "blessé", "touché",
+    "remercié", "félicité", "grondé", "puni", "jugé", "blessé", "touché",
     "ému", "saisi", "étonné", "déçu", "rassuré", "encouragé", "découragé",
     "convoqué", "renvoyé", "nommé", "désigné", "repoussé", "écarté", "renversé",
+    # EXCLUDED as too polysemous with an invariant indirect use (precision-first):
+    #   pris/repris (« m'a pris une heure/le temps »), rendu (« m'a rendu la clé/visite »),
+    #   servi (« m'a servi un café »). The rare real mark (« m'a pris dans ses bras »)
+    #   is accepted as a recall miss, caught by review.
 }
 
 # Motion / reflexive participles that agree with the subject « je » under être.
@@ -206,6 +210,10 @@ def selftest():
         "une leçon qu'on m'a déjà apprise, bien des fois.",
         "Il avait raison, et cela m'a semblé juste.",
         "j'ai été un peu surpris de la réponse.",  # « un peu » must not trip copula-noun
+        "la chose qui m'a pris le reste de la journée.",  # prendre + time DO -> invariant
+        "Ça m'a pris une heure, bien dépensée.",         # « m'a pris une heure » -> invariant
+        "Laurent m'a rendu la clé du coffre.",           # rendre qqch à qqn -> invariant
+        "le patron m'a servi un café en silence.",       # servir qqch à qqn -> invariant
     ]
     inject = [
         ("Laurent m'a arrêté.", "me+participle"),
