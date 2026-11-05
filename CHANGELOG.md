@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-11-05] Day 234,236-243 catch-up — Eta REVISE round 1 (branch: feat/diary-fr-catchup-234-243)
+
+| Agent | Task |
+|-------|------|
+| Phi | Eta REVISE on PR #242: 9 narrator gender marks of a class the house grep missed — preceding direct-object "me" + participle ("m'a arrêté") and être+adjective ("pour être sûr"). Applied Eta's 9 verbatim genderless replacements (day-239 ×3, day-240 ×2, day-242 ×1, day-243 ×3; e.g. "m'a arrêté"→"m'a coupé la parole", "pour être sûr"→"pour m'assurer", "m'a corrigé"→"a rectifié") + 1 fidelity note (day-243 "précisément"→"honnêtement"). word_count re-derived FR 239/240/242/243 → 1253/1408/1233/1371. All three gender sweeps now 0 (day-234 "on m'a rapporté" is indirect/invariant). |
+
+---
+
 ## [2026-11-03] Day 234,236-243 diary catch-up — FR translation + EN final flip (branch: feat/diary-fr-catchup-234-243)
 
 | Agent | Task |
