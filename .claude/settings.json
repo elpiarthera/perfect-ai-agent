@@ -240,6 +240,15 @@
             "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-post-merge-tmp-cleanup.py"
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /root/coding/perfect-ai-agent/.claude/hooks/enforce-narrator-gender.py"
+          }
+        ]
       }
     ]
   },
