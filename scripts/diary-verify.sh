@@ -112,10 +112,16 @@ count() {
   echo "$label: $out  [cmd: $*]"
 }
 
-# --- bipolar self-probe on real published entries --------------------------
+# --- bipolar self-probe on REAL published entries, landing-asserted --------
+# Every sweep pole runs on a committed diary entry, never a synthetic fixture
+# (spec k171y5rh TESTS: real entries + assert each anchor landed). A pole whose
+# anchor has moved proves nothing, so each is preceded by a landing assert that
+# fails loud if its token is not where the pole expects.
 selftest() {
   local fail=0
-  echo "=== BIPOLAR PROBE (real published entries, both directions) ==="
+  local REAL_FR="content/fr/diary/day-233.mdx"
+  local REAL_EN="content/en/diary/day-233.mdx"
+  echo "=== BIPOLAR PROBE (real published entries, both poles, landing-asserted) ==="
 
   echo "-- liveness MUST read a known-live day as LIVE --"
   if liveness fr 233; then echo "  ok"; else echo "  FAIL: known-live day 233 not LIVE"; fail=1; fi
@@ -123,29 +129,34 @@ selftest() {
   echo "-- liveness MUST read the negative control (day $NEG_CONTROL_DAY) as ABSENT --"
   if liveness fr "$NEG_CONTROL_DAY"; then echo "  FAIL: negative control reported live"; fail=1; else echo "  ok"; fi
 
-  local tmp_present tmp_clean
-  tmp_present="$(mktemp)"; tmp_clean="$(mktemp)"
-  printf 'Laurent asked the clerk.\nI taught the apprentice.\n' > "$tmp_present"
-  printf 'The workshop was quiet.\nNothing to see here.\n'      > "$tmp_clean"
+  # Landing asserts — prove the anchors exist before any sweep pole is trusted.
+  echo "-- landing assert: 'Laurent' present in $REAL_FR (case-insensitivity pole's target) --"
+  if grep -iqwE "laurent" "$REAL_FR"; then
+    echo "  ok (first at line $(grep -inwE "laurent" "$REAL_FR" | head -1 | cut -d: -f1))"
+  else echo "  FAIL: anchor 'Laurent' absent — the case-insensitivity pole below proves nothing"; fail=1; fi
+  echo "-- landing assert: 'taught' present AND bare 'tau' absent in $REAL_EN (word-boundary pole's target) --"
+  if grep -iqwE "taught" "$REAL_EN" && ! grep -iqwE "tau" "$REAL_EN"; then
+    echo "  ok ('taught' at line $(grep -inwE "taught" "$REAL_EN" | head -1 | cut -d: -f1), bare 'tau' absent)"
+  else echo "  FAIL: EN anchor moved — the word-boundary pole below proves nothing"; fail=1; fi
 
-  echo "-- sweep MUST fire on a known-present standalone token --"
-  if sweep "$tmp_present" "Laurent" "clerk"; then echo "  ok"; else echo "  FAIL: did not fire on present token"; fail=1; fi
+  # Pole 1 (case-insensitivity + fires): a lowercase pattern must match 'Laurent'
+  # in a real entry. This is the pole Eta found missing — case folding had none.
+  echo "-- sweep MUST fire case-insensitively on a real entry ('laurent' -> 'Laurent') --"
+  if sweep "$REAL_FR" "laurent" "capitaine"; then echo "  ok (case-insensitive HIT on a real entry)"; else echo "  FAIL: lowercase pattern missed 'Laurent'"; fail=1; fi
 
-  echo "-- sweep MUST be word-bounded: 'tau' must NOT match inside 'taught' --"
-  if sweep "$tmp_present" "tau" "taught"; then echo "  FAIL: matched 'tau' inside 'taught'"; fail=1; else echo "  ok (no spurious match)"; fi
+  # Pole 2 (word-boundary): 'tau' must NOT match inside 'taught' in a real entry.
+  echo "-- sweep MUST be word-bounded on a real entry: 'tau' must NOT match 'taught' --"
+  if sweep "$REAL_EN" "tau" "taught"; then echo "  FAIL: matched 'tau' inside 'taught'"; fail=1; else echo "  ok (no spurious match, control 'taught' confirmed present)"; fi
 
-  echo "-- sweep MUST fail LOUD when its positive control is absent (blind instrument) --"
-  sweep "$tmp_clean" "Laurent" "clerk" >/dev/null 2>&1
-  if [ $? -eq 3 ]; then echo "  ok (refused the 0-hit)"; else echo "  FAIL: trusted a 0-hit on a blind instrument"; fail=1; fi
-
-  echo "-- sweep MUST report CLEAN only with a confirmed control present --"
-  if sweep "$tmp_clean" "Laurent" "workshop"; then echo "  FAIL: reported a hit on a clean file"; fail=1; else echo "  ok (clean, control confirmed)"; fi
+  # Pole 3 (blind fail-loud): an absent control on a real entry must refuse the 0-hit.
+  echo "-- sweep MUST fail LOUD (BLIND) when its control is absent on a real entry --"
+  sweep "$REAL_FR" "laurent" "zzqq_absent_control_token_xyz" >/dev/null 2>&1
+  if [ $? -eq 3 ]; then echo "  ok (refused: blind instrument)"; else echo "  FAIL: trusted a result on a blind instrument"; fail=1; fi
 
   echo "-- count MUST carry its command --"
-  count "control-lines" -- grep -c . "$tmp_present"
+  count "fr-233-non-empty-lines" -- grep -c . "$REAL_FR"
 
-  rm -f "$tmp_present" "$tmp_clean"
-  echo "=== $( [ $fail -eq 0 ] && echo 'PROBE GREEN — both poles exercised' || echo 'PROBE RED' ) ==="
+  echo "=== $( [ $fail -eq 0 ] && echo 'PROBE GREEN — both poles exercised on real entries' || echo 'PROBE RED' ) ==="
   return $fail
 }
 
