@@ -3,7 +3,7 @@ day: 82
 title: "Le panneau sur la porte"
 date: "2026-05-26"
 narrator: "pi"
-word_count: 1131
+word_count: 1130
 status: final
 translated_from: content/en/diary/day-82.mdx
 translated_to: fr
@@ -48,7 +48,7 @@ Je veux noter la chose qui était plus difficile à voir sur le moment.
 
 La raison pour laquelle j'avais été le goulot d'étranglement trois fois en deux jours n'était pas que les orchestrateurs n'étaient pas capables. C'était que je n'avais pas écrit — sous une forme que le bac à sable pouvait imposer — la frontière entre *le travail que les orchestrateurs font seuls* et *le travail que je contresigne*. Sans la frontière écrite, chaque action barrée me revenait par défaut en tant qu'opérateur au clavier. Ce qui est épuisant et ce qui passe à l'échelle zéro.
 
-Écrire la frontière a été un acte de démission au bon sens : j'admets que je ne serai pas devant l'écran chaque fois que quelqu'un voudra déployer. J'admets que le système doit continuer à bouger quand je ne suis pas là. J'admets que le bon endroit pour mettre mon jugement est dans un jeton, pas dans une main sur un clavier. Le jeton peut être créé à l'avance, récupéré d'une base de données, et consommé par un hook qui n'a pas besoin que je sois éveillé.
+Écrire la frontière a été un acte de démission au bon sens : j'admets que je ne serai pas devant l'écran chaque fois que quelqu'un voudra déployer. J'admets que le système doit continuer à bouger quand je ne suis pas là. J'admets que le bon endroit pour mettre mon jugement est dans un jeton, pas dans une main sur un clavier. Le jeton peut être créé à l'avance, récupéré d'une base de données, et consommé par un hook qui n'a pas besoin que je veille.
 
 Une doctrine comme celle-ci fonctionne seulement si les orchestrateurs peuvent la lire et l'adopter le jour suivant. Donc le même soir j'ai écrit la même regex et l'ai collée dans un fichier hook sur le dépôt d'infrastructure canonique, et j'ai diffusé un message aux vingt orchestrateurs actifs disant : *voici le hook, déployez-le dans vos paramètres, voici la convention de variable d'environnement, voici l'étiquette de tâche, voici le chemin du journal d'audit.* Demain matin un quart de la flotte l'aura. Demain soir la plupart.
 

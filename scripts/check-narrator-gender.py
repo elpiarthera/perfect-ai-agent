@@ -62,6 +62,11 @@ MOTION_REFLEXIVE = {
     "reparti", "demeuré", "passé", "trompé", "assis", "levé", "couché", "senti",
     "souvenu", "mis", "efforcé", "approché", "éloigné", "tenu", "arrêté",
     "aperçu", "résolu", "décidé", "tu",
+    # Reflexive participles that agree under « je m'étais / je m'en suis » (Day 246
+    # 3-class corpus closure): se tourner, se pencher, se réfugier, s'autocorriger,
+    # se détourner, s'écarter, se rétracter, se fourvoyer, se rabattre, se heurter.
+    "tourné", "penché", "réfugié", "autocorrigé", "détourné", "rétracté",
+    "fourvoyé", "rabattu", "heurté", "défié", "surpris", "rétréci",
 }
 
 # Adjectives / predicate participles whose spelling changes with the narrator's gender.
@@ -121,9 +126,22 @@ RE_INF_COPULA = re.compile(
 # Shapes 2c + 3 unified: « je (me) » + copula (suis/étais/fus/serais/sens/ai été) +
 # (<=1 adverb) + a gendered adjective OR danger/motion participle. Covers « je suis
 # allée », « je me suis souvenue », « j'étais resté/entré/corrigé/fatigué/occupé ».
-JE_COPULA = r"\bj(?:e\s+|')(?:me\s+|m')?(?:suis|étais|fus|serais|serai|sens|sentais|ai\s+été|avais\s+été)\b"
+# The reflexive-pronoun group also covers « m'en » / « me en » (« je m'en suis sorti »),
+# and the verb alternation adds the SUBJUNCTIVE « sois » / « fusse » (« que je sois
+# fatigué ») — Day 246 corpus closure for the subjunctive-copula and reflexive-DO classes.
+JE_COPULA = r"\bj(?:e\s+|')(?:m'en\s+|me\s+en\s+|me\s+|m')?(?:suis|étais|fus|fusse|sois|serais|serai|sens|sentais|ai\s+été|avais\s+été)\b"
 RE_JE_COPULA = re.compile(
     JE_COPULA + r"(?:\s+" + WORD + r"){0,1}?\s+(?P<w>" + COPULA_PRED_ALT + r")\b",
+    re.IGNORECASE,
+)
+# Shape 4 (Day 246): « seul » in apposition to the first-person narrator — « moi seul »,
+# « seul je », and the comma-set-off « …, seul, … » (« j'ai décidé, seul, que… »). It is
+# a gender mark because a feminine narrator writes « seule ». Precision-first: only these
+# three first-person shapes fire. « un seul mot », « le mien seul », « seul Laurent »,
+# « tout seul » (a thing selling itself) lack the « moi »/« je »/comma-apposition frame
+# and are never matched.
+RE_SEUL = re.compile(
+    r"(?P<w>\bmoi\s+seule?\b|\bseule?\s+je\b|,\s*seule?\s*,)",
     re.IGNORECASE,
 )
 
@@ -152,6 +170,8 @@ def scan_text(text):
             marks.append((lineno, "je-copula+gendered", m.group(0).strip()[:56]))
         for m in RE_INF_COPULA.finditer(line):
             marks.append((lineno, "infinitive-copula+adj", m.group(0).strip()[:56]))
+        for m in RE_SEUL.finditer(line):
+            marks.append((lineno, "apposed-seul", m.group(0).strip()[:56]))
         # Attribute noun is open class → still post-filtered against the stop-list.
         for m in RE_COPULA_NOUN.finditer(line):
             if m.group("w").lower().rstrip("s") not in ATTR_STOP:
@@ -196,9 +216,13 @@ def selftest():
         ("f49322c0cd856e2af074e663146b372d333f4d68:content/fr/diary/day-244.mdx", 2),
         ("efd7064:content/fr/diary/day-239.mdx", 1),  # copula noun « j'étais un écrivain »
         ("efd7064:content/fr/diary/day-243.mdx", 1),  # inf-copula « paraître minutieux »
+        ("e743687:content/fr/diary/day-239.mdx", 1),  # Day 246 apposed-seul « Moi seul » (real blob)
     ]
     passg = [  # fixed heads — 0 marks
-        "e743687:content/fr/diary/day-239.mdx",
+        # NOTE: e743687:day-239 is deliberately absent. That blob was a fixed head for the
+        # ORIGINAL classes, but it predates the apposed-seul class (Day 246) and still carries
+        # « Moi seul » — a real mark the extended guard correctly flags. A stale zero-mark
+        # reference is not kept as a MUST_PASS; the mark itself is now in MUST_BLOCK below.
         "e743687:content/fr/diary/day-240.mdx",
         "e743687:content/fr/diary/day-242.mdx",
         "e743687:content/fr/diary/day-243.mdx",
@@ -222,6 +246,26 @@ def selftest():
         "je me suis fixé une tâche pour demain.",        # fixé + DO postposé -> invariant
         "cette partie, je l'ai bien faite.",             # faite agrees with la partie, not je
         "ça a marché du premier coup.",                  # no first-person agreement
+        # Day 246 — the recasts that closed the 3 corpus classes must read clean:
+        "indifférent à ma fatigue, à ma distraction.",   # 68 recast
+        "n'a pas besoin que je veille.",                 # 82 recast
+        "J'ai fini par m'en sortir en lançant un agent.",  # 38 recast (sortir infinitive)
+        "J'avais passé toute la session à me corriger.",   # 58 recast (corriger infinitive)
+        "J'avais trouvé refuge dans la précision.",        # 58 recast
+        "J'avais penché pour le nom plus ancien.",         # 80 recast (pencher intransitive)
+        "J'avais simplement dit à la maison le jour.",     # 144 recast
+        "posée là où personne d'autre que moi ne pouvait l'atteindre.",  # 157 recast
+        "une clé que personne d'autre ne détient.",        # 169 recast
+        "Je l'ai donc basculée sans personne, sans le signal.",  # 226 recast
+        "Personne d'autre que moi ne le pouvait.",         # 237/239 recast
+        "d'avoir décidé, de mon propre chef, que plus personne.",  # 241 recast
+        # Day 246 — legit non-marks the 3 new patterns must NOT flag:
+        "je ne pense pas que je sois proche.",           # subjunctive + EPICENE proche
+        "ce genre d'échec était le mien seul, et il.",   # « le mien seul » agrees with échec
+        "il ne peut pas se vendre tout seul.",           # « tout seul » = a thing, not the narrator
+        "un seul mot, clair, suffisait.",                # « un seul » = quantity, not apposition
+        "jusqu'à la semaine dernière, seul Laurent faisait.",  # « seul Laurent » = a named human
+        "je me suis fixé une tâche, puis m'étais dit que.",    # indirect me (fixé une tâche / m'étais dit)
     ]
     # (probe, expected-class)  —  None = any class must fire (verbatim real marks).
     inject = [
@@ -240,6 +284,19 @@ def selftest():
         ("il m'a demandé si j'étais fatigué de travailler.", None),           # day-21:58
         ("pour prouver que j'étais éveillé.", None),                          # day-219:97
         ("tout en écrivant la doctrine, j'étais occupé à vivre.", None),      # day-89:75
+        # Day 246 — the 3 corpus-closure classes, verbatim pre-fix lines from main:
+        ("indifférent au fait que je sois fatigué, distrait,", "je-copula+gendered"),  # 68 subjunctive
+        ("Un hook qui n'a pas besoin que je sois éveillé.", "je-copula+gendered"),     # 82 subjunctive
+        ("Je m'en suis sorti en lançant un agent généraliste.", None),                # 38 reflexive-DO (m'en)
+        ("Je m'étais autocorrigé de façon défensive toute la session.", None),        # 58 reflexive-DO
+        ("Je m'étais réfugié dans la précision comme dans une armure.", None),        # 58 reflexive-DO
+        ("Je m'étais tourné vers le nom plus ancien.", None),                         # 80 reflexive-DO
+        ("Je m'étais penché et j'avais dit à la maison le jour.", None),              # 144 reflexive-DO
+        ("posée là où moi seul pouvais l'atteindre.", "apposed-seul"),                # 157
+        ("une clé que seul je détiens.", "apposed-seul"),                             # 169
+        ("Je l'ai donc basculée, seul, sans le signal convenu.", "apposed-seul"),     # 226
+        ("Moi seul le pouvais, et je ne l'ai pas fait.", "apposed-seul"),             # 237/239
+        ("dans le fait d'avoir décidé, seul, que plus personne ne parlerait.", "apposed-seul"),  # 241
     ]
     fail = 0
     print("=== NARRATOR-GENDER GUARD — bipolar probe on real committed material ===")
