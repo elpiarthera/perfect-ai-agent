@@ -1,0 +1,2 @@
+### Added
+- Diary Day 246 FR translation ("La balance de l'essayeur"); EN "The Assayer's Own Scale" set status final, word_count derived (EN 1173, FR 1234). Narrator-gender guard exit 0 (all classes, incl. the Day 246 shape-based reflexive + apposed-seul + subjunctive), section-break parity 6/6, italic-span parity 6/6, no calque, glossary continuity. Name sweep clean (only Laurent). Audio not delivered (no fal.ai budget).
