@@ -4,6 +4,14 @@ Agent-tracked build log. Each agent logs start/end time and what was done.
 
 ---
 
+## [2026-11-06] Narrator-gender 3-class corpus closure + guard extension (branch: phi/diary-fr-gender-3class-corpus)
+
+| Agent | Task |
+|-------|------|
+| Phi | Final pass of the 8-part narrator-gender sweep. Three mark classes invisible to the guard AND to the batch residual greps — subjunctive copula ("que je sois fatigué/éveillé"), adjective "seul" in apposition to the narrator ("moi seul"/"seul je"/", seul,"), and reflexive verb with a direct-object "me" ("je m'étais tourné/penché/réfugié/autocorrigé", "je m'en suis sorti") — closed corpus-wide: 13 marks across days 38, 58×2, 68, 80, 82, 144, 157, 169, 226, 237, 239, 241, rewritten genderless (meaning kept), word_count re-derived per entry. `scripts/check-narrator-gender.py` extended to detect all three (subjunctive `sois`/`fusse`, reflexive `m'en` + participle list, new `apposed-seul` shape), precision-first preserved ("je sois proche" epicene, "le mien seul", "un seul mot", "seul Laurent", "tout seul", indirect-me reflexives not flagged). `--selftest` GREEN — the new classes fire RED on real pre-fix blobs (incl. e743687:day-239 "Moi seul") and the recasts pass; whole Pi-narrated FR corpus exits 0. Closes the open sweep task k171xrsabd75wpzzmjr0g805vd8hmeae (~140 marks, 93 entries, 8 batches). Audio deferred (no fal.ai budget). |
+
+---
+
 ## [2026-11-05] Day 234,236-243 catch-up — Eta REVISE round 1 (branch: feat/diary-fr-catchup-234-243)
 
 | Agent | Task |
