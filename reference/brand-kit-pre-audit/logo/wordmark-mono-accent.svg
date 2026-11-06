@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 72" width="520" height="72" role="img" aria-label="Perfect AI Agent">
+  <title>Perfect AI Agent</title>
+  <!--
+    Perfect AI Agent — Wordmark Mono Accent
+    Single-color amber #f59e0b — no white, no black
+    Use as highlight variant, embossed/foil reference, limited accent applications
+    Glyph: stylized π — solid amber
+  -->
+
+  <!-- π glyph — pure amber -->
+  <g id="glyph" transform="translate(0, 14)">
+    <rect x="4" y="0" width="40" height="4.5" rx="0" fill="#f59e0b"/>
+    <rect x="10" y="4.5" width="4.5" height="28" rx="0" fill="#f59e0b"/>
+    <rect x="33.5" y="4.5" width="4.5" height="28" rx="0" fill="#f59e0b"/>
+    <rect x="19.5" y="36" width="9" height="2" rx="1" fill="#f59e0b"/>
+  </g>
+
+  <text
+    x="62"
+    y="50"
+    fill="#f59e0b"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="28"
+    letter-spacing="-0.4"
+    xml:space="preserve">PERFECT</text>
+
+  <circle cx="237" cy="42" r="2.5" fill="#f59e0b"/>
+
+  <text
+    x="247"
+    y="50"
+    fill="#f59e0b"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="28"
+    letter-spacing="-0.4"
+    xml:space="preserve">AI</text>
+
+  <circle cx="298" cy="42" r="2.5" fill="#f59e0b"/>
+
+  <text
+    x="308"
+    y="50"
+    fill="#f59e0b"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="700"
+    font-size="28"
+    letter-spacing="-0.4"
+    xml:space="preserve">AGENT</text>
+
+  <text
+    x="62"
+    y="66"
+    fill="#f59e0b"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-weight="400"
+    font-size="9"
+    letter-spacing="2.5"
+    xml:space="preserve">A NOVEL BY LAURENT PERELLO</text>
+</svg>
