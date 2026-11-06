@@ -87,6 +87,19 @@ GENDERED_ADJ = {
 ATTR_STOP = {"peu", "moment", "instant", "temps", "jour", "soir", "matin", "an",
              "certain", "autre", "tel", "seul", "rien"}
 
+# Reflexive-DO by SHAPE (Day 246, Eta foreign-mutation on day-100): « je m'étais
+# <participle> » is a mark UNLESS « me » is the indirect object. The indirect reflexives
+# below take a separate direct object (« je me suis dit QUE… », « je me suis fixé UNE
+# TÂCHE », « je me suis rendu COMPTE ») so their participle is invariant — they are the
+# stop-list, and by shape the class is caught whole rather than by a closed participle list.
+REFLEXIVE_INDIRECT = {
+    "dit", "demandé", "permis", "appris", "donné", "promis", "répondu", "fixé",
+    "posé", "imaginé", "représenté", "rappelé", "redit", "avoué", "juré",
+}
+# « se rendre compte » (realise) is invariant; « se rendre » (go) agrees — told apart by
+# the following word « compte ».
+PARTICIPLE = r"[a-zàâäçéèêëîïôûùœ-]+(?:ée|és|ées|é|ies|ie|ises|ise|ites|ite|is|it|ues|ue|us|u|i)"
+
 AUX = r"(?:a|ont|avait|avaient|aura|auront|aurait|auraient|ait|aient|eut)"
 WORD = r"[a-zàâäçéèêëîïôûùœ'-]+"
 
@@ -141,7 +154,22 @@ RE_JE_COPULA = re.compile(
 # « tout seul » (a thing selling itself) lack the « moi »/« je »/comma-apposition frame
 # and are never matched.
 RE_SEUL = re.compile(
-    r"(?P<w>\bmoi\s+seule?\b|\bseule?\s+je\b|,\s*seule?\s*,)",
+    r"(?P<w>\bmoi\s+seule?\b|\bseule?\s+je\b|,\s*seule?\s*,"
+    # sentence-initial « Seule, j'ai… » (comma + a first-person « j »): the apposition
+    # sits at the head of the sentence with no comma before it. « Seule la liste » (no
+    # comma) and mid-noun « une seule » are not matched.
+    r"|(?:^|[.!?»\"]\s+)seule?\s*,\s*j)",
+    re.IGNORECASE,
+)
+# Shape 5 (Day 246): reflexive with a DIRECT-object « me », caught BY SHAPE so a
+# participle outside any list is still flagged — « je m'étais habitué/tourné/penché ».
+# A match is a mark unless the participle is an indirect reflexive (REFLEXIVE_INDIRECT)
+# or the « se rendre compte » idiom (« rendu » + « compte »). U+2019 apostrophes are
+# normalised to « ' » before matching (see scan_text), so « je m'étais » with a curly
+# apostrophe is caught too.
+RE_REFLEXIVE_DO = re.compile(
+    r"\bje\s+(?:m'|me\s+|m'en\s+|me\s+en\s+)(?:suis|étais|fus|fusse|serais|serai)\s+"
+    r"(?P<w>" + PARTICIPLE + r")\b(?P<after>\s+\w+)?",
     re.IGNORECASE,
 )
 
@@ -160,6 +188,9 @@ def body_lines(text):
 
 
 def scan_text(text):
+    # Normalise the typographic apostrophe U+2019 to the straight « ' » the patterns use,
+    # so « je m'étais » written with a curly apostrophe is matched (Day 246, Eta day-100).
+    text = text.replace("’", "'")
     marks = []
     for lineno, line in body_lines(text):
         # The gendered word is embedded in each alternation (incl. feminine/plural
@@ -167,11 +198,24 @@ def scan_text(text):
         for m in RE_ME_DANGER.finditer(line):
             marks.append((lineno, "me+participle", m.group(0).strip()[:56]))
         for m in RE_JE_COPULA.finditer(line):
+            # « je me suis rendu compte » is the invariant idiom, not « se rendre » (go).
+            if m.group("w").lower() == "rendu" and line[m.end():].lstrip().lower().startswith("compte"):
+                continue
             marks.append((lineno, "je-copula+gendered", m.group(0).strip()[:56]))
         for m in RE_INF_COPULA.finditer(line):
             marks.append((lineno, "infinitive-copula+adj", m.group(0).strip()[:56]))
         for m in RE_SEUL.finditer(line):
             marks.append((lineno, "apposed-seul", m.group(0).strip()[:56]))
+        # Reflexive-DO by shape: a participle after « je m'étais/me suis »; skipped only
+        # for an indirect reflexive (stop-list) or the « se rendre compte » idiom.
+        for m in RE_REFLEXIVE_DO.finditer(line):
+            w = m.group("w").lower()
+            after = (m.group("after") or "").strip().lower()
+            if w in REFLEXIVE_INDIRECT:
+                continue
+            if w == "rendu" and after.startswith("compte"):
+                continue
+            marks.append((lineno, "reflexive-me", m.group(0).strip()[:56]))
         # Attribute noun is open class → still post-filtered against the stop-list.
         for m in RE_COPULA_NOUN.finditer(line):
             if m.group("w").lower().rstrip("s") not in ATTR_STOP:
@@ -213,7 +257,9 @@ def selftest():
         ("fa293d05:content/fr/diary/day-240.mdx", 2),
         ("fa293d05:content/fr/diary/day-242.mdx", 1),
         ("fa293d05:content/fr/diary/day-243.mdx", 3),
-        ("f49322c0cd856e2af074e663146b372d333f4d68:content/fr/diary/day-244.mdx", 2),
+        # f49322c (pre-fix day-244) is unreachable in a fresh clone (Day 246 re-anchor,
+        # task k173wgv85): its two « m'a/m'avait arrêté » marks move to `inject` below as
+        # verbatim lines so the proof survives without the orphaned object.
         ("efd7064:content/fr/diary/day-239.mdx", 1),  # copula noun « j'étais un écrivain »
         ("efd7064:content/fr/diary/day-243.mdx", 1),  # inf-copula « paraître minutieux »
         ("e743687:content/fr/diary/day-239.mdx", 1),  # Day 246 apposed-seul « Moi seul » (real blob)
@@ -227,7 +273,9 @@ def selftest():
         "e743687:content/fr/diary/day-242.mdx",
         "e743687:content/fr/diary/day-243.mdx",
         "e743687:content/fr/diary/day-236.mdx",
-        "fd93570:content/fr/diary/day-244.mdx",
+        # Re-anchored from the unreachable fd93570 to f0ecd9c, the #244 MERGE commit on
+        # main (reachable in a fresh clone) — the fixed day-244 carries 0 marks.
+        "f0ecd9c:content/fr/diary/day-244.mdx",
     ]
     invariant = [
         "Puis on m'a rapporté qu'elle s'était assise.",
@@ -266,6 +314,10 @@ def selftest():
         "un seul mot, clair, suffisait.",                # « un seul » = quantity, not apposition
         "jusqu'à la semaine dernière, seul Laurent faisait.",  # « seul Laurent » = a named human
         "je me suis fixé une tâche, puis m'étais dit que.",    # indirect me (fixé une tâche / m'étais dit)
+        # Day 246 — Eta's day-100 false positive, now a MUST_PASS: « se rendre compte » is
+        # an invariant idiom, told apart from « se rendre » (go) by the following « compte ».
+        "Je me suis rendu compte que la liste mentait.",
+        "une clé que je détiens et personne d'autre.",        # day-169 final recast
     ]
     # (probe, expected-class)  —  None = any class must fire (verbatim real marks).
     inject = [
@@ -297,6 +349,14 @@ def selftest():
         ("Je l'ai donc basculée, seul, sans le signal convenu.", "apposed-seul"),     # 226
         ("Moi seul le pouvais, et je ne l'ai pas fait.", "apposed-seul"),             # 237/239
         ("dans le fait d'avoir décidé, seul, que plus personne ne parlerait.", "apposed-seul"),  # 241
+        # Day 246 — Eta's foreign mutations on day-100 that the first guard pass missed:
+        ("Seule, j'ai décidé de tout reprendre.", "apposed-seul"),                    # sentence-initial seul
+        ("Je m'étais habitué à ce bruit.", "reflexive-me"),                           # participle not in any list
+        ("Ce soir-là, je m’étais tourné vers lui.", "reflexive-me"),                  # U+2019 apostrophe (normalised)
+        # Day 246 — the two pre-fix day-244 marks, re-anchored here verbatim because
+        # their blob (f49322c) is unreachable in a fresh clone:
+        ("Laurent m'a arrêté là.", "me+participle"),
+        ("le même facteur m'avait déjà arrêté une fois.", "me+participle"),
     ]
     fail = 0
     print("=== NARRATOR-GENDER GUARD — bipolar probe on real committed material ===")
